@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 <link href="../css/nav.css" rel="stylesheet" />
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script src="../js/nav.js"></script>
-</head>
+</head> -->
 <body>
 	<header id="head">
 		<div class="vp_head">
@@ -270,5 +270,5 @@
 			</div>
 		</div>
 	</header>
-</body>
-</html>
+<!-- </body>
+</html> -->

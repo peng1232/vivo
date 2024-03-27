@@ -279,13 +279,20 @@ body{
     left: 0;
     right: 0;
     text-align: center;
-	z-index: 999;
+	z-index: 99999;
+	display: none;
+}
+.zhe{
+	width: 100%;
+	height: 100vh;
+	background-color: #000;
+	opacity: 0;
+	transition: 0.3s;
 }
 .message_box{
 	width: 492px;
     padding: 35px 0 46px;
 	display: inline-block;
-    padding-bottom: 10px;
     vertical-align: middle;
     background-color: #fff;
     border-radius: 4px;
@@ -295,6 +302,12 @@ body{
     text-align: left;
     overflow: hidden;
     backface-visibility: hidden;
+	position: absolute;
+	top: 32%;
+	left: 0;
+	right: 0;
+	transform: scale(0) translateY(-100%);
+	transition: 0.3s;
 }
 .message_box_head{
 	padding: 0 ;
@@ -325,4 +338,27 @@ body{
 .message_box_footer{
 	padding: 5px 15px 0;    
 	text-align: center;
+}
+.message_box_center p{
+	text-align: center;
+    color: #000;
+}
+.message_box_footer button{
+	margin-right: 0;
+	border: none;
+    color: #fff;
+    background-image: linear-gradient(270deg, #ff0c53, #e51422);
+	display: inline-block;
+    width: 154px;
+    height: 39px;
+    line-height: 39px;
+    text-align: center;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 100px;
+    user-select: none;
+    outline: none;
+    border: none;
+	cursor: pointer;
 }

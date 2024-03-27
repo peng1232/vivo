@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="../css/footer.css" rel="stylesheet" />
 </head>
-<body>
+<body> -->
 	<footer id="footer">
 		<div class="featrue">
 			<ul class="featrue_list">
@@ -252,5 +252,5 @@
 			</div>
 		</div>
 	</footer>
-</body>
-</html>
+<!-- </body>
+</html> -->

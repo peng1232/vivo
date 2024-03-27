@@ -35,7 +35,8 @@ $(function(){
 			$(this).parent().siblings('.total_price').text((price*sum).toFixed(2))
 			updatePrice();
 		}else{
-			alert("数量不能少于一")
+			$('.setting').text("数量不能少于零！")
+			 kai();
 		}
 	})
 	//数量+
@@ -65,5 +66,39 @@ $(function(){
 			
 		})
 		$("#jin").text(sum.toFixed(2));
+	}
+	
+	
+	//弹窗点击时间
+	$('.message_box_footer button').click(function(){
+		guanbi();
+	})
+	$('.zhe').click(function(){
+		guanbi();
+	})
+	$('.guan').click(function(){
+		guanbi();
+	})
+	//开启弹窗
+	function kai(){
+		$('body').css('overflow-x',"hidden").css("overflow-y",'hidden')
+		$('.message').css('display','block');
+		$(".zhe").animate({
+			opacity: 0.6
+		},100)
+		$('.message_box').css('transform','scale(1) translateY(0%)');
+	}
+	
+	//关闭弹窗
+	function guanbi(){
+		$('body').css('overflow-x',"auto").css("overflow-y",'auto')
+		$(".zhe").animate({
+			opacity: 0
+		},100)
+		$('.message_box').css('transform','scale(0) translateY(-100%)');
+		setTimeout(function(){
+			$('.message').css('display','none');
+		},300)
+		
 	}
 })
