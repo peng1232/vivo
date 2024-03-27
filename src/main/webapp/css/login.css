@@ -1,0 +1,213 @@
+*{
+	margin: 0 auto;
+	padding: 0;
+}
+.content{
+	width: 100%;
+}
+.logo{
+	background-color:#456fff ;
+	height: 52px;
+	width: 145px;
+	display: block;
+	text-align: center;
+	left: 263px;
+    position: absolute;
+    top: 0;
+}
+.logo svg{
+	position: relative;
+	top: 11px;
+}
+.cont{
+	height: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+    position: relative;
+}
+.from{
+	background-color: #fff;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,.07);
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 74px;
+    width: 420px;
+}
+.form_info{
+	min-height: 513px;
+    padding: 30px 30px 20px;
+}
+.info_top{
+	color: #999;
+    font-size: 16px;
+    margin-top: 43px;
+    position: relative;
+    text-align: left;
+}
+.dian{
+	color:#000;
+}
+.border{
+	border-right: 1px solid #e9e9e9;
+}
+.avtive{
+	cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+	width: 49.8%;
+	float: left;
+	transition: 0.3s;
+}
+.an_xian{
+	background-color: #456fff;
+    height: 3px;
+    left: 71px;
+    position: relative;
+    top: 4px;
+    transition: left .2s ease-in-out;
+    width: 42px;
+	margin: 0;
+}
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+.form_item{
+	width: 100%;
+	height: 46px;
+	border-bottom: 1px solid #898989;
+	position: relative;
+}
+.form_item input{
+	width: 100%;
+	height: 96%;
+	outline: none;
+	font-size: 17px;
+	text-indent: 1em;
+}
+.form_item .bar{
+	display: block;
+    margin: 0 auto;
+    width: 0;
+    height: 2px;
+    background-color: #456fff;
+    transition: 0.4s ease;
+}
+.form_item label{
+	font-size: 16px;
+    position: absolute;
+    top: 14px;
+    left: 10px;
+    transition: 0.4s ease;
+	pointer-events: none;
+	padding: 0 5px;
+	background-color: #Fff;
+	color: #999;
+}
+.form_item input:focus~.bar{
+	width: 100%;
+}
+.form_item input:valid~label,
+.form_item input:focus~label{
+	color: #456fff;
+	transform: translateY(-23px);
+	font-size: 12px;
+}
+
+.biaodan{
+	margin-top: 40px;
+}
+
+
+.feng{
+	background-color: #dedfe0;
+    height: 33px;
+    left: 0;
+    padding: 0;
+    position: absolute;
+    top: -6px;
+    width: 1px;
+}
+.yzm{
+	position: absolute;
+	right: 0;
+	top: 13px;
+    font-size: 15px;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: center;
+    width: 118px;
+	color: #456fff;
+    cursor: pointer;
+}
+.tishi{
+	color: #ec3f3f;
+    font-size: 14px;
+    text-align: left;
+	margin: 12px 0 ;
+}
+
+.state{
+	font-size: 14px;
+    margin-top: 13px;
+    overflow: hidden;
+}
+.state span input{
+	width: 16px;
+	height: 16px;
+	position: relative;
+	top: 2px;
+}
+.furight{
+	float: right;
+}
+.furight a {
+	text-decoration: none;
+	color: #666;
+    cursor: pointer;
+}
+.btn{
+	border: 1px solid #456fff;
+    color: #456fff;
+    cursor: pointer;
+    font-size: 17px;
+    height: 48px;
+    line-height: 48px;
+    margin-top: 15px;
+    text-align: center;
+    width: 360px;
+	transition: 0.3s;
+}
+#denglu{
+	background-color: #456fff;
+    background-image: linear-gradient(90deg, #418eff, #4566ff);
+    color: #fff;
+    display: block;
+    font-size: 17px;
+    height: 48px;
+    line-height: 48px;
+    margin: 20px auto 0;
+}
+#zhuce:hover{
+	background-color: #d4dffa;
+}
+#denglu:hover{
+	 background-image:none;
+}
+.info_name{
+	display: none;
+}
+#biyan{
+	width: 25px;
+	margin-right: 10px;
+}
+#biyan svg:nth-child(2){
+	display: none;
+}
