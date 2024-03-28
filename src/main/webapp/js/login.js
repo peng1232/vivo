@@ -108,7 +108,7 @@ $(function(){
 	
 	//跳转注册页面
 	$('#zhuce').click(function(){
-		window.location.href="zhuce.html"
+		window.location.href="zhuce.jsp"
 	})
 	
 	
