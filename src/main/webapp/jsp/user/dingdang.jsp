@@ -17,11 +17,11 @@
 <div class="container">
         <div class="menu">
             <a href="商城首页.html">商城首页</a>
-            <a href="grzx.html"><img class="arrow" src="img/向右箭头.png" alt="右箭头">个人中心</a>
+            <a href="grzx.html"><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">个人中心</a>
         </div>
 		<div class="under">
 			<div class="left">
-				<img src="img/头像.jpg" class="tx">
+				<img src="../../img/头像.jpg" class="tx">
 				<ul>
 					<li class="z">vivo34177786273</li>
 					
@@ -68,7 +68,7 @@
 							<li class="li3">
 								<a class="q1">订单编号号:1231231232</a>
 								<a class="q2">成交时间:2024-03-18 11:12:00</a>
-								<img src="img/垃圾桶.png" class="sc">
+								<img src="../../img/垃圾桶.png" class="sc">
 								<a class="q3">删除</a>
 							</li>
 						</ul>
@@ -76,7 +76,7 @@
 					<div class="div5">
 					 <table>
 					        <tr>
-					            <th class="th1"><img src="img/vivo.webp" class="sj"></th>
+					            <th class="th1"><img src="../../img/vivo.webp" class="sj"></th>
 					            <th class="th2"><a class="xinhao"> x100Pro</a>
 												<a class="shuliang">1</a>
 												<a class="jiage">5498</a>
@@ -85,7 +85,7 @@
 								<th class="th3"><a class="a7">查看订单</a></th>
 					        </tr>
 					        <tr>
-					            <th class="th1"><img src="img/vivo.webp" class="sj"></th>
+					            <th class="th1"><img src="../../img/vivo.webp" class="sj"></th>
 					            <th class="th2"><a class="xinhao"> x100Pro</a>
 					            				<a class="shuliang">1</a>
 					            				<a class="jiage">5498</a>
@@ -95,7 +95,7 @@
 					        </tr>
 							
 							<tr>
-							    <th class="th1"><img src="img/vivo.webp" class="sj"></th>
+							    <th class="th1"><img src="../../img/vivo.webp" class="sj"></th>
 							    <th class="th2"><a class="xinhao"> x100Pro</a>
 												<a class="shuliang">1</a>
 												<a class="jiage">5498</a>
@@ -105,7 +105,7 @@
 							</tr>
 							
 							<tr>
-							    <th class="th1"><img src="img/vivo x100.webp"" class="sj"></th>
+							    <th class="th1"><img src="../../img/vivo x100.webp"" class="sj"></th>
 							    <th class="th2"><a class="xinhao"> x100Pro</a>
 												<a class="shuliang">1</a>
 												<a class="jiage">5498</a>
