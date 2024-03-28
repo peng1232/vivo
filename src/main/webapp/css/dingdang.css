@@ -1,0 +1,376 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+		body{
+			background-color: rgb(247,247,247);
+			height: 100%;
+			width: 100%;
+		}
+        .container {
+			cursor: pointer; 
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+			background-color: rgb(247,247,247);
+			display: flex;
+			flex-direction: column; /* 将子元素排列为一列 */
+			align-items: stretch; /* 子元素在交叉轴上拉伸以填充整个容器 */
+        }
+        .menu {
+            background-color: rgb(247,247,247);
+            padding: 10px;
+			margin: 0px;
+            margin-bottom: 20px;
+        }
+        .menu a {
+            color: #333;
+            text-decoration: none;
+            margin-right: 20px;
+			position: relative;
+        }
+
+		.arrow {
+			width: 15px;
+			height: 20px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			margin-left: -20px;
+		}
+		
+		.under {
+		  display: flex;
+		}
+		
+		.left {
+			padding: 27px 0;
+			float: left;
+			width: 200px;
+			margin-right: 15px;
+			background-color: #fff;
+			min-height: 922px;
+			
+			 text-align: center; /* 将内容居中对齐 */
+			
+			flex: 1; /* 左侧div占据剩余空间 */
+			background-color: #FFFFFF;
+		}
+		
+		.right {
+			
+		  flex: 3; /* 右侧div占据剩余空间 */
+		  background-color: #FFFFFF;
+		}
+		
+		.left ul {
+			list-style-type: none; /* 去掉列表项前面的圆点 */
+			list-style-type: none; /* 去除列表样式 */
+			padding: 0; /*内边距（padding）设置为 0*/
+		}
+		.left .tx {
+			width: 220px; /* 设置图片宽度 */
+			height: auto; /* 让图片按比例缩放 */
+
+			display: block;/* 将 <.left .tx> 元素显示为块级元素 */
+			margin: 0 auto 20px; /* 设置图片与文字之间的间距 */
+		}
+		ul li {
+		    line-height: 3; /* 设置行高 */
+			transition: 0.3s;/* 在颜色属性上应用0.3秒的过渡效果 */
+			
+			list-style-type: none;
+			padding: 0;
+		} 
+		a {
+			font-size: 14px;
+		    text-decoration: none;
+		    color: inherit;
+		}
+		ul li.s{
+			color:#888888;
+			font-size: 16px; /* 设置字体大小 */
+		}
+		ul li.z {
+		    font-weight: bold; /* 设置文本加粗 */
+			font-size: 16px; /* 设置字体大小 */
+		}
+		ul li.s:hover {
+		    color: #FF9999; /* 设置鼠标悬浮时文本颜色为浅红色 */
+			background-color:rgb(253,234,236) ;
+		}
+		.tkgl {
+		    text-align: center;
+			
+			list-style-type: none;
+			font-size: 25px;
+			margin-top: 30px; /* 控制下移的距离 */
+		}
+		.list-caption {
+			width: 850px;
+			text-align: center;
+			
+		    color: #666666;
+			margin: 30px auto;
+			height: 42px;
+			border: 1px solid #f8f8f8;
+			background-color: #f8f8f8; 
+		}
+		.col0{
+			width: 370px;
+			
+			float: left;
+			text-align: center;
+			font-size: 14px;
+			color: #666;
+			line-height: 42px;
+		}
+		.col1{
+			width: 160px;
+			
+			float: left;
+			text-align: center;
+			font-size: 14px;
+			color: #666;
+			line-height: 42px;
+		}
+		.co12{
+			width: 160px;
+			
+			float: left;
+			text-align: center;
+			font-size: 14px;
+			color: #666;
+			line-height: 42px;
+		}
+		.col3{
+			width: 160px;
+			
+			float: left;
+			text-align: center;
+			font-size: 14px;
+			color: #666;
+			line-height: 42px;
+		}
+		
+		a[href=""] {
+			color: #999;
+			pointer-events: none; /* 链接不可点击 */
+		}
+		a[href=""]:hover {
+		    color: #999; /* 鼠标悬停时的颜色 */
+		}
+.div1 {
+    font-size: 21px;
+    color: #000;
+    text-align: center;
+    margin-top: 30px;
+	
+}
+
+.ul1 {
+    margin: 30px 0 32px;
+    padding-left: 25px;
+}
+
+.li1 {
+    position: relative; /* 设置定位位置为相对定位 */
+    float: left; /* 元素向左浮动 */
+    margin-right: 58px; /* 设置右边距为58像素 */
+    padding-bottom: 12px; /* 设置底部内边距为12像素 */
+    height: 25px; /* 设置高度为25像素 */
+    font-size: 16px; /* 设置字体大小为16像素 */
+    line-height: 25px; /* 设置行高为25像素 */
+    color: #777; /* 设置字体颜色为灰色 */
+  height: 22px;
+  
+} 
+.div2{
+	
+	height: 50px;
+}
+.div3{
+	/* background-color: #000; */
+	height: 50px;
+}
+.ul2{
+	border-bottom: 1px solid #ececec;
+	    /* margin: 0px 0 32px; */ /* 上下边距为30像素，左右边距为0，下边距为32像素 */
+	    padding-left: 25px; /* 左内边距为25像素 */
+	}
+	.q3{
+		 color: black; /* 初始状态下的文本颜色为黑色 */
+	}
+	.q3:hover {
+	  color: red; /* 鼠标悬浮时的文本颜色为红色 */
+	  cursor: pointer; /* 将鼠标样式设置为指针 */
+	}
+.li2{
+	height: 58px;
+	}
+	 .a1 {
+      color: black; /* 初始状态下的文本颜色为黑色 */
+    }
+  
+    .a1:hover {
+      color: red; /* 鼠标悬浮时的文本颜色为红色 */
+	  cursor: pointer; /* 将鼠标样式设置为指针 */
+    }
+.a2{
+	
+	font-size: 14px;
+	color: #666;
+	margin-right: 180px;
+}
+.a3{
+	font-size: 14px;
+	color: #666;
+	margin-right: 100px;
+}
+.a4{
+	font-size: 14px;
+	color: #666;
+	margin-right: 91px;
+}
+
+.a6{
+	
+}
+.a5{
+	font-size: 14px;
+	color: #666;
+	padding-left: 50px;
+}
+
+.div4{
+	height: 50px;
+	margin-top: 9px;
+}
+.ul3{
+	  padding-left: 25px;
+	  border-bottom: 1px solid #ececec;
+}
+.q1{
+	margin-right: 65px;
+}
+.q2{
+	margin-right: 300px;
+}
+.sc{
+	height: 15px;
+	width: 15px;
+	
+}
+table {
+            border-collapse: collapse;
+			font-size: 14px;
+			 font-weight: lighter; 
+           /* width: 100%; */
+        }
+
+         td {
+            border: 0.4px solid #686868;
+            padding: 0.5px;
+            /* text-align: center; */
+        }
+		th{
+			border: 0.5px solid #686868;
+		}
+        
+		.sj{
+			cursor: pointer; 
+			height: 150px;
+			width: 150px;
+			}
+		.div5{
+			
+			
+			margin-top: 19px;
+		}
+		.th1{
+			
+			
+			width: 180px;
+		}
+		.th2{
+			height: 154px;
+			width: 417px;
+			
+		}
+		.xinhao{
+			 font-weight: lighter; 
+			 color:black;
+			 margin-right: 70px;
+		}
+		.xinhao:hover {
+		cursor: pointer; 
+		  color: #008cd7; /* 鼠标悬浮时的文本颜色为红色 */
+		  
+		}
+		.shuliang{
+			font-weight: lighter;
+			color:black;
+			margin-right: 100px;
+		}
+		.jiage{
+			font-weight: lighter;
+			color:black;
+		}
+		.a9{
+			font-weight: lighter;
+			color:bold;
+			
+		}
+		.th3{
+			width: 160px;
+			
+		}
+		
+		.div6{
+			
+			width: 890px;
+			height: 57px;
+			text-align: right;
+			line-height: 55px;
+			border: 0.5px solid #000;
+			 border-top: none; 
+		}
+		.ljzf{
+				 margin-left: 16px;
+				            margin-right: 16px;
+				            padding: 4px 17px 5px 17px;
+				            background-color: #f81200;
+				            color: #fff;
+				            border-radius: 15px;
+				            transition: background-color 0.3s;
+				            cursor: pointer;
+				            
+				
+		}
+		.a7{
+		cursor: pointer; 
+		/* 将鼠标样式设置为指针 */
+	font-weight: lighter;
+	color:#008cd7;
+		
+		}
+		.a7:hover {
+		  color: red; /* 鼠标悬浮时的文本颜色为红色 */
+		  
+		}
+		.a8{
+			font-size: 16px;
+		}
+		span.span1 {
+		    font-size: 16px;
+		}
+		
+		.a8{
+			font-size: 16px;
+		}
+		span.span1 {
+		    font-size: 16px;
+		}
+		
