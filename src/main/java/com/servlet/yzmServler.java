@@ -18,7 +18,7 @@ public class yzmServler extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String phone = request.getParameter("phone");
-		yzm.message(phone);
+		
 	}
 
 }

@@ -1,10 +1,6 @@
 package com.qita;
 
-import java.util.HashMap;
-import java.util.Set;
-
-import com.cloopen.rest.sdk.BodyType;
-import com.cloopen.rest.sdk.CCPRestSmsSDK;
+import com.aliyun.tea.TeaException;
 
 /**
  * @Description:
@@ -13,46 +9,47 @@ import com.cloopen.rest.sdk.CCPRestSmsSDK;
  */
 
 public class yzm {
+	 public static com.aliyun.dysmsapi20170525.Client createClient() throws Exception {
+	        // 工程代码泄露可能会导致 AccessKey 泄露，并威胁账号下所有资源的安全性。以下代码示例仅供参考。
+	        // 建议使用更安全的 STS 方式，更多鉴权访问方式请参见：https://help.aliyun.com/document_detail/378657.html。
+	        com.aliyun.teaopenapi.models.Config config = new com.aliyun.teaopenapi.models.Config()
+	                // 必填，请确保代码运行环境设置了环境变量 ALIBABA_CLOUD_ACCESS_KEY_ID。
+	                .setAccessKeyId(System.getenv("ALIBABA_CLOUD_ACCESS_KEY_ID"))
+	                // 必填，请确保代码运行环境设置了环境变量 ALIBABA_CLOUD_ACCESS_KEY_SECRET。
+	                .setAccessKeySecret(System.getenv("ALIBABA_CLOUD_ACCESS_KEY_SECRET"));
+	        // Endpoint 请参考 https://api.aliyun.com/product/Dysmsapi
+	        config.endpoint = "dysmsapi.aliyuncs.com";
+	        return new com.aliyun.dysmsapi20170525.Client(config);
+	    }
 
-
-	public static String message(String phone) {
-		// 返回产生的验证码
-		String code = null;
-		// 生产环境请求地址：app.cloopen.com
-		String serverIp = "app.cloopen.com";
-		// 请求端口
-		String serverPort = "8883";
-		// 主账号,登陆云通讯网站后,可在控制台首页看到开发者主账号ACCOUNT SID和主账号令牌AUTH TOKEN
-		String accountSId = "2c94811c8cd4da0a018e8303f28449c5";
-		String accountToken = "3141a0ec9f5e4830b82d565c59e8091d";
-		// 请使用管理控制台中已创建应用的APPID
-		String appId = "2c94811c8cd4da0a018e8303f42849cc";
-		CCPRestSmsSDK sdk = new CCPRestSmsSDK();
-		sdk.init(serverIp, serverPort);
-		sdk.setAccount(accountSId, accountToken);
-		sdk.setAppId(appId);
-		sdk.setBodyType(BodyType.Type_JSON);
-		// 手机号码
-		String to = phone;
-		String templateId = "1";// 使用的模板id
-		// 生成四位随机数
-		int random = (int) (Math.random() * 10000);
-		code = String.valueOf(random);
-		String[] datas = { code, "2" };// 格式:你的验证码是{code}，请于{2}分钟内正确输入
-		// HashMap<String, Object> result = sdk.sendTemplateSMS(to,templateId,datas);
-		HashMap<String, Object> result = sdk.sendTemplateSMS(to, templateId, datas);
-		if ("000000".equals(result.get("statusCode"))) {
-			// 正常返回输出data包体信息（map）
-			HashMap<String, Object> data = (HashMap<String, Object>) result.get("data");
-			Set<String> keySet = data.keySet();
-			for (String key : keySet) {
-				Object object = data.get(key);
-				System.out.println(key + " = " + object);
-			}
-		} else {
-			// 异常返回输出错误码和错误信息
-			System.out.println("错误码=" + result.get("statusCode") + " 错误信息= " + result.get("statusMsg"));
-		}
-		return code;
-	}
+	    public static void main(String[] args_) throws Exception {
+	        java.util.List<String> args = java.util.Arrays.asList(args_);
+	        com.aliyun.dysmsapi20170525.Client client = yzm.createClient();
+	        String code = rmdNumber.generateValidateCode(6)+""; // 将1234存储在变量code中
+	        com.aliyun.dysmsapi20170525.models.SendSmsRequest sendSmsRequest = new com.aliyun.dysmsapi20170525.models.SendSmsRequest()
+	                        .setSignName("在个人项目中的登录验证码")
+	                        .setTemplateCode("SMS_465413793")
+	                        .setPhoneNumbers("18182084895")
+	                        .setTemplateParam("{\"code\":\"" + code + "\"}"); 
+	        com.aliyun.teautil.models.RuntimeOptions runtime = new com.aliyun.teautil.models.RuntimeOptions();
+	        try {
+	            com.aliyun.dysmsapi20170525.models.SendSmsResponse resp = client.sendSmsWithOptions(sendSmsRequest, runtime);
+	            com.aliyun.teaconsole.Client.log(com.aliyun.teautil.Common.toJSONString(resp));
+	        } catch (TeaException error) {
+	            // 此处仅做打印展示，请谨慎对待异常处理，在工程项目中切勿直接忽略异常。
+	            // 错误 message
+	            System.out.println(error.getMessage());
+	            // 诊断地址
+	            System.out.println(error.getData().get("Recommend"));
+	            com.aliyun.teautil.Common.assertAsString(error.message);
+	        } catch (Exception _error) {
+	            TeaException error = new TeaException(_error.getMessage(), _error);
+	            // 此处仅做打印展示，请谨慎对待异常处理，在工程项目中切勿直接忽略异常。
+	            // 错误 message
+	            System.out.println(error.getMessage());
+	            // 诊断地址
+	            System.out.println(error.getData().get("Recommend"));
+	            com.aliyun.teautil.Common.assertAsString(error.message);
+	        }        
+	    }
 }
