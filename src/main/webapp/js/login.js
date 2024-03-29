@@ -63,6 +63,10 @@ $(function(){
 	$('#huoqu').click(function(){
 		var input = $('.inp');
 		if(isValidPhoneNumber(input.eq(0).val())){
+			//发送请求
+			 $.getJSON("yzmServler?phone=" + input.eq(0).val(), function(response) {
+    			// 在这里处理服务器返回的数据
+			});
 			//发送验证码
 			dao(60,$(this))
 		}else{
@@ -104,7 +108,7 @@ $(function(){
 	
 	//跳转注册页面
 	$('#zhuce').click(function(){
-		window.location.href="zhuce.html"
+		window.location.href="zhuce.jsp"
 	})
 	
 	

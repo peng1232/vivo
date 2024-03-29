@@ -1,0 +1,241 @@
+
+        * {
+          
+            padding: 0;
+        }
+		body{
+			background-color: rgb(247,247,247);
+			height: 100%;
+			width: 100%;
+		}
+        .container {
+			cursor: pointer; 
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+			background-color: rgb(247,247,247);
+			display: flex;
+			flex-direction: column; /* 将子元素排列为一列 */
+			align-items: stretch; /* 子元素在交叉轴上拉伸以填充整个容器 */
+        }
+        .menu {
+            background-color: rgb(247,247,247);
+            padding: 10px;
+			margin: 0px;
+            margin-bottom: 20px;
+        }
+        .menu a {
+            color: #333;
+            text-decoration: none;
+            margin-right: 20px;
+			position: relative;
+        }
+
+		.arrow {
+			width: 15px;
+			height: 20px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			margin-left: -20px;
+		}
+		
+		.under {
+		  display: flex;
+		}
+		
+		.left {
+			padding: 27px 0;
+			float: left;
+			width: 200px;
+			margin-right: 15px;
+			background-color: #fff;
+			min-height: 922px;
+			
+			 text-align: center; /* 将内容居中对齐 */
+			
+			flex: 1; /* 左侧div占据剩余空间 */
+			background-color: #FFFFFF;
+		}
+		
+		.right {
+			
+		  flex: 3; /* 右侧div占据剩余空间 */
+		  background-color: #FFFFFF;
+		}
+		
+		.left ul {
+			list-style-type: none; /* 去掉列表项前面的圆点 */
+			list-style-type: none; /* 去除列表样式 */
+			padding: 0; /*内边距（padding）设置为 0*/
+		}
+		.left .tx {
+			width: 142px; /* 设置图片宽度 */
+			height: auto; /* 让图片按比例缩放 */
+
+			display: block;/* 将 <.left .tx> 元素显示为块级元素 */
+			margin: 0 auto 20px; /* 设置图片与文字之间的间距 */
+		}
+		ul li {
+		    line-height: 3; /* 设置行高 */
+			transition: 0.3s;/* 在颜色属性上应用0.3秒的过渡效果 */
+			
+			list-style-type: none;
+			padding: 0;
+		} 
+		a {
+			font-size: 14px;
+		    text-decoration: none;
+		    color: inherit;
+		}
+		ul li.s{
+			color:#888888;
+			font-size: 16px; /* 设置字体大小 */
+		}
+		ul li.z {
+		    font-weight: bold; /* 设置文本加粗 */
+			font-size: 16px; /* 设置字体大小 */
+		}
+		ul li.s:hover {
+		    color: #FF9999; /* 设置鼠标悬浮时文本颜色为浅红色 */
+			background-color:rgb(253,234,236) ;
+		}
+		.tkgl {
+		    text-align: center;
+			
+			list-style-type: none;
+			font-size: 25px;
+			margin-top: 30px; /* 控制下移的距离 */
+		}
+		.list-caption {
+			width: 850px;
+			text-align: center;
+			
+		    color: #666666;
+			margin: 30px auto;
+			height: 42px;
+			border: 1px solid #f8f8f8;
+			background-color: #f8f8f8; 
+		}
+		.col0{
+			width: 370px;
+			
+			float: left;
+			text-align: center;
+			font-size: 14px;
+			color: #666;
+			line-height: 42px;
+		}
+		.col1{
+			width: 160px;
+			
+			float: left;
+			text-align: center;
+			font-size: 14px;
+			color: #666;
+			line-height: 42px;
+		}
+		.co12{
+			width: 160px;
+			
+			float: left;
+			text-align: center;
+			font-size: 14px;
+			color: #666;
+			line-height: 42px;
+		}
+		.col3{
+			width: 160px;
+			
+			float: left;
+			text-align: center;
+			font-size: 14px;
+			color: #666;
+			line-height: 42px;
+		}
+		
+		a[href=""] {
+			color: #999;
+			pointer-events: none; /* 链接不可点击 */
+		}
+		a[href=""]:hover {
+		    color: #999; /* 鼠标悬停时的颜色 */
+		}
+.div1 {
+    font-size: 21px;
+    color: #000;
+    text-align: center;
+    margin-top: 30px;
+}
+.div2{
+	width: 925px;
+	padding: 30px;
+}
+table{
+	margin-top: 25px;
+	    border: 1px solid #e0e0e0;
+	    text-align: center;
+	    border-collapse: collapse;
+	    border-spacing: 0;
+	}
+	th{
+		color: #333;
+		    font-size: 16px;
+		    font-weight: 400;
+		    height: 46px;
+		    line-height: 46px;
+		
+		border-right: 1px solid #e0e0e0;
+		padding: 10px;
+		border-bottom: 1px solid #e0e0e0;
+	}
+	.img{
+		width: 105px;
+		border-right: 0 solid #e0e0e0;
+	}
+	.mingzi{
+	width: 250px;
+}
+	.jinge{
+		width: 120px;
+	}
+	.scshijian{
+		width: 190px;
+	}
+	.spzhuangtai{
+		width: 120px;
+	}
+	.caozuo{
+		width: 190px;
+	}
+	.tp{
+		width: 105px;
+		    height: 105px;
+		    margin-left: 30px;
+		    vertical-align: unset !important;
+	}
+	a{
+		margin-left: 10px;
+	}
+	.a2{
+		display: inline-block;
+		    margin-right: 16px;
+		    width: 98px;
+		    line-height: 28px;
+		    border: 1px solid #7ec2eb;
+		    border-radius: 2px;
+		    background-color: #fff;
+		    color: #3bace6;
+	}
+	td{
+		border-right: 1px solid #e0e0e0;
+		border-bottom: 1px solid #e0e0e0;
+	}
+	table{
+		float: left;
+	}
+	
+	
+	
+	
