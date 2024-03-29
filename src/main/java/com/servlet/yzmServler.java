@@ -19,10 +19,9 @@ public class yzmServler extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String phone = request.getParameter("phone");
-		System.out.println(phone);
 		//验证码
 		try {
-			String yzm = Yzm.sendMessage();
+			String yzm = Yzm.sendMessage(phone);
 			System.out.println(yzm);
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");

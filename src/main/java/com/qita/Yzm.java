@@ -22,13 +22,13 @@ public class Yzm {
         return new com.aliyun.dysmsapi20170525.Client(config);
     }
 
-    public static String sendMessage() throws Exception {
+    public static String sendMessage(String phone) throws Exception {
         com.aliyun.dysmsapi20170525.Client client = Yzm.createClient();
         String code = rmdNumber.generateValidateCode(6) + ""; // 将1234存储在变量code中
         com.aliyun.dysmsapi20170525.models.SendSmsRequest sendSmsRequest = new com.aliyun.dysmsapi20170525.models.SendSmsRequest()
                 .setSignName("在个人项目中的登录验证码")
                 .setTemplateCode("SMS_465413793")
-                .setPhoneNumbers("18182084895")
+                .setPhoneNumbers(phone)
                 .setTemplateParam("{\"code\":\"" + code + "\"}");
         com.aliyun.teautil.models.RuntimeOptions runtime = new com.aliyun.teautil.models.RuntimeOptions();
         try {
