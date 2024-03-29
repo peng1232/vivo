@@ -22,14 +22,12 @@ public class ProvinceServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<City> province = c.selectProvince();
 		JSONArray jsonArray = new JSONArray();
-		
 		province.forEach(e->{
 			JSONObject jsonObj = new JSONObject();
             jsonObj.put("id", e.getId());
             jsonObj.put("name",e.getName());
             jsonArray.add(jsonObj);
 		});
-		System.out.println(jsonArray.toJSONString());
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().println(jsonArray.toJSONString());

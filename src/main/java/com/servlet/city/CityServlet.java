@@ -23,14 +23,12 @@ public class CityServlet extends HttpServlet {
 		Integer parentid = Integer.valueOf(request.getParameter("parentid"));
 		List<City> city = c.selectCity(parentid);
 		JSONArray jsonArray = new JSONArray();
-		
 		city.forEach(e->{
 			JSONObject jsonObj = new JSONObject();
             jsonObj.put("id", e.getId());
             jsonObj.put("name",e.getName());
             jsonArray.add(jsonObj);
 		});
-		System.out.println(jsonArray.toJSONString());
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().println(jsonArray.toJSONString());
