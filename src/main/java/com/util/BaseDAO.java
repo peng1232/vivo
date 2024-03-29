@@ -23,7 +23,7 @@ public class BaseDAO {
 	// 第一个字符串：，MySQL驱动包的全类名
 	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	// 第二个字符串，mysql的服务器地址
-	private static final String URL = "jdbc:mysql://localhost:3306/demo?useSSL=false&serverTimezone=GMT&characterEncoding=utf-8";
+	private static final String URL = "jdbc:mysql://localhost:3306/ECommerceDB?useSSL=false&serverTimezone=GMT&characterEncoding=utf-8";
 	// 3.用户名
 	private static final String USER = "root";
 	// 4.密码
