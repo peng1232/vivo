@@ -10,7 +10,7 @@
 <link href="../../css/footer.css" rel="stylesheet" />
 <script type="text/javascript" src="../../js/jquery.min.js"></script>
 <script type="text/javascript" src="../../js/duolian.js"></script>
-<script src="../../js/jquery.min.js"></script>
+
 <script src="../../js/nav.js"></script>
 </head>
 <body>
