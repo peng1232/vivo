@@ -71,7 +71,63 @@ public class UsersDAO extends BaseDAO{
 		return null;
 	}
 	
+	//登录
+	public Users dengLv(String phone,String password) {
+		String sql = "select * from users where phone = ? and user_password =? and state = 1";
+		Users u = null;
+		try {
+			stmt =getConn().prepareStatement(sql);
+			stmt.setObject(1, phone);
+			stmt.setObject(2, password);
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				u = new Users(rs.getInt("id"), 
+						rs.getString("user_nickname"), 
+						rs.getString("user_password"), 
+						rs.getString("phone"),
+						rs.getString("head_sculpture"), 
+						rs.getDate("birth"), 
+						rs.getInt("sex"), 
+						rs.getTimestamp("create_time"), 
+						rs.getInt("state"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return u;
+	}
+	public Users dengLv(String phone) {
+		String sql = "select * from users where phone = ? and state = 1";
+		Users u = null;
+		try {
+			stmt =getConn().prepareStatement(sql);
+			stmt.setObject(1, phone);
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				u = new Users(rs.getInt("id"), 
+						rs.getString("user_nickname"), 
+						rs.getString("user_password"), 
+						rs.getString("phone"),
+						rs.getString("head_sculpture"), 
+						rs.getDate("birth"), 
+						rs.getInt("sex"), 
+						rs.getTimestamp("create_time"), 
+						rs.getInt("state"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return u;
+	}
+	
+	
 	public static void main(String[] args) {
-		System.out.println(new UsersDAO().nameAdd());
+		System.out.println(new UsersDAO().dengLv("19374234036","6666466"));
 	}
 }
