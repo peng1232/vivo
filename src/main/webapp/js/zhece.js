@@ -51,7 +51,7 @@ $(function() {
 		var input = $('.inp');
 		if (isValidPhoneNumber(input.eq(0).val())) {
 			if (input.eq(1).val() == yzm) {
-				if (input.eq(2).val().length > 6) {
+				if (input.eq(2).val().length >= 6) {
 					if (input.eq(3).val()==input.eq(2).val()) {
 						if ($('.xuan').is(':checked')) {
 							//注册
