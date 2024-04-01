@@ -18,15 +18,25 @@ $(function(){
 	
 	//获取验证码
 	$('#huoqu').click(function(){
+		var hou = $(this);
 		var input = $('.inp');
 		if(isValidPhoneNumber(input.eq(0).val())){
-			//发送请求
-			 $.getJSON("yzmServler?phone=" + input.eq(0).val(), function(response) {
-    			// 把验证码存起来
-    			yzm =response;
-			});
-			//发送验证码
-			dao(60,$(this))
+			$.getJSON("isphone?phone=" + input.eq(0).val(), function(data) {
+					if(data.flag=="true"){
+						//有
+						//发送验证码
+						dao(60,hou)
+						//发送请求
+						 $.getJSON("yzmServler?phone=" + input.eq(0).val(), function(response) {
+			    			// 把验证码存起来
+			    			yzm =response;
+						});
+					}else{
+						//没有
+						$('.shou').html('该手机号未注册，请去注册')
+					}
+				})
+			
 		}else{
 			$('.shou').html('请输入正确的手机号')
 		}
@@ -40,22 +50,35 @@ $(function(){
 		if(state==0){
 			if(isValidPhoneNumber(input.eq(0).val())){
 				if(input.eq(1).val()==yzm){
-					//登录进去
-					alert("登陆成功")
+					$.getJSON("DengLvSerlvet?phone=" + input.eq(0).val(), function(user) {
+						//登录成功
+						window.location.href = "../qian/shouye.jsp";
+					})
 				}else{
-					$('.yang').html('请输入正确的验证码')
+					$('.yang').html('验证码错误')
 				}
 			}else{
 				$('.shou').html('请输入正确的手机号')
 			}
 		}else{
 			if(isValidPhoneNumber(input.eq(2).val())){
-				//需要判断改账号是否存在
-				if(input.eq(3).val()==yzm){
-					//登录进去
-				}else{
-					$('.mi').html('请输入正确的密码')
-				}
+				$.getJSON("isphone?phone=" + input.eq(2).val(), function(data) {
+					if(data.flag=="true"){
+						//有
+						$.getJSON("DengLvSerlvet?phone=" + input.eq(2).val()+"&password="+input.eq(3).val(), function(user) {
+							if(user.flag=="true"){
+								//登录成功
+								window.location.href = "../qian/shouye.jsp";
+							}else{
+								$('.mi').html('密码错误')
+							}
+						})
+					}else{
+						//没有
+						$('.ji').html('该手机号未注册，请去注册')
+					}
+				})
+				
 			}else{
 				$('.ji').html('请输入正确的手机号')
 			}

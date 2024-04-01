@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>首页</title>
+<link rel="icon name" href="../../img/favicon.ico" />
 <script type="text/javascript" src="../../js/jquery.min.js"></script>
 <link href="../../css/nav.css" rel="stylesheet"/>
 <script src="../../js/nav.js"></script>

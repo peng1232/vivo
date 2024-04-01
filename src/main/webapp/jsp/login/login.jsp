@@ -30,7 +30,7 @@
 							<!-- 手机号码 -->
 							<div class="info_phone">
 								
-								<div class="form_item">
+									<div class="form_item">
 									<input required class="inp" type="text"/>
 									<span class="bar"></span>
 									<label for="username">手机号</label>
