@@ -25,6 +25,10 @@
 		</div>
 	</div>
 	
+	<!-- 内容区 -->
+	<div>
+	
+	</div>
 	<%@include file="../../html/footer.jsp" %>
 </body>
 </html>
