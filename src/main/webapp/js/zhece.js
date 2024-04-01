@@ -58,7 +58,7 @@ $(function() {
 							var phone = input.eq(0).val();
 							var mi = input.eq(2).val();
 							console.log(phone+mi)
-							alert("注册成功")
+							$("#sub").submit();
 						} else {
 							dong();
 						}
