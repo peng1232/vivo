@@ -1,0 +1,62 @@
+@charset "UTF-8";
+/* 表单容器样式 */
+    .form-container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+    }
+
+    /* 表单标题样式 */
+    .form-title {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    /* 表单字段样式 */
+    .form-field {
+        margin-bottom: 15px;
+		text-align: center;
+    }
+
+    /* 表单标签样式 */
+    .form-label {
+        display: inline-block;
+        width: 120px;
+    }
+
+    /* 表单输入框样式 */
+    .form-input {
+        width: 200px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    /* 提交按钮样式 */
+    .form-submit {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    /* 提交按钮悬停样式 */
+    .form-submit:hover {
+        background-color: #45a049;
+    }
+.from_xz{
+	margin-top: 12%;
+}
+body{
+	background-image: url("../img/background.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+.form-field>.form-submit{
+	margin: 2% 10%;
+}
