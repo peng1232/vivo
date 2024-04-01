@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="icon name" href="../../img/favicon.ico" />
 <link href="../../css/zhuce.css" rel="stylesheet"/>
 <script src="../../js/jquery.min.js"/></script>
 <script src="../../js/zhece.js"></script>
