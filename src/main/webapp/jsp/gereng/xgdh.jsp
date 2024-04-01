@@ -301,7 +301,7 @@
 						<li class="s"><a href="#">评价晒单</a></li>
 
 						<li class="z">我的账户</li>
-						<li class="s"><a href="#">修改密码</a></li>
+						<li class="s"><a href="xgmm.jsp">修改密码</a></li>
 						<li class="s"><a href="xgdh.jsp">修改电话号码</a></li>
 						<li class="s"><a href="grxx.jsp">个人资料</a></li>
 						<li class="s"><a href="#">收货地址</a></li>
