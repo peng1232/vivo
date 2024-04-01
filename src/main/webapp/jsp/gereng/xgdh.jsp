@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="icon name" href="../../img/favicon.ico" />
 <link href="../../css/grzx.css" rel="stylesheet" />
 <link href="../../css/nav.css" rel="stylesheet" />
 <link href="../../css/footer.css" rel="stylesheet" />
