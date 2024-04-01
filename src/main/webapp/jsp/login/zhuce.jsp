@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,13 +19,17 @@
 		<div class="title_p">账号注册</div>
 		<form action="ZhuCeSerlvet" method="post" id="sub">
 			<div class="form_item">
-				<input required class="inp" name='phone' type="text"/>
+				<input required class="inp" value="${phone }" name='phone' type="text"/>
 				<span class="bar"></span>
 				<label for="username">手机号</label>
 			</div>
-			<div class="tishi shou"></div>
+			<div class="tishi shou">
+				<c:if test="${flag }">
+					该手机号已被注册
+				</c:if>
+			</div>
 			<div class="form_item">
-				<input maxlength="6" required class="inp" type="text"/>
+				<input maxlength="6"  required class="inp" name="yzm" type="text"/>
 				<span class="bar"></span>
 				<label for="username">验证码</label>
 				<div class="yzm">
@@ -34,7 +39,7 @@
 			</div>
 			<div class="tishi yang"></div>
 			<div class="form_item">
-				<input maxlength="20" name='password' required class="inp mima" type="password"/>
+				<input maxlength="20" value="${password }"  name='password' required class="inp mima" type="password"/>
 				<span class="bar"></span>
 				<label for="username">密码</label>
 				<div class="yzm biyan" val='2'>
@@ -44,7 +49,7 @@
 			</div>
 			<div class="tishi mi"></div>
 			<div class="form_item">
-				<input maxlength="20" required class="inp quemima" type="password"/>
+				<input maxlength="20"  value="${password }"  required class="inp quemima" type="password"/>
 				<span class="bar"></span>
 				<label for="username">确认密码</label>
 				<div class="yzm biyan"  val='3'>
@@ -55,7 +60,7 @@
 			<div class="tishi quemi"></div>
 			<span class="xieyi">
 				<label>
-					<input type="checkbox" class="xuan"/>
+					<input type="checkbox" ${flag?'checked':''} class="xuan"/>
 						我已阅读并接受<span class="zi">服务协议</span>和<span class="zi">隐私政策</span>
 				</label>
 			</span>
