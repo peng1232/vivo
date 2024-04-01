@@ -50,12 +50,18 @@ $(function(){
 			}
 		}else{
 			if(isValidPhoneNumber(input.eq(2).val())){
-				//需要判断改账号是否存在
-				if(input.eq(3).val()==yzm){
-					//登录进去
-				}else{
-					$('.mi').html('请输入正确的密码')
-				}
+				$.getJSON("../isphone?phone=" + input.eq(2).val(), function(data) {
+					if (data === "true") {
+				        // 有 true
+				        console.log("手机号已注册");
+				    } else {
+				        // 没有 false
+				        console.log("手机号未注册");
+				    }
+				})
+					alert(input.eq(2).val())
+					alert(input.eq(3).val())
+				
 			}else{
 				$('.ji').html('请输入正确的手机号')
 			}
