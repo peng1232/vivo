@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.alibaba.fastjson2.JSONObject;
 import com.dao.UsersDAO;
 import com.entity.Users;
 
@@ -21,25 +22,26 @@ public class DengLvSerlvet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String phone = request.getParameter("phone");
 		String password = request.getParameter("password");
-		if(!udao.isZhuCe(phone)) {
-			//有
-			if(password==null) {
-				//手机验证码登录
-				
-			}else {
-				//账号密码登录
-				Users user = udao.dengLv(phone, password);
-				HttpSession session = request.getSession();
-				session.setAttribute("user", user);
-				System.out.println(user);
-			}
+		JSONObject jsonObj = new JSONObject();
+		Users user =null;
+		if(password==null) {
+			//手机验证码登录
+			user = udao.dengLv(phone);
 		}else {
-			//没有
-			request.setAttribute("phone", phone);
-			request.setAttribute("flag", true);
-			request.setAttribute("password", password);
-			request.getRequestDispatcher("zhuce.jsp").forward(request, response);
+			//账号密码登录
+			user = udao.dengLv(phone, password);
 		}
+		//判断是否登录成功
+		if(user!=null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
+			jsonObj.put("flag", "true");
+		}else {
+			jsonObj.put("flag", "false");
+		}
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().println(jsonObj.toJSONString());
 	}
 
 
