@@ -1,15 +1,14 @@
 $(function() {
-	$('#biyan').click(function() {
-		var input = $('.inp').eq(2);
+	$('.biyan').click(function() {
+		var input = $('.inp').eq($(this).attr("val")); // 根据点击的图标选择对应的输入框
 		if (input.attr('type') == 'password') {
 			input.attr('type', 'text');
-			$('#biyan svg').eq(0).css('display', 'none');
-			$('#biyan svg').eq(1).css('display', 'block');
+			$(this).find("svg").eq(0).css('display', 'none');
+			$(this).find("svg").eq(1).css('display', 'block');
 		} else {
 			input.attr('type', 'password');
-			$('#biyan svg').eq(0).css('display', 'block');
-			$('#biyan svg').eq(1).css('display', 'none');
-
+			$(this).find("svg").eq(0).css('display', 'block');
+			$(this).find("svg").eq(1).css('display', 'none');
 		}
 	})
 	var yzm;
@@ -53,11 +52,18 @@ $(function() {
 		if (isValidPhoneNumber(input.eq(0).val())) {
 			if (input.eq(1).val() == yzm) {
 				if (input.eq(2).val().length > 6) {
-					if ($('.xuan').is(':checked')) {
-						//注册
-						alert("注册成功")
+					if (input.eq(3).val()==input.eq(2).val()) {
+						if ($('.xuan').is(':checked')) {
+							//注册
+							var phone = input.eq(0).val();
+							var mi = input.eq(2).val();
+							console.log(phone+mi)
+							$("#sub").submit();
+						} else {
+							dong();
+						}
 					} else {
-						dong();
+						$('.quemi').html('两次密码不一致')
 					}
 				} else {
 					$('.mi').html('密码格式错误')
@@ -96,6 +102,9 @@ $(function() {
 	})
 	$('.inp').eq(2).focus(function() {
 		$('.mi').html('')
+	})
+	$('.inp').eq(3).focus(function() {
+		$('.quemi').html('')
 	})
 
 
