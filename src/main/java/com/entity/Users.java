@@ -12,7 +12,6 @@ import java.util.Date;
 public class Users {
 	private Integer id;//id
 	private String user_nickname;//昵称
-	private String user_account;//账号
 	private String user_password;//密码
 	private String phone;//手机号
 	private String head_sculpture;//头像地址
@@ -31,12 +30,6 @@ public class Users {
 	}
 	public void setUser_nickname(String user_nickname) {
 		this.user_nickname = user_nickname;
-	}
-	public String getUser_account() {
-		return user_account;
-	}
-	public void setUser_account(String user_account) {
-		this.user_account = user_account;
 	}
 	public String getUser_password() {
 		return user_password;
@@ -82,20 +75,15 @@ public class Users {
 	}
 	@Override
 	public String toString() {
-		return "Users [id=" + id + ", user_nickname=" + user_nickname + ", user_account=" + user_account
-				+ ", user_password=" + user_password + ", phone=" + phone + ", head_sculpture=" + head_sculpture
-				+ ", birth=" + birth + ", sex=" + sex + ", create_time=" + create_time + ", state=" + state + "]";
+		return "Users [id=" + id + ", user_nickname=" + user_nickname + ", user_password=" + user_password + ", phone="
+				+ phone + ", head_sculpture=" + head_sculpture + ", birth=" + birth + ", sex=" + sex + ", create_time="
+				+ create_time + ", state=" + state + "]";
 	}
-	public Users() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Users(Integer id, String user_nickname, String user_account, String user_password, String phone,
-			String head_sculpture, Date birth, Integer sex, Timestamp create_time, Integer state) {
+	public Users(Integer id, String user_nickname, String user_password, String phone, String head_sculpture,
+			Date birth, Integer sex, Timestamp create_time, Integer state) {
 		super();
 		this.id = id;
 		this.user_nickname = user_nickname;
-		this.user_account = user_account;
 		this.user_password = user_password;
 		this.phone = phone;
 		this.head_sculpture = head_sculpture;
@@ -104,5 +92,10 @@ public class Users {
 		this.create_time = create_time;
 		this.state = state;
 	}
+	public Users() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	
 }

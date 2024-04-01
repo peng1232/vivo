@@ -9,7 +9,7 @@ body{
 }
 .content{
 	background: #fff;
-    margin: 80px auto 0;
+    margin: 60px auto 0;
     min-height: 670px;
     overflow: hidden;
     width: 860px
@@ -106,11 +106,11 @@ body{
 	margin: 60px auto 100px;
     width: 360px;
 }
-#biyan{
+.biyan{
 	width: 25px;
 	margin-right: 10px;
 }
-#biyan svg:nth-child(2){
+.biyan svg:nth-child(2){
 	display: none;
 }
 .btn{
@@ -152,39 +152,4 @@ body{
 .zi{
 	color: #456fff;
 	cursor: pointer;
-}
-@-ms-keyframes dong{
-	0%{
-		left: 0px;
-	}
-	10%{
-		left: 10px;
-	}
-	20%{
-		left: -10px;
-	}
-	30%{
-		left: 10px;
-	}
-	40%{
-		left: -10px;
-	}
-	50%{
-		left: 10px;
-	}
-	60%{
-		left: -10px;
-	}
-	70%{
-		left: 10px;
-	}
-	80%{
-		left: -10px;
-	}
-	90%{
-		left: 10px;
-	}
-	100%{
-		left: 0px;
-	}
 }

@@ -14,7 +14,24 @@ $(function(){
 		$('.info_phone').css('display','none');
 		$('.info_name').css('display','block');
 	})
+	var yzm;
 	
+	//获取验证码
+	$('#huoqu').click(function(){
+		var input = $('.inp');
+		if(isValidPhoneNumber(input.eq(0).val())){
+			//发送请求
+			 $.getJSON("yzmServler?phone=" + input.eq(0).val(), function(response) {
+    			// 把验证码存起来
+    			yzm =response;
+			});
+			//发送验证码
+			dao(60,$(this))
+		}else{
+			$('.shou').html('请输入正确的手机号')
+		}
+		
+	})
 	
 	//登录判断
 	$('#denglu').click(function(){
@@ -22,8 +39,9 @@ $(function(){
 		var state = $('.an_xian').attr('value');
 		if(state==0){
 			if(isValidPhoneNumber(input.eq(0).val())){
-				if(input.eq(1).val()=='zhi'){
+				if(input.eq(1).val()==yzm){
 					//登录进去
+					alert("登陆成功")
 				}else{
 					$('.yang').html('请输入正确的验证码')
 				}
@@ -32,7 +50,8 @@ $(function(){
 			}
 		}else{
 			if(isValidPhoneNumber(input.eq(2).val())){
-				if(input.eq(3).val()=='zhi'){
+				//需要判断改账号是否存在
+				if(input.eq(3).val()==yzm){
 					//登录进去
 				}else{
 					$('.mi').html('请输入正确的密码')
@@ -59,17 +78,7 @@ $(function(){
 		$('.mi').html('')
 	})
 	
-	//获取验证码
-	$('#huoqu').click(function(){
-		var input = $('.inp');
-		if(isValidPhoneNumber(input.eq(0).val())){
-			//发送验证码
-			dao(60,$(this))
-		}else{
-			$('.shou').html('请输入正确的手机号')
-		}
-		
-	})
+	
 	//倒计时
 	function dao(value,e){
 		e.css('color','#ccc')
@@ -104,7 +113,7 @@ $(function(){
 	
 	//跳转注册页面
 	$('#zhuce').click(function(){
-		window.location.href="zhuce.html"
+		window.location.href="zhuce.jsp"
 	})
 	
 	
