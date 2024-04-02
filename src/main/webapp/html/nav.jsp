@@ -24,7 +24,6 @@
 					</ul>
 					<div class="head_top_right">
 						<div class="fl">
-						
 							<a class="navs gou">购物车</a>
 						</div>
 						<div class="fl wei">
@@ -126,10 +125,10 @@
 					</div>
 					<div class="buttom_center">
 						<ul class="c_type">
-							<li><a href="#">类别1</a></li>
+							<!-- <li><a href="#">类别1</a></li>
 							<li><a href="#">类别2</a></li>
 							<li><a href="#">类别3</a></li>
-							<li><a href="#">类别4</a></li>
+							<li><a href="#">类别4</a></li> -->
 						</ul>
 					</div>
 					<div class="buttom_right" id="search">
