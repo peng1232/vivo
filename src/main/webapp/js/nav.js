@@ -72,4 +72,9 @@ function sou(e){
   total.find('li').stop().css('opacity', '0').css('transform', 'translateY(50px)');
 }
 
+//发送请求
+$.getJSON("../navSerlvet" , function(response) {
+	$('body').css('background',"#000")
+});
+
 
