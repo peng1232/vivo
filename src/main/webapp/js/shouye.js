@@ -14,3 +14,15 @@ LoopSlider.init({
 	duration: 300, //过渡时间，默认为3000ms,
 	autoplay: 3000, //boolean 和 number 设置为true 默认延时为3s,如果设置为1000，延时为1s
 })
+
+//轮播图的伪类
+$(function(){
+	
+	 $(".lun").hover(function(){
+		 $('.prev').css('left','0px');
+		 $('.next').css('right','0px');
+	 },function(){
+		 $('.prev').css('left','-40px');
+		 $('.next').css('right','-40px');
+	 })
+})

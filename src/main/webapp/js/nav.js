@@ -34,6 +34,11 @@ $(function() {
 	})
 
   
+  	//发送请求
+	$.getJSON("../navSerlvet?id=" +$('#bian').val(), function(response) {
+	   $('.gou').text('购物车('+response.shopping_count+")")
+	   //location.reload();
+	});
 });
 
 //关闭方法
@@ -71,5 +76,7 @@ function sou(e){
   var total = $('.phone_total').eq($(e).index());
   total.find('li').stop().css('opacity', '0').css('transform', 'translateY(50px)');
 }
+
+
 
 
