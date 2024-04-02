@@ -105,7 +105,6 @@ public class UsersDAO extends BaseDAO{
 		try {
 			stmt =getConn().prepareStatement(sql);
 			stmt.setObject(1, phone);
-			System.out.println(stmt.toString());
 			rs = stmt.executeQuery();
 			if(rs.next()) {
 				u = new Users(rs.getInt("id"), 
