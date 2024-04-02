@@ -8,11 +8,11 @@
 <title>首页</title>
 <link rel="icon name" href="../../img/favicon.ico" />
 <script type="text/javascript" src="../../js/jquery.min.js"></script>
-<link href="../../css/nav.css" rel="stylesheet"/>
-<script src="../../js/nav.js"></script>
 <link href="../../css/shouye.css " rel="stylesheet" />
 <script src="../../js/LoopSlider.js"></script>
 <script src="../../js/shouye.js"></script>
+<link href="../../css/nav.css" rel="stylesheet"/>
+<script src="../../js/nav.js"></script>
 <link href="../../css/footer.css" rel="stylesheet" />
 </head>
 <body>
@@ -29,7 +29,7 @@
 	
 	<!-- 内容区 -->
 	<div>
-	
+	${shopping_count}
 	</div>
 	<%@include file="../../html/footer.jsp" %>
 </body>

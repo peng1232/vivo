@@ -29,10 +29,17 @@ public class NavInitServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		JSONObject jsonObj = new JSONObject();
-		System.out.println(request.getParameter("id"));
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().println(jsonObj.toJSONString());
+		String zhi = request.getParameter("id");
+		if(zhi!=null&&zhi.trim().length()>0) {
+			Integer id = Integer.valueOf(zhi);
+			Integer shopping_Count = sdao.shopping_Count(id);
+			jsonObj.put("shopping_count", shopping_Count);
+			HttpSession session = request.getSession();
+			session.setAttribute("shopping_count", shopping_Count);
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			response.getWriter().println(jsonObj.toJSONString());
+		}
 	}
 
 

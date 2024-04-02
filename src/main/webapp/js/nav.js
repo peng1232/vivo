@@ -35,8 +35,9 @@ $(function() {
 
   
   	//发送请求
-		$.getJSON("../navSerlvet?id=" +$('#bian').val(), function(response) {
-	    $('body').css('background', "#000");
+	$.getJSON("../navSerlvet?id=" +$('#bian').val(), function(response) {
+	   $('.gou').text('购物车('+response.shopping_count+")")
+	   //location.reload();
 	});
 });
 

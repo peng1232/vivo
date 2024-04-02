@@ -17,6 +17,7 @@ LoopSlider.init({
 
 //轮播图的伪类
 $(function(){
+	
 	 $(".lun").hover(function(){
 		 $('.prev').css('left','0px');
 		 $('.next').css('right','0px');
