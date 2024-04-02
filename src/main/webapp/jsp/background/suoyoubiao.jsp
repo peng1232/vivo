@@ -5,6 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+		<link rel="stylesheet" href="../../css/amazeui.css" />
+		<link rel="stylesheet" href="https://www.jq22.com/jquery/font-awesome.4.6.0.css">
+		<link rel="stylesheet" href="../../css/core.css" />
+		<link rel="stylesheet" href="../../css/menu.css" />
+		
+		<link rel="stylesheet" href="../../css/admin.css" />
+		<link rel="stylesheet" href="../../css/typography.css" />
+		<link rel="stylesheet" href="../../css/form.css" />
 </head>
 <body>
 		<!-- Begin page -->
@@ -45,7 +53,7 @@
 				    	<!-- User -->
 						<div class="user-box am-hide-sm-only">
 	                        <div class="user-img">
-	                            <img src="../assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+	                            <img src="../../img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
 	                            <div class="user-status offline"><i class="am-icon-dot-circle-o" aria-hidden="true"></i></div>
 	                        </div>
 	                        <h5><a href="#">Mat Helme</a> </h5>
@@ -66,7 +74,7 @@
 	                    <!-- End User -->
 	            
 						 <ul class="am-list admin-sidebar-list">
-						    <li><a href="../index.html"><span class="am-icon-home"></span> 首页</a></li>
+						    <li><a href="statistics.jsp"><span class="am-icon-home"></span> 首页</a></li>
 						    <li class="admin-parent">
 						      <a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 表格 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 						      <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
@@ -441,8 +449,8 @@
 		<a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"><!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
 		
 		<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-		<script type="text/javascript" src="../assets/js/amazeui.min.js"></script>
-		<script type="text/javascript" src="../assets/js/app.js" ></script>
-		<script type="text/javascript" src="../assets/js/blockUI.js" ></script>
+		<script type="text/javascript" src="../../js/amazeui.min.js"></script>
+		<script type="text/javascript" src="../../js/app.js" ></script>
+		<script type="text/javascript" src="../../js/blockUI.js" ></script>
 	</body>
 </html>
