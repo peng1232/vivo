@@ -12,6 +12,7 @@
 </head> -->
 <body>
 	<header id="head">
+		<input id="bian" type="hidden" value="${user.id }">
 		<div class="vp_head">
 			<div class="head_top">
 				<div>

@@ -14,6 +14,7 @@ import com.dao.Shopping_CartDAO;
 import com.dao.User_Login_TimeDAO;
 import com.dao.UsersDAO;
 import com.entity.Users;
+import com.qita.Yzm;
 
 /**
 * @Description: 
@@ -27,7 +28,11 @@ public class NavInitServlet extends HttpServlet {
 	Shopping_CartDAO sdao=  new Shopping_CartDAO();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(1);
+		JSONObject jsonObj = new JSONObject();
+		System.out.println(request.getParameter("id"));
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().println(jsonObj.toJSONString());
 	}
 
 
