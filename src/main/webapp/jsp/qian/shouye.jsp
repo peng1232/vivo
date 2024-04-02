@@ -29,7 +29,6 @@
 	
 	<!-- 内容区 -->
 	<div>
-	${shopping_count}
 	</div>
 	<%@include file="../../html/footer.jsp" %>
 </body>

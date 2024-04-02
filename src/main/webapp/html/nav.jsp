@@ -24,7 +24,8 @@
 					</ul>
 					<div class="head_top_right">
 						<div class="fl">
-							<a class="navs gou">购物车<c:if test="${shopping_count != null }" >(${shopping_count })</c:if></a>
+						
+							<a class="navs gou">购物车</a>
 						</div>
 						<div class="fl wei">
 							<span class="navs">个人中心</span>
