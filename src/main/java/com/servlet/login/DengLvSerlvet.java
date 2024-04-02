@@ -42,10 +42,8 @@ public class DengLvSerlvet extends HttpServlet {
 			//添加用户登录时间表
 			tdao.insertUserTime(user.getId());
 			//查询用户的购物车数量
-			Integer shopping_Count = sdao.shopping_Count(user.getId());
 
 			session.setAttribute("user", user);
-			session.setAttribute("shopping_count", shopping_Count);
 			jsonObj.put("flag", "true");
 		}else {
 			jsonObj.put("flag", "false");
