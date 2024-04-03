@@ -88,5 +88,4 @@ public class Product {
 		this.listing_time = listing_time;
 		this.state = state;
 	}
-	
 }

@@ -44,7 +44,4 @@ public class Commodity_price {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
 }
