@@ -24,7 +24,7 @@
 					</ul>
 					<div class="head_top_right">
 						<div class="fl">
-							<a class="navs gou">购物车</a>
+							<a href="../qian/shpping.jsp" class="navs gou">购物车</a>
 						</div>
 						<div class="fl wei">
 							<span class="navs">个人中心</span>
@@ -153,7 +153,7 @@
 				<div class="bukuai_phone bukuai">
 					<div>
 						<div class="phone_top">
-							<ul class="phone_total">
+							<!-- <ul class="phone_total">
 								<li><a href="#">
 										<div class="item_images">
 											<img
@@ -251,7 +251,7 @@
 										</div>
 										<p>商品名称4</p>
 								</a></li>
-							</ul>
+							</ul> -->
 						</div>
 						<div class="mune_buttom">
 							<a href="#"><svg t="1710728535432" class="icon"

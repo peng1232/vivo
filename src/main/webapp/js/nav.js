@@ -23,7 +23,9 @@ $(function() {
 
 	})
 
-
+	$(".buttom_left svg").click(function(){
+		location.reload();
+	})
 
 	//关闭
 	// $('.bukuai_search').click(function(){
@@ -43,6 +45,7 @@ $(function() {
 		$.each(response.list_cate, function(index, category) {
 			// 对于数组中的每个元素，我们创建一个新的<li>元素
 			var li = $('<li></li>');
+			li.prop('value',category.id)
 			// 然后在这个<li>元素中添加一个新的<a>元素
 			var a = $('<a></a>').text(category.category_type).attr('href', '#');
 			// 最后，我们将<a>元素添加到<li>元素中，并将<li>元素添加到页面的某个元素中（例如，一个id为"menu"的元素）
@@ -50,7 +53,38 @@ $(function() {
 			$(".c_type").append(li);
 		});
 		//location.reload();
+		
 	});
+	
+	$.getJSON("../navSerlvet2", function(re) {
+		
+		$.each(re.list_cate, function(index, category) {
+			var ul = $('<ul class="phone_total"></ul>');
+			
+			$.each(re.product[index],function(ind,pro){
+				var li = $('<li></li>');
+			    var a = $('<a href="#"></a>');
+			    var div = $('<div class="item_images"></div>');
+			    var img = $('<img />');
+			    var p = $('<p>'+pro.products_name+'</p>');
+			    a.append(div);
+			    div.append(img);
+			    a.append(p);
+			    li.append(a);
+			    ul.append(li);
+			}) 
+			
+	    	$('.phone_top').append(ul);
+		});
+	
+	
+	    
+		
+	});
+	
+	
+	
+	
 });
 
 //关闭方法
