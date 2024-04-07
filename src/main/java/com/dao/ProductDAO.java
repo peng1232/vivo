@@ -20,8 +20,6 @@ public class ProductDAO extends BaseDAO{
 	//根据类别查询对应的商品
 	public List<Product> type_Product(Integer type_id,Integer curpage,Integer pagesize){
 
-		
-
 		String sql = "select * from product where category_id = ? and state = 1 limit ?,?";
 		List<Product> list =  executeQuery(sql, new Mapper<Product>() {
 
@@ -64,7 +62,46 @@ public class ProductDAO extends BaseDAO{
 		closeAll();
 		return list;
 	}
+	
+	//查出推荐商品
+	public List<Product> productRecommend(){
+		String sql = "SELECT \r\n"
+				+ "    p.id, \r\n"
+				+ "    p.products_name, \r\n"
+				+ "    p.description, \r\n"
+				+ "    cp.price,\r\n"
+				+ "    (SELECT image_url \r\n"
+				+ "     FROM product_image PI \r\n"
+				+ "     JOIN specification_value sv ON pi.value_id = sv.id\r\n"
+				+ "     JOIN product_specifications ps ON sv.specifications_id = ps.id\r\n"
+				+ "     WHERE ps.product_id = p.id\r\n"
+				+ "     LIMIT 1) AS image_url\r\n"
+				+ "FROM \r\n"
+				+ "    product p\r\n"
+				+ "JOIN commodity_price cp ON p.id = cp.product_id\r\n"
+				+ "WHERE \r\n"
+				+ "    cp.is_recommended = 1\r\n"
+				+ "ORDER BY p.id DESC LIMIT 3;";
+		return executeQuery(sql, new Mapper<Product>() {
+
+			@Override
+			public List<Product> map(ResultSet rs) throws SQLException {
+				List<Product> list = new ArrayList<Product>();
+				while(rs.next()) {
+					Product p = new Product();
+					p.setId(rs.getInt("id"));
+					p.setProducts_name(rs.getString("products_name"));
+					p.setDescription(rs.getString("description"));
+					p.setPrice(rs.getBigDecimal("price"));
+					p.setImage_url(rs.getString("image_url"));
+					list.add(p);
+				}
+				return list;
+			}
+		});
+	} 
+	
 	public static void main(String[] args) {
-		System.out.println(new ProductDAO().type_Product(1, 0, 6).get(1));
+		System.out.println(new ProductDAO().productRecommend().get(1));
 	}
 }

@@ -36,16 +36,19 @@
 					<p class='subject'>推荐商品</p>
 				</div>
 				<ul class='box-list'>
-					<li class='box'>
+					<c:forEach items="${product }" var="item">
+						<li class='box'>
 						<a href="#" target="_blank">
-							<img src='../../img/product/X Fold3 Pro.png'/>
+							<img src="../../img/product/${ item.image_url}?id=${item.id }"/>
 						</a>
 						<div class='prodinfo'>
-							<p class='name'>iQOO Neo8</p>
-							<p class='feature'>自研芯片</p>
-							<p class='price rmb-symbol'>￥ 2299.00</p>
+							<p class='name'>${item.products_name }</p>
+							<p class='feature'>${item.description }</p>
+							<p class='price rmb-symbol'>￥ ${item.price }</p>
 						</div>
 					</li>
+					</c:forEach>
+					
 					
 				</ul>
 			</li>
@@ -54,9 +57,9 @@
 		</ul>
 	</div>
 	<%@include file="../../html/footer.jsp" %>
-	
 	<c:if test="${product==null }">
 		<script>
+		location.href="ProductInitServlet";
 		</script>
 	</c:if>
 </body>
