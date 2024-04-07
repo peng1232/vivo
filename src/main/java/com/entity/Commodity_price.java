@@ -11,13 +11,12 @@ import java.math.BigDecimal;
 public class Commodity_price {
 	private Integer id;//id
 	private BigDecimal price;//价格
+
 	private Integer product_id;//商品表id
+
 	private Integer is_recommended;//是否推荐商品 0不是 1是
 	public Integer getId() {
 		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
 	}
 	public BigDecimal getPrice() {
 		return price;
@@ -36,6 +35,9 @@ public class Commodity_price {
 	}
 	public void setIs_recommended(Integer is_recommended) {
 		this.is_recommended = is_recommended;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	@Override
 	public String toString() {

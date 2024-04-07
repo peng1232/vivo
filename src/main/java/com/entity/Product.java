@@ -32,6 +32,7 @@ public class Product {
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
+
 	public String getImage_url() {
 		return image_url;
 	}
@@ -87,11 +88,13 @@ public class Product {
 		this.state = state;
 	}
 	
+	
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", products_name=" + products_name + ", category_id=" + category_id
 				+ ", description=" + description + ", hits=" + hits + ", purchase_limit=" + purchase_limit
-				+ ", listing_time=" + listing_time + ", state=" + state + ", image_url=" + image_url + "]";
+				+ ", listing_time=" + listing_time + ", state=" + state + ", image_url=" + image_url + ", price="
+				+ price + "]";
 	}
 	public Product(Integer id, String products_name, Integer category_id, String description, Long hits,
 			Integer purchase_limit, Timestamp listing_time, Integer state) {
@@ -105,6 +108,7 @@ public class Product {
 		this.listing_time = listing_time;
 		this.state = state;
 	}
+	
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
