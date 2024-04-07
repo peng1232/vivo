@@ -38,7 +38,7 @@
 				<ul class='box-list'>
 					<li class='box'>
 						<a href="#" target="_blank">
-							<img src='../../img/product/X Fold3 Pro.png'/>
+							<img src='../../../img/product/X Fold3 Pro.png'/>
 						</a>
 						<div class='prodinfo'>
 							<p class='name'>iQOO Neo8</p>
