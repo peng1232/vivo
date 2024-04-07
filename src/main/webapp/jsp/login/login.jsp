@@ -51,13 +51,13 @@
 							<!-- 密码 -->
 							<div class="info_name">
 								<div class="form_item">
-									<input required class="inp" type="text"/>
+									<input required class="inp" value='19312345678' type="text"/>
 									<span class="bar"></span>
 									<label for="username">手机号</label>
 								</div>
 								<div class="tishi ji"></div>
 								<div class="form_item">
-									<input maxlength="20" required class="inp mima" type="password"/>
+									<input maxlength="20" required class="inp mima" value="111111" type="password"/>
 									<span class="bar"></span>
 									<label for="username">密码</label>
 									<div class="yzm" id='biyan'>
