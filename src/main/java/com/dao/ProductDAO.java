@@ -19,14 +19,14 @@ import com.util.Mapper;
 public class ProductDAO extends BaseDAO{
 	//根据类别查询对应的商品
 	public List<Product> type_Product(Integer type_id,Integer curpage,Integer pagesize){
-		String sql = "select * from product where category_id = ? and state = 1 limit ?,?";
+		String sql = "select * from product where category_id = ? and state = 1 order by id desc limit ?,?";
 		List<Product> list =  executeQuery(sql, new Mapper<Product>() {
 
 			@Override
 			public List<Product> map(ResultSet rs) throws SQLException {
 				List<Product> list = new ArrayList<Product>();
 				while(rs.next()) {
-					list.add(new Product(rs.getInt("id"),
+					list. add(new Product(rs.getInt("id"),
 										rs.getString("products_name"),
 										rs.getInt("category_id"),
 										rs.getString("description"),

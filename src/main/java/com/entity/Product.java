@@ -78,11 +78,12 @@ public class Product {
 	public void setState(Integer state) {
 		this.state = state;
 	}
+	
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", products_name=" + products_name + ", category_id=" + category_id
 				+ ", description=" + description + ", hits=" + hits + ", purchase_limit=" + purchase_limit
-				+ ", listing_time=" + listing_time + ", state=" + state + "]";
+				+ ", listing_time=" + listing_time + ", state=" + state + ", image_url=" + image_url + "]";
 	}
 	public Product(Integer id, String products_name, Integer category_id, String description, Long hits,
 			Integer purchase_limit, Timestamp listing_time, Integer state) {

@@ -66,6 +66,7 @@ $(function() {
 			    var a = $('<a href="#"></a>');
 			    var div = $('<div class="item_images"></div>');
 			    var img = $('<img />');
+			    img.attr('src','../../img/product/'+pro.image_url)
 			    var p = $('<p>'+pro.products_name+'</p>');
 			    a.append(div);
 			    div.append(img);
