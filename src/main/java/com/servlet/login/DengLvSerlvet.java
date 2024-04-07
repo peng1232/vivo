@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.alibaba.fastjson2.JSONObject;
+import com.dao.Shopping_CartDAO;
 import com.dao.User_Login_TimeDAO;
 import com.dao.UsersDAO;
 import com.entity.Users;
@@ -21,6 +22,7 @@ public class DengLvSerlvet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	UsersDAO udao = new UsersDAO();
 	User_Login_TimeDAO tdao = new User_Login_TimeDAO();
+	Shopping_CartDAO sdao=  new Shopping_CartDAO();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String phone = request.getParameter("phone");
@@ -39,7 +41,8 @@ public class DengLvSerlvet extends HttpServlet {
 			HttpSession session = request.getSession();
 			//添加用户登录时间表
 			tdao.insertUserTime(user.getId());
-			
+			//查询用户的购物车数量
+
 			session.setAttribute("user", user);
 			jsonObj.put("flag", "true");
 		}else {

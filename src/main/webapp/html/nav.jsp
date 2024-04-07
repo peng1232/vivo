@@ -12,6 +12,7 @@
 </head> -->
 <body>
 	<header id="head">
+		<input id="bian" type="hidden" value="${user.id }">
 		<div class="vp_head">
 			<div class="head_top">
 				<div>
@@ -23,7 +24,7 @@
 					</ul>
 					<div class="head_top_right">
 						<div class="fl">
-							<a class="navs">购物车(2)</a>
+							<a href="../qian/shpping.jsp" class="navs gou">购物车</a>
 						</div>
 						<div class="fl wei">
 							<span class="navs">个人中心</span>
@@ -124,10 +125,10 @@
 					</div>
 					<div class="buttom_center">
 						<ul class="c_type">
-							<li><a href="#">类别1</a></li>
+							<!-- <li><a href="#">类别1</a></li>
 							<li><a href="#">类别2</a></li>
 							<li><a href="#">类别3</a></li>
-							<li><a href="#">类别4</a></li>
+							<li><a href="#">类别4</a></li> -->
 						</ul>
 					</div>
 					<div class="buttom_right" id="search">
@@ -152,7 +153,7 @@
 				<div class="bukuai_phone bukuai">
 					<div>
 						<div class="phone_top">
-							<ul class="phone_total">
+							<!-- <ul class="phone_total">
 								<li><a href="#">
 										<div class="item_images">
 											<img
@@ -250,7 +251,7 @@
 										</div>
 										<p>商品名称4</p>
 								</a></li>
-							</ul>
+							</ul> -->
 						</div>
 						<div class="mune_buttom">
 							<a href="#"><svg t="1710728535432" class="icon"
