@@ -19,7 +19,7 @@ import com.util.Mapper;
 public class ProductDAO extends BaseDAO{
 	//根据类别查询对应的商品
 	public List<Product> type_Product(Integer type_id,Integer curpage,Integer pagesize){
-		String sql = "select * from product where category_id = ? and state = 1 order by id desc limit ?,?";
+		String sql = "select * from product where category_id = ? and state = 1 limit ?,?";
 		List<Product> list =  executeQuery(sql, new Mapper<Product>() {
 
 			@Override
@@ -62,6 +62,6 @@ public class ProductDAO extends BaseDAO{
 		return list;
 	}
 	public static void main(String[] args) {
-		System.out.println(new ProductDAO().type_Product(1, 0, 6).get(1).getImage_url());
+		System.out.println(new ProductDAO().type_Product(1, 0, 6).get(1));
 	}
 }
