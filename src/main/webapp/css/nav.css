@@ -51,6 +51,7 @@
 	display: block;
 	width: 100%;
 	height: 100%;
+	text-decoration: none;
 }
 .fl:hover>a{
 	color: #fff;
@@ -275,7 +276,8 @@
     overflow: hidden;
 }
 .item_images img{
-	width: 60px;
+	/* width: 60px; */
+	    height: 85%;
 }
 .mune_buttom{
 	width: 100%;
