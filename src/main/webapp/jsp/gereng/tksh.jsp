@@ -43,10 +43,9 @@
 			</div>
 			<div class="right">
 				<div class="tkgl">退款/售后查询</div>
-
 				<div class="list-caption">
 					<div class="col0">商品名称</div>
-					<div class="col1">服务类型</div>
+					<div class="col1">退款原因</div>
 					<div class="co12">状态</div>
 					<div class="col3">操作</div>
 				</div>
