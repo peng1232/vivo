@@ -19,7 +19,6 @@
 	<!-- 内容体 -->
 	<div id='content' class='clearfix'>
 		<!-- 头 -->
-		<img src='../../img/product/X Fold3 Pro_1.png'/>
 		<div class='crumbs'>
 			<div class='section_wrapper'>
 				<a href='shouye.jsp' class='first'>商城首页</a>
