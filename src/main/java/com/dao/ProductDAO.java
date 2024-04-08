@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.entity.Product;
 import com.util.BaseDAO;
@@ -61,7 +62,89 @@ public class ProductDAO extends BaseDAO{
 		closeAll();
 		return list;
 	}
+	
+	//查出推荐商品
+	public List<Product> productRecommend(){
+		String sql = "SELECT \r\n"
+				+ "    p.id, \r\n"
+				+ "    p.products_name, \r\n"
+				+ "    p.description, \r\n"
+				+ "    cp.price,\r\n"
+				+ "    (SELECT image_url \r\n"
+				+ "     FROM product_image PI \r\n"
+				+ "     JOIN specification_value sv ON pi.value_id = sv.id\r\n"
+				+ "     JOIN product_specifications ps ON sv.specifications_id = ps.id\r\n"
+				+ "     WHERE ps.product_id = p.id\r\n"
+				+ "     LIMIT 1) AS image_url\r\n"
+				+ "FROM \r\n"
+				+ "    product p\r\n"
+				+ "JOIN commodity_price cp ON p.id = cp.product_id\r\n"
+				+ "WHERE \r\n"
+				+ "    cp.is_recommended = 1\r\n"
+				+ "ORDER BY p.id DESC LIMIT 3;";
+		return executeQuery(sql, new Mapper<Product>() {
+
+			@Override
+			public List<Product> map(ResultSet rs) throws SQLException {
+				List<Product> list = new ArrayList<Product>();
+				while(rs.next()) {
+					Product p = new Product();
+					p.setId(rs.getInt("id"));
+					p.setProducts_name(rs.getString("products_name"));
+					String miao = rs.getString("description");
+					String[] split = miao.split("\\|");
+					p.setDescription(split[(int) (Math.random()*split.length)]);
+					p.setPrice(rs.getBigDecimal("price"));
+					p.setImage_url(rs.getString("image_url"));
+					list.add(p);
+				}
+				return list;
+			}
+		});
+	} 
+	
+	//查询点击量最多的八个商品
+	public List<Product> productHits(){
+		String sql ="SELECT \r\n"
+				+ "    p.id,\r\n"
+				+ "    p.products_name,\r\n"
+				+ "    p.description,\r\n"
+				+ "    p.hits,\r\n"
+				+ "    (SELECT MIN(cp.price) \r\n"
+				+ "     FROM commodity_price cp \r\n"
+				+ "     WHERE cp.product_id = p.id) AS price,\r\n"
+				+ "    (SELECT pi.image_url \r\n"
+				+ "     FROM product_image PI \r\n"
+				+ "     JOIN specification_value sv ON pi.value_id = sv.id\r\n"
+				+ "     JOIN product_specifications ps ON sv.specifications_id = ps.id \r\n"
+				+ "     WHERE ps.product_id = p.id \r\n"
+				+ "     LIMIT 1) AS image_url\r\n"
+				+ "FROM \r\n"
+				+ "    product p\r\n"
+				+ "ORDER BY p.hits DESC LIMIT 8;\r\n"
+				+ "";
+		return executeQuery(sql, new Mapper<Product>() {
+
+			@Override
+			public List<Product> map(ResultSet rs) throws SQLException {
+				List<Product> list = new ArrayList<Product>();
+				while(rs.next()) {
+					Product p = new Product();
+					p.setId(rs.getInt("id"));
+					p.setProducts_name(rs.getString("products_name"));
+					String miao = rs.getString("description");
+					String[] split = miao.split("\\|");
+					p.setDescription(split[(int) (Math.random()*split.length)]);
+					p.setPrice(rs.getBigDecimal("price"));
+					p.setImage_url(rs.getString("image_url"));
+					list.add(p);
+				}
+				return list;
+			}
+		});
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(new ProductDAO().type_Product(1, 0, 6).get(1));
+		System.out.println(new ProductDAO().productHits().get(0));
 	}
 }

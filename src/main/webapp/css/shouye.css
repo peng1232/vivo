@@ -1,7 +1,9 @@
 @charset "UTF-8";
-body{
+
+body {
 	background-color: #f7f7f5;
 }
+
 .lun {
 	width: 100%;
 	overflow: hidden;
@@ -107,6 +109,7 @@ body{
 .floor-list {
 	width: 100%;
 	display: inline-block;
+	padding-bottom: 40px;
 }
 
 .floor-list li {
@@ -143,6 +146,7 @@ body{
 	background-color: #fff;
 	transition: all .2s linear;
 	background: #fff;
+	border-radius: 5px;
 }
 
 .box a {
@@ -167,27 +171,49 @@ body{
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+.floor .name {
+    padding-top: 16px;
+    color: #333;
+    font-size: 16px;
+    line-height: 30px;
+}
 
-.name {
+.da .name {
 	padding-top: 29px;
 	font-size: 20px;
 	color: #333;
 	line-height: 30px;
 }
+.floor.da .feature {
+    padding: 8px 50px 53px;
+    font-size: 14px;
+}
+.floor .feature {
+    padding: 2px 15px 40px;
+    height: 24px;
+    color: #333;
+    font-size: 12px;
+    line-height: 24px;
+}
 
-.feature {
-	padding: 8px 50px 53px;
-	font-size: 14px;
-	height: 24px;
-	color: #333;
-	line-height: 24px;
-}
-.price{
+.price {
 	color: #f51919;
-    font-size: 18px;
-    line-height: 1;
+	font-size: 18px;
+	line-height: 1;
 }
-.box:hover{
-    transform: translate3d(0, -2px, 0);
-    box-shadow: 0 15px 30px rgba(0,0,0,.1);
+
+.box:hover {
+	transform: translate3d(0, -2px, 0);
+	box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+}
+
+.xiao .box {
+	height: 380px;
+	width: 293px;
+}
+
+.xiao .box>a>img{
+	margin: 43px auto 0;
+	width: 172px;
+	height: 172px;
 }
