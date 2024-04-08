@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!-- <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,7 @@
 </head> -->
 <body>
 	<header id="head">
+		<input id="bian" type="hidden" value="${user.id }">
 		<div class="vp_head">
 			<div class="head_top">
 				<div>
@@ -22,13 +24,14 @@
 					</ul>
 					<div class="head_top_right">
 						<div class="fl">
-							<a class="navs">购物车(2)</a>
+							<a href="../qian/shpping.jsp" class="navs gou">购物车</a>
 						</div>
 						<div class="fl wei">
 							<span class="navs">个人中心</span>
 							<div class="user_meun">
 								<div class="nav_nr"></div>
-								<div class="menu_item">
+								<c:if test="${user!=null }" var="pan">
+									<div class="menu_item">
 									<a href="#"> <span class="svg"> <svg
 												t="1710472561959" class="icon" viewBox="0 0 1024 1024"
 												version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4303"
@@ -76,8 +79,10 @@
 									</span> <span>账号中心</span>
 									</a>
 								</div>
-								<div class="menu_item">
-									<a href="#"> <span class="svg"> <svg
+								</c:if>
+								<c:if test="${!pan }">
+									<div class="menu_item">
+									<a href="../login/login.jsp"> <span class="svg"> <svg
 												t="1710484307108" class="icon" viewBox="0 0 1024 1024"
 												version="1.1" xmlns="http://www.w3.org/2000/svg"
 												p-id="16517" width="16" height="16">
@@ -91,7 +96,7 @@
 									</a>
 								</div>
 								<div class="menu_item">
-									<a href="#"> <span class="svg"> <svg
+									<a href="../login/zhuce.jsp"> <span class="svg"> <svg
 												t="1710484374112" class="icon" viewBox="0 0 1024 1024"
 												version="1.1" xmlns="http://www.w3.org/2000/svg"
 												p-id="17807" width="16" height="16">
@@ -101,6 +106,8 @@
 									</span> <span>注册</span>
 									</a>
 								</div>
+								</c:if>
+								
 							</div>
 						</div>
 					</div>
@@ -118,10 +125,10 @@
 					</div>
 					<div class="buttom_center">
 						<ul class="c_type">
-							<li><a href="#">类别1</a></li>
+							<!-- <li><a href="#">类别1</a></li>
 							<li><a href="#">类别2</a></li>
 							<li><a href="#">类别3</a></li>
-							<li><a href="#">类别4</a></li>
+							<li><a href="#">类别4</a></li> -->
 						</ul>
 					</div>
 					<div class="buttom_right" id="search">
@@ -146,7 +153,7 @@
 				<div class="bukuai_phone bukuai">
 					<div>
 						<div class="phone_top">
-							<ul class="phone_total">
+							<!-- <ul class="phone_total">
 								<li><a href="#">
 										<div class="item_images">
 											<img
@@ -244,7 +251,7 @@
 										</div>
 										<p>商品名称4</p>
 								</a></li>
-							</ul>
+							</ul> -->
 						</div>
 						<div class="mune_buttom">
 							<a href="#"><svg t="1710728535432" class="icon"
@@ -270,5 +277,5 @@
 			</div>
 		</div>
 	</header>
-<!-- </body>
+	<!-- </body>
 </html> -->
