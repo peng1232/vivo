@@ -30,13 +30,12 @@
 		<div class='base-info'>
 			<div class='base-info_container clearfix'>
 				<div class='base_left'></div>
-				
 				<div class='base_right'>
-					<h1 class='name'>XXXXXXXXXXXXXXXXXXXXXXXXXXXxx</h1>
-					<p class='intro'> 219g机身超轻薄设计|等效5500mAh蓝海电池|超可靠铠羽架构|蔡司超级长焦|2K+ E7超感巨幕|80W超快闪充 </p>
+					<h1 class='name'>${product.products_name }</h1>
+					<p class='intro'>${product.description }</p>
 					<div class='summary'>
 						<div class='summary_price'>
-							<p class='sale-price'>￥2399.00</p>
+							<p class='sale-price'>￥2399.00(si)</p>
 						</div>
 						<div class='summary_activity'>
 							<ul class='list'>
@@ -55,6 +54,18 @@
 							</ul>
 						</div>
 					</div>
+					<dl>
+						<c:forEach items="${Specifications }" varStatus="index" var="item">
+							<dt class='sku-module_title'>${ item.specifications_name}</dt>
+							<dd class='sku-module_content'>
+								<ul class='list_item'>
+									<c:forEach items="${value[index.index] }" var="va" varStatus="x">
+										<li class="sku-module_item ${x.index==0?'sku_checked': ''}">${va.value }</li>
+									</c:forEach>
+								</ul>
+							</dd>
+						</c:forEach>
+					</dl>
 				</div>
 			</div>
 		</div>
