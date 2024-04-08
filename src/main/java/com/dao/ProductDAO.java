@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.entity.Product;
 import com.util.BaseDAO;
@@ -91,7 +92,9 @@ public class ProductDAO extends BaseDAO{
 					Product p = new Product();
 					p.setId(rs.getInt("id"));
 					p.setProducts_name(rs.getString("products_name"));
-					p.setDescription(rs.getString("description"));
+					String miao = rs.getString("description");
+					String[] split = miao.split("\\|");
+					p.setDescription(split[(int) (Math.random()*split.length)]);
 					p.setPrice(rs.getBigDecimal("price"));
 					p.setImage_url(rs.getString("image_url"));
 					list.add(p);
@@ -101,7 +104,48 @@ public class ProductDAO extends BaseDAO{
 		});
 	} 
 	
+	//查询点击量最多的八个商品
+	public List<Product> productHits(){
+		String sql ="SELECT \r\n"
+				+ "    p.id,\r\n"
+				+ "    p.products_name,\r\n"
+				+ "    p.description,\r\n"
+				+ "    p.hits,\r\n"
+				+ "    (SELECT MIN(cp.price) \r\n"
+				+ "     FROM commodity_price cp \r\n"
+				+ "     WHERE cp.product_id = p.id) AS price,\r\n"
+				+ "    (SELECT pi.image_url \r\n"
+				+ "     FROM product_image PI \r\n"
+				+ "     JOIN specification_value sv ON pi.value_id = sv.id\r\n"
+				+ "     JOIN product_specifications ps ON sv.specifications_id = ps.id \r\n"
+				+ "     WHERE ps.product_id = p.id \r\n"
+				+ "     LIMIT 1) AS image_url\r\n"
+				+ "FROM \r\n"
+				+ "    product p\r\n"
+				+ "ORDER BY p.hits DESC LIMIT 8;\r\n"
+				+ "";
+		return executeQuery(sql, new Mapper<Product>() {
+
+			@Override
+			public List<Product> map(ResultSet rs) throws SQLException {
+				List<Product> list = new ArrayList<Product>();
+				while(rs.next()) {
+					Product p = new Product();
+					p.setId(rs.getInt("id"));
+					p.setProducts_name(rs.getString("products_name"));
+					String miao = rs.getString("description");
+					String[] split = miao.split("\\|");
+					p.setDescription(split[(int) (Math.random()*split.length)]);
+					p.setPrice(rs.getBigDecimal("price"));
+					p.setImage_url(rs.getString("image_url"));
+					list.add(p);
+				}
+				return list;
+			}
+		});
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(new ProductDAO().productRecommend().get(1));
+		System.out.println(new ProductDAO().productHits().get(0));
 	}
 }

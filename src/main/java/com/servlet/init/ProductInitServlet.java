@@ -21,7 +21,9 @@ public class ProductInitServlet extends HttpServlet {
 	ProductDAO pdao = new ProductDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Product> product = pdao.productRecommend();
+		List<Product> hits = pdao.productHits();
 		request.setAttribute("product", product);
+		request.setAttribute("hits", hits);
 		request.getRequestDispatcher("shouye.jsp").forward(request, response);
 	}
 
