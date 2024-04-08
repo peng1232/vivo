@@ -63,7 +63,8 @@ $(function() {
 			
 			$.each(re.product[index],function(ind,pro){
 				var li = $('<li></li>');
-			    var a = $('<a href="#"></a>');
+			    var a = $('<a></a>');
+			    a.attr('href','XianXiSerlvet?id='+pro.id)
 			    var div = $('<div class="item_images"></div>');
 			    var img = $('<img />');
 			    img.attr('src','../../img/product/'+pro.image_url)
