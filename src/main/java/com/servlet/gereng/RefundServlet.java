@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +14,7 @@ import com.alibaba.fastjson2.JSONObject;
 import com.dao.RefundDAO;
 import com.entity.Refund;
 
-
+@WebServlet("/jsp/refund")
 public class RefundServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	RefundDAO r = new RefundDAO();
