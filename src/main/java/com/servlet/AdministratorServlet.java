@@ -9,25 +9,32 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.dao.AdministratorDAO;
 import com.entity.Administrator;
-@WebServlet(urlPatterns = "/jsp/background/AdministratorSer")
+import com.qita.Yzm;
+@WebServlet(urlPatterns = "/jsp/background/glydenglu")
+
 public class AdministratorServlet extends HttpServlet {
-	private AdministratorDAO administratorDAO = new AdministratorDAO();
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-		List<Administrator> list =administratorDAO.queryAll();
-		request.setAttribute("list",list);
-		try {
-			request.getRequestDispatcher("guanliyuandenglu").forward(request, response);
-		} catch (ServletException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
+	
+	 private static final long serialVersionUID = 1L;
+
+	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	        String account = request.getParameter("username");
+	        String password = request.getParameter("password");
+
+	        AdministratorDAO administratorDAO = new AdministratorDAO();
+	        Administrator administrator = administratorDAO.dengLu(account, password);
+	        System.out.println(administrator);
+	        if (administrator != null) {
+	            HttpSession session = request.getSession();
+	            session.setAttribute("administrator", administrator);
+	            response.sendRedirect("backgroundcenter.jsp");
+	        } else {
+	            response.sendRedirect("guanliyuandenglu.jsp?error=1");
+	        }
+	    }
 	
 }
