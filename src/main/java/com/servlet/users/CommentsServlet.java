@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dao.CommentsDAO;
+import com.entity.Comments;
 
 /**
  * Servlet implementation class CommentsServlet
@@ -17,12 +18,11 @@ import com.dao.CommentsDAO;
 @WebServlet("/jsp/user/CommentsServlet")
 public class CommentsServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    CommentsDAO commentsDAO = new CommentsDAO();
+    private CommentsDAO commentsDAO = new CommentsDAO();
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<CommentsDAO> list = commentsDAO.querALL();
-        request.setAttribute("list", list); // 设置请求属性名为 "list"
-        request.getRequestDispatcher("Comments.jsp").forward(request, response); // 转发请求
+    	List<Comments> commentsList = commentsDAO.queryUser_Comments(2);
+        request.setAttribute("commentsList", commentsList);
+        request.getRequestDispatcher("pinglun.jsp").forward(request, response);
     }
-
 }
