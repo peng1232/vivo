@@ -31,7 +31,7 @@ public class RefundDAO extends BaseDAO {
 					Integer state = rs.getInt("state");
 					// 将获取到的数据，封装到实体类对象中
 					// 一行记录--->一个对象
-					Refund obj=new Refund(id, id, sql, null, refund_reason, state, null, null, refund_reason)
+					Refund obj=new Refund(id, id, sql, null, refund_reason, state, null, null, refund_reason);
 					// 将对象添加到集合中
 					list.add(obj);
 				}
