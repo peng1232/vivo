@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Random;
 
 import com.entity.Product;
+import com.entity.Product_specifications;
+import com.entity.Specification_value;
 import com.util.BaseDAO;
 import com.util.Mapper;
 
@@ -144,7 +146,66 @@ public class ProductDAO extends BaseDAO{
 		});
 	}
 	
+	//查询商品的图片集
+	
+	//根据商品id查出对应的数据
+	public Product queryProduct(Integer product_id) {
+		String sql = "select * from product where id = ?";
+		Product p = null;
+		try {
+			stmt = getConn().prepareStatement(sql);
+			stmt.setObject(1, product_id);
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				p = new Product(rs.getInt("id"),
+						rs.getString("products_name"),
+						rs.getInt("category_id"),
+						rs.getString("description"),
+						rs.getLong("hits"),
+						rs.getInt("purchase_limit"),
+						rs.getTimestamp("listing_time"),
+						rs.getInt("state"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return p;
+	}
+
+	//查出该商品的规格
+	public List<Product_specifications> querySpecifications(Integer product_id) {
+		String sql = "SELECT * FROM product_specifications WHERE product_id = ?";
+		return executeQuery(sql, new Mapper<Product_specifications>() {
+
+			@Override
+			public List<Product_specifications> map(ResultSet rs) throws SQLException {
+				List<Product_specifications> list = new ArrayList<Product_specifications>();
+				while(rs.next()) {
+					list.add(new Product_specifications(rs.getInt("id"), rs.getInt("product_id"), rs.getString("specifications_name")));
+				}
+				return list;
+			}
+		}, product_id);
+	}
+	//查出该商品的规格值
+	public List<Specification_value> queryValue(Integer specifications_id) {
+		String sql = "SELECT * FROM specification_value WHERE specifications_id = ?";
+		return executeQuery(sql, new Mapper<Specification_value>() {
+
+			@Override
+			public List<Specification_value> map(ResultSet rs) throws SQLException {
+				List<Specification_value> list = new ArrayList<Specification_value>();
+				while(rs.next()) {
+					list.add(new Specification_value(rs.getInt("id"), rs.getInt("specifications_id"), rs.getString("value")));
+				}
+				return list;
+			}
+		}, specifications_id);
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(new ProductDAO().productHits().get(0));
+		System.out.println(new ProductDAO().queryValue(1));
 	}
 }
