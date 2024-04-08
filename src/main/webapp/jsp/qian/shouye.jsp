@@ -38,7 +38,7 @@
 				<ul class='box-list'>
 					<c:forEach items="${product }" var="item">
 						<li class='box'>
-						<a href="#" target="_blank">
+						<a href="XianXiSerlvet?id=${item.id }" target="_blank">
 							<img src="../../img/product/${ item.image_url}?id=${item.id }"/>
 						</a>
 						<div class='prodinfo'>
@@ -60,7 +60,7 @@
 				<ul class='box-list'>
 					<c:forEach items="${hits }" var="item">
 						<li class='box'>
-						<a href="#" target="_blank">
+						<a href="XianXiSerlvet?id=${item.id }" target="_blank">
 							<img src="../../img/product/${ item.image_url}?id=${item.id }"/>
 						</a>
 						<div class='prodinfo'>

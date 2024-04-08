@@ -8,7 +8,9 @@
 <link rel="icon name" href="../../img/favicon.ico" />
 <script type="text/javascript" src="../../js/jquery.min.js"></script>
 <link href="../../css/nav.css" rel="stylesheet"/>
+<link href="../../css/xianxi.css" rel="stylesheet"/>
 <script src="../../js/nav.js"></script>
+<script src="../../js/xianxi.js"></script>
 <link href="../../css/footer.css" rel="stylesheet" />
 </head>
 <body>
