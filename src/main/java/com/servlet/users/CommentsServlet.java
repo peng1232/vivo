@@ -23,6 +23,6 @@ public class CommentsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	List<Comments> commentsList = commentsDAO.queryUser_Comments(2);
         request.setAttribute("commentsList", commentsList);
-        request.getRequestDispatcher("pinglun.jsp").forward(request, response);
+        request.getRequestDispatcher("pinglun.jsp").forward(request, response);/////
     }
 }
