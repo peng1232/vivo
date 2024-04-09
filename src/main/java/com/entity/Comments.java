@@ -64,9 +64,6 @@ public class Comments {
 		this.state = state;
 		this.com_grade = com_grade;
 	}
-	public Comments() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 	
 }
