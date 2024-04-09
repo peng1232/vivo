@@ -60,7 +60,7 @@
 							<dd class='sku-module_content'>
 								<ul class='list_item'>
 									<c:forEach items="${value[index.index] }" var="va" varStatus="x">
-										<li class="sku-module_item ${x.index==0?'sku_checked': ''}">${va.value }</li>
+										<li class="sku-module_item ${x.index==0?'sku_checked': ''}" productid='${va.id }'>${va.value }</li>
 									</c:forEach>
 								</ul>
 							</dd>
