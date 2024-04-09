@@ -24,7 +24,7 @@ public class SKUServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// 获取传递过来的JSON字符串
 		String jsonData = request.getParameter("data");
-
+		Integer proid = Integer.valueOf(request.getParameter("proid"));
 		// 使用fastjson2的parseArray方法将JSON字符串转换为JSONArray对象
 		JSONArray jsonArray = JSONArray.parseArray(jsonData);
 
@@ -36,9 +36,14 @@ public class SKUServlet extends HttpServlet {
 			list.add(number);
 		}
 		Commodity_price price = pdao.queryPrice(list);
+		
+		//读取图片
+		List<String> url_image = pdao.queryUrl_image(proid,list.get(list.size()-1) );
+		
 		JSONObject jsonObj = new JSONObject();
 		//存价格
 		jsonObj.put("price", price);
+		jsonObj.put("url_image", url_image);
 
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");

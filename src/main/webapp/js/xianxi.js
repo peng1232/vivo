@@ -11,40 +11,40 @@ $(function() {
 
 	//左右
 	$(".opration").on("mousedown", function() {
-		$(this).css('borderColor','#eaeaea')
-		$(this).find('svg path').css("fill",'#eaeaea')
+		$(this).css('borderColor', '#eaeaea')
+		$(this).find('svg path').css("fill", '#eaeaea')
 	});
 	$(".opration").on("mouseup", function() {
-		$(this).css('borderColor','#b3b3b3')
-		$(this).find('svg path').css("fill",'#b3b3b3')
+		$(this).css('borderColor', '#b3b3b3')
+		$(this).find('svg path').css("fill", '#b3b3b3')
 	});
 	//右点击事件
 	var count = 0;
 	var lian = 91;
 	$(".op_right").on("click", function() {
 		var sum = $('.small_item').length;
-		if(sum>4&&(sum-4)>count){
+		if (sum > 4 && (sum - 4) > count) {
 			count++;
-			var p = count*lian;
-			$('.img_samll').css('left','-'+p+'px')
+			var p = count * lian;
+			$('.img_samll').css('left', '-' + p + 'px')
 		}
-		
+
 	});
 	//左点击事件
 	$(".op_left").on("click", function() {
-		if(count>0){
+		if (count > 0) {
 			count--;
-			var p = count*lian;
-			$('.img_samll').css('left','-'+p+'px')
+			var p = count * lian;
+			$('.img_samll').css('left', '-' + p + 'px')
 		}
 	});
-	
-	//小图标的伪类
-	$('.small_item').on('mouseover',function(){
-		var that = $(this);
-		$('.big_item').removeClass('xianshi');
-		$('.big_item').eq(that.index()).addClass('xianshi')
-	})
+
+	// 将事件绑定到父元素上
+	$('.img_small').on('mouseover', '.small_item', function() {
+	    var that = $(this);
+	    $('.big_item').removeClass('xianshi');
+	    $('.big_item').eq(that.index()).addClass('xianshi');
+	});
 })
 var yuan = [];
 function shua() {
@@ -58,9 +58,42 @@ function shua() {
 	if (!arraysEqual(yuan, xin)) {
 		//发送请求
 		var jsonData = JSON.stringify(xin);
-		$.getJSON("SKUServlet", { data: jsonData }, function(response) {
+		var proid = $(".name").attr('pro');
+		$.getJSON("SKUServlet", { data: jsonData, proid: proid }, function(response) {
 			$('.sale-price').text("￥" + response.price.price + ".00");
 			$('.sale-price').attr("price_id", response.price.id);
+
+			console.log(response.url_image)
+			$(".img_list_big").empty();
+			$(".img_samll").empty();
+			for (var i = 0; i < response.url_image.length; i++) {
+				// 添加商品图片
+				var li = $('<li class="big_item"></li>');
+				var img = $('<img />', { src: "../../img/product/" + response.url_image[i] });
+				li.append(img);
+				if (i == 0) {
+					li.addClass('xianshi')
+				}
+				$('.img_list_big').append(li);
+				//添加商品小图片
+				var li2 = $('<li class="small_item"></li>');
+				var img2 = $('<img />', { src: "../../img/product/" + response.url_image[i] });
+				li2.append(img2);
+				$('.img_samll').append(li2);
+			}
+			//默认的
+			var li = $('<li class="big_item"></li>');
+			var img = $('<img />', { src: "../../img/product/gou.png" });
+			li.append(img);
+			if (i == 0) {
+				li.addClass('xianshi')
+			}
+			$('.img_list_big').append(li);
+			//添加商品小图片
+			var li2 = $('<li class="small_item"></li>');
+			var img2 = $('<img />', { src: "../../img/product/gou.png" });
+			li2.append(img2);
+			$('.img_samll').append(li2);
 			console.log(response)
 		});
 

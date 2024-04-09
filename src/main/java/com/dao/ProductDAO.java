@@ -149,6 +149,24 @@ public class ProductDAO extends BaseDAO{
 	}
 	
 	//查询商品的图片集
+	public List<String> queryUrl_image(Integer product,Integer value_id){
+		String sql = "SELECT pi.image_url FROM product p\r\n"
+				+ "JOIN product_specifications ps ON p.id = ps.product_id\r\n"
+				+ "JOIN specification_value sv ON ps.id = sv.specifications_id\r\n"
+				+ "JOIN product_image PI ON sv.id = pi.value_id\r\n"
+				+ "WHERE p.id = ? AND sv.id = ?";
+		return executeQuery(sql, new Mapper<String>() {
+
+			@Override
+			public List<String> map(ResultSet rs) throws SQLException {
+				List<String> list = new ArrayList<String>();
+				while(rs.next()) {
+					list.add(rs.getString("image_url"));
+				}
+				return list;
+			}
+		}, product,value_id);
+	}
 	
 	//根据商品id查出对应的数据
 	public Product queryProduct(Integer product_id) {
@@ -242,6 +260,6 @@ public class ProductDAO extends BaseDAO{
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(new ProductDAO().queryPrice(Arrays.asList(1,2)));
+		System.out.println(new ProductDAO().queryUrl_image(1,4));
 	}
 }
