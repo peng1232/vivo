@@ -60,11 +60,9 @@ a {
 
 .base_left {
 	width: 515px;
-	height: 100px;
-	background: #000;
 	float: left;
 	position: sticky;
-	top: 20px;
+	top: 30px;
 }
 
 .base_right {
@@ -74,10 +72,11 @@ a {
 }
 
 .name {
-	font-size: 34px;
+	font-size: 33px;
 	line-height: 1.2;
 	margin-top: 10px;
 	word-wrap: break-word;
+	font-weight: bold;
 }
 
 .intro {
@@ -192,4 +191,99 @@ list_item p {
 .sku_checked {
 	color: #e90f23;
 	border-color: #e90f23
+}
+
+.img_list_big {
+	width: 100%;
+	height: 515px;
+	position: relative;
+}
+
+.big_item {
+	width: 515px;
+	height: 515px;
+	list-style: none;
+	position: absolute;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	z-index: 0;
+	transition: opacity .8s;
+}
+
+.xianshi {
+	opacity: 1;
+	z-index: 1;
+}
+
+.big_item img {
+	width: 100%;
+	height: 100%;
+}
+
+.img_small {
+	position: relative;
+	margin: 50px 0 15px;
+	height: 87px;
+	border: 1px solid #eaeaea;
+	border-radius: 20px;
+}
+
+.opration {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 38px;
+	height: 38px;
+	line-height: 38px;
+	color: #b3b3b3;
+	border-radius: 50%;
+	/* #eaeaea */
+	border: 1px solid #b3b3b3;
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+	transition: all .3s;
+}
+
+.op_left {
+	left: 30px;
+}
+
+.op_right {
+	right: 30px;
+}
+
+.list_wrapper {
+	width: 378px;
+	height: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+}
+
+.ul_xiao {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	white-space: nowrap;
+	transition: all .5s;
+}
+
+.small_item {
+	display: inline-block;
+	width: 87px;
+	height: 87px;
+	line-height: 87px;
+	margin: 0 2px;
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+	list-style: none;
+}
+
+.small_item img {
+	width: 85px;
+	height: 85px;
 }

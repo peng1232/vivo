@@ -29,13 +29,56 @@
 		<!-- 内容 -->
 		<div class='base-info'>
 			<div class='base-info_container clearfix'>
-				<div class='base_left'></div>
+				<div class='base_left'>
+					<ul class='img_list_big'>
+						<li class='big_item xianshi'>
+							<img src='../../img/product/X Fold3 Pro_1.png'/>
+						</li>
+						<li class='big_item'>
+							<img src='../../img/product/X Fold3 Pro_2.png'/>
+						</li>
+						<li class='big_item'>
+							<img src='../../img/product/X Fold3 Pro_3.png'/>
+						</li>
+						<li class='big_item'>
+							<img src='../../img/product/X Fold3 Pro_4.png'/>
+						</li>
+						<li class='big_item'>
+							<img src='../../img/product/gou.png'/>
+						</li>
+					</ul>
+					<div class='img_small'>
+						<span class='opration op_left'><svg style='    transform: rotate(180deg);' t="1712546482937" class="icon jian" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4256" width="16" height="16"><path d="M347.687 144.188l-52.761 52.238 313.928 316.082-316.568 313.42 52.314 52.673 369.322-365.663z" fill="#999999" p-id="4257"></path></svg></span>
+						<span class='opration op_right'><svg t="1712546482937" class="icon jian" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4256" width="16" height="16"><path d="M347.687 144.188l-52.761 52.238 313.928 316.082-316.568 313.42 52.314 52.673 369.322-365.663z" fill="#999999" p-id="4257"></path></svg></span>
+						<div class='list_wrapper'>
+							<ul class='img_samll ul_xiao' style='left:0px;'>
+								<li class='small_item'>
+									<img src='../../img/product/X Fold3 Pro_1.png'/>
+								</li>
+								<li class='small_item'>
+									<img src='../../img/product/X Fold3 Pro_2.png'/>
+								</li>
+								<li class='small_item'>
+									<img src='../../img/product/X Fold3 Pro_3.png'/>
+								</li>
+								<li class='small_item'>
+									<img src='../../img/product/X Fold3 Pro_4.png'/>
+								</li>
+								<li class='small_item'>
+									<img src='../../img/product/gou.png'/>
+								</li>
+							</ul>
+						</div>
+						
+					</div>
+				</div>
 				<div class='base_right'>
-					<h1 class='name'>${product.products_name }</h1>
+					<input class='tit' type="hidden" value="vivo ${product.products_name }">
+					<p class='name'></p>
 					<p class='intro'>${product.description }</p>
 					<div class='summary'>
 						<div class='summary_price'>
-							<p class='sale-price'>￥2399.00(si)</p>
+							<p class='sale-price'></p>
 						</div>
 						<div class='summary_activity'>
 							<ul class='list'>
@@ -66,6 +109,7 @@
 							</dd>
 						</c:forEach>
 					</dl>
+					
 				</div>
 			</div>
 		</div>

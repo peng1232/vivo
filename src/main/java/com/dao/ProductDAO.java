@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+import com.entity.Commodity_price;
 import com.entity.Product;
 import com.entity.Product_specifications;
 import com.entity.Specification_value;
@@ -205,7 +207,41 @@ public class ProductDAO extends BaseDAO{
 		}, specifications_id);
 	}
 	
+	//根据规格id查询价格
+	public Commodity_price queryPrice(List<Integer> specifications_id) {
+		Commodity_price c = null;
+		StringBuffer sb = new StringBuffer();
+		specifications_id.forEach(e->{
+			sb.append("?,");
+		});
+		sb.delete(sb.length()-1, sb.length());
+		String sql = "SELECT cp.price,cp.id\r\n"
+				+ "FROM commodity_price cp\r\n"
+				+ "INNER JOIN price_combination pc ON cp.id = pc.price_id\r\n"
+				+ "WHERE pc.value_id IN ("+sb.toString()+")\r\n"
+				+ "GROUP BY cp.price,cp.id\r\n"
+				+ "HAVING COUNT(DISTINCT pc.value_id) = "+specifications_id.size();
+		try {
+			stmt = getConn().prepareStatement(sql);
+			for(int i=0;i<specifications_id.size();i++) {
+				stmt.setObject(i+1, specifications_id.get(i));
+			}
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				c = new Commodity_price();
+				c.setId(rs.getInt("id"));
+				c.setPrice(rs.getBigDecimal("price"));
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return c;
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(new ProductDAO().queryValue(1));
+		System.out.println(new ProductDAO().queryPrice(Arrays.asList(1,2)));
 	}
 }
