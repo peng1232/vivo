@@ -14,22 +14,20 @@ import com.alibaba.fastjson2.JSONObject;
 import com.dao.UsersDAO;
 import com.entity.Users;
 
-@WebServlet("/jsp/users")
-public class xgmmServlet extends HttpServlet{
-	private static final long serialVersionUID = 1L;
+/**
+ * Servlet implementation class UpdatePasswordServlet
+ */
+@WebServlet("/jsp/gereng/UpdatePasswordServlet")
+public class UpdatePasswordServlet extends HttpServlet {
 	UsersDAO r = new UsersDAO();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Users> city = r.selectAll();
+		
 		JSONArray jsonArray = new JSONArray();
-		city.forEach(e->{
-			JSONObject jsonObj = new JSONObject();
-            jsonObj.put("user_password",e.getUser_password());
-            jsonObj.put("phone", e.getPhone());
-            jsonArray.add(jsonObj);
-		});
+		System.out.println(1);
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
 		resp.getWriter().println(jsonArray.toJSONString());
 	}
+
 }
