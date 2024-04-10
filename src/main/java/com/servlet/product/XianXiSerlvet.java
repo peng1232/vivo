@@ -46,10 +46,14 @@ public class XianXiSerlvet extends HttpServlet {
 		
 		//添加商品的点击量
 		pdao.queryHits(id);
+		
+		//查询该商品的收藏数
+		Long queryCollection = pdao.queryCollection(id);
 
 		request.setAttribute("product", product);
 		request.setAttribute("Specifications", Specifications);
 		request.setAttribute("value", value);
+		request.setAttribute("queryCollection", queryCollection);
 		request.getRequestDispatcher("xianxi.jsp").forward(request, response);
 	}
 

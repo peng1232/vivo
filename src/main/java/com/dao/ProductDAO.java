@@ -267,7 +267,30 @@ public class ProductDAO extends BaseDAO{
 		return executeUpdate(sql, product_id,product_id);
 	}
 	
+	//查询商品的收藏数量
+	public Long queryCollection(Integer product) {
+		Long collection_count = 0L;
+		String sql = "SELECT COUNT(*) as collection_count\r\n"
+				+ "FROM collection\r\n"
+				+ "WHERE state = 1 AND product_id = ?\r\n"
+				+ "GROUP BY product_id;";
+		try {
+			stmt = getConn().prepareStatement(sql);
+			stmt.setObject(1, product);
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				collection_count = rs.getLong("collection_count");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return collection_count;
+	};
+	
 	public static void main(String[] args) {
-		System.out.println(new ProductDAO().queryHits(1));
+		System.out.println(new ProductDAO().queryCollection(1));
 	}
 }
