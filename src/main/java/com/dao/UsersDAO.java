@@ -3,9 +3,11 @@ package com.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.entity.Refund;
 import com.entity.Users;
 import com.util.BaseDAO;
 import com.util.Mapper;
@@ -131,6 +133,7 @@ public class UsersDAO extends BaseDAO{
 		System.out.println(new UsersDAO().dengLv("19374234036","6666466"));
 	}
 	
+	
 	// 4、doUpdate(实体类):int 修改
 	public Integer doupdate(Users obj) {
 		// 1、准备修改sql语句
@@ -152,5 +155,42 @@ public class UsersDAO extends BaseDAO{
 		}
 		return -1;// 最后返回-1，表示代码运行到这里，新增失败
 	}
-	
+	// 查询所有 1、selectAll() :List<实体类>
+	public List<Users> selectAll() {
+		String sql = "select * from users";
+		try {
+			// 2、获取连接对象
+			conn = getConn();
+			// 3、预编译SQL语句
+			stmt = conn.prepareStatement(sql);
+			// 4、填充参数
+			// 5、执行SQL语句，返回到结果集中
+			rs = stmt.executeQuery();
+			// 6、将结果集中的数据转存到集合中
+			List<Users> list = new ArrayList<>();
+			if (rs != null) {
+				while (rs.next()) {
+					// 调用rs.getXXX("列名") 获取游标指向行的数据
+					Integer id = rs.getInt("id");
+					String user_nickname = rs.getString("user_nickname");
+					String user_password = rs.getString("user_password");
+					String phone = rs.getString("phone");
+					String head_sculpture = rs.getString("head_sculpture");
+					Date birth = rs.getDate("birth");
+					String sex = rs.getString("sex");
+					Timestamp create_time = rs.getTimestamp("create_time");
+					Integer state = rs.getInt("state");
+					// 将获取到的数据，封装到实体类对象中
+					// 一行记录--->一个对象
+					Users obj=new Users(id, user_nickname, user_password, phone, head_sculpture, birth, id, create_time, state);
+					// 将对象添加到集合中
+					list.add(obj);
+				}
+			}
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
