@@ -67,6 +67,19 @@ $(function() {
 		$(".number").text(sum);
 		info();
 	});
+	
+	//添加收藏，取消收藏
+	$('.shouc').click(function(){
+		if($(this).attr('check')=='true'){
+			//取消
+			$(this).attr('check','false');
+			$(this).find('path').css('fill','#acacac')
+		}else{
+			//收藏
+			$(this).attr('check','true');
+			$(this).find('path').css('fill','#f51919')
+		}
+	})
 })
 
 //设置已选择内容,与价格
@@ -86,6 +99,8 @@ function shua() {
 	$('.sku_checked').each(function() {
 		xin.push($(this).attr('productid'));
 	});
+	
+	
 	if (!arraysEqual(yuan, xin)) {
 		//发送请求
 		var jsonData = JSON.stringify(xin);
@@ -94,8 +109,10 @@ function shua() {
 			$('.sale-price').text("￥" + response.price.price + ".00");
 			$('.sale-price').attr("price_id", response.price.id);
 			$('.sale-price').attr("price", response.price.price);
+			//设置价格
 			info();
 			console.log(response.url_image)
+			//创建图片
 			$(".img_list_big").empty();
 			$(".img_samll").empty();
 			for (var i = 0; i < response.url_image.length; i++) {
@@ -127,7 +144,13 @@ function shua() {
 			li2.append(img2);
 			$('.img_samll').append(li2);
 			console.log(response)
+			
+			
+			//存储对应的sku
+			var sku='{"sku_price":'+response.price.id+',"pageType:"'+$('.sku_checked').eq(0).attr('productid')+',"color":'+$('.sku_checked').eq(1).attr('productid')+'}'
+			$('.shousku').attr('sku',sku)
 		});
+		
 		
 		console.log("不一样" + xin);
 		yuan = xin;
