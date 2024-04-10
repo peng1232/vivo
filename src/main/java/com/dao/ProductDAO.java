@@ -4,10 +4,14 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+import com.entity.Commodity_price;
 import com.entity.Product;
+import com.entity.Product_specifications;
+import com.entity.Specification_value;
 import com.util.BaseDAO;
 import com.util.Mapper;
 
@@ -144,7 +148,118 @@ public class ProductDAO extends BaseDAO{
 		});
 	}
 	
+	//查询商品的图片集
+	public List<String> queryUrl_image(Integer product,Integer value_id){
+		String sql = "SELECT pi.image_url FROM product p\r\n"
+				+ "JOIN product_specifications ps ON p.id = ps.product_id\r\n"
+				+ "JOIN specification_value sv ON ps.id = sv.specifications_id\r\n"
+				+ "JOIN product_image PI ON sv.id = pi.value_id\r\n"
+				+ "WHERE p.id = ? AND sv.id = ?";
+		return executeQuery(sql, new Mapper<String>() {
+
+			@Override
+			public List<String> map(ResultSet rs) throws SQLException {
+				List<String> list = new ArrayList<String>();
+				while(rs.next()) {
+					list.add(rs.getString("image_url"));
+				}
+				return list;
+			}
+		}, product,value_id);
+	}
+	
+	//根据商品id查出对应的数据
+	public Product queryProduct(Integer product_id) {
+		String sql = "select * from product where id = ?";
+		Product p = null;
+		try {
+			stmt = getConn().prepareStatement(sql);
+			stmt.setObject(1, product_id);
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				p = new Product(rs.getInt("id"),
+						rs.getString("products_name"),
+						rs.getInt("category_id"),
+						rs.getString("description"),
+						rs.getLong("hits"),
+						rs.getInt("purchase_limit"),
+						rs.getTimestamp("listing_time"),
+						rs.getInt("state"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return p;
+	}
+
+	//查出该商品的规格
+	public List<Product_specifications> querySpecifications(Integer product_id) {
+		String sql = "SELECT * FROM product_specifications WHERE product_id = ?";
+		return executeQuery(sql, new Mapper<Product_specifications>() {
+
+			@Override
+			public List<Product_specifications> map(ResultSet rs) throws SQLException {
+				List<Product_specifications> list = new ArrayList<Product_specifications>();
+				while(rs.next()) {
+					list.add(new Product_specifications(rs.getInt("id"), rs.getInt("product_id"), rs.getString("specifications_name")));
+				}
+				return list;
+			}
+		}, product_id);
+	}
+	//查出该商品的规格值
+	public List<Specification_value> queryValue(Integer specifications_id) {
+		String sql = "SELECT * FROM specification_value WHERE specifications_id = ?";
+		return executeQuery(sql, new Mapper<Specification_value>() {
+
+			@Override
+			public List<Specification_value> map(ResultSet rs) throws SQLException {
+				List<Specification_value> list = new ArrayList<Specification_value>();
+				while(rs.next()) {
+					list.add(new Specification_value(rs.getInt("id"), rs.getInt("specifications_id"), rs.getString("value")));
+				}
+				return list;
+			}
+		}, specifications_id);
+	}
+	
+	//根据规格id查询价格
+	public Commodity_price queryPrice(List<Integer> specifications_id) {
+		Commodity_price c = null;
+		StringBuffer sb = new StringBuffer();
+		specifications_id.forEach(e->{
+			sb.append("?,");
+		});
+		sb.delete(sb.length()-1, sb.length());
+		String sql = "SELECT cp.price,cp.id\r\n"
+				+ "FROM commodity_price cp\r\n"
+				+ "INNER JOIN price_combination pc ON cp.id = pc.price_id\r\n"
+				+ "WHERE pc.value_id IN ("+sb.toString()+")\r\n"
+				+ "GROUP BY cp.price,cp.id\r\n"
+				+ "HAVING COUNT(DISTINCT pc.value_id) = "+specifications_id.size();
+		try {
+			stmt = getConn().prepareStatement(sql);
+			for(int i=0;i<specifications_id.size();i++) {
+				stmt.setObject(i+1, specifications_id.get(i));
+			}
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				c = new Commodity_price();
+				c.setId(rs.getInt("id"));
+				c.setPrice(rs.getBigDecimal("price"));
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return c;
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(new ProductDAO().productHits().get(0));
+		System.out.println(new ProductDAO().queryUrl_image(1,4));
 	}
 }

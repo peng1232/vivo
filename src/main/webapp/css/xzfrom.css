@@ -38,7 +38,7 @@
     /* 提交按钮样式 */
     .form-submit {
         padding: 10px 20px;
-        background-color: #4CAF50;
+        background-color: #999;
         color: white;
         border: none;
         border-radius: 3px;
@@ -47,13 +47,13 @@
 
     /* 提交按钮悬停样式 */
     .form-submit:hover {
-        background-color: #45a049;
+        background-color: #444;
     }
 .from_xz{
 	margin-top: 12%;
 }
 body{
-	background-image: url("../img/background.jpg");
+	background-image: url("../img/bg1.jpg");
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
