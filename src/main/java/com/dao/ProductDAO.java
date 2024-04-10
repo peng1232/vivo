@@ -259,7 +259,15 @@ public class ProductDAO extends BaseDAO{
 		return c;
 	}
 	
+	//添加点击量
+	public Integer queryHits(Integer product_id) {
+		String sql = "UPDATE product, (SELECT hits FROM product WHERE id = ?) AS temp_table\r\n"
+				+ "SET product.hits = temp_table.hits + 1\r\n"
+				+ "WHERE product.id = ?";
+		return executeUpdate(sql, product_id,product_id);
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(new ProductDAO().queryUrl_image(1,4));
+		System.out.println(new ProductDAO().queryHits(1));
 	}
 }
