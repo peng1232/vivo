@@ -1,39 +1,45 @@
 @charset "UTF-8";
-.lun{
-	width:100%;
+
+body {
+	background-color: #f7f7f5;
+}
+
+.lun {
+	width: 100%;
 	overflow: hidden;
 }
+
 .lunbo {
 	/* 给定容器宽高度 */
 	width: 1500px;
 	overflow: hidden;
 	height: 500px;
 	position: relative;
-	background-color: #ccc;
+	border: 3px dotted #f6a29f;
 }
 
 .lunbo img {
 	height: 100%;
-	width: 100%;
+	width: 110%;
 	cursor: pointer;
 	user-select: none;
-	 user-drag: none;
+	user-drag: none;
 }
 
 .points {
-    position: absolute;
-    z-index: 5;
-    list-style: none;
-    width: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: hsla(0,0%,0%,0.2);
-    bottom: 5px;
-    left: 0%;
-    height: 20px;
-    border-radius: 25px;
-    right: 0%;
+	position: absolute;
+	z-index: 5;
+	list-style: none;
+	width: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: hsla(0, 0%, 0%, 0.2);
+	bottom: 5px;
+	left: 0%;
+	height: 20px;
+	border-radius: 25px;
+	right: 0%;
 }
 
 .points li {
@@ -47,39 +53,167 @@
 }
 
 .active {
-    background-color: hsla(0,0%,100%,1.00) !important;
+	background-color: hsla(0, 0%, 100%, 1.00) !important;
+	border: 1px solid #fff;
 }
 
-
-
-.next,
-.prev {
-    appearance: menu;
-    margin: 0 auto;
-    width: 40px;
-    display: block;
-    float: left;
-    height: 40px;
-    position: absolute;
+.next, .prev {
+	appearance: menu;
+	margin: 0 auto;
+	width: 40px;
+	display: block;
+	float: left;
+	height: 40px;
+	position: absolute;
 	line-height: 40px;
 	text-align: center;
 	font-family: "宋体";
 	color: aliceblue;
-    background-color: hsla(0,0%,0%,0.1);
-    top: 45%;
-    -webkit-appearance: button;
-    cursor: pointer;
-    transition:0.3s;
-    user-select: none;
+	background-color: hsla(0, 0%, 0%, 0.1);
+	top: 45%;
+	-webkit-appearance: button;
+	cursor: pointer;
+	transition: 0.3s;
+	user-select: none;
 }
 
 .next {
 	right: -40px;
 	border-radius: 30px 0 0 30px;
 }
+
 .prev {
-	left:-40px;
+	left: -40px;
 	border-radius: 0 30px 30px 0;
 }
-.prev:hover{background-color: hsla(0,0%,0%,0.5);}
-.next:hover{background-color: hsla(0,0%,0%,0.5);}
+
+.prev:hover {
+	background-color: hsla(0, 0%, 0%, 0.5);
+}
+
+.next:hover {
+	background-color: hsla(0, 0%, 0%, 0.5);
+}
+
+.clearfix::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.wrapper {
+	position: relative;
+	width: 1200px;
+}
+
+.floor-list {
+	width: 100%;
+	display: inline-block;
+	padding-bottom: 40px;
+}
+
+.floor-list li {
+	list-style: none;
+}
+
+.info {
+	position: relative;
+}
+
+.subject {
+	padding: 38px 0 25px;
+	color: #333;
+	font-size: 24px;
+	line-height: 1;
+	text-align: center;
+}
+
+.box-list {
+	display: flex;
+	width: 100%;
+	line-height: 0;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.box {
+	height: 511px;
+	width: 394px;
+	position: relative;
+	margin-bottom: 10px;
+	font-size: 0;
+	text-align: center;
+	background-color: #fff;
+	transition: all .2s linear;
+	background: #fff;
+	border-radius: 5px;
+}
+
+.box a {
+	text-decoration: none;
+	cursor: pointer;
+	outline: 0 none;
+	display: block;
+}
+
+.box a>img {
+	margin: 58px auto 0;
+	width: 230px;
+	height: 230px;
+}
+
+.prodinfo {
+	position: relative;
+}
+
+.name, .feature {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.floor .name {
+    padding-top: 16px;
+    color: #333;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.da .name {
+	padding-top: 29px;
+	font-size: 20px;
+	color: #333;
+	line-height: 30px;
+}
+.floor.da .feature {
+    padding: 8px 50px 53px;
+    font-size: 14px;
+}
+.floor .feature {
+    padding: 2px 15px 40px;
+    height: 24px;
+    color: #333;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+.price {
+	color: #f51919;
+	font-size: 18px;
+	line-height: 1;
+}
+
+.box:hover {
+	transform: translate3d(0, -2px, 0);
+	box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+}
+
+.xiao .box {
+	height: 380px;
+	width: 293px;
+}
+
+.xiao .box>a>img{
+	margin: 43px auto 0;
+	width: 172px;
+	height: 172px;
+}

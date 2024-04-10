@@ -1,5 +1,6 @@
 package com.entity;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
@@ -21,9 +22,17 @@ public class Product {
 	
 	//临时字段
 	private String image_url;//图片地址
+	private BigDecimal price;//商品价格
 	
 	
 	
+	public BigDecimal getPrice() {
+		return price;
+	}
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
 	public String getImage_url() {
 		return image_url;
 	}
@@ -83,7 +92,8 @@ public class Product {
 	public String toString() {
 		return "Product [id=" + id + ", products_name=" + products_name + ", category_id=" + category_id
 				+ ", description=" + description + ", hits=" + hits + ", purchase_limit=" + purchase_limit
-				+ ", listing_time=" + listing_time + ", state=" + state + ", image_url=" + image_url + "]";
+				+ ", listing_time=" + listing_time + ", state=" + state + ", image_url=" + image_url + ", price="
+				+ price + "]";
 	}
 	public Product(Integer id, String products_name, Integer category_id, String description, Long hits,
 			Integer purchase_limit, Timestamp listing_time, Integer state) {
@@ -97,6 +107,7 @@ public class Product {
 		this.listing_time = listing_time;
 		this.state = state;
 	}
+	
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
