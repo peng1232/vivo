@@ -398,6 +398,7 @@ list_item p {
 	text-align: center;
 	color: #666;
 	font-size: 13px;
+	user-select: none;
 }
 
 .shouc {
@@ -405,9 +406,14 @@ list_item p {
 	cursor: pointer;
 }
 
+.shouc path {
+	transition: all .3s;
+}
+
 .text {
 	margin-top: 35px;
 	margin-bottom: 20px;
 	text-align: center;
 	color: #666;
+	user-select: none;
 }
