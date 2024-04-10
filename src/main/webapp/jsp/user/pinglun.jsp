@@ -78,7 +78,6 @@
 		
 		
 	<%@include file="../../html/footer.jsp" %>
-	
 	<c:if test="${commentsList==null}">
     	<script type="text/javascript">
     		location.href = "CommentsServlet?id=${user.id}";
