@@ -45,11 +45,42 @@ $(function() {
 	    $('.big_item').removeClass('xianshi');
 	    $('.big_item').eq(that.index()).addClass('xianshi');
 	});
+	
+	//数量的加减 减
+	$(".num_left").on("click", function() {
+		var sum = $(".number").text();
+		if(parseInt(sum)>1){
+			sum--;
+		}
+		$(".number").text(sum)
+		info();
+	});
+	//加
+	$(".num_rigth").on("click", function() {
+		var sum = $(".number").text();
+		var max = $('.limit').val();
+		if(sum<max){
+			sum++;
+		}else{
+			dong();
+		}
+		$(".number").text(sum);
+		info();
+	});
 })
+
+//设置已选择内容,与价格
+function info(){
+	$('.info').text('已选：'+$('.sku_checked').eq(0).text() + " " + $('.sku_checked').eq(1).text()+" "+$(".number").text()+"件")
+	$('.price').text('￥'+(parseInt($(".number").text())*$(".sale-price").attr('price')))
+}
+	
+	
 var yuan = [];
 function shua() {
 	//设置标题
 	$('.name').text($('.tit').val() + " " + $('.sku_checked').eq(0).text() + " " + $('.sku_checked').eq(1).text())
+	
 	//存规格值id
 	var xin = [];
 	$('.sku_checked').each(function() {
@@ -62,7 +93,8 @@ function shua() {
 		$.getJSON("SKUServlet", { data: jsonData, proid: proid }, function(response) {
 			$('.sale-price').text("￥" + response.price.price + ".00");
 			$('.sale-price').attr("price_id", response.price.id);
-
+			$('.sale-price').attr("price", response.price.price);
+			info();
 			console.log(response.url_image)
 			$(".img_list_big").empty();
 			$(".img_samll").empty();
@@ -96,7 +128,7 @@ function shua() {
 			$('.img_samll').append(li2);
 			console.log(response)
 		});
-
+		
 		console.log("不一样" + xin);
 		yuan = xin;
 	}
@@ -113,4 +145,24 @@ function arraysEqual(arr1, arr2) {
 		}
 	}
 	return true;
+}
+
+//动画
+function dong() {
+	$('.shu').css('color', 'red')
+	setTimeout(function() {
+		$('.shu').stop().css('color', '#999')
+	}, 200);
+	setTimeout(function() {
+		$('.shu').stop().css('color', 'red')
+	}, 400);
+	setTimeout(function() {
+		$('.shu').stop().css('color', '#999')
+	}, 600);
+	setTimeout(function() {
+		$('.shu').stop().css('color', 'red')
+	}, 800);
+	setTimeout(function() {
+		$('.shu').stop().css('color', '#999')
+	}, 1000);
 }
