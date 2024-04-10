@@ -79,7 +79,7 @@
 								<a href="xgmm.jsp">切换修改方式</a>
 							</div>
 							<!-- 修改 -->
-							<div id="zhuce" class="btn">确认</div>
+							<div id="yzmxiu" class="btn">确认</div>
 						</form>
 					</div>
 				</div>		

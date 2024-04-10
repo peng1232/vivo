@@ -14,6 +14,19 @@
 <script src="../../js/jquery.min.js"/></script>
 <script src="../../js/nav.js"></script>
 <script src="../../js/login.js"></script>
+<style>
+	#xiu{
+		background-color: #456fff;
+	    background-image: linear-gradient(90deg, #418eff, #4566ff);
+	    color: #fff;
+	    display: block;
+	    font-size: 17px;
+	    height: 48px;
+	    line-height: 48px;
+	    margin: 20px auto 0;
+	    border-radius: 5px;
+	}
+</style>
 </head>
 <body>
 <%@include file="../../html/nav.jsp" %>
@@ -80,7 +93,7 @@
 								<a href="yzmzgmm.jsp" style="margin-left: 250px;">忘记密码</a>
 							</div>
 							<!-- 修改 -->
-							<div id="zhuce" class="btn">确认</div>
+							<div id="xiu" class="btn">确认</div>
 						</form>
 					</div>
 				</div>		
@@ -88,5 +101,14 @@
 		</div>
 	</div>
 <%@include file="../../html/footer.jsp" %>
+<script type="text/javascript">
+	$(function(){
+		$('#xiu').click(function(){
+			$.getJSON("UpdatePasswordServlet", function(data) {
+				
+			})
+		})
+	})
+</script>
 </body>
 </html>

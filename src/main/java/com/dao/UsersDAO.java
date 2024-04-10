@@ -3,9 +3,11 @@ package com.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.entity.Refund;
 import com.entity.Users;
 import com.util.BaseDAO;
 import com.util.Mapper;
@@ -133,7 +135,6 @@ public class UsersDAO extends BaseDAO{
 	
 	// 修改密码
 	public Integer doUpdatePassword(Integer user_id,String password) {
-		// 1、准备修改sql语句
 		String sql = "update users set user_password=? where id=?";
 		return executeUpdate(sql, password,user_id);
 	}
