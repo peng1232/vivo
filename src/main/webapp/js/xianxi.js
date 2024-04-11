@@ -119,6 +119,8 @@ function shua() {
 		//发送请求
 		var jsonData = JSON.stringify(xin);
 		var proid = $(".name").attr('pro');
+		var userid = $(".user_id").val();
+		var skuvalue = $('.shousku').attr('sku');
 		$.getJSON("SKUServlet", { data: jsonData, proid: proid }, function(response) {
 			$('.sale-price').text("￥" + response.price.price + ".00");
 			$('.sale-price').attr("price_id", response.price.id);
@@ -161,11 +163,20 @@ function shua() {
 			
 			
 			//存储对应的sku
-			var sku='{"sku_price":'+response.price.id+',"pageType":'+$('.sku_checked').eq(0).attr('productid')+',"color":'+$('.sku_checked').eq(1).attr('productid')+',"number":'+$('.number').text()+'}'
+			var sku='{"sku_price":'+response.price.id+',"pageType":'+$('.sku_checked').eq(0).attr('productid')+',"color":'+$('.sku_checked').eq(1).attr('productid')/*+',"number":'+$('.number').text()*/+'}'
 			$('.shousku').attr('sku',sku)
 		
-		
-		
+			//查看是否是收藏	
+			$.getJSON('IsShouServlet',{'user_id':userid,'product_id':proid,'sku':sku},function(request){
+				console.log(request.collection)
+				if(request.collection){
+					$('.shouc').attr('check','true');
+					$('.shouc').find('path').css('fill','#f51919')
+				}else{
+					$('.shouc').attr('check','false');
+					$('.shouc').find('path').css('fill','#acacac')
+				}
+			})
 		});
 		
 		
