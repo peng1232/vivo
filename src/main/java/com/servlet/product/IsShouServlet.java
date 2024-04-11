@@ -23,7 +23,6 @@ public class IsShouServlet extends HttpServlet {
 		Boolean collection = cdao.isCollection(user_id, product_id, sku);
 		JSONObject jsonObj = new JSONObject();
 		jsonObj.put("collection", collection);
-		System.err.println(jsonObj.toString());
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().println(jsonObj.toJSONString());
