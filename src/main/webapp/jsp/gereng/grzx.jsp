@@ -14,6 +14,7 @@
 </head>
 <body>
 <%@include file="../../html/nav.jsp" %>
+${user }
 	<div class="container">
 		<div class="menu">
 			<a href="商城首页.html">商城首页</a>

@@ -85,7 +85,11 @@
 			</div>
 		</div>
 
-
+		<c:if test="${empty collection }">
+			<script type="text/javascript">
+				location.href= 'CollectionInitServlet';
+			</script>
+		</c:if>
 <%@include file="../../html/footer.jsp" %>
 
 </html>

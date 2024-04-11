@@ -1,14 +1,11 @@
 package com.dao;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.List;
 
 import com.entity.Users;
 import com.util.BaseDAO;
-import com.util.Mapper;
 
 /**
 * @Description: 
@@ -131,26 +128,10 @@ public class UsersDAO extends BaseDAO{
 		System.out.println(new UsersDAO().dengLv("19374234036","6666466"));
 	}
 	
-	// 4、doUpdate(实体类):int 修改
-	public Integer doupdate(Users obj) {
-		// 1、准备修改sql语句
-		String sql = "update users set user_password=? where user_nickname=?";
-		try {
-			// 2、获取连接对象
-			conn = super.getConn();
-			// 3、预编译SQL语句
-			stmt = conn.prepareStatement(sql);
-			// 4、填充参数
-			stmt.setObject(1, obj.getUser_password());
-			stmt.setObject(2, obj.getUser_nickname());
-			// 5、执行SQL语句
-			return stmt.executeUpdate();
-		} catch (SQLException e) {
-				e.printStackTrace();
-		} finally {
-			super.closeAll();
-		}
-		return -1;// 最后返回-1，表示代码运行到这里，新增失败
+	// 修改密码
+	public Integer doUpdatePassword(Integer user_id,String password) {
+		String sql = "update users set user_password=? where id=?";
+		return executeUpdate(sql, password,user_id);
 	}
 	
 }
