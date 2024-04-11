@@ -103,6 +103,7 @@
 							<p class='info'></p>
 						</div>
 						<div class='settle_oper'>
+							<input type="hidden" class='addS' sku=''>
 							<button class='addshopping shop'>加入购物车</button>
 							<button class='brand shop'>立即购买</button>
 						</div>

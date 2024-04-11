@@ -96,10 +96,12 @@ $(function() {
 	})
 })
 
+var jiageid ;
 //设置已选择内容,与价格
 function info(){
 	$('.info').text('已选：'+$('.sku_checked').eq(0).text() + " " + $('.sku_checked').eq(1).text()+" "+$(".number").text()+"件")
 	$('.price').text('￥'+(parseInt($(".number").text())*$(".sale-price").attr('price')))
+	$('.addS').attr('sku','{"sku_price":'+jiageid+',"pageType":'+$('.sku_checked').eq(0).attr('productid')+',"color":'+$('.sku_checked').eq(1).attr('productid')+',"number":'+$('.number').text()+'}')
 }
 	
 	
@@ -165,7 +167,8 @@ function shua() {
 			//存储对应的sku
 			var sku='{"sku_price":'+response.price.id+',"pageType":'+$('.sku_checked').eq(0).attr('productid')+',"color":'+$('.sku_checked').eq(1).attr('productid')/*+',"number":'+$('.number').text()*/+'}'
 			$('.shousku').attr('sku',sku)
-		
+			$('.addS').attr('sku','{"sku_price":'+response.price.id+',"pageType":'+$('.sku_checked').eq(0).attr('productid')+',"color":'+$('.sku_checked').eq(1).attr('productid')+',"number":'+$('.number').text()+'}')
+			jiageid = response.price.id
 			//查看是否是收藏	
 			$.getJSON('IsShouServlet',{'user_id':userid,'product_id':proid,'sku':sku},function(request){
 				console.log(request.collection)
