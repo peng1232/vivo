@@ -26,6 +26,99 @@
 	    margin: 20px auto 0;
 	    border-radius: 5px;
 	}
+	/* 弹窗 */
+.message{
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+	z-index: 99999;
+	display: none;
+}
+.zhe{
+	width: 100%;
+	height: 100vh;
+	background-color: #000;
+	opacity: 0;
+	transition: 0.3s;
+}
+.message_box{
+	width: 492px;
+    padding: 35px 0 46px;
+	display: inline-block;
+    vertical-align: middle;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ebeef5;
+    font-size: 18px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    text-align: left;
+    overflow: hidden;
+    backface-visibility: hidden;
+	position: absolute;
+	top: 32%;
+	left: 0;
+	right: 0;
+	transform: scale(0) translateY(-100%);
+	transition: 0.3s;
+}
+.message_box_head{
+	padding: 0 ;
+    margin: 25px 0 15px;
+    text-align: center;
+    min-height: 20px;
+	position: relative;
+}
+.message_box_head span{
+	font-size: 21px;
+    color: #333;
+}
+.guan{
+	position: absolute;
+	top: -45px;
+    right: 15px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+.guan:hover>path{
+	fill: #415fff;
+}
+.message_box_center{
+	color: #606266;
+    font-size: 14px;
+	padding: 0 15px 40px;
+}
+.message_box_footer{
+	padding: 5px 15px 0;    
+	text-align: center;
+}
+.message_box_center p{
+	text-align: center;
+    color: #000;
+}
+.message_box_footer button{
+	margin-right: 0;
+	border: none;
+    color: #fff;
+    background-image: linear-gradient(270deg, #ff0c53, #e51422);
+	display: inline-block;
+    width: 154px;
+    height: 39px;
+    line-height: 39px;
+    text-align: center;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 100px;
+    user-select: none;
+    outline: none;
+    border: none;
+	cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -38,9 +131,11 @@
 		</div>	
 		<div class="under">
 			<div class="left">
-				<img src="../../img/h.jpeg" class="tx">
+				<input type="hidden" class='user_id' value='${user.id }'>
+				<input type="hidden" class='user_password' value='${user.user_password }'>
+				<img src="../../img/${user.head_sculpture }" class="tx">
 				<ul id="user_muem_item">
-					<li class="z">vivo34177786273</li>
+					<li class="z">${user.user_nickname }</li>
 						
 					<li class="z">交易管理</li>
 					<li class="s"><a href="#">我的订单</a></li>
@@ -70,7 +165,7 @@
 							
 							<div class="tishi yang"></div>
 							<div class="form_item">
-								<input maxlength="20" required class="inp mima" type="password"/>
+								<input maxlength="20" required class="inp mima jiuma" type="password"/>
 								<span class="bar"></span>
 								<label for="username">输入旧密码</label>
 								<div class="yzm" id='biyan'>
@@ -80,7 +175,7 @@
 							</div>
 								<div class="tishi yang"></div>
 							<div class="form_item">
-								<input maxlength="20" name='password' required class="inp mima" type="password"/>
+								<input maxlength="20" name='password' required class="inp mima xinma" type="password"/>
 								<span class="bar"></span>
 								<label for="username">输入新密码</label>
 								<div class="yzm" id='biyan'>
@@ -100,14 +195,76 @@
 			</div>	
 		</div>
 	</div>
+	<!-- 弹窗 -->
+		<div class="message">
+			<div class="zhe"></div>
+			<div class="message_box">
+				<div class="message_box_head">
+					<span>提醒信息</span>
+					<svg class="guan" t="1710744510048" class="icon" viewBox="0 0 1024 1024" version="1.1"
+						xmlns="http://www.w3.org/2000/svg" p-id="7727" width="16" height="16">
+						<path
+							d="M590.7456 508.416 1016.832 934.5024 938.0864 1009.664 512 583.5776 78.7456 1024 0 941.6704l433.2544-440.4224L7.168 75.1616 85.9136 0 512 426.0864 938.0864 0 1016.832 82.3296 590.7456 508.416z"
+							p-id="7728" fill="#242933"></path>
+					</svg>
+				</div>
+				<div class="message_box_center">
+					<p class="setting">温馨提示：商品抢购数量超出限制</p>
+				</div>
+				<div class="message_box_footer">
+					<button>确定</button>
+				</div>
+			</div>
+		</div>
 <%@include file="../../html/footer.jsp" %>
 <script type="text/javascript">
 	$(function(){
 		$('#xiu').click(function(){
-			$.getJSON("UpdatePasswordServlet", function(data) {
-				
-			})
+			var user_id = $('.user_id').val();
+			var userjiu = $('.user_password').val();
+			var rujiu = $('.jiuma').val();
+			var password = $('.xinma').val();
+			if(userjiu==rujiu){
+				$.getJSON("UpdatePasswordServlet",{'user_id':user_id ,'password':password}, function(data) {
+					console.log("密码修改成功");
+				})
+			}else {
+				console.log("密码错误");
+	        }
 		})
+		
+		//弹窗点击时间
+		$('.message_box_footer button').click(function(){
+			guanbi();
+		})
+		$('.zhe').click(function(){
+			guanbi();
+		})
+		$('.guan').click(function(){
+			guanbi();
+		})
+		//开启弹窗
+		function kai(){
+			$('body').css('overflow-x',"hidden").css("overflow-y",'hidden')
+			$('.message').css('display','block');
+			$(".zhe").animate({
+				opacity: 0.6
+			},100)
+			$('.message_box').css('transform','scale(1) translateY(0%)');
+		}
+		
+		//关闭弹窗
+		function guanbi(){
+			$('body').css('overflow-x',"auto").css("overflow-y",'auto')
+			$(".zhe").animate({
+				opacity: 0
+			},100)
+			$('.message_box').css('transform','scale(0) translateY(-100%)');
+			setTimeout(function(){
+				$('.message').css('display','none');
+			},300)
+			
+		}
 	})
 </script>
 </body>

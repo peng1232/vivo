@@ -22,9 +22,9 @@
 		</div>
 		<div class="under">
 			<div class="left">
-				<img src="../../img/h.jpeg" class="tx">
+				<img src="../../img/${user.head_sculpture }" class="tx">
 				<ul id="user_muem_item">
-					<li class="z">vivo34177786273</li>
+					<li class="z">${user.user_nickname }</li>
 
 					<li class="z">交易管理</li>
 					<li class="s"><a href="#">我的订单</a></li>
@@ -48,7 +48,13 @@
 					<div class="col1">退款原因</div>
 					<div class="co12">状态</div>
 					<div class="col3">操作</div>
-				</div>
+					<tr>
+						<td>${user.user_id}</td>
+						<td>${user.refund_reason}</td>
+						<td>${user.state}</td>
+						<td></td>
+					</tr>
+				</div>	
 			</div>
 		</div>
 	</div>

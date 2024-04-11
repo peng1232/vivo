@@ -24,9 +24,9 @@
 		</div>
 		<div class="under">
 			<div class="left">
-				<img src="../../img/h.jpeg" class="tx">
+				<img src="../../img/${user.head_sculpture }" class="tx">
 				<ul id="user_muem_item">
-					<li class="z">vivo34177786273</li>
+					<li class="z">${user.user_nickname }</li>
 						
 					<li class="z">交易管理</li>
 					<li class="s"><a href="#">我的订单</a></li>

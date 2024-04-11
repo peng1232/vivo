@@ -22,9 +22,9 @@ ${user }
 		</div>
 		<div class="under">
 			<div class="left">
-				<img src="../../img/h.jpeg" class="tx">
+				<img src="../../img/${user.head_sculpture }" class="tx">
 				<ul id="user_muem_item">
-					<li class="z">vivo34177786273</li>
+					<li class="z">${user.user_nickname }</li>
 						
 					<li class="z">交易管理</li>
 					<li class="s"><a href="#">我的订单</a></li>
@@ -43,7 +43,7 @@ ${user }
 			</div>
 			<div class="right">
 				<div>
-					<div class="jrgrzx">您好，vivo34177786273，欢迎进入个人中心！</div>
+					<div class="jrgrzx">您好，${user.user_nickname }，欢迎进入个人中心！</div>
 					<br>
 					<span class="dlsj"> 最近一次登录时间：2024-03-22 10:39</span>
 					<br>

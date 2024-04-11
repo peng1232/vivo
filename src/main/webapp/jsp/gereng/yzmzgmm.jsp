@@ -25,9 +25,11 @@
 		</div>	
 		<div class="under">
 			<div class="left">
-				<img src="../../img/h.jpeg" class="tx">
+				<input type="hidden" class='user_id' value='${user.id }'>
+				<input type="hidden" class='user_password' value='${user.user_password }'>
+				<img src="../../img/${user.head_sculpture }" class="tx">
 				<ul id="user_muem_item">
-					<li class="z">vivo34177786273</li>
+					<li class="z">${user.user_nickname }</li>
 						
 					<li class="z">交易管理</li>
 					<li class="s"><a href="#">我的订单</a></li>
@@ -87,5 +89,21 @@
 		</div>
 	</div>
 <%@include file="../../html/footer.jsp" %>
+<script type="text/javascript">
+	$(function(){
+		$('#xiu').click(function(){
+			var user_id = $('.user_id').val();
+			var userjiu = $('.user_password').val();
+			var rujiu = $('.jiuma').val();
+			var password = $('.xinma').val();
+			if(userjiu==rujiu){
+				$.getJSON("UpdatePasswordServlet",{'user_id':user_id ,'password':password}, function(data) {
+					 alert("密码修改成功！");
+				})
+			}
+			
+		})
+	})
+</script>
 </body>
 </html>
