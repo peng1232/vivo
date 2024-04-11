@@ -48,6 +48,7 @@
 					</div>
 				</div>
 				<div class='base_right'>
+					<input class='user_id' type="hidden" value="${user.id }">
 					<input class='tit' type="hidden" value="vivo ${product.products_name }">
 					<p class='name' pro='${product.id }'></p>
 					<p class='intro'>${product.description }</p>
