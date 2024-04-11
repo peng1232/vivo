@@ -26,17 +26,16 @@ public class CollectionServlet extends HttpServlet {
 		String flag = request.getParameter("flag");
 		String sku = request.getParameter("sku");
 		if(flag.equals("true")) {
-			System.out.println("ok");
 			cdao.insertCollection(user_id, product_id, sku);
 		}else {
-			System.out.println("no");
-			cdao.deleteCollection(user_id, product_id);
+			cdao.deleteCollection(user_id, product_id,sku);
 		}
 		
 		//查询商品收藏数
 		Long queryCollection = pdao.queryCollection(product_id);
 		JSONObject jsonObj = new JSONObject();
 		jsonObj.put("queryCollection", queryCollection);
+		
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().println(jsonObj.toJSONString());
