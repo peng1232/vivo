@@ -87,7 +87,7 @@
 
 		<c:if test="${empty collection }">
 			<script type="text/javascript">
-				location.href= 'CollectionInitServlet';
+				location.href= 'CollectionInitServlet?user_id=2';
 			</script>
 		</c:if>
 <%@include file="../../html/footer.jsp" %>
