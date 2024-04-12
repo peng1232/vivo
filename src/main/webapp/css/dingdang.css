@@ -1,4 +1,8 @@
 
+        * {
+            margin: 0;
+            padding: 0;
+        }
 		body{
 			background-color: rgb(247,247,247);
 			height: 100%;
@@ -39,8 +43,6 @@
 		
 		.under {
 		  display: flex;
-		      margin: 0;
-  		  padding: 0;
 		}
 		
 		.left {
@@ -69,7 +71,7 @@
 			padding: 0; /*内边距（padding）设置为 0*/
 		}
 		.left .tx {
-			width: 220px; /* 设置图片宽度 */
+			width: 120px; /* 设置图片宽度 */
 			height: auto; /* 让图片按比例缩放 */
 
 			display: block;/* 将 <.left .tx> 元素显示为块级元素 */
@@ -160,13 +162,13 @@
 		a[href=""]:hover {
 		    color: #999; /* 鼠标悬停时的颜色 */
 		}
-.div1 {
+/* .div1 {
     font-size: 21px;
     color: #000;
     text-align: center;
     margin-top: 30px;
 	
-}
+} */
 
 .ul1 {
     margin: 30px 0 32px;
@@ -185,190 +187,366 @@
   height: 22px;
   
 } 
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.div1>div{
+	float: left;
+}
 .div2{
 	
 	height: 50px;
 }
-.div3{
-	/* background-color: #000; */
-	height: 50px;
+[data-a-1].order-list{
+		float: left;
+	   /*	 width: 925px; */
+	    padding: 0 30px 30px;
+	    min-height: 952px;
+	    color: #666;
+	    background-color: #fff;
+	    margin-bottom: 72px;
 }
-.ul2{
+[data-a-1].module-title{
+	padding-top: 38px;
+	    font-size: 21px;
+	    color: #000;
+	    text-align: center;
+}
+[data-a-2].ul1{
+	margin: 30px 0 32px;
+	    padding-left: 25px;
+}
+
+
+
+
+.li1{
+	position: relative;
+	    float: left;
+	    margin-right: 58px;
+	    padding-bottom: 12px;
+	    height: 25px;
+	    font-size: 16px;
+	    line-height: 25px;
+	    color: #777;
+}
+.div1{
+	margin: 20px 0;
+	    height: 42px;
+	    border: 1px solid #f8f8f8;
+	    background-color: #f8f8f8;
+}
+.col{
+		float: left;
+	    text-align: center;
+	    font-size: 14px;
+	    color: #666;
+	    line-height: 42px;
+}
+.col1{
+	width: 350px;
+}
+.col2{
+	width: 66px;
+	line-height: 42px;float: left;
+	    text-align: center;
+	    font-size: 14px;
+	    color: #666;
+	    
+}
+.col3{
+	width: 79px;
+}
+.col4{
+	width: 63px;
+}
+.col5{
+	width: 108px;
+}
+.col6{
+	width: 86px;
+}
+.head{
+	
 	border-bottom: 1px solid #ececec;
-	    /* margin: 0px 0 32px; */ /* 上下边距为30像素，左右边距为0，下边距为32像素 */
-	    padding-left: 25px; /* 左内边距为25像素 */
-	}
-	.q3{
-		 color: black; /* 初始状态下的文本颜色为黑色 */
-	}
-	.q3:hover {
-	  color: red; /* 鼠标悬浮时的文本颜色为红色 */
-	  cursor: pointer; /* 将鼠标样式设置为指针 */
-	}
-.li2{
-	height: 58px;
-	}
-	 .a1 {
-      color: black; /* 初始状态下的文本颜色为黑色 */
-    }
-  
-    .a1:hover {
-      color: red; /* 鼠标悬浮时的文本颜色为红色 */
-	  cursor: pointer; /* 将鼠标样式设置为指针 */
-    }
-.a2{
+	    width: 100%;
+	    height: 45px;
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    
+	    line-height: 45px;
+	    position: relative;
+	    color: #333;
+}
+.leftt{
+	   /* width: 100%; */
+	    height: 45px;
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	  /*  border-bottom: 1px solid #ececec; */
+	    line-height: 45px;
+	    position: relative;
+	    color: #333;
+}
+/* .middle{
+	margin-left: 72px; */
+
+.rightt{
 	
-	font-size: 14px;
-	color: #666;
-	margin-right: 180px;
-}
-.a3{
-	font-size: 14px;
-	color: #666;
-	margin-right: 100px;
-}
-.a4{
-	font-size: 14px;
-	color: #666;
-	margin-right: 91px;
+		  margin-left: 320px;
+		 
 }
 
-.a6{
+
+
+
+.mian{
 	
+	border-right: 1px solid #ececec;
+	border-bottom: 1px solid #ececec;
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
 }
-.a5{
+.left_1{
+	width: 685px;
+	    height: 100%;
+	   
+	}
+.order-item{
+	display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    width: 100%;
+	    -ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+}	
+.order-wrap{
+	margin: 0; 
+	display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    -ms-flex-wrap: nowrap;
+	    flex-wrap: nowrap;
+	   /* border-right: 1px solid #ececec; */
+}
+.order-item-left{
+	/* width: 155px; */
+	    margin: 25px auto;
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    position: relative;
+	    -webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	    justify-content: center;
+}
+.sj{
+	border-right: 1px solid #ececec;
+	border-left:  1px solid #ececec;
+	width: 120px;
+	height: 130px;
+}
+.order-item-right{
 	font-size: 14px;
-	color: #666;
-	padding-left: 50px;
+	    color: #333;
+	    -webkit-box-flex: 1;
+	    -ms-flex: 1;
+	    flex: 1;
+	 
 }
-
-.div4{
-	height: 50px;
-	margin-top: 9px;
-}
-.ul3{
-	  padding-left: 25px;
-	  border-bottom: 1px solid #ececec;
-}
-.q1{
-	margin-right: 65px;
-}
-.q2{
-	margin-right: 300px;
-}
-.sc{
-	height: 15px;
-	width: 15px;
+.top{
+	width: 355px;
+	border-right: 1px solid #ececec;
 	
+	height: 130px;
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    line-height: 24px;
+	    -webkit-box-align: center;
+	    -ms-flex-align: center;
+	    align-items: center;
 }
-table {
-            border-collapse: collapse;
-			font-size: 14px;
-			 font-weight: lighter; 
-           /* width: 100%; */
-        }
-
-         td {
-            border: 0.4px solid #686868;
-            padding: 0.5px;
-            /* text-align: center; */
-        }
-		th{
-			border: 0.5px solid #686868;
-		}
-        
-		.sj{
-			cursor: pointer; 
-			height: 150px;
-			width: 150px;
-			}
-		.div5{
-			
-			
-			margin-top: 19px;
-		}
-		.th1{
-			
-			
-			width: 180px;
-		}
-		.th2{
-			height: 154px;
-			width: 417px;
-			
-		}
-		.xinhao{
-			 font-weight: lighter; 
-			 color:black;
-			 margin-right: 70px;
-		}
-		.xinhao:hover {
-		cursor: pointer; 
-		  color: #008cd7; /* 鼠标悬浮时的文本颜色为红色 */
-		  
-		}
-		.shuliang{
-			font-weight: lighter;
-			color:black;
-			margin-right: 100px;
-		}
-		.jiage{
-			font-weight: lighter;
-			color:black;
-		}
-		.a9{
-			font-weight: lighter;
-			color:bold;
-			
-		}
-		.th3{
-			width: 160px;
-			
-		}
+.link{
+	color: #333
+}
+.num{
+	width: 66px;
+	    text-align: center;
+}
+.bottom{
+	/* border-right: 1px solid #ececec;
+	border-bottom: 1px solid #ececec; */
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    padding-top: 10px;
+	    margin-bottom: 20px;
+	    -ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	    width: 417px;
+	    position: relative;
+	}
+	.tag{
+		position: absolute;
+		    left: 7px;
+		    top: 20px;
+		    height: 100%;
+		    width: 80px;
+	}
+.box-wrap{
+	display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    width: 437px;
+	    padding-left: 80px;
+}
+.name-list{
+	font-size: 14px;
+	    width: 163px;
+}
+.numm{
+	    height: 45px;
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    -webkit-box-align: center;
+	    -ms-flex-align: center;
+	    align-items: center;
+	    -webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	    justify-content: center;
+	    width: 66px;
+}
+.pricee{
+	width: 108px;
+	    margin-top: 16px;
+	    text-align: center;
+}
+.span{
+	padding-left: 5px;
+	    display: inline-block;
+	    width: 153px;
+	    line-height: 45px;
+	    overflow: hidden;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
+}
+.sole-action{
+	 border-right: 1px solid #ececec;
+	width: 85px;
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    -webkit-box-orient: vertical;
+	    -webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	    flex-direction: column;
+	    -webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	    justify-content: center;
+	    text-align: center;
+	    color: #008cd7;
+}
+.middle{
+	
+	
+	color: #333;
+	   /* width: 107px; */
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    -webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	    justify-content: center;
+	    -webkit-box-align: center;
+	    -ms-flex-align: center;
+	    align-items: center;
+	    /* border-right: 1px solid #ececec; */
+	    position: relative;
+	    line-height: 1.5;
+}
+.aa{
+	
+	
+	width: 145px;
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    -webkit-box-orient: vertical;
+	    -webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	    flex-direction: column;
+	    -webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	    justify-content: center;
+}
+.zuihou{
+	text-align: center;
+	    color: #008cd7;
+	    text-decoration: none;
+	    cursor: pointer;
+	    outline: 0 none;
+	    margin-top: 10px;
+}
+element.style {
+    height: 45px;
+    width: 240px;
+	}
+	.middle_1{
+		color: #333;
+		    width: 107px;
+		    display: -webkit-box;
+		    display: -ms-flexbox;
+		    display: flex;
+		    -webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		    justify-content: center;
+		    -webkit-box-align: center;
+		    -ms-flex-align: center;
+		    align-items: center;
+		    border-right: 1px solid #ececec;
+		    position: relative;
+		    line-height: 1.5;
+	}
+	.container_1{
 		
-		.div6{
-			
-			width: 890px;
-			height: 57px;
+		height: 60px;
 			text-align: right;
-			line-height: 55px;
-			border: 0.5px solid #000;
-			 border-top: none; 
-		}
-		.ljzf{
-				 margin-left: 16px;
-				            margin-right: 16px;
-				            padding: 4px 17px 5px 17px;
-				            background-color: #f81200;
-				            color: #fff;
-				            border-radius: 15px;
-				            transition: background-color 0.3s;
-				            cursor: pointer;
-				            
-				
-		}
-		.a7{
-		cursor: pointer; 
-		/* 将鼠标样式设置为指针 */
-	font-weight: lighter;
-	color:#008cd7;
+			border-left: 1px solid #ececec;
+			border-right: 1px solid #ececec;
+			border-bottom: 1px solid #ececec;
+	}
+	.right_2{
+		cursor: pointer;
+		    text-align: center;
+		    margin-left: 16px;
+		    border-radius: 18.5px;
+		    background-color: #f81200;
+		    color: #fff;
+		    width: 100px;
+		    height: 30px;
+		    line-height: 30px;
+		    font-size: 13px;
+			float: right;
+	}
+	.left_2{
 		
-		}
-		.a7:hover {
-		  color: red; /* 鼠标悬浮时的文本颜色为红色 */
-		  
-		}
-		.a8{
-			font-size: 16px;
-		}
-		span.span1 {
-		    font-size: 16px;
-		}
-		
-		.a8{
-			font-size: 16px;
-		}
-		span.span1 {
-		    font-size: 16px;
-		}
-		
+		 align-items: center; 
+	}
+	.span_2{
+	color: #f81200;
+	}
+	.element.style{
+		 display: flex;
+	}
+	.clearfix::after {
+	    content: "";
+	    display: block;
+	    clear: both;
+	}
