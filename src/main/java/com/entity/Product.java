@@ -23,7 +23,8 @@ public class Product {
 	//临时字段
 	private String image_url;//图片地址
 	private BigDecimal price;//商品价格
-	
+	private String pagTtype;//内存
+	private String color;//颜色
 	
 	
 	public BigDecimal getPrice() {
@@ -88,12 +89,27 @@ public class Product {
 		this.state = state;
 	}
 	
+	
+	
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", products_name=" + products_name + ", category_id=" + category_id
 				+ ", description=" + description + ", hits=" + hits + ", purchase_limit=" + purchase_limit
 				+ ", listing_time=" + listing_time + ", state=" + state + ", image_url=" + image_url + ", price="
-				+ price + "]";
+				+ price + ", pagTtype=" + pagTtype + ", color=" + color + "]";
+	}
+	public String getPagTtype() {
+		return pagTtype;
+	}
+	public void setPagTtype(String pagTtype) {
+		this.pagTtype = pagTtype;
 	}
 	public Product(Integer id, String products_name, Integer category_id, String description, Long hits,
 			Integer purchase_limit, Timestamp listing_time, Integer state) {
