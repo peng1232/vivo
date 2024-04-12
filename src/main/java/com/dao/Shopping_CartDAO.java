@@ -1,14 +1,10 @@
 package com.dao;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Statement;
 
-import com.entity.City;
 import com.entity.Shopping_cart;
 import com.util.BaseDAO;
-import com.util.Mapper;
 
 /**
  * @Description:
@@ -39,8 +35,27 @@ public class Shopping_CartDAO extends BaseDAO {
 	
 	//添加购物车
 	public Integer insertShopping(Shopping_cart s) {
+		Integer sid = null;
 		String sql = "insert into shopping_cart(user_id,product_id,sku,quantity,add_time) values(?,?,?,?,?)";
-		return executeUpdate(sql, s.getUser_id(),s.getProduct_id(),s.getSku(),s.getQuantity(),s.getAdd_time());
+		try {
+			stmt = getConn().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			stmt.setInt(1, s.getUser_id());
+	        stmt.setInt(2, s.getProduct_id());
+	        stmt.setString(3, s.getSku());
+	        stmt.setInt(4, s.getQuantity());
+	        stmt.setTimestamp(5, s.getAdd_time());
+	        stmt.executeUpdate();
+	        rs = stmt.getGeneratedKeys();
+	        if (rs.next()) {
+	            sid = rs.getInt(1);
+	        }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return sid;
+        
 	}
 	
 	//查看是否有该购物车

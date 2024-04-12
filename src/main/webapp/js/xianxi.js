@@ -109,6 +109,7 @@ $(function() {
 					//添加购物车
 					$.getJSON('ShoppingInsertServlet', { 'user_id': userid, 'product_id': proid, 'sku': skuval }, function(request) {
 						$('.gou').text('购物车(' + request.shopping_count + ')')
+						location.href = 'CardServlet?shopping_id='+request.shoppingid
 					});
 				} else {
 					//不能添加 弹窗

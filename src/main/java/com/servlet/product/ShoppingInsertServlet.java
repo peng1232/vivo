@@ -29,7 +29,8 @@ public class ShoppingInsertServlet extends HttpServlet {
 		JSONObject jsonObj = JSON.parseObject(sku);
 		int number = jsonObj.getIntValue("number");
 		Shopping_cart s = new Shopping_cart(null, user_id, product_id, number, new Timestamp(new Date().getTime()), null, sku);
-		sdao.insertShopping(s);
+		Integer shoppingid = sdao.insertShopping(s);
+		jsonObj.put("shoppingid", shoppingid);
 		Integer shopping_Count = sdao.shopping_Count(user_id);
 		jsonObj.put("shopping_count", shopping_Count);
 		response.setContentType("application/json");
