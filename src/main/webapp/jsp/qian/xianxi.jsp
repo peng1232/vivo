@@ -112,7 +112,27 @@
 			</div>
 		</div>
 	</div>
-	
+	<!-- 弹窗 -->
+		<div class="message">
+			<div class="zhe"></div>
+			<div class="message_box">
+				<div class="message_box_head">
+					<span>提醒信息</span>
+					<svg class="guan" t="1710744510048" class="icon" viewBox="0 0 1024 1024" version="1.1"
+						xmlns="http://www.w3.org/2000/svg" p-id="7727" width="16" height="16">
+						<path
+							d="M590.7456 508.416 1016.832 934.5024 938.0864 1009.664 512 583.5776 78.7456 1024 0 941.6704l433.2544-440.4224L7.168 75.1616 85.9136 0 512 426.0864 938.0864 0 1016.832 82.3296 590.7456 508.416z"
+							p-id="7728" fill="#242933"></path>
+					</svg>
+				</div>
+				<div class="message_box_center">
+					<p class="setting">温馨提示：该商品已经添加到了购物车</p>
+				</div>
+				<div class="message_box_footer">
+					<button>确定</button>
+				</div>
+			</div>
+		</div>
 	<%@include file="../../html/footer.jsp" %>
 </body>
 </html>
