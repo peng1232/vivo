@@ -94,6 +94,33 @@ $(function() {
 			location.href = '../login/login.jsp'
 		}
 	})
+	
+	//添加购物车
+	$('.addshopping').click(function(){
+		var proid = $(".name").attr('pro');
+		var userid = $(".user_id").val();
+		var userid = $(".user_id").val();
+		var skuval = $('.addS').attr('sku');
+		if(userid.trim().length>0){
+			//已登录
+			//判断是否有该购物车
+			$.getJSON('IsShopping',{'user_id':userid,'product_id':proid,'sku':skuval},function(request){
+				if(!request.Shopp){
+					//添加购物车
+					$.getJSON('ShoppingInsertServlet',{'user_id':userid,'product_id':proid,'sku':skuval},function(request){
+		
+					});
+				}else{
+					//不能添加
+					console.log('onnnnnnnnnnnn'+request.Shopp)
+				}
+			});
+		}else{
+			//未登录
+			location.href = '../login/login.jsp'
+		}
+		
+	})
 })
 
 var jiageid ;
