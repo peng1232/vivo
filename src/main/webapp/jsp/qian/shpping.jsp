@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>购物车</title>
 <link rel="icon name" href="../../img/favicon.ico" />
 <script type="text/javascript" src="../../js/jquery.min.js"></script>
 <link href="../../css/nav.css" rel="stylesheet"/>
@@ -20,7 +20,7 @@
 			<div class="neir">
 				<div class="nei_top">
 					<span>我的购物车</span>
-					<a>
+					<a href ='shouye.jsp' style='text-decoration: none;'>
 						继续购物 <b>></b>
 					</a>
 				</div>
@@ -42,109 +42,41 @@
 					</table>
 				</div>
 				<!-- 购物车项 -->
-				<div class="shop_cart_item">
-					<div class="cart_item_info">
-						<table>
-							<tr>
-								<td class="col_check che">
-									<label>
-										<input type="checkbox" class="check_input check_item" />
-									</label>
-								</td>
-								<td class="prod-pic">
-									<a href="#">
-										<div class="figure"><img src="../../img/vivo.jpg" /></div>
-									</a>
-								</td>
-								<td class="golds_col pro_col">
-									<a href="#" class="golds_link">vivo Y78t 8GB+256GB 远山青</a>
-									<br />
-									<span> 颜色：远山青 </span>
-								</td>
-								<td class="price_col">1299.00</td>
-								<td class="number-box">
-									<a class="reduce-num num_shu">-</a>
-									<span class="prod-num">1</span>
-									<a class="add-num num_shu">+</a>
-								</td>
-								<td class="total_price column">1299.00</td>
-								<td class="zaozuo">
-									<a class="favorite" href="#">加入到购物车</a>
-									<br /><a href="#">删除</a>
-								</td>
-							</tr>
-						</table>
+				<c:forEach items="${product }" var ='item' varStatus="va">
+					<div class="shop_cart_item">
+						<div class="cart_item_info">
+							<table>
+								<tr>
+									<td class="col_check che">
+										<label><input type="checkbox" class="check_input check_item" /></label>
+									</td>
+									<td class="prod-pic">
+										<a href="#">
+											<div class="figure"><img src="../../img/product/${item.image_url }" /></div>
+										</a>
+									</td>
+									<td class="golds_col pro_col">
+										<a href="#" class="golds_link">vivo ${item.products_name } ${item.pagTtype } ${item.color }</a>
+										<br />
+										<span> ${item.color } </span>
+									</td>
+									<td class="price_col">${item.price }</td>
+									<td class="number-box">
+										<a class="reduce-num num_shu">-</a>
+										<span class="prod-num">${shopping[va.index].quantity }</span>
+										<a class="add-num num_shu">+</a>
+									</td>
+									<td class="total_price column"></td>
+									<td class="zaozuo">
+										<a class="favorite" href="#">加入到购物车</a>
+										<br /><a href="#">删除</a>
+									</td>
+								</tr>
+							</table>
+						</div>
 					</div>
-				</div>
-				<!-- 购物车项 -->
-				<div class="shop_cart_item">
-					<div class="cart_item_info">
-						<table>
-							<tr>
-								<td class="col_check che">
-									<label>
-										<input type="checkbox" class="check_input check_item" />
-									</label>
-								</td>
-								<td class="prod-pic">
-									<a href="#">
-										<div class="figure"><img src="../../img/vivo.jpg" /></div>
-									</a>
-								</td>
-								<td class="golds_col pro_col">
-									<a href="#" class="golds_link">vivo Y78t 8GB+256GB 远山青</a>
-									<br />
-									<span> 颜色：远山青 </span>
-								</td>
-								<td class="price_col">1299.00</td>
-								<td class="number-box">
-									<a class="reduce-num num_shu">-</a>
-									<span class="prod-num">1</span>
-									<a class="add-num num_shu">+</a>
-								</td>
-								<td class="total_price column">1299.00</td>
-								<td class="zaozuo">
-									<a class="favorite" href="#">加入到购物车</a>
-									<br /><a href="#">删除</a>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</div><!-- 购物车项 -->
-				<div class="shop_cart_item">
-					<div class="cart_item_info">
-						<table>
-							<tr>
-								<td class="col_check che">
-									<label>
-										<input type="checkbox" class="check_input check_item" />
-									</label>
-								</td>
-								<td class="prod-pic">
-									<a href="#">
-										<div class="figure"><img src="../../img/vivo.jpg" /></div>
-									</a>
-								</td>
-								<td class="golds_col pro_col">
-									<a href="#" class="golds_link">vivo Y78t 8GB+256GB 远山青</a>
-									<br />
-									<span> 颜色：远山青 </span>
-								</td>
-								<td class="price_col">1299.00</td>
-								<td class="number-box">
-									<a class="reduce-num num_shu">-</a>
-									<span class="prod-num">2</span>
-									<a class="add-num num_shu">+</a>
-								</td>
-								<td class="total_price column">1299.00</td>
-								<td class="zaozuo">
-									<a class="favorite" href="#">加入到购物车</a>
-									<br /><a href="#">删除</a>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</div>
+				</c:forEach>
+				
 
 				<!-- 总结页 -->
 				<div class="cart_toolbar_wrap">
@@ -161,9 +93,9 @@
 									<li>
 										<span class="del wei">删除选中的商品</span>
 									</li>
-									<li>
+									<!-- <li>
 										<span class="shou wei">移入收藏夹</span>
-									</li>
+									</li> -->
 								</ul>
 								<div class="total_right">
 									<table>
@@ -209,7 +141,16 @@
 				</div>
 			</div>
 		</div>
-	
+	<c:if test="${empty user }">
+		<script type="text/javascript">
+			location.href='../login/login.jsp'
+		</script>
+	</c:if>
+	<c:if test="${empty product }">
+		<script type="text/javascript">
+			location.href='ShoppingServlet?user_id='+${user.id }
+		</script>
+	</c:if>
 	<%@include file="../../html/footer.jsp" %>
 </body>
 </html>

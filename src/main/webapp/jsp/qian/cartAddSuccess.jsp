@@ -39,7 +39,7 @@
 						<a href='XianXiSerlvet?id=${product.id }'>
 							<button class='btn shop'>查看商品详情</button>
 						</a>
-						<a href='#'>
+						<a href='ShoppingServlet?user_id=${user.id }'>
 							<button class='btn go'>去购物车结算</button>
 						</a>
 					</div>

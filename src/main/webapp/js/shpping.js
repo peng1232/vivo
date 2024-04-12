@@ -1,4 +1,13 @@
 $(function(){
+	//计算金额
+	var ind=0;
+	$('.cart_item_info').each(function() {
+	    var sum = parseInt($(this).find('.prod-num').text());
+		var value= parseFloat($(this).find('.price_col').text())
+		$('.total_price').eq(ind).text((sum*value).toFixed(2))
+		ind++;
+	});
+	
 	//全选事件
 	$('.check_sum').click(function(){
 		var that = $(this);
