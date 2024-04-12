@@ -74,8 +74,28 @@ public class Shopping_CartDAO extends BaseDAO {
 		}
 		return false;
 	}
+	
+	//根据购物车id查询对应信息
+	public Shopping_cart queryShopping(Integer shopping_id) {
+		Shopping_cart s = null;
+		String sql = "select * from shopping_cart where id = ?";
+		try {
+			stmt= getConn().prepareStatement(sql);
+			stmt.setObject(1, shopping_id);
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				s = new Shopping_cart(rs.getInt("id"), rs.getInt("user_id"), rs.getInt("product_id"), rs.getInt("quantity"), rs.getTimestamp("add_time"), rs.getInt("state"), rs.getString("sku"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return s;
+	}
 
 	public static void main(String[] args) {
-		System.out.println(new Shopping_CartDAO().isShopping(1,2));
+		System.out.println(new Shopping_CartDAO().queryShopping(13));
 	}
 }

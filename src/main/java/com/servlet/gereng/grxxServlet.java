@@ -31,6 +31,6 @@ public class grxxServlet extends HttpServlet{
 		 */
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
-		resp.getWriter().println(jsonArray.toJSONString());
+		//resp.getWriter().println(jsonArray.toJSONString());
 	}
 }

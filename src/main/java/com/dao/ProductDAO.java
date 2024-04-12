@@ -290,7 +290,42 @@ public class ProductDAO extends BaseDAO{
 		return collection_count;
 	};
 	
+	
+	//根据多个商品规格值查询图片
+	public String queryImage_Url( Integer...params) {
+		String url = null;
+		StringBuffer sb = new StringBuffer();
+		for(int i=0;i<params.length;i++) {
+			sb.append("?,");
+		}
+		sb.delete(sb.length()-1, sb.length());
+		String sql = "SELECT pi.image_url \r\n"
+				+ "FROM product_image PI\r\n"
+				+ "JOIN specification_value sv ON pi.value_id = sv.id\r\n"
+				+ "JOIN product_specifications ps ON sv.specifications_id = ps.id\r\n"
+				+ "JOIN product p ON ps.product_id = p.id\r\n"
+				+ "WHERE sv.id IN ("+sb.toString()+")\r\n"
+				+ "GROUP BY p.id,pi.image_url\r\n"
+				+ "LIMIT 1;";
+		try {
+			stmt = getConn().prepareStatement(sql);
+			for(int i=0;i<params.length;i++) {
+				stmt.setObject(i+1, params[i]);
+			}
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				url = rs.getString("image_url");
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return url;
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(new ProductDAO().queryCollection(1));
+		System.out.println(new ProductDAO().queryImage_Url(3,1));
 	}
 }
