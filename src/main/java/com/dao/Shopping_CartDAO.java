@@ -1,13 +1,10 @@
 package com.dao;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Statement;
 
-import com.entity.City;
+import com.entity.Shopping_cart;
 import com.util.BaseDAO;
-import com.util.Mapper;
 
 /**
  * @Description:
@@ -19,10 +16,11 @@ public class Shopping_CartDAO extends BaseDAO {
 	
 	//查询购物车数量
 	public Integer shopping_Count(Integer user_id) {
-		String sql = "SELECT COUNT(*) as sum FROM shopping_cart";
+		String sql = "SELECT COUNT(*) as sum FROM shopping_cart where user_id=? and state = 0 ";
 		Integer count = 0;
 		try {
 			stmt = getConn().prepareStatement(sql);
+			stmt.setObject(1, user_id);
 			rs = stmt.executeQuery();
 			if(rs.next()) {
 				count = rs.getInt("sum");
@@ -35,9 +33,49 @@ public class Shopping_CartDAO extends BaseDAO {
 		return count;
 	}
 	
+	//添加购物车
+	public Integer insertShopping(Shopping_cart s) {
+		Integer sid = null;
+		String sql = "insert into shopping_cart(user_id,product_id,sku,quantity,add_time) values(?,?,?,?,?)";
+		try {
+			stmt = getConn().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			stmt.setInt(1, s.getUser_id());
+	        stmt.setInt(2, s.getProduct_id());
+	        stmt.setString(3, s.getSku());
+	        stmt.setInt(4, s.getQuantity());
+	        stmt.setTimestamp(5, s.getAdd_time());
+	        stmt.executeUpdate();
+	        rs = stmt.getGeneratedKeys();
+	        if (rs.next()) {
+	            sid = rs.getInt(1);
+	        }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return sid;
+        
+	}
 	
+	//查看是否有该购物车
+	public Boolean isShopping(Integer user_id,Integer product_id) {
+		String sql = "SELECT * FROM shopping_cart WHERE user_id = ? AND product_id = ? AND state = 0";
+		try {
+			stmt = getConn().prepareStatement(sql);
+			stmt.setObject(1, user_id);
+			stmt.setObject(2, product_id);
+			rs = stmt.executeQuery();
+			return rs.next();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return false;
+	}
 
 	public static void main(String[] args) {
-		System.out.println(new Shopping_CartDAO().shopping_Count(1));
+		System.out.println(new Shopping_CartDAO().isShopping(1,2));
 	}
 }
