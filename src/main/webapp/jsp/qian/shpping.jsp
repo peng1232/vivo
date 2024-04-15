@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,80 +43,93 @@
 					</table>
 				</div>
 				<!-- 购物车项 -->
-				<c:forEach items="${product }" var ='item' varStatus="va">
-					<div class="shop_cart_item">
-						<div class="cart_item_info">
-							<table>
-								<tr>
-									<td class="col_check che">
-										<label><input type="checkbox" class="check_input check_item" /></label>
-									</td>
-									<td class="prod-pic">
-										<a href="#">
-											<div class="figure"><img src="../../img/product/${item.image_url }" /></div>
-										</a>
-									</td>
-									<td class="golds_col pro_col">
-										<a href="#" class="golds_link">vivo ${item.products_name } ${item.pagTtype } ${item.color }</a>
-										<br />
-										<span> ${item.color } </span>
-									</td>
-									<td class="price_col">${item.price }</td>
-									<td class="number-box">
-										<a class="reduce-num num_shu">-</a>
-										<span class="prod-num">${shopping[va.index].quantity }</span>
-										<a class="add-num num_shu">+</a>
-									</td>
-									<td class="total_price column"></td>
-									<td class="zaozuo">
-										<a class="favorite" href="#">加入到购物车</a>
-										<br /><a href="#">删除</a>
-									</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-				</c:forEach>
 				
-
-				<!-- 总结页 -->
-				<div class="cart_toolbar_wrap">
+				<c:if test="${fn:length(product) > 0}" var="fou">
+			   		<c:forEach items="${product }" var ='item' varStatus="va">
+						<div class="shop_cart_item">
+							<div class="cart_item_info">
+								<table>
+									<tr>
+										<td class="col_check che">
+											<label><input type="checkbox" class="check_input check_item" /></label>
+										</td>
+										<td class="prod-pic">
+											<a href="#">
+												<div class="figure"><a href="XianXiSerlvet?id=${item.id }" ><img src="../../img/product/${item.image_url }" /></a></div>
+											</a>
+										</td>
+										<td class="golds_col pro_col">
+											<a href="XianXiSerlvet?id=${item.id }" class="golds_link">vivo ${item.products_name } ${item.pagTtype } ${item.color }</a>
+											<br />
+											<span> ${item.color } </span>
+										</td>
+										<td class="price_col">${item.price }</td>
+										<td class="number-box">
+											<a class="reduce-num num_shu">-</a>
+											<span class="prod-num">${shopping[va.index].quantity }</span>
+											<a class="add-num num_shu">+</a>
+										</td>
+										<td class="total_price column"></td>
+										<td class="zaozuo">
+											<a class="favorite" href="#">加入到购物车</a>
+											<br /><a href="#">删除</a>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</c:forEach>
+					<!-- 总结页 -->
 					<div class="cart_toolbar_wrap">
-						<div class="toolbar_wrapper">
-							<div class="cart_toolbar_inner">
-								<ul class="clearfix option_list">
-									<li>
-										<label>
-											<input type="checkbox" class="check_input check_sum" />
-											<span class="quan wei">全选</span>
-										</label>
-									</li>
-									<li>
-										<span class="del wei">删除选中的商品</span>
-									</li>
-									<!-- <li>
-										<span class="shou wei">移入收藏夹</span>
-									</li> -->
-								</ul>
-								<div class="total_right">
-									<table>
-										<tr>
-											<td>
-												<p class="wenzi">
-													已选商品 <span id="number">0</span> 件，合计（不含运费）：<b class="price">￥<span
-															id="jin">0.00</span></b>
-												</p>
-											</td>
-											<td class="yshi">
-												<button id="jiesuan">去结算</button>
-											</td>
-										</tr>
-									</table>
+						<div class="cart_toolbar_wrap">
+							<div class="toolbar_wrapper">
+								<div class="cart_toolbar_inner">
+									<ul class="clearfix option_list">
+										<li>
+											<label>
+												<input type="checkbox" class="check_input check_sum" />
+												<span class="quan wei">全选</span>
+											</label>
+										</li>
+										<li>
+											<span class="del wei">删除选中的商品</span>
+										</li>
+										<!-- <li>
+											<span class="shou wei">移入收藏夹</span>
+										</li> -->
+									</ul>
+									<div class="total_right">
+										<table>
+											<tr>
+												<td>
+													<p class="wenzi">
+														已选商品 <span id="number">0</span> 件，合计（不含运费）：<b class="price">￥<span
+																id="jin">0.00</span></b>
+													</p>
+												</td>
+												<td class="yshi">
+													<button id="jiesuan">去结算</button>
+												</td>
+											</tr>
+										</table>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</c:if>
+				<c:if test="${!fou }">
+					<div class='no_result'>
+						<div>
+							<img src='../../img/product/nogou.png' class='nogou'>
+						</div>
+						<div class='wenzi_title'>哎呀，购物车为空！</div>
+						<div class='no_container'>
+							<button class='btn_an ggou'><a href='shouye.jsp'>去选购逛逛</a></button>
+							<button class='btn_an gshou'><a href='#'>我的收藏</a></button>
+						</div>
+					</div>
+				</c:if>
 			</div>
 		</div>
 
@@ -146,7 +160,7 @@
 			location.href='../login/login.jsp'
 		</script>
 	</c:if>
-	<c:if test="${empty product }">
+	<c:if test="${product==null }">
 		<script type="text/javascript">
 			location.href='ShoppingServlet?user_id='+${user.id }
 		</script>
