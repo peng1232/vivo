@@ -11,10 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 import com.dao.ProductDAO;
+import com.dao.Shopping_CartDAO;
 import com.dao.User_Product_FootprintDAO;
 import com.entity.Product;
 import com.entity.Product_specifications;
+import com.entity.Shopping_cart;
 import com.entity.Specification_value;
 import com.entity.Users;
 
@@ -25,6 +29,7 @@ import com.entity.Users;
 public class XianXiSerlvet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ProductDAO pdao = new ProductDAO();
+	Shopping_CartDAO sdao = new Shopping_CartDAO();
 	User_Product_FootprintDAO ypfdao = new User_Product_FootprintDAO();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -49,6 +54,25 @@ public class XianXiSerlvet extends HttpServlet {
 		
 		//查询该商品的收藏数
 		Long queryCollection = pdao.queryCollection(id);
+		
+		String sgid = request.getParameter("shoppingId");
+		if(sgid!=null&&sgid.trim().length()>0) {
+			Integer shoppingId = Integer.valueOf(sgid);
+			Shopping_cart queryShopping = sdao.queryShopping(shoppingId);
+			String sku = queryShopping.getSku();
+			JSONObject jsonObj = JSON.parseObject(sku);
+			int skuPrice = jsonObj.getIntValue("sku_price");
+			int pageType = jsonObj.getIntValue("pageType");
+			int color = jsonObj.getIntValue("color");
+			int number = jsonObj.getIntValue("number");
+			request.setAttribute("skuPrice", skuPrice);
+			request.setAttribute("pageType", pageType);
+			request.setAttribute("color", color);
+			//request.setAttribute("number", number);
+			request.setAttribute("number", queryShopping.getQuantity());
+			request.setAttribute("flag", true);
+		}
+		
 
 		request.setAttribute("product", product);
 		request.setAttribute("Specifications", Specifications);

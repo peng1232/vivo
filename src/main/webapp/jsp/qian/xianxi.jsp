@@ -79,7 +79,17 @@
 							<dd class='sku-module_content'>
 								<ul class='list_item'>
 									<c:forEach items="${value[index.index] }" var="va" varStatus="x">
-										<li class="sku-module_item ${x.index==0?'sku_checked': ''}" productid='${va.id }'>${va.value }</li>
+										<c:if test="${flag }" var="fla">
+											<c:if test="${va.id==pageType||va.id==color }" var="non">
+												<li class="sku-module_item sku_checked" productid='${va.id }'>${va.value }</li>
+											</c:if>
+											<c:if test="${!non }">
+												<li class="sku-module_item" productid='${va.id }'>${va.value }</li>
+											</c:if>
+										</c:if>
+										<c:if test="${!fla }">
+											<li class="sku-module_item ${x.index==0?'sku_checked': ''}" productid='${va.id }'>${va.value }</li>
+										</c:if>
 									</c:forEach>
 								</ul>
 							</dd>
@@ -91,7 +101,7 @@
 							<div class='number_item'>
 								<label class='an num_left'>-</label>
 								<input type="hidden" value="${product.purchase_limit }" class='limit'>
-								<span class='number'>1</span>
+								<span class='number'>${number!=null?number:1 }</span>
 								<label class='an num_rigth'>+</label>
 							</div>
 							<span class='shu'>(仅限购${product.purchase_limit }件)</span>

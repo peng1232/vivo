@@ -54,12 +54,12 @@
 											<label><input type="checkbox" class="check_input check_item" /></label>
 										</td>
 										<td class="prod-pic">
-											<a href="#">
-												<div class="figure"><a href="XianXiSerlvet?id=${item.id }" ><img src="../../img/product/${item.image_url }" /></a></div>
+											<a href='XianXiSerlvet?id=${item.id }&shoppingId=${shoppingId[va.index] }'>
+												<div class="figure"><img src="../../img/product/${item.image_url }" /></div>
 											</a>
 										</td>
 										<td class="golds_col pro_col">
-											<a href="XianXiSerlvet?id=${item.id }" class="golds_link">vivo ${item.products_name } ${item.pagTtype } ${item.color }</a>
+											<a href='XianXiSerlvet?id=${item.id }&shoppingId=${shoppingId[va.index] }' class="golds_link">vivo ${item.products_name } ${item.pagTtype } ${item.color }</a>
 											<br />
 											<span> ${item.color } </span>
 										</td>

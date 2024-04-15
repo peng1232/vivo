@@ -31,7 +31,7 @@ public class ShoppingServlet extends HttpServlet {
 		Integer user_id = Integer.valueOf(request.getParameter("user_id"));
 		List<Shopping_cart> shoppingAll = sdao.queryUser_Shopping(user_id);
 		List<Product> list = new ArrayList<Product>();
-		
+		List<Integer> shoppingId = new ArrayList<Integer>();
 		shoppingAll.forEach(e->{
 			// 查询出对应的商品
 			Product product = pdao.queryProduct(e.getProduct_id());
@@ -45,11 +45,13 @@ public class ShoppingServlet extends HttpServlet {
 			product.setColor(cdao.specification_Value(color).getValue());
 			product.setImage_url(pdao.queryImage_Url(pageType, color));
 			product.setPrice(cdao.commodity_price(skuPrice).getPrice());
+			shoppingId.add(e.getId());
 			
 			list.add(product);
 		});
 		request.setAttribute("product", list);
 		request.setAttribute("shopping", shoppingAll);
+		request.setAttribute("shoppingId", shoppingId);
 		request.getRequestDispatcher("shpping.jsp").forward(request, response);
 	}
 
