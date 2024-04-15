@@ -362,7 +362,18 @@ body{
     border: none;
 	cursor: pointer;
 }
-
+#xuxiao{
+	color: #252525;
+    border: 1px solid #979797;
+    background: none;
+    background-image: none;
+    margin-left: 20px;
+    transition: 0.3s;
+    display: none;
+}
+#xuxiao:hover{
+	background: rgb(236,245,255)
+}
 .no_result{
 	height: 452px;
     background-color: #fff;

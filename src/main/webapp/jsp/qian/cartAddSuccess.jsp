@@ -36,7 +36,7 @@
 						</div>
 					</div>
 					<div class='product_action'>
-						<a href='XianXiSerlvet?id=${product.id }'>
+						<a href='XianXiSerlvet?id=${product.id }&shoppingId=${shopping.id}'>
 							<button class='btn shop'>查看商品详情</button>
 						</a>
 						<a href='ShoppingServlet?user_id=${user.id }'>

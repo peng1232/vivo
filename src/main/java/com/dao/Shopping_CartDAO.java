@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.entity.Shopping_cart;
@@ -116,8 +117,40 @@ public class Shopping_CartDAO extends BaseDAO {
 			}
 		}, user_id);
 	}
+	
+	//修改购物车数量
+	public Integer updateShoppingNumber(Integer user_id,Integer shopping_id,Integer sum) {
+		String sql = "update shopping_cart set quantity = ?,sku = JSON_REPLACE(sku, '$.number', ?) where id=? and user_id = ?";
+		return executeUpdate(sql, sum,sum,shopping_id,user_id);
+	}
+	
+	//修改购物车状态
+	public Integer updateShoppingState(Integer user_id,List<Integer> shopping_id,Integer state) {
+		StringBuffer sb = new StringBuffer("(");
+		for(int i=0;i<shopping_id.size();i++) {
+			sb.append("?,");
+		}
+		sb.delete(sb.length()-1, sb.length());
+		sb.append(")");
+		String sql = "update shopping_cart set state=? where id in "+sb.toString()+" and user_id = ?";
+		try {
+			stmt = getConn().prepareStatement(sql);
+			stmt.setObject(1, state);
+			for(int i=0;i<shopping_id.size();i++) {
+				stmt.setObject(i+2, shopping_id.get(i));
+			}
+			stmt.setObject(shopping_id.size()+2, user_id);
+			return stmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return null;
+	}
 
 	public static void main(String[] args) {
-		System.out.println(new Shopping_CartDAO().queryUser_Shopping(3));
+		System.out.println(new Shopping_CartDAO().updateShoppingState(3,Arrays.asList(19),2));
 	}
 }

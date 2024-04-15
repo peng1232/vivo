@@ -18,6 +18,7 @@
 	<%@include file="../../html/nav.jsp" %>
 	<!-- 购物车 -->
 		<div id="content" class="clearfix">
+			<input class='user' type="hidden" value='${user.id }'>
 			<div class="neir">
 				<div class="nei_top">
 					<span>我的购物车</span>
@@ -51,7 +52,7 @@
 								<table>
 									<tr>
 										<td class="col_check che">
-											<label><input type="checkbox" class="check_input check_item" /></label>
+											<label><input type="checkbox" class="check_input check_item" shopping_id='${shoppingId[va.index] }'/></label>
 										</td>
 										<td class="prod-pic">
 											<a href='XianXiSerlvet?id=${item.id }&shoppingId=${shoppingId[va.index] }'>
@@ -66,13 +67,13 @@
 										<td class="price_col">${item.price }</td>
 										<td class="number-box">
 											<a class="reduce-num num_shu">-</a>
-											<span class="prod-num">${shopping[va.index].quantity }</span>
+											<span class="prod-num" max = '${item.purchase_limit }'  shopping_id='${shoppingId[va.index] }'>${shopping[va.index].quantity }</span>
 											<a class="add-num num_shu">+</a>
 										</td>
 										<td class="total_price column"></td>
 										<td class="zaozuo">
-											<a class="favorite" href="#">加入到购物车</a>
-											<br /><a href="#">删除</a>
+											<!-- <a class="favorite" href="#">加入到购物车</a><br /> -->
+											<a href="#" class='del' shopping_id='${shoppingId[va.index] }' index='${va.index}'>删除</a>
 										</td>
 									</tr>
 								</table>
@@ -92,7 +93,7 @@
 											</label>
 										</li>
 										<li>
-											<span class="del wei">删除选中的商品</span>
+											<span class="delshop wei">删除选中的商品</span>
 										</li>
 										<!-- <li>
 											<span class="shou wei">移入收藏夹</span>
@@ -151,7 +152,9 @@
 					<p class="setting">温馨提示：商品抢购数量超出限制</p>
 				</div>
 				<div class="message_box_footer">
-					<button>确定</button>
+					<button class='guanque'>确定</button>
+					<button class='delque' style='display:none'>确定</button>
+					<button id='xuxiao'>取消</button>
 				</div>
 			</div>
 		</div>
