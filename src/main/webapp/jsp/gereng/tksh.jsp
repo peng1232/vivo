@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.entity.Refund" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,26 +24,7 @@
 			<a href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">退款/售后</a>
 		</div>
 		<div class="under">
-			<div class="left">
-				<img src="../../img/${user.head_sculpture }" class="tx">
-				<ul id="user_muem_item">
-					<li class="z">${user.user_nickname }</li>
-
-					<li class="z">交易管理</li>
-					<li class="s"><a href="#">我的订单</a></li>
-					<li class="s"><a href="tksh.jsp">退款/售后</a></li>
-
-					<li class="z">评价管理</li>
-					<li class="s"><a href="#">评价晒单</a></li>
-
-					<li class="z">我的账户</li>
-					<li class="s"><a href="xgmm.jsp">修改密码</a></li>
-					<li class="s"><a href="xgdh.jsp">修改电话号码</a></li>
-					<li class="s"><a href="grxx.jsp">个人资料</a></li>
-					<li class="s"><a href="#">收货地址</a></li>
-					<li class="s"><a href="#">我的收藏</a></li>
-				</ul>
-			</div>
+			<%@include file="zxzuo.jsp" %>
 			<div class="right">
 				<div class="tkgl">退款/售后查询</div>
 				<div class="list-caption">
@@ -48,13 +32,15 @@
 					<div class="col1">退款原因</div>
 					<div class="co12">状态</div>
 					<div class="col3">操作</div>
-					<tr>
-						<td>${user.user_id}</td>
+				</div>	
+				<c:forEach items="${refunds}" var="refund">
+		            <tr>
+		               	<td>${user.user_id}</td>
 						<td>${user.refund_reason}</td>
 						<td>${user.state}</td>
-						<td></td>
-					</tr>
-				</div>	
+						<td>删除</td>
+		            </tr>
+				</c:forEach>
 			</div>
 		</div>
 	</div>

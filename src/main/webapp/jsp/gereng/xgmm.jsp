@@ -6,12 +6,12 @@
 <meta charset="UTF-8">
 <title>密码修改</title>
 <link rel="icon name" href="../../img/favicon.ico" />
+<script src="../../js/jquery.min.js"/></script>
 <link href="../../css/grzx.css" rel="stylesheet" />
 <link href="../../css/nav.css" rel="stylesheet" />
 <link href="../../css/footer.css" rel="stylesheet" />
 <link href="../../css/zhuce.css" rel="stylesheet"/>
 <script src="../../js/zhece.js"></script>
-<script src="../../js/jquery.min.js"/></script>
 <script src="../../js/nav.js"></script>
 <script src="../../js/login.js"></script>
 <style>
@@ -130,28 +130,7 @@
 			<a href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">修改密码</a>
 		</div>	
 		<div class="under">
-			<div class="left">
-				<input type="hidden" class='user_id' value='${user.id }'>
-				<input type="hidden" class='user_password' value='${user.user_password }'>
-				<img src="../../img/${user.head_sculpture }" class="tx">
-				<ul id="user_muem_item">
-					<li class="z">${user.user_nickname }</li>
-						
-					<li class="z">交易管理</li>
-					<li class="s"><a href="#">我的订单</a></li>
-					<li class="s"><a href="tksh.jsp">退款/售后</a></li>
-
-					<li class="z">评价管理</li>
-					<li class="s"><a href="#">评价晒单</a></li>
-
-					<li class="z">我的账户</li>
-					<li class="s"><a href="xgmm.jsp">修改密码</a></li>
-					<li class="s"><a href="xgdh.jsp">修改电话号码</a></li>
-					<li class="s"><a href="grxx.jsp">个人资料</a></li>
-					<li class="s"><a href="#">收货地址</a></li>
-					<li class="s"><a href="#">我的收藏</a></li>
-				</ul>
-			</div>
+			<%@include file="zxzuo.jsp" %>
 			<div class="right">
 				<div class="content">
 					<div class="logo">
@@ -195,77 +174,72 @@
 			</div>	
 		</div>
 	</div>
-	<!-- 弹窗 -->
-		<div class="message">
-			<div class="zhe"></div>
-			<div class="message_box">
-				<div class="message_box_head">
-					<span>提醒信息</span>
-					<svg class="guan" t="1710744510048" class="icon" viewBox="0 0 1024 1024" version="1.1"
-						xmlns="http://www.w3.org/2000/svg" p-id="7727" width="16" height="16">
-						<path
-							d="M590.7456 508.416 1016.832 934.5024 938.0864 1009.664 512 583.5776 78.7456 1024 0 941.6704l433.2544-440.4224L7.168 75.1616 85.9136 0 512 426.0864 938.0864 0 1016.832 82.3296 590.7456 508.416z"
-							p-id="7728" fill="#242933"></path>
-					</svg>
-				</div>
-				<div class="message_box_center">
-					<p class="setting">温馨提示：商品抢购数量超出限制</p>
-				</div>
-				<div class="message_box_footer">
-					<button>确定</button>
-				</div>
+<!-- 弹窗 -->
+	<div class="message">
+		<div class="zhe"></div>
+		<div class="message_box">
+			<div class="message_box_head">
+				<span>提醒信息</span>
+				<svg class="guan" t="1710744510048" class="icon" viewBox="0 0 1024 1024" version="1.1"
+					xmlns="http://www.w3.org/2000/svg" p-id="7727" width="16" height="16">
+					<path
+						d="M590.7456 508.416 1016.832 934.5024 938.0864 1009.664 512 583.5776 78.7456 1024 0 941.6704l433.2544-440.4224L7.168 75.1616 85.9136 0 512 426.0864 938.0864 0 1016.832 82.3296 590.7456 508.416z"
+						p-id="7728" fill="#242933"></path>
+				</svg>
+			</div>
+			<div class="message_box_center">
+				<p class="setting">温馨提示：商品抢购数量超出限制</p>
+			</div>
+			<div class="message_box_footer">
+				<button>确定</button>
 			</div>
 		</div>
+	</div>
 <%@include file="../../html/footer.jsp" %>
 <script type="text/javascript">
 	$(function(){
-		$('#xiu').click(function(){
-			var user_id = $('.user_id').val();
-			var userjiu = $('.user_password').val();
-			var rujiu = $('.jiuma').val();
-			var password = $('.xinma').val();
-			if(userjiu==rujiu){
-				$.getJSON("UpdatePasswordServlet",{'user_id':user_id ,'password':password}, function(data) {
-					console.log("密码修改成功");
-				})
-			}else {
-				console.log("密码错误");
+	    $('#xiu').click(function(){
+	        var user_id = $('.user_id').val();
+	        var userjiu = $('.user_password').val();
+	        var rujiu = $('.jiuma').val();
+	        var password = $('.xinma').val();
+	        if(userjiu == rujiu){
+	        	$.getJSON('UpdatePasswordServlet',{'user_id':user_id,'password':password},function(){
+					$('.setting').text('密码修改成功');	
+				 	kai();
+				});
+	        } else {  
+	            $('.setting').text('用户名或密码错误');
+	            kai();
 	        }
-		})
-		
-		//弹窗点击时间
-		$('.message_box_footer button').click(function(){
-			guanbi();
-		})
-		$('.zhe').click(function(){
-			guanbi();
-		})
-		$('.guan').click(function(){
-			guanbi();
-		})
-		//开启弹窗
-		function kai(){
-			$('body').css('overflow-x',"hidden").css("overflow-y",'hidden')
-			$('.message').css('display','block');
-			$(".zhe").animate({
-				opacity: 0.6
-			},100)
-			$('.message_box').css('transform','scale(1) translateY(0%)');
-		}
-		
-		//关闭弹窗
-		function guanbi(){
-			$('body').css('overflow-x',"auto").css("overflow-y",'auto')
-			$(".zhe").animate({
-				opacity: 0
-			},100)
-			$('.message_box').css('transform','scale(0) translateY(-100%)');
-			setTimeout(function(){
-				$('.message').css('display','none');
-			},300)
-			
-		}
-	})
+	    });
+	    
+	    $('.message_box_footer button').click(function(){
+	        guanbi();
+	    });
+	    $('.zhe').click(function(){
+	        guanbi();
+	    });
+	    $('.guan').click(function(){
+	        guanbi();
+	    });
+	
+	    function kai(){
+	        $('body').css('overflow', 'hidden');
+	        $('.message').fadeIn();
+	        $(".zhe").fadeIn().css('opacity', '0.6');
+	        $('.message_box').css('transform', 'scale(1) translateY(0%)');
+	    }
+	    
+	    function guanbi(){
+	        $('body').css('overflow', 'auto');
+	        $(".zhe").fadeOut();
+	        $('.message_box').css('transform', 'scale(0) translateY(-100%)');
+	        setTimeout(function(){
+	            $('.message').fadeOut();
+	        }, 300);
+	    }
+	});
 </script>
 </body>
 </html>

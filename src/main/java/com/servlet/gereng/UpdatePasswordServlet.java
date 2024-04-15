@@ -7,8 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.dao.UsersDAO;
+import com.entity.Users;
 
 /**
  * Servlet implementation class UpdatePasswordServlet
@@ -21,7 +23,13 @@ public class UpdatePasswordServlet extends HttpServlet {
 
 		Integer id = Integer.valueOf(req.getParameter("user_id"));
 		String pass = req.getParameter("password");
-		r.doUpdatePassword(id, pass);
+		Integer doUpdatePassword = r.doUpdatePassword(id, pass);
+		if(doUpdatePassword>0) {
+			HttpSession session = req.getSession();
+			Users user = (Users) session.getAttribute("user");
+			user.setUser_password(pass);
+			session.setAttribute("user", user);
+		}
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
 	}
