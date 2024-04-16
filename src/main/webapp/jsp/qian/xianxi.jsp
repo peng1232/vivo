@@ -122,6 +122,45 @@
 			</div>
 		</div>
 	</div>
+	<!-- 商品评论 -->
+	<section class='comments_info'>
+		<div class='section_wrapperdddd'>
+			<ul class='tabs'>
+				<li class='tab_item'>用户评价</li>
+			</ul>
+		</div>
+		<div class='detail_content'>
+			<div class='section_wrapper_2'>
+				<ul class='remark_list'>
+					<!-- <li class="remark_item clearfix">
+						<div class='clearfix'>
+							<div class='user_info clearfix'>
+							<img class='avatar' src = '../../img/favicon.ico'/>
+							<div class='name_info'>
+								<div class='user_name'>祺sir.</div>
+								<div class='product_name'>6GB+128GB 晶莹紫</div>
+							</div>
+							</div>
+							<div class='iconLine'>
+								<div class='iconInterval icon-star'>★</div>
+								<div class='iconInterval icon-star'>★</div>
+								<div class='iconInterval icon-star'>★</div>
+								<div class='iconInterval icon-star'>★</div>
+								<div class='iconInterval icon-star'>★</div>
+							</div>
+						</div>
+						<div class='remark_content'>
+							<p class='remark_text'>手机不错，使用起来很流畅，外形也很漂亮，家里老人使用手机的首选，家里人都在用vivo，品牌很值得肯定，希望vivo越做越好</p>
+						</div>
+					</li> -->
+				</ul>
+				<div class='dibu'>
+					<span id = 'jiazai'>加载更多</span>
+					<p id='meile'>没有更多了！</p>
+				</div>
+			</div>
+		</div>
+	</section>
 	<!-- 弹窗 -->
 		<div class="message">
 			<div class="zhe"></div>

@@ -13,6 +13,13 @@ public class Comments {
 	private Integer product_id;//商品表id
 	private Integer state;//0：未审核 默认 1：已审核2：审核未通过 3:已删除
 	private Integer com_grade;//评论等级
+	
+	//临时字段
+	private String head_sculpture;
+	private String user_nickname;
+	private String sku;
+	
+	
 	public Integer getId() {
 		return id;
 	}
@@ -49,11 +56,7 @@ public class Comments {
 	public void setCom_grade(Integer com_grade) {
 		this.com_grade = com_grade;
 	}
-	@Override
-	public String toString() {
-		return "Comments [id=" + id + ", user_id=" + user_id + ", user_com=" + user_com + ", product_id=" + product_id
-				+ ", state=" + state + ", com_grade=" + com_grade + "]";
-	}
+	
 	public Comments(Integer id, Integer user_id, String user_com, Integer product_id, Integer state,
 			Integer com_grade) {
 		super();
@@ -63,6 +66,34 @@ public class Comments {
 		this.product_id = product_id;
 		this.state = state;
 		this.com_grade = com_grade;
+	}
+	@Override
+	public String toString() {
+		return "Comments [id=" + id + ", user_id=" + user_id + ", user_com=" + user_com + ", product_id=" + product_id
+				+ ", state=" + state + ", com_grade=" + com_grade + ", head_sculpture=" + head_sculpture
+				+ ", user_nickname=" + user_nickname + ", sku=" + sku + "]";
+	}
+	public String getHead_sculpture() {
+		return head_sculpture;
+	}
+	public void setHead_sculpture(String head_sculpture) {
+		this.head_sculpture = head_sculpture;
+	}
+	public String getUser_nickname() {
+		return user_nickname;
+	}
+	public void setUser_nickname(String user_nickname) {
+		this.user_nickname = user_nickname;
+	}
+	public String getSku() {
+		return sku;
+	}
+	public void setSku(String sku) {
+		this.sku = sku;
+	}
+	public Comments() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 	

@@ -122,6 +122,74 @@ $(function() {
 		}
 
 	})
+	
+	//立即购买
+	$('.brand').click(function() {
+		var proid = $(".name").attr('pro');
+		var userid = $(".user_id").val();
+		var skuval = $('.addS').attr('sku');
+		if (userid.trim().length > 0) {
+			//已登录
+			
+		} else {
+			//未登录
+			location.href = '../login/login.jsp'
+		}
+
+	})
+	var start =0;
+	var pagesize = 5;
+	var proid = $(".name").attr('pro');
+	setTimeout(function(){
+		loading(start,pagesize,proid)
+		start++;	
+	},100)
+	//加载更多
+	$('#jiazai').click(function(){
+		loading(start++*pagesize,pagesize,proid)
+	})
+	
+	//加载评论
+	function loading(start,end,proid){
+		console.log("xxxx"+start,end)
+		//评论初始化
+		$.getJSON('CommentsInitServlet',{'start':start,'end':end,'product_id':proid},function(request){
+			$.each(request.commentList, function(index, value) {
+			    var listItem = $('<li>').addClass('remark_item clearfix');
+			    var userInfoDiv = $('<div>').addClass('clearfix user_info');
+			    var avatarImg = $('<img>').addClass('avatar').attr('src', '../../img/'+value.head_sculpture);
+			    var nameInfoDiv = $('<div>').addClass('name_info');
+			    var userNameDiv = $('<div>').addClass('user_name').text(value.user_nickname);
+			    var productNameDiv = $('<div>').addClass('product_name').text(value.sku);
+			    var iconLineDiv = $('<div>').addClass('iconLine');
+			    var clearfix = $('<li>').addClass('clearfix');
+			    
+			    // Generate stars
+			    for (var i = 0; i < 5; i++) {
+			        var starIcon = $('<div>').addClass('iconInterval icon-star').text('★');
+			        iconLineDiv.append(starIcon);
+			        if(!(i<value.com_grade)){
+						starIcon.css('color','#fff')
+					}
+			    }
+				clearfix.append(userInfoDiv,iconLineDiv)
+			    var remarkContentDiv = $('<div>').addClass('remark_content');
+			    var remarkTextP = $('<p>').addClass('remark_text').text(value.user_com);
+			
+			    nameInfoDiv.append(userNameDiv, productNameDiv);
+			    userInfoDiv.append(avatarImg, nameInfoDiv);
+			    listItem.append(clearfix, remarkContentDiv.append(remarkTextP));
+			
+			    // Append to the target element
+			    $('.remark_list').append(listItem);
+			  //  console.log(request.commentList)
+			});
+			if(request.commentList.length<pagesize){
+				$('#meile').css('display','block')
+				$('#jiazai').css('display','none')
+			}
+		})
+	}
 
 
 	//弹窗点击时间
