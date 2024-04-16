@@ -9,7 +9,7 @@
 <link href="../../css/nav.css" rel="stylesheet"/>
 <script src="../../js/nav.js"></script>
 <link href="../../css/footer.css" rel="stylesheet" />
-<link href="../../css/dingdang.css" rel="stylesheet" />
+<link href="../../css/dingdang.css" rel="stylesheet" />	
 </head>
 <body>
 <%@include file="../../html/nav.jsp" %>
@@ -17,11 +17,11 @@
     <div class="container">
         <div class="menu">
             <a href="商城首页.html">商城首页</a>
-            <a href="grzx.html"><img class="arrow" src="img/向右箭头.png" alt="右箭头">个人中心</a>
+            <a href="grzx.html"><img class="arrow" src="../../img/向右箭头.png" alt="../../右箭头">个人中心</a>
         </div>
 		<div class="under">
 			<div class="left">
-				<img src="img/头像.jpg" class="tx">
+				<img src="../../img/头像.jpg" class="tx">
 				<ul>
 					<li class="z">vivo34177786273</li>
 					
@@ -67,7 +67,7 @@
 							<div class="rightt">删除订单</div>
 						</div>
 						
-						<div class="mian" > <img src="img/头像.jpg" class="sj">
+						<div class="mian" > <img src="../../img/头像.jpg" class="sj">
 							<div class="left_1">
 								<div class="order-item">
 									<div class="order-wrap">
