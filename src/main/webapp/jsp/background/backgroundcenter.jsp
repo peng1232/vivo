@@ -479,33 +479,33 @@
 				               			<th>操作</th>
 				               		</tr>
 				               		<tr>
-				               			<td>1</td>
-				               			<td>John Doe</td>
-				               			<td>johndoe</td>
-				               			<td>1234567890</td>
-				               			<td>2021-01-01</td>
+				               			<td></td>
+				               			<td></td>
+				               			<td></td>
+				               			<td></td>
+				               			<td></td>
 				               			<td>
 				               				<button>重置密码</button>
 				               				<button>编辑状态</button>
 				               			</td>
 				               		</tr>
 				               		<tr>
-				               			<td>2</td>
-				               			<td>Jane Smith</td>
-				               			<td>janesmith</td>
-				               			<td>0987654321</td>
-				               			<td>2021-01-02</td>
+				               			<td></td>
+				               			<td></td>
+				               			<td></td>
+				               			<td></td>
+				               			<td></td>
 				               			<td>
 				               				<button>重置密码</button>
 				               				<button>编辑状态</button>
 				               			</td>
 				               		</tr>
 				               		<tr>
-				               			<td>3</td>
-				               			<td>Bob Johnson</td>
-				               			<td>bobjohnson</td>
-				               			<td>5678901234</td>
-				               			<td>2021-01-03</td>
+				               			<td></td>
+				               			<td></td>
+				               			<td></td>
+				               			<td></td>
+				               			<td></td>
 				               			<td>
 				               				<button>重置密码</button>
 				               				<button>编辑状态</button>

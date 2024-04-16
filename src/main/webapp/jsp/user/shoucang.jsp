@@ -53,34 +53,25 @@
 							<th class="caozuo">操作</th>
 						</thead>
 						
-						<tbody class="tbody">
-							<tr>
-								<td><img src="../../img/vivo x100.webp" class="tp"></td>
-								<td><a>vivo x100Pro 16G+256G <br />白白白白</a></td>
-								<td><a class="a1">￥4999</a></td>
-								<td><a class="a1">2024-3-15 08:12:00</a></td>
-								<td><a class="a1">有货</a></td>
-								<td><a class="a2">购买</a>
-									<a class="a1">删除</a>
-								</td>
-							</tr>
-						</tbody>
 						
 						<tbody class="tbody">
-							<tr class="tr2">
-								<td><img src="../../img/vivo x100.webp" class="tp"></td>
-								<td><a>vivo x100Pro 16G+256G <br />白白白白</a></td>
-								<td><a class="a1">￥4999</a></td>
-								<td><a class="a1">2024-3-15 08:12:00</a></td>
-								<td><a class="a1">有货</a></td>
-								<td><a class="a2">购买</a>
-									<a class="a1">删除</a>
-								</td>
-							</tr>
+						<c:forEach items="${collection}" var="va" varStatus="x">
+							
+								<tr class="tr2">
+									<td><img src="../../img/vivo x100.webp" class="tp"></td>
+									<td><a>${ product[x.index].products_name} ${ product[x.index].pagTtype} <br /> ${ product[x.index].color}</a></td>
+									<td><a class="a1"> ${ product[x.index].price}</a></td>
+									<td><a class="a1">${ product[x.index].listing_time}</a></td>
+									<td><a class="a1">有货</a></td>
+									<td><a class="a2">购买</a>
+										<a class="a1">删除</a>
+									</td>
+								</tr>
+							
+						</c:forEach>
 						</tbody>
 						</table>
 					</div>
-					
 					</div>
 			</div>
 		</div>

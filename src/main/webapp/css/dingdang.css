@@ -1,6 +1,6 @@
 
         * {
-            margin: 0;
+           
             padding: 0;
         }
 		body{
@@ -376,7 +376,7 @@
 	color: #333
 }
 .num{
-	width: 66px;
+	width: 110px;
 	    text-align: center;
 }
 .bottom{

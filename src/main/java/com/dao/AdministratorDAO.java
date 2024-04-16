@@ -1,17 +1,13 @@
 package com.dao;
 
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.entity.Administrator;
-import com.entity.Users;
-import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.util.BaseDAO;
-import com.util.Mapper;
+
 
 public class AdministratorDAO extends BaseDAO{
 	//登录
@@ -37,7 +33,6 @@ public class AdministratorDAO extends BaseDAO{
 			}finally {
 				closeAll();
 			}
-			System.out.println(a);
 			return a;
 		}
 	//注册
@@ -46,6 +41,104 @@ public class AdministratorDAO extends BaseDAO{
 			String sql = "insert into administrator(admin_nickname,admin_account,admin_password)"
 					+ "	  values(?,?,?)";
 			return executeUpdate(sql,nickname,account,password);
+		}
+	//查询所有
+		public List<Administrator> selectAll(){
+			String sql="select * from administrator order by id desc";
+			try {
+				stmt=getConn().prepareStatement(sql);
+				rs = stmt.executeQuery();
+				List<Administrator> list=null;
+				if (rs!=null) {
+					list =new ArrayList<>();
+					while(rs.next()) {
+						Administrator p= new Administrator(
+						rs.getInt("id"),rs.getString("admin_nickname"),
+						rs.getString("admin_account"),rs.getString("admin_password"),
+						rs.getInt("state"));
+						System.out.println(rs.getInt("id")+"\t"+rs.getString("admin_nickname")+"\t \t"
+								+rs.getString("admin_account")+"\t \t"+rs.getInt("admin_password")+"\t \t"+
+								rs.getString("state"));
+					}
+				}
+				return list;
+			} catch (SQLException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}finally {
+				super.closeAll();
+			}
+			return null;
+
+		}
+	//根据昵称来搜索
+	public List<Administrator> selectpart(String nikename) {
+		String sql="select * from administrator where nikename=? order by id desc";
+		try {
+			stmt=getConn().prepareStatement(sql);
+			rs = stmt.executeQuery();
+			List<Administrator> list=null;
+			if (rs!=null) {
+				list =new ArrayList<>();
+				while(rs.next()) {
+					Administrator p= new Administrator(
+					rs.getInt("id"),rs.getString("admin_nickname"),
+					rs.getString("admin_account"),rs.getString("admin_password"),
+					rs.getInt("state"));
+					System.out.println(rs.getInt("id")+"\t"+rs.getString("admin_nickname")+"\t \t"
+							+rs.getString("admin_account")+"\t \t"+rs.getInt("admin_password")+"\t \t"+
+							rs.getString("state"));
+				}
+			}
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			super.closeAll();
+		}
+		return null;
+		
+	}	
+		
+	//修改
+		public Integer douUpdate(Administrator obj) {
+			String sql ="update administrator set admin_password=? where id=?";
+			try {
+				//2、获取连接对象
+				conn = super.getConn();
+				//3、预编译SQL语句
+				stmt = conn.prepareStatement(sql);
+				//4、填充参数
+				stmt.setObject(1, obj.getAdmin_password());
+				stmt.setObject(2, obj.getId());
+				//5、执行SQL语句
+				return stmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				super.closeAll();
+			}
+			return -1;//最后返回-1，表示代码运行到治理，新增失败
+		}
+		//删除（更具id调为不可以）
+		public Integer doDelet(Administrator obj) {
+			String sql ="update administrator set state=? where id=?";
+			try {
+				//2、获取连接对象
+				conn = super.getConn();
+				//3、预编译SQL语句
+				stmt = conn.prepareStatement(sql);
+				//4、填充参数
+				stmt.setObject(1, obj.getState());
+				stmt.setObject(2, obj.getId());
+				//5、执行SQL语句
+				return stmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				super.closeAll();
+			}
+			return -1;//最后返回-1，表示代码运行到治理，新增失败
 		}
 	public static void main(String[] args) {
 		new AdministratorDAO().zhuCe("黄同学", "18890212428", "123456");
