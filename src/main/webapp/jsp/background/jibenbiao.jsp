@@ -45,7 +45,7 @@
 				    	<!-- User -->
 						<div class="user-box am-hide-sm-only">
 	                        <div class="user-img">
-	                            <img src="../assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+	                            <img src="../assets/img/avatjpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
 	                            <div class="user-status offline"><i class="am-icon-dot-circle-o" aria-hidden="true"></i></div>
 	                        </div>
 	                        <h5><a href="#">Mat Helme</a> </h5>

@@ -1,4 +1,4 @@
-package com.servlet;
+package com.servlet.background;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,7 +16,7 @@ import com.entity.Administrator;
 import com.qita.Yzm;
 @WebServlet(urlPatterns = "/jsp/background/glydenglu")
 
-public class AdministratorServlet extends HttpServlet {
+public class guanliyuandengluServlet extends HttpServlet {
 	
 	
 	 private static final long serialVersionUID = 1L;
