@@ -44,11 +44,11 @@ public class AdministratorDAO extends BaseDAO{
 		}
 	//查询所有
 		public List<Administrator> selectAll(){
-			String sql="select * from administrator order by id desc";
+			String sql="select * from administrator ";
 			try {
 				stmt=getConn().prepareStatement(sql);
 				rs = stmt.executeQuery();
-				List<Administrator> list=null;
+				List<Administrator> list=new ArrayList<Administrator>();
 				if (rs!=null) {
 					list =new ArrayList<>();
 					while(rs.next()) {
@@ -56,9 +56,7 @@ public class AdministratorDAO extends BaseDAO{
 						rs.getInt("id"),rs.getString("admin_nickname"),
 						rs.getString("admin_account"),rs.getString("admin_password"),
 						rs.getInt("state"));
-						System.out.println(rs.getInt("id")+"\t"+rs.getString("admin_nickname")+"\t \t"
-								+rs.getString("admin_account")+"\t \t"+rs.getInt("admin_password")+"\t \t"+
-								rs.getString("state"));
+						list.add(p);
 					}
 				}
 				return list;

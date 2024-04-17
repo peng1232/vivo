@@ -11,11 +11,7 @@ import com.entity.Shopping_cart;
 import com.util.BaseDAO;
 import com.util.Mapper;
 
-/**
- * @Description:
- * @author: 铭
- * @date 2024年3月29日 上午8:21:20
- */
+
 
 public class Shopping_CartDAO extends BaseDAO {
 
