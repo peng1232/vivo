@@ -15,14 +15,14 @@ import com.entity.Administrator;
 /**
  * Servlet implementation class AdministratorServlet
  */
-@WebServlet("/AdministratorServlet")
+@WebServlet("/jsp/background/AdministratorServlet")
 public class glyselectAllServlet extends HttpServlet {
 	private  static final long serialVersionUID = 1L;
 	AdministratorDAO admin =new AdministratorDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Administrator> list=admin.selectAll();
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("AdministratorServlet").forward(request, response);
+		request.getRequestDispatcher("backgroundcenter.jsp").forward(request, response);
 	}
 	
 	

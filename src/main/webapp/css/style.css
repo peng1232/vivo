@@ -438,6 +438,7 @@ th {
 	height: 40px;
 }
 .table_user_zsg_button>button {
+  float: left;
   padding: 10px 20px;
   font-size: 16px;
   background-color: darkslategray;
