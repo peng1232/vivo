@@ -21,7 +21,7 @@ public class ShoppingUpdateNumberServlet extends HttpServlet {
 		Integer shopping_id = Integer.valueOf(request.getParameter("shopping_id").trim());
 		Integer sum = Integer.valueOf(request.getParameter("sum").trim());
 		Integer user_id = Integer.valueOf(request.getParameter("user_id").trim());
-		Integer zhi = sdao.updateShoppingNumber(user_id, shopping_id, sum);
+		String zhi = sdao.updateShoppingNumber(user_id, shopping_id, sum);
 		JSONObject jsonObj = new JSONObject();
 		jsonObj.put("zhi", zhi);
 

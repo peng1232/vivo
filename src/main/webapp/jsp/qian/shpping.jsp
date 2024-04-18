@@ -52,7 +52,7 @@
 								<table>
 									<tr>
 										<td class="col_check che">
-											<label><input type="checkbox" class="check_input check_item" shopping_id='${shoppingId[va.index] }'/></label>
+											<label><input sku=${shopping[va.index].sku } type="checkbox" user_id='${user.id }' class="check_input check_item" shopping_id='${shoppingId[va.index] }' product_id="${ item.id}"/></label>
 										</td>
 										<td class="prod-pic">
 											<a href='XianXiSerlvet?id=${item.id }&shoppingId=${shoppingId[va.index] }'>

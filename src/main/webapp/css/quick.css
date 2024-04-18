@@ -321,7 +321,7 @@ body {
 	padding: 3px 6px;
 	border: 1px solid #ccc;
 	outline: none;
-	font-size:16px;
+	font-size: 16px;
 }
 
 .item {
@@ -401,14 +401,211 @@ input[type="checkbox"] {
 .item select {
 	color: #ccc;
 }
-.tishi{
+
+.tishi {
 	position: absolute;
-    margin-top: 3px;
-    color: red;
-    left: 205px;
-    display:none;
-    font-size: 13px;
+	margin-top: 3px;
+	color: red;
+	left: 205px;
+	display: none;
+	font-size: 13px;
 }
 
+.products_header {
+	padding: 0 70px 0 40px;
+	border-top: 2px solid #f7f7f5;
+	margin-top: 20px;
+	display: flex;
+	height: 64px;
+	align-items: center;
+}
 
+.products_header div {
+	text-align: center;
+}
 
+.goods_col {
+	width: 430px;
+}
+
+.price_col {
+	width: 168px
+}
+
+.quantity_col {
+	width: 123px;
+}
+
+.sum_col {
+	width: 123px;
+}
+
+.continue_shopping {
+	float: right;
+	color: #333;
+	font: 14px/1.5 Microsoft Yahei, Arial, sans-serif;
+	line-height: 2;
+	text-decoration: none;
+}
+
+.continue_shopping:hover {
+	color: #f51200;
+}
+
+.product_info {
+	border-top: 2px solid #f7f7f5;
+}
+
+.prod_list_wrap {
+	padding: 0 70px 0 40px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	color: #686868;
+}
+
+.prod_pic a {
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	position: relative;
+	margin: 25px 20px;
+	border: 1px solid #ececec;
+	text-decoration: none;
+}
+
+.prod_pic a img {
+	width: 100px;
+	height: 100px;
+	background-color: #fff;
+}
+
+.col {
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	justify-content: center;
+}
+
+.goods_col {
+	width: 282px;
+}
+
+.price_col {
+	width: 168px;
+	color: #666;
+	text-align: center;
+}
+
+.quantity_col {
+	width: 124px;
+	text-align: center;
+}
+
+.total_col {
+	width: 168px;
+	margin-left: 28px;
+	color: #f51200;
+	text-align: center;
+}
+
+.name {
+	width: 100%;
+	color: #333;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	text-decoration: none;
+}
+
+.w {
+	color: #686868;
+	margin-top: 6px;
+	width: 100%;
+}
+
+.promotion {
+	width: 124px;
+	margin-left: 4px;
+	text-align: center;
+}
+
+.benefit_col {
+	width: 123px;
+	text-align: center;
+}
+
+.confirm_module {
+	background: #fff;
+	padding: 35px;
+	border-bottom: 1px solid #e7e7e7;
+	margin-bottom: 19px;
+}
+
+.confirm_info {
+	font: 14px/1.5 Microsoft Yahei, Arial, sans-serif;
+	color: #666;
+}
+
+.products_header>div {
+	color: #000;
+}
+
+.real_price_box {
+	border-top: 1px solid #eee;
+	margin: 20px 0 0;
+	padding: 20px 0 0;
+	text-align: right;
+}
+
+.real_price_box label {
+	color: #666;
+	margin-right: 10px;
+	font-size: 18px;
+}
+
+.real_price {
+	font-size: 32px;
+}
+
+.red {
+	color: #f04141;
+}
+
+.row {
+	text-align: right;
+	height: 34px;
+	line-height: 34px;
+}
+.names{
+	    display: inline-block;
+    text-align: right;
+        margin-right: 5px;
+}
+.value{
+	    display: inline-block;
+    min-width: auto;
+    text-align: right;
+}
+.confirm_btn_box{
+	    text-align: right;
+    padding: 20px 0 10px 0;
+}
+.btn_submit {
+	font-size: 18px;
+    background-color: #f51200;
+    height: 46px;
+    line-height: 46px;
+    border-radius: 23px;
+    display: inline-block;
+    color: #fff;
+    padding: 0 31px;
+    min-width: 170px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+}

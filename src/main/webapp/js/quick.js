@@ -1,8 +1,11 @@
 $(function() {
 	//初始化
 	address();
-
-
+	var summ = 0.00;
+	$('.total_col').each(function(){
+		summ+=parseFloat($(this).text().substring(1,$(this).text().length))
+	})
+	$('.real_price').text('￥'+summ.toFixed(2))
 	//弹窗点击时间
 	$('.message_box_footer button').click(function() {
 
@@ -73,6 +76,9 @@ $(function() {
 	$('.adress_list').on('click', '.shouhuo ', function() {
 		$(this).siblings().removeClass("on");
 		$(this).addClass('on');
+		$('.value').eq(0).text($(this).find('.xx').text().trim()+" "+$(this).find('.dd').attr('phone'));
+		$('.value').eq(1).text($(this).find('.mlellipsis').text().trim())
+
 	})
 
 	$('.message_box_footer').on('click', '.baocun', function() {
@@ -137,8 +143,10 @@ $(function() {
 				var clDiv = $("<div>").addClass("cl");
 				clDiv.append("<p class='mlellipsis'>" + address.receiving_region + " <span class='addxian'> " + address.detailed_region + " </span>" + "</p>");
 				newLabel.append(itemTop, clDiv);
-				if (address.default_address == 1) {
+				if(index==0){
 					newLi.addClass('on')
+				}
+				if (address.default_address == 1) {
 					newLi.addClass('mouren')
 				} else {
 					var defaultAddressLi = $("<li>").addClass("operations_address_default").text("设为默认地址");
@@ -157,6 +165,8 @@ $(function() {
 				newLi.attr('defaultadd', address.default_address)
 				// Append the new <li> element to a container, assuming 'container' is the ID of the container where you want to append it
 				$(".adress_list").append(newLi);
+				$('.value').eq(0).text($('.on').find('.xx').text().trim()+" "+$('.on').find('.dd').attr('phone'));
+				$('.value').eq(1).text($('.on').find('.mlellipsis').text().trim())
 			});
 			var newAddressItem = $("<li></li>")
 				.addClass("address_item new")
@@ -259,7 +269,39 @@ $(function() {
 			address()
 		});
 	})
-
+	
+	
+	$('.btn_submit').click(function(){
+		var user_id = $('.user').val();
+		var name = $('.on').find('.xx').text().trim();
+		var phone = $('.on').find('.dd').attr('phone');
+		var address =$('.on').find('.mlellipsis').text().trim()
+		var details=[];
+		$('.product_info').each(function(){
+			var sku = $(this).attr('sku')
+			var product_id = $(this).attr('product_id')
+			var number = $(this).find('.quantity_col').text();
+			var t = $(this).find('.total_col');
+			var total = t.text().substring(1,t.text().length)
+			details.push({
+				'sku':sku,
+				'product_id':product_id,
+				'number':number,
+				'total':total
+			})
+		})
+		var jsonData = JSON.stringify(details);
+		$.getJSON('OrderInsertServlet',{
+			'user_id':user_id,
+			'name':name,
+			'phone':phone,
+			'address':address,
+			'details':jsonData,
+		},function(){
+			
+		})
+		console.log(user_id,name,phone,address,details)
+	})
 })
 
 

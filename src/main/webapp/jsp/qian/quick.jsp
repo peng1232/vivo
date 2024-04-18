@@ -29,17 +29,65 @@
 			<div class='dizhi'>
 				<div class='module_title'>收货人信息</div>
 				<ul class='adress_list'>
-					
+
 				</ul>
 			</div>
 
-			<div class='dizhi'>
-				<div class='module_title'>确认商品</div>
-				<div class='products_header'></div>
+			<div class='dizhi' style='padding: 25px 0 0 0 !important;'>
+				<div class='module_title' style='padding: 0 35px;'>
+					确认商品<a class='continue_shopping' href='shpping.jsp'>返回购物车修改 ></a>
+				</div>
+				<div class='products_header'>
+					<div class='goods_col' style='width: 430px;'>商品名称</div>
+					<div class='price_col' style='width: 155px; text-align: right;'>价格（元）</div>
+					<div class='quantity_col' style='width: 226px;'>数量</div>
+					<div class='sum_col' style='width: 123px;'>小计（元）</div>
+				</div>
+				<c:forEach items="${product }" var="item" varStatus="va">
+					<div class='product_info' sku='${skulist[va.index] }'  product_id='${item.id }'>
+						<div class='prod_list_wrap'>
+							<div class='prod_pic'>
+								<a href="#"><img src='../../img/product/${item.image_url }' /></a>
+							</div>
+							<div class='col goods_col'>
+								<a href="#" class='name'> <span class='w'>${item.products_name } ${item.pagTtype } ${item.color }</span>
+								</a> <span class='w'>${item.color }</span>
+							</div>
+							<div class='col price_col'>￥${item.price }</div>
+							<div class='col quantity_col'>${number[va.index] }</div>
+							<div class='col total_col'>￥${item.price*number[va.index] }</div>
+						</div>
+					</div>
+				</c:forEach>
+				
+
+			</div>
+			<div class='confirm_module confirm_submit'>
+				<div class='confirm_info'>
+					<div class='real_price_box'>
+						<label>应付总额：</label>
+						<span class='real_price red'>￥3247.00</span>
+					</div>
+					<div class='address'>
+						<div class='row'>
+							<span class='names'>收件人：</span>
+							<span class='value'>1 193****2312</span>
+						</div>
+						<div class='row'>
+							<div class='names'>配送地址：</div>
+							<div class='value'>贵州省毕节市黔西市</div>
+						</div>
+					</div>
+					<div class='confirm_btn_box'>
+						<div class='btn_submit'>提交订单</div>
+					</div>
+				</div>
 			</div>
 		</div>
+		
+		
 	</div>
-
+	
 
 	<div class="message">
 		<div class="zhe"></div>
@@ -58,39 +106,35 @@
 			<div class="item">
 				<span class="das">收货人:</span> <input type="text" class="enter" /> <span
 					class="error-tip"></span>
-				<p class='tishi' flag = 'true'>请填写收件人姓名！</p>
+				<p class='tishi' flag='true'>请填写收件人姓名！</p>
 			</div>
 
 			<div class="item">
-				<span class="das">手机号码:</span> <input type="text" class="enter" /> <span
-					class="error-tip"></span>
-				<p class='tishi' flag = 'true'> 请输入手机号码！ </p>
+				<span class="das">手机号码:</span> <input type="text" class="enter" />
+				<span class="error-tip"></span>
+				<p class='tishi' flag='true'>请输入手机号码！</p>
 			</div>
 
 			<div class="item">
-				<span class="das">收货地区:</span> 
-				<select id="province">
+				<span class="das">收货地区:</span> <select id="province">
 					<option value=''>请选择</option>
-				</select> 
-				<select id="city">
+				</select> <select id="city">
 					<option value=''>请选择</option>
-				</select> 
-				<select id="district">
+				</select> <select id="district">
 					<option value=''>请选择</option>
 				</select>
-				<p class='tishi' flag = 'true'>请选中收货地区！</p>
+				<p class='tishi' flag='true'>请选中收货地区！</p>
 			</div>
 
 			<div class="item">
-				<span class="das">详细地址:</span> <input type="text" class="enter" /> <span
-					class="error-tip"></span>
-				<p class='tishi' flag = 'true'>请填写详细地址！</p>
+				<span class="das">详细地址:</span> <input type="text" class="enter" />
+				<span class="error-tip"></span>
+				<p class='tishi' flag='true'>请填写详细地址！</p>
 			</div>
 
 			<div class="item_1">
-				<label>
-					<input type="checkbox" name="interest" value="music" class='mou'> 
-					<span class="agreement_text">设为默认地址</span>
+				<label> <input type="checkbox" name="interest" value="music"
+					class='mou'> <span class="agreement_text">设为默认地址</span>
 				</label>
 			</div>
 			<div class="message_box_footer">
@@ -98,7 +142,6 @@
 			</div>
 		</div>
 	</div>
-
 
 	<c:if test="${empty user }">
 		<script type="text/javascript">
