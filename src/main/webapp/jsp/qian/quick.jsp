@@ -11,8 +11,8 @@
 <link href="../../css/nav.css" rel="stylesheet" />
 <script src="../../js/nav.js"></script>
 <link href="../../css/quick.css " rel="stylesheet" />
-<script src="../../js/quick.js"></script>
 <script src="../../js/duolian.js"></script>
+<script src="../../js/quick.js"></script>
 <link href="../../css/footer.css" rel="stylesheet" />
 </head>
 <body>
@@ -29,45 +29,13 @@
 			<div class='dizhi'>
 				<div class='module_title'>收货人信息</div>
 				<ul class='adress_list'>
-					<li class='address_item on'><label class='inner'>
-							<div class='item_top'>
-								<span class='xx'>7733333333333333</span> <span class='dd'>193****5123</span>
-							</div>
-							<div class='cl'>
-								<p class='mlellipsis'>湖南省 株洲市 荷塘区 1059号</p>
-							</div>
-					</label>
-						<ul class='operations'>
-							<li class='operations_address_edit'>编辑</li>
-							<li class='operations_address_del'>删除</li>
-						</ul></li>
-					<li class='address_item'><label class='inner'>
-							<div class='item_top'>
-								<span class='xx'>7733333333333333</span> <span class='dd'>193****5123</span>
-							</div>
-							<div class='cl'>
-								<p class='mlellipsis'>湖南省 株洲市 荷塘区 1059号</p>
-							</div>
-					</label>
-						<ul class='operations'>
-							<li class='operations_address_edit'>设为默认地址</li>
-							<li class='operations_address_edit'>编辑</li>
-							<li class='operations_address_del'>删除</li>
-						</ul></li>
-					<li class='address_item new'><label class='inner'>添加新地址</label>
-					</li>
+					
 				</ul>
 			</div>
 
-			<div class="cart_head">
-				<table>
-					<tr>
-						<th class="golds_col">商品名称</th>
-						<th class="price_col">价格(元)</th>
-						<th>数量</th>
-						<th>小计(元)</th>
-					</tr>
-				</table>
+			<div class='dizhi'>
+				<div class='module_title'>确认商品</div>
+				<div class='products_header'></div>
 			</div>
 		</div>
 	</div>
@@ -126,7 +94,7 @@
 				</label>
 			</div>
 			<div class="message_box_footer">
-				<button id='baocun'>保存</button>
+				<button class='' id='hao'>保存</button>
 			</div>
 		</div>
 	</div>
