@@ -120,7 +120,7 @@ body {
 	background-image: url(".../../../img/border.png");
 }
 
-.on>.inner:before {
+.mouren>.inner:before {
 	content: "【默认地址】";
 	color: #415fff;
 	white-space: nowrap;
@@ -178,7 +178,7 @@ body {
 	bottom: 15px;
 }
 
-.on>.operations {
+.mouren>.operations {
 	left: 103px;
 }
 
@@ -409,3 +409,6 @@ input[type="checkbox"] {
     display:none;
     font-size: 13px;
 }
+
+
+
