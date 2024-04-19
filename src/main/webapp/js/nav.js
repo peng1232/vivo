@@ -28,6 +28,9 @@ $(function() {
 		var flag = $(this).attr('flag');
 		if(flag=='true'){
 			var serach = $('.search_input input').val();
+			if(serach.trim().length>0){
+				location.href='SearchSetlvet?search='+serach;
+			}
 			
 		}
 

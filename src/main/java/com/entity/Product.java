@@ -2,6 +2,7 @@ package com.entity;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 /**
 * @Description: 
@@ -126,6 +127,27 @@ public class Product {
 	
 	public Product() {
 		super();
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(category_id, color, description, hits, id, image_url, listing_time, pagTtype, price,
+				products_name, purchase_limit, state);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		return Objects.equals(category_id, other.category_id) && Objects.equals(color, other.color)
+				&& Objects.equals(description, other.description) && Objects.equals(hits, other.hits)
+				&& Objects.equals(id, other.id) && Objects.equals(image_url, other.image_url)
+				&& Objects.equals(listing_time, other.listing_time) && Objects.equals(pagTtype, other.pagTtype)
+				&& Objects.equals(price, other.price) && Objects.equals(products_name, other.products_name)
+				&& Objects.equals(purchase_limit, other.purchase_limit) && Objects.equals(state, other.state);
 	}
 	
 	
