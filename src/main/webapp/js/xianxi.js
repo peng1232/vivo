@@ -125,12 +125,20 @@ $(function() {
 	
 	//立即购买
 	$('.brand').click(function() {
-		var proid = $(".name").attr('pro');
+		var proid =[];
+		proid.push({
+			'product_id':$(".name").attr('pro')
+		});
 		var userid = $(".user_id").val();
 		var skuval = $('.addS').attr('sku');
+		var sku = [];
+		sku.push(skuval)
+		var jsonData = JSON.stringify(sku);
+		var product_id = JSON.stringify(proid);
 		if (userid.trim().length > 0) {
 			//已登录
-			
+			var url = 'SelectSKUProductServlet?user_id=' + userid + '&product_id=' + encodeURIComponent(product_id) + '&sku=' + encodeURIComponent(jsonData);
+			location.href = url;
 		} else {
 			//未登录
 			location.href = '../login/login.jsp'
@@ -299,7 +307,7 @@ function shua() {
 			//存储对应的sku
 			var sku = '{"sku_price":' + response.price.id + ',"pageType":' + $('.sku_checked').eq(0).attr('productid') + ',"color":' + $('.sku_checked').eq(1).attr('productid')/*+',"number":'+$('.number').text()*/ + '}'
 			$('.shousku').attr('sku', sku)
-			$('.addS').attr('sku', '{"sku_price":' + response.price.id + ',"pageType":' + $('.sku_checked').eq(0).attr('productid') + ',"color":' + $('.sku_checked').eq(1).attr('productid') + ',"number":' + $('.number').text() + '}')
+			$('.addS').attr('sku', '{"sku_price":'+response.price.id+',"pageType":'+$('.sku_checked').eq(0).attr('productid')+',"color":'+$('.sku_checked').eq(1).attr('productid')+',"number":'+$('.number').text() + '}')
 			jiageid = response.price.id
 			//查看是否是收藏	
 			$.getJSON('IsShouServlet', { 'user_id': userid, 'product_id': proid, 'sku': sku }, function(request) {

@@ -115,9 +115,25 @@ public class Shopping_CartDAO extends BaseDAO {
 	}
 	
 	//修改购物车数量
-	public Integer updateShoppingNumber(Integer user_id,Integer shopping_id,Integer sum) {
+	public String updateShoppingNumber(Integer user_id,Integer shopping_id,Integer sum) {
 		String sql = "update shopping_cart set quantity = ?,sku = JSON_REPLACE(sku, '$.number', ?) where id=? and user_id = ?";
-		return executeUpdate(sql, sum,sum,shopping_id,user_id);
+		executeUpdate(sql, sum,sum,shopping_id,user_id);
+		sql = "select * from shopping_cart where id = ?";
+		try {
+			stmt = getConn().prepareStatement(sql);
+			stmt.setObject(1, shopping_id);
+			rs = stmt.executeQuery();
+			rs.next();
+			String sku = rs.getString("sku");
+			String trimmedJsonString = sku.replaceAll("\\s", "");
+			sql = "update shopping_cart set quantity = ?,sku = ? where id=? and user_id = ?";
+			executeUpdate(sql, sum,trimmedJsonString,shopping_id,user_id);
+			return trimmedJsonString;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	//修改购物车状态
