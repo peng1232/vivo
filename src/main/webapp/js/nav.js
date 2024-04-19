@@ -19,12 +19,22 @@ $(function() {
 		$('.search_input input').focus().val('');
 		$('.xian').css('width', '100%').css('opacity', '1');
 		$('body').css('overflow-y', 'hidden');
+		$('#sousuo').attr('flag',true);
 
+	})
+	
+	//搜索功能
+	$('#sousuo').click(function(){
+		var flag = $(this).attr('flag');
+		if(flag=='true'){
+			var serach = $('.search_input input').val();
+			
+		}
 
 	})
 
 	$(".buttom_left svg").click(function(){
-		location.reload();
+		window.location.href = "http://localhost:8080/vivo/jsp/qian/ProductInitServlet";
 	})
 
 	//关闭
@@ -32,6 +42,7 @@ $(function() {
 	//   close()
 	// })
 	$('#close').on('click', function() {
+		$('#sousuo').attr('flag',false);
 		close()
 	})
 
@@ -83,7 +94,6 @@ $(function() {
 	    
 		
 	});
-	
 	
 	
 	

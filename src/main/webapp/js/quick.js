@@ -298,7 +298,7 @@ $(function() {
 			'address': address,
 			'details': jsonData,
 		}, function() {
-
+			location.href = 'shouye.jsp'
 		})
 		console.log(user_id, name, phone, address, details)
 	})
