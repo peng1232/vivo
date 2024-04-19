@@ -125,15 +125,19 @@ $(function() {
 	
 	//立即购买
 	$('.brand').click(function() {
-		var proid = $(".name").attr('pro');
+		var proid =[];
+		proid.push({
+			'product_id':$(".name").attr('pro')
+		});
 		var userid = $(".user_id").val();
 		var skuval = $('.addS').attr('sku');
 		var sku = [];
 		sku.push(skuval)
 		var jsonData = JSON.stringify(sku);
+		var product_id = JSON.stringify(proid);
 		if (userid.trim().length > 0) {
 			//已登录
-			var url = 'SelectSKUProductServlet?user_id=' + userid + '&product_id=' + proid + '&sku=' + encodeURIComponent(jsonData);
+			var url = 'SelectSKUProductServlet?user_id=' + userid + '&product_id=' + encodeURIComponent(product_id) + '&sku=' + encodeURIComponent(jsonData);
 			location.href = url;
 		} else {
 			//未登录

@@ -41,6 +41,7 @@ public class OrderInsertServlet extends HttpServlet {
 			String sku = jsonObj.getString("sku");
 			int total = jsonObj.getIntValue("total");
 			Order_details od = new Order_details(null, oid, product_id, number, new BigDecimal(total), sku);
+			odao.insertOrderDetails(od);
 		}
 	}
 

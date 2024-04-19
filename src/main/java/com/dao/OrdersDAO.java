@@ -17,7 +17,7 @@ import com.util.BaseDAO;
 public class OrdersDAO extends BaseDAO{
 	//新增订单
 	public String insertOrder(Orders o) {
-		String sql = "insert INTO address VALUES(null,?,?,?,?,?,?,?)";
+		String sql = "insert INTO orders VALUES(null,?,?,?,?,?,?,?)";
 		String id = orderNumber();
 		executeUpdate(sql, id,o.getUser_id(),o.getConsignee(),o.getPhone(),o.getReceiving_region(),new Timestamp(new Date().getTime()),2);
 		return id;
@@ -25,7 +25,7 @@ public class OrdersDAO extends BaseDAO{
 	//新增纤细表
 	public Integer insertOrderDetails(Order_details d) {
 		String sql = "insert INTO order_details VALUES(null,?,?,?,?,?)";
-		return executeUpdate(sql,d.getOrder_number(),d.getProduct_id(),d.getSku(),d.getProduct_quantity(),d.getProduct_total());
+		return executeUpdate(sql,d.getOrder_number(),d.getProduct_id(),d.getProduct_quantity(),d.getProduct_total(),d.getSku());
 	
 	}
 	
