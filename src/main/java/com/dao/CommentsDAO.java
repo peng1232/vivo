@@ -1,4 +1,4 @@
-package com.dao;
+ package com.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +12,7 @@ import com.util.Mapper;
 public class CommentsDAO extends BaseDAO {
     
     public List<Comments> queryUser_Comments(Integer user_id) {
-        String sql = "SELECT * FROM comments where id = ? ORDER BY id DESC";
+        String sql = "SELECT * FROM comments where id=?";
         return this.executeQuery(sql, new Mapper<Comments>() {
             @Override
             public List<Comments> map(ResultSet rs) throws SQLException {
@@ -74,6 +74,8 @@ public class CommentsDAO extends BaseDAO {
     }
     
     public static void main(String[] args) {
-		System.out.println(new CommentsDAO().queryProductComments(1,0,10));
+
+		System.out.println(new CommentsDAO().queryUser_Comments(1));
+
 	}
 }

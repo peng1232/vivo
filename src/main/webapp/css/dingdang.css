@@ -295,13 +295,9 @@
 /* .middle{
 	margin-left: 72px; */
 
-.rightt{
-	
-		  margin-left: 320px;
-		 
-}
-
-
+	.rightt{
+		margin-left: 0pxauto
+	}
 
 
 .mian{
@@ -313,7 +309,7 @@
 	    display: flex;
 }
 .left_1{
-	width: 685px;
+		width: 685px;
 	    height: 100%;
 	   
 	}

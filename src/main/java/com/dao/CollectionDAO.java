@@ -80,7 +80,7 @@ public class CollectionDAO extends BaseDAO{
 		Product proudc=null;
 		try {
 			stmt = getConn().prepareStatement(sql);
-			stmt.setObject(1, id);;
+			stmt.setObject(1, id);
 			rs = stmt.executeQuery();
 			if(rs.next()) {
 				proudc = new Product(
