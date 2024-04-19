@@ -609,3 +609,10 @@ input[type="checkbox"] {
     text-align: center;
     cursor: pointer;
 }
+
+.name:hover>.w{
+	color:red;
+}
+.tiao{
+	cursor: pointer;
+}
