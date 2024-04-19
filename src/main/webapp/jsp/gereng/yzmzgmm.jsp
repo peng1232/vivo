@@ -6,14 +6,122 @@
 <meta charset="UTF-8">
 <title>密码修改</title>
 <link rel="icon name" href="../../img/favicon.ico" />
+<script src="../../js/jquery.min.js"/></script>
 <link href="../../css/grzx.css" rel="stylesheet" />
 <link href="../../css/nav.css" rel="stylesheet" />
 <link href="../../css/footer.css" rel="stylesheet" />
 <link href="../../css/zhuce.css" rel="stylesheet"/>
 <script src="../../js/zhece.js"></script>
-<script src="../../js/jquery.min.js"/></script>
 <script src="../../js/nav.js"></script>
 <script src="../../js/login.js"></script>
+
+<style>
+	#xiu{
+		background-color: #456fff;
+	    background-image: linear-gradient(90deg, #418eff, #4566ff);
+	    color: #fff;
+	    display: block;
+	    font-size: 17px;
+	    height: 48px;
+	    line-height: 48px;
+	    margin: 20px auto 0;
+	    border-radius: 5px;
+	}
+	/* 弹窗 */
+.message{
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+	z-index: 99999;
+	display: none;
+}
+.zhe{
+	width: 100%;
+	height: 100vh;
+	background-color: #000;
+	opacity: 0;
+	transition: 0.3s;
+}
+.message_box{
+	width: 492px;
+    padding: 35px 0 46px;
+	display: inline-block;
+    vertical-align: middle;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ebeef5;
+    font-size: 18px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    text-align: left;
+    overflow: hidden;
+    backface-visibility: hidden;
+	position: absolute;
+	top: 32%;
+	left: 0;
+	right: 0;
+	transform: scale(0) translateY(-100%);
+	transition: 0.3s;
+}
+.message_box_head{
+	padding: 0 ;
+    margin: 25px 0 15px;
+    text-align: center;
+    min-height: 20px;
+	position: relative;
+}
+.message_box_head span{
+	font-size: 21px;
+    color: #333;
+}
+.guan{
+	position: absolute;
+	top: -45px;
+    right: 15px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+.guan:hover>path{
+	fill: #415fff;
+}
+.message_box_center{
+	color: #606266;
+    font-size: 14px;
+	padding: 0 15px 40px;
+}
+.message_box_footer{
+	padding: 5px 15px 0;    
+	text-align: center;
+}
+.message_box_center p{
+	text-align: center;
+    color: #000;
+}
+.message_box_footer button{
+	margin-right: 0;
+	border: none;
+    color: #fff;
+    background-image: linear-gradient(270deg, #ff0c53, #e51422);
+	display: inline-block;
+    width: 154px;
+    height: 39px;
+    line-height: 39px;
+    text-align: center;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 100px;
+    user-select: none;
+    outline: none;
+    border: none;
+	cursor: pointer;
+}
+</style>
+
 </head>
 <body>
 <%@include file="../../html/nav.jsp" %>
@@ -24,28 +132,7 @@
 			<a href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">修改密码</a>
 		</div>	
 		<div class="under">
-			<div class="left">
-				<input type="hidden" class='user_id' value='${user.id }'>
-				<input type="hidden" class='user_password' value='${user.user_password }'>
-				<img src="../../img/${user.head_sculpture }" class="tx">
-				<ul id="user_muem_item">
-					<li class="z">${user.user_nickname }</li>
-						
-					<li class="z">交易管理</li>
-					<li class="s"><a href="#">我的订单</a></li>
-					<li class="s"><a href="tksh.jsp">退款/售后</a></li>
-
-					<li class="z">评价管理</li>
-					<li class="s"><a href="#">评价晒单</a></li>
-
-					<li class="z">我的账户</li>
-					<li class="s"><a href="xgmm.jsp">修改密码</a></li>
-					<li class="s"><a href="xgdh.jsp">修改电话号码</a></li>
-					<li class="s"><a href="grxx.jsp">个人资料</a></li>
-					<li class="s"><a href="#">收货地址</a></li>
-					<li class="s"><a href="#">我的收藏</a></li>
-				</ul>
-			</div>
+			<%@include file="zxzuo.jsp" %>
 			<div class="right">
 				<div class="content">
 					<div class="logo">
@@ -81,29 +168,79 @@
 								<a href="xgmm.jsp">切换修改方式</a>
 							</div>
 							<!-- 修改 -->
-							<div id="yzmxiu" class="btn">确认</div>
+							<div id="xiu" class="btn">确认</div>
 						</form>
 					</div>
 				</div>		
 			</div>	
 		</div>
 	</div>
+<!-- 弹窗 -->
+	<div class="message">
+		<div class="zhe"></div>
+		<div class="message_box">
+			<div class="message_box_head">
+				<span>提醒信息</span>
+				<svg class="guan" t="1710744510048" class="icon" viewBox="0 0 1024 1024" version="1.1"
+					xmlns="http://www.w3.org/2000/svg" p-id="7727" width="16" height="16">
+					<path
+						d="M590.7456 508.416 1016.832 934.5024 938.0864 1009.664 512 583.5776 78.7456 1024 0 941.6704l433.2544-440.4224L7.168 75.1616 85.9136 0 512 426.0864 938.0864 0 1016.832 82.3296 590.7456 508.416z"
+						p-id="7728" fill="#242933"></path>
+				</svg>
+			</div>
+			<div class="message_box_center">
+				<p class="setting">温馨提示：商品抢购数量超出限制</p>
+			</div>
+			<div class="message_box_footer">
+				<button>确定</button>
+			</div>
+		</div>
+	</div>
 <%@include file="../../html/footer.jsp" %>
 <script type="text/javascript">
 	$(function(){
-		$('#xiu').click(function(){
-			var user_id = $('.user_id').val();
-			var userjiu = $('.user_password').val();
-			var rujiu = $('.jiuma').val();
-			var password = $('.xinma').val();
-			if(userjiu==rujiu){
-				$.getJSON("UpdatePasswordServlet",{'user_id':user_id ,'password':password}, function(data) {
-					 alert("密码修改成功！");
-				})
-			}
-			
-		})
-	})
+	    $('#xiu').click(function(){
+	        var user_id = $('.user_id').val();
+	        var userjiu = $('.user_password').val();
+	        var rujiu = $('.jiuma').val();
+	        var password = $('.xinma').val();
+	        if(userjiu == rujiu){
+	        	$.getJSON('UpdatePasswordServlet',{'user_id':user_id,'password':password},function(){
+					$('.setting').text('密码修改成功');	
+				 	kai();
+				});
+	        } else {  
+	            $('.setting').text('用户名或密码错误');
+	            kai();
+	        }
+	    });
+	    
+	    $('.message_box_footer button').click(function(){
+	        guanbi();
+	    });
+	    $('.zhe').click(function(){
+	        guanbi();
+	    });
+	    $('.guan').click(function(){
+	        guanbi();
+	    });
+		
+	    function kai(){
+	        $('body').css('overflow', 'hidden');
+	        $('.message').fadeIn();
+	        $(".zhe").fadeIn().css('opacity', '0.6');
+	        $('.message_box').css('transform', 'scale(1) translateY(0%)');
+	    }
+	    
+	    function guanbi(){
+	        $('body').css('overflow', 'auto');
+	        $(".zhe").fadeOut();
+	        $('.message_box').css('transform', 'scale(0) translateY(-100%)');
+	        setTimeout(function(){
+	            $('.message').fadeOut();
+	        }, 300);
+	    }
+	});
 </script>
 </body>
 </html>

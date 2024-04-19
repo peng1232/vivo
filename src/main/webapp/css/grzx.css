@@ -233,6 +233,11 @@ a[href=""]:hover {
 	margin-top: 90px;/* 控制下移的距离 */
 	margin-left: 30px;
 }
+.zjll{
+	font-size: 18px;
+	margin-top: 450px;/* 控制下移的距离 */
+	margin-left: 30px;
+}
 .item a{
 	font-size: 24px;
 	margin-left: 10px;

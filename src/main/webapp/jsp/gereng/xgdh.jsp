@@ -23,26 +23,7 @@
 			<a href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">修改电话号码</a>
 		</div>
 		<div class="under">
-			<div class="left">
-				<img src="../../img/${user.head_sculpture }" class="tx">
-				<ul id="user_muem_item">
-					<li class="z">${user.user_nickname }</li>
-						
-					<li class="z">交易管理</li>
-					<li class="s"><a href="#">我的订单</a></li>
-					<li class="s"><a href="tksh.jsp">退款/售后</a></li>
-
-					<li class="z">评价管理</li>
-					<li class="s"><a href="#">评价晒单</a></li>
-
-					<li class="z">我的账户</li>
-					<li class="s"><a href="xgmm.jsp">修改密码</a></li>
-					<li class="s"><a href="xgdh.jsp">修改电话号码</a></li>
-					<li class="s"><a href="grxx.jsp">个人资料</a></li>
-					<li class="s"><a href="#">收货地址</a></li>
-					<li class="s"><a href="#">我的收藏</a></li>
-				</ul>
-			</div>
+			<%@include file="zxzuo.jsp" %>
 			<div class="right">
 				<div class="content">
 					<div class="logo">
