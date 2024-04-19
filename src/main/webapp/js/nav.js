@@ -19,24 +19,32 @@ $(function() {
 		$('.search_input input').focus().val('');
 		$('.xian').css('width', '100%').css('opacity', '1');
 		$('body').css('overflow-y', 'hidden');
-		$('#sousuo').attr('flag',true);
+		$('#sousuo').attr('flag', true);
 
 	})
-	
+
 	//搜索功能
-	$('#sousuo').click(function(){
+	$('#sousuo').click(function() {
 		var flag = $(this).attr('flag');
-		if(flag=='true'){
+		if (flag == 'true') {
 			var serach = $('.search_input input').val();
-			if(serach.trim().length>0){
-				location.href='SearchSetlvet?search='+serach;
+			if (serach.trim().length > 0) {
+				location.href = 'SearchSetlvet?search=' + serach;
 			}
-			
+
 		}
 
 	})
+	$('.search_input input').keyup(function(event) {
+		if (event.which === 13) { // 13是回车键的键码
+			var serach = $('.search_input input').val();
+			if (serach.trim().length > 0) {
+				location.href = 'SearchSetlvet?search=' + serach;
+			}
+		}
+	});
 
-	$(".buttom_left svg").click(function(){
+	$(".buttom_left svg").click(function() {
 		window.location.href = "http://localhost:8080/vivo/jsp/qian/ProductInitServlet";
 	})
 
@@ -45,7 +53,7 @@ $(function() {
 	//   close()
 	// })
 	$('#close').on('click', function() {
-		$('#sousuo').attr('flag',false);
+		$('#sousuo').attr('flag', false);
 		close()
 	})
 
@@ -59,7 +67,7 @@ $(function() {
 		$.each(response.list_cate, function(index, category) {
 			// 对于数组中的每个元素，我们创建一个新的<li>元素
 			var li = $('<li></li>');
-			li.prop('value',category.id)
+			li.prop('value', category.id)
 			// 然后在这个<li>元素中添加一个新的<a>元素
 			var a = $('<a></a>').text(category.category_type).attr('href', '#');
 			// 最后，我们将<a>元素添加到<li>元素中，并将<li>元素添加到页面的某个元素中（例如，一个id为"menu"的元素）
@@ -67,39 +75,39 @@ $(function() {
 			$(".c_type").append(li);
 		});
 		//location.reload();
-		
+
 	});
-	
+
 	$.getJSON("../navSerlvet2", function(re) {
-		
+
 		$.each(re.list_cate, function(index, category) {
 			var ul = $('<ul class="phone_total"></ul>');
-			
-			$.each(re.product[index],function(ind,pro){
+
+			$.each(re.product[index], function(ind, pro) {
 				var li = $('<li></li>');
-			    var a = $('<a></a>');
-			    a.attr('href','XianXiSerlvet?id='+pro.id)
-			    var div = $('<div class="item_images"></div>');
-			    var img = $('<img />');
-			    img.attr('src','../../img/product/'+pro.image_url)
-			    var p = $('<p>'+pro.products_name+'</p>');
-			    a.append(div);
-			    div.append(img);
-			    a.append(p);
-			    li.append(a);
-			    ul.append(li);
-			}) 
-			
-	    	$('.phone_top').append(ul);
+				var a = $('<a></a>');
+				a.attr('href', 'XianXiSerlvet?id=' + pro.id)
+				var div = $('<div class="item_images"></div>');
+				var img = $('<img />');
+				img.attr('src', '../../img/product/' + pro.image_url)
+				var p = $('<p>' + pro.products_name + '</p>');
+				a.append(div);
+				div.append(img);
+				a.append(p);
+				li.append(a);
+				ul.append(li);
+			})
+
+			$('.phone_top').append(ul);
 		});
-	
-	
-	    
-		
+
+
+
+
 	});
-	
-	
-	
+
+
+
 });
 
 //关闭方法
