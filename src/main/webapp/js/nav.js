@@ -28,6 +28,7 @@ $(function() {
 		var flag = $(this).attr('flag');
 		if (flag == 'true') {
 			var serach = $('.search_input input').val();
+			serach = serach.replace(/\\/g, "");
 			if (serach.trim().length > 0) {
 				location.href = 'SearchSetlvet?search=' + serach;
 			}
@@ -38,6 +39,7 @@ $(function() {
 	$('.search_input input').keyup(function(event) {
 		if (event.which === 13) { // 13是回车键的键码
 			var serach = $('.search_input input').val();
+			serach = serach.replace(/\\/g, "");
 			if (serach.trim().length > 0) {
 				location.href = 'SearchSetlvet?search=' + serach;
 			}
