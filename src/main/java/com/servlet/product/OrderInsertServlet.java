@@ -2,8 +2,6 @@ package com.servlet.product;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +15,6 @@ import com.alibaba.fastjson2.JSONObject;
 import com.dao.OrdersDAO;
 import com.entity.Order_details;
 import com.entity.Orders;
-import com.entity.Product;
 
 @WebServlet("/jsp/qian/OrderInsertServlet")
 public class OrderInsertServlet extends HttpServlet {

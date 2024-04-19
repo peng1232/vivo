@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dao.ordersDAO;
+import com.dao.OrdersDAO;
 import com.entity.Orders;
 import com.entity.Product;
 
@@ -19,7 +19,7 @@ import com.entity.Product;
 @WebServlet("/jsp/user/ordersServlet")
 public class OrdersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private ordersDAO orders = new ordersDAO ();
+    private OrdersDAO orders = new OrdersDAO ();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Orders> ordersList =orders.queryUserOrders(1);

@@ -18,7 +18,7 @@ import com.entity.Product;
 import com.util.BaseDAO;
 import com.util.Mapper;
 
-public class ordersDAO extends BaseDAO {
+public class OrdersDAO extends BaseDAO {
 	// 新增订单
 	public String insertOrder(Orders o) {
 		String sql = "insert INTO orders VALUES(null,?,?,?,?,?,?,?)";
