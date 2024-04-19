@@ -21,7 +21,7 @@ public class CommentsServlet extends HttpServlet {
     private CommentsDAO commentsDAO = new CommentsDAO();
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	List<Comments> commentsList = commentsDAO.queryUser_Comments(2);
+    	List<Comments> commentsList = commentsDAO.queryUser_Comments(1);
         request.setAttribute("commentsList", commentsList);
         request.getRequestDispatcher("pinglun.jsp").forward(request, response);
     }

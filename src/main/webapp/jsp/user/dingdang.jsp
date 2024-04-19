@@ -1,6 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -60,10 +61,12 @@
 						<div  class="col col6">操作</div>
 					</div>
 					<div>
+					
+						<c:forEach items="${ordersList}" var="orders">
 						<div class="head">
 							<div class="leftt">订单号:
-							<a class="link">1561895618456</a></div>
-							<div class="middle">成交时间: 2024-04-01 08:13:42</div>
+							<a class="link">${orders.order_number}</a></div>
+							<div class="middle">成交时间:${orders.order_time}</div>
 							<div class="rightt">删除订单</div>
 						</div>
 						
@@ -75,19 +78,19 @@
 										<div class="order-item-right">
 											<div class="top">
 												<div class="name">
-													<a class="link"> vivo X Fold3 Pro 16GB+512GB</a></div>
+													<a class="link">        vivo X Fold3 Pro 16GB+512GB</a></div>
 													<div class="num">10</div>
 													<div class="price"><span>100</span></div>
 											</div>
 										</div>
 											<div class="sole-action"></div>
-											<div class="middle_1">已取消</div>
+											<div class="middle_1">${orders.state}</div>
 											<div class="aa"><div class="zuihou">查看订单</div></div>
 									</div>
 								</div>
 							</div>
 						</div>
-					
+						</c:forEach>
 						
 						
 						<div class="container_1 clearfix">
@@ -108,7 +111,11 @@
 			</div>
 		</div>
     </div>
-
+	<c:if test="${ordersList==null }">
+		<script type="text/javascript">
+			location.href='ordersServlet'
+		</script>
+	</c:if>
 <%@include file="../../html/footer.jsp" %>
 </body>
 </html>

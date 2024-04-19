@@ -32,7 +32,7 @@
 					<li class="z">评价管理</li>
 					<li class="s"><a href="">评价晒单</a></li>
 					
-					<li class="z">我的账户</li>
+					<li class="z9">我的账户</li>
 					<li class="s"><a href="">修改密码</a></li>
 					<li class="s"><a href="">修改电话号码</a></li>
 					<li class="s"><a href="">个人资料</a></li>
@@ -44,7 +44,7 @@
 				<div class="div1">我的收藏</div>
 					<div class="div2">
 						<table>
-						<thead class="thead1">
+						<thead class="thead1">	
 							<th class="img"></th>
 							<th class="mingzi">商品名称</th>
 							<th class="jinge">价格</th>
@@ -66,8 +66,7 @@
 									<td><a class="a2">购买</a>
 										<a class="a1">删除</a>
 									</td>
-								</tr>
-							
+								</tr>	
 						</c:forEach>
 						</tbody>
 						</table>
