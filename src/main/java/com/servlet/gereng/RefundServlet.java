@@ -17,8 +17,9 @@ public class RefundServlet extends HttpServlet {
     private RefundDAO refundDAO = new RefundDAO();
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Refund> refundList = refundDAO.queryRefunds(0, getServletInfo(), 0);
+    	String refundReason = request.getParameter("refundReason");
+        List<Refund> refundList = refundDAO.queryRefunds(0, refundReason, 0);
         request.setAttribute("refundList", refundList); 
-        request.getRequestDispatcher("/tksh.jsp").forward(request, response); 
+        request.getRequestDispatcher("tksh.jsp").forward(request, response); 
     }
 }

@@ -97,5 +97,7 @@ public class Users {
 		// TODO Auto-generated constructor stub
 	}
 
-	
+	public int getGender() {
+        return sex; // 添加性别属性的 getter 方法
+    }
 }

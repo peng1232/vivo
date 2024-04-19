@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.entity.User_product_footprint" %>
+<%@ page import="java.util.List" %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +15,9 @@
 <link href="../../css/footer.css" rel="stylesheet" />
 <script src="../../js/jquery.min.js"></script>
 <script src="../../js/nav.js"></script>
+<style>
 
+</style>
 <script>
     function updateLoginTime() {
         var currentTime = new Date();
@@ -69,6 +75,10 @@ ${user }
 					</ul>
 				</div>
 				<div class="zjdd">最近的订单</div> 
+				<div>
+					<div class="zjll">最近浏览</div> 
+						
+				</div>
 			</div>
 		</div>
 	</div>

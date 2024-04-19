@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
-<%@ page import="com.entity.Refund" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,14 +30,13 @@
 					<div class="co12">状态</div>
 					<div class="col3">操作</div>
 				</div>	
-				<c:forEach items="${refunds}" var="refund">
-		            <tr>
-		               	<td>${user.user_id}</td>
-						<td>${user.refund_reason}</td>
-						<td>${user.state}</td>
-						<td>删除</td>
-		            </tr>
+		       <c:forEach items="${refunds}" var="refund">
+				    <div class="col0">${refund.user_id}</div>
+				    <div class="col1">${refund.refund_reason}</div>
+				    <div class="col2">${refund.state}</div>
+				    <div class="col3"><a href="refund?action=delete&refundId=${refund.user_id}">删除</a></div>
 				</c:forEach>
+
 			</div>
 		</div>
 	</div>
