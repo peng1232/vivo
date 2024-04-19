@@ -20,10 +20,9 @@
 	<!-- 轮播 -->
 	<div class="lun">
 		<div class="lunbo clearfix">
-			<img src="../../img/lun/lun1.png">
-			<img src="../../img/lun/lun3.png">
-			<img src="../../img/lun/lun2.jpg">
-			<img src="https://www.jq22.com/img/cs/500x300-4.png">
+			<c:forEach items="${advertisement }" var="item">
+				<a href='XianXiSerlvet?id=${ item.product_id}'><img src="../../img/lun/${item.advertisement_url }"></a>
+			</c:forEach>
 		</div>
 	</div>
 	

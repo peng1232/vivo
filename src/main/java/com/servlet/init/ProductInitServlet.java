@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dao.AdvertisementDAO;
 import com.dao.ProductDAO;
+import com.entity.Advertisement;
 import com.entity.Product;
 
 /**
@@ -19,11 +21,14 @@ import com.entity.Product;
 public class ProductInitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ProductDAO pdao = new ProductDAO();
+	AdvertisementDAO adao = new AdvertisementDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Product> product = pdao.productRecommend();
 		List<Product> hits = pdao.productHits();
+		List<Advertisement> advertisement = adao.queryAdvertisement();
 		request.setAttribute("product", product);
 		request.setAttribute("hits", hits);
+		request.setAttribute("advertisement", advertisement);
 		request.getRequestDispatcher("shouye.jsp").forward(request, response);
 	}
 
