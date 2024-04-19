@@ -1,12 +1,10 @@
 package com.dao;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
+import java.util.stream.Collectors;
 
 import com.entity.Commodity_price;
 import com.entity.Product;
@@ -325,7 +323,63 @@ public class ProductDAO extends BaseDAO{
 		return url;
 	}
 	
+	//搜索
+	public List<Product> querySearch(String value) {
+		String sql1 = "SELECT DISTINCT p.id, p.products_name, p.description, cp.id\r\n"
+				+ "FROM product p\r\n"
+				+ "JOIN commodity_price cp ON p.id = cp.product_id\r\n"
+				+ "WHERE p.products_name LIKE ?";
+		String sql2 = "SELECT DISTINCT p.id, p.products_name, p.description, cp.id\r\n"
+				+ "FROM product p\r\n"
+				+ "JOIN product_specifications ps ON p.id = ps.product_id\r\n"
+				+ "JOIN specification_value sv ON ps.id = sv.specifications_id\r\n"
+				+ "JOIN commodity_price cp ON p.id = cp.product_id\r\n"
+				+ "WHERE sv.value LIKE ?";
+		List<Product> list = new ArrayList<Product>();
+		try {
+			stmt = getConn().prepareStatement(sql1);
+			stmt.setObject(1, "%"+value+"%");
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				Product p = new Product();
+				p.setId(rs.getInt("id"));
+				p.setProducts_name(rs.getString("products_name"));
+				p.setDescription(rs.getString("description"));
+				p.setPrice(rs.getBigDecimal("cp.id"));
+				list.add(p);
+			}
+			stmt = conn.prepareStatement(sql2);
+			stmt.setObject(1, "%"+value+"%");
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				Product p = new Product();
+				p.setId(rs.getInt("id"));
+				p.setProducts_name(rs.getString("products_name"));
+				p.setDescription(rs.getString("description"));
+				p.setPrice(rs.getBigDecimal("cp.id"));
+				list.add(p);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<Product> uniqueList = list.stream().distinct().collect(Collectors.toList());
+		return uniqueList;
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(new ProductDAO().queryImage_Url(3,1));
+		System.out.println(new ProductDAO().querySearch("16").size());
+//		List<Product> list = new ArrayList<>();
+//		Product a = new Product();
+//		Product b = new Product();
+//		a.setId(1);
+//		b.setId(1);
+//		list.add(a);
+//		b.setState(3);
+//		list.add(b);
+//		System.out.println(list);
+//		// 添加产品到list中
+//		List<Product> uniqueList = list.stream().distinct().collect(Collectors.toList());
+//		System.err.println(uniqueList);
 	}
 }

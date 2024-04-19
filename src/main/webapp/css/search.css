@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+.div_footer {
+	background-color: #242933;
+}
+
+.footer_content_list_left li a {
+	color: #8a8f99;
+}
+
+.foot-category dt {
+	color: #fff;
+}
+
+.featrue {
+	display: none;
+}
+
+.clearfix::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.page_search_result_header {
+	background-color: #fff;
+}
+
+.page_search_result_header>div {
+	width: 1200px;
+	height: 168px;
+	position: relative;
+}
+
+.page_search_result_input_wrapper {
+	position: absolute;
+	bottom: 30px;
+}
+
+#js_headerInput {
+	width: 520px;
+	height: 40px;
+	border-radius: 20px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	color: #000;
+	font-size: 18px;
+	padding: 7px 44px 7px 20px;
+	outline: none;
+}
+
+#js_headerSearch {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	padding: 8px;
+	cursor: pointer;
+	background: url(./../img/sousuo.svg);
+	background-size: 24px;
+	right: 7px;
+	top: 50%;
+	transform: translateY(-36%);
+	background-repeat: no-repeat
+}
+
+.page_search_result_wrapper {
+	width: 1200px;
+	margin: 0 auto;
+	padding-bottom: 60px;
+	margin-top: 20px;
+}
+
+.search_result_content_title {
+	
+}
+
+.search_result_content_title>span {
+	font-size: 32px;
+	line-height: 42px;
+	color: #242933;
+	float: left;
+}
+
+.search_result_content_title>p {
+	font-size: 14px;
+	line-height: 4.4;
+	color: #8a8f99;
+	margin-left: 8px;
+	float: left;
+}
+
+.content_item {
+	float: left;
+	vertical-align: top;
+	box-sizing: border-box;
+	width: 292.5px;
+	height: 380px;
+	background-color: #fff;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	padding: 0 20px;
+	position: relative;
+	line-height: 1.5;
+	text-align: center;
+	transition: all .2s linear;
+	vertical-align: top;
+	border-radius: 5px;
+}
+
+.result_pic {
+	width: 172px;
+	height: 172px;
+	padding-top: 41px;
+}
+
+.result_title {
+	margin-top: 34px;
+	margin-bottom: 8px;
+	font-size: 16px;
+	color: #333;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.result_text {
+	font-size: 12px;
+	line-height: 18px;
+	height: 36px;
+	color: #666;
+	display: flex;
+	-webkit-box-orient: vertical;
+	flex-direction: column;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+
+.result_price {
+	margin-top: 16px;
+}
+
+.result_price_new {
+	font-size: 21px;
+	color: red;
+}
+
+.content_item>a {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.content_item:hover {
+	transform: translate3d(0, -2px, 0);
+	box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+}
+
+.yi {
+	margin-right: 0px
+}
+
+.page-search-result-other {
+	text-align: center;
+	margin-top: 41px;
+	margin-bottom: 76px;
+}
+
+.page-search-result-other p {
+	font-size: 14px;
+	line-height: 19px;
+	color: #666;
+}

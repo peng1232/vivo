@@ -2,10 +2,10 @@ $(function() {
 	//初始化
 	address();
 	var summ = 0.00;
-	$('.total_col').each(function(){
-		summ+=parseFloat($(this).text().substring(1,$(this).text().length))
+	$('.total_col').each(function() {
+		summ += parseFloat($(this).text().substring(1, $(this).text().length))
 	})
-	$('.real_price').text('￥'+summ.toFixed(2))
+	$('.real_price').text('￥' + summ.toFixed(2))
 	//弹窗点击时间
 	$('.message_box_footer button').click(function() {
 
@@ -76,7 +76,7 @@ $(function() {
 	$('.adress_list').on('click', '.shouhuo ', function() {
 		$(this).siblings().removeClass("on");
 		$(this).addClass('on');
-		$('.value').eq(0).text($(this).find('.xx').text().trim()+" "+$(this).find('.dd').attr('phone'));
+		$('.value').eq(0).text($(this).find('.xx').text().trim() + " " + $(this).find('.dd').attr('phone'));
 		$('.value').eq(1).text($(this).find('.mlellipsis').text().trim())
 
 	})
@@ -143,7 +143,7 @@ $(function() {
 				var clDiv = $("<div>").addClass("cl");
 				clDiv.append("<p class='mlellipsis'>" + address.receiving_region + " <span class='addxian'> " + address.detailed_region + " </span>" + "</p>");
 				newLabel.append(itemTop, clDiv);
-				if(index==0){
+				if (index == 0) {
 					newLi.addClass('on')
 				}
 				if (address.default_address == 1) {
@@ -165,7 +165,7 @@ $(function() {
 				newLi.attr('defaultadd', address.default_address)
 				// Append the new <li> element to a container, assuming 'container' is the ID of the container where you want to append it
 				$(".adress_list").append(newLi);
-				$('.value').eq(0).text($('.on').find('.xx').text().trim()+" "+$('.on').find('.dd').attr('phone'));
+				$('.value').eq(0).text($('.on').find('.xx').text().trim() + " " + $('.on').find('.dd').attr('phone'));
 				$('.value').eq(1).text($('.on').find('.mlellipsis').text().trim())
 			});
 			var newAddressItem = $("<li></li>")
@@ -269,39 +269,50 @@ $(function() {
 			address()
 		});
 	})
-	
-	
-	$('.btn_submit').click(function(){
+
+
+	$('.btn_submit').click(function() {
 		var user_id = $('.user').val();
 		var name = $('.on').find('.xx').text().trim();
 		var phone = $('.on').find('.dd').attr('phone');
-		var address =$('.on').find('.mlellipsis').text().trim()
-		var details=[];
-		$('.product_info').each(function(){
+		var address = $('.on').find('.mlellipsis').text().trim()
+		var details = [];
+		$('.product_info').each(function() {
 			var sku = $(this).attr('sku')
 			var product_id = $(this).attr('product_id')
 			var number = $(this).find('.quantity_col').text();
 			var t = $(this).find('.total_col');
-			var total = t.text().substring(1,t.text().length)
+			var total = t.text().substring(1, t.text().length)
 			details.push({
-				'sku':sku,
-				'product_id':product_id,
-				'number':number,
-				'total':total
+				'sku': sku,
+				'product_id': product_id,
+				'number': number,
+				'total': total
 			})
 		})
 		var jsonData = JSON.stringify(details);
-		$.getJSON('OrderInsertServlet',{
-			'user_id':user_id,
-			'name':name,
-			'phone':phone,
-			'address':address,
-			'details':jsonData,
-		},function(){
-			
+		$.getJSON('OrderInsertServlet', {
+			'user_id': user_id,
+			'name': name,
+			'phone': phone,
+			'address': address,
+			'details': jsonData,
+		}, function() {
+			location.href = 'shouye.jsp'
 		})
-		console.log(user_id,name,phone,address,details)
+		console.log(user_id, name, phone, address, details)
 	})
+
+	//挑战路径
+	$('.tiao').click(function() {
+		var luValue = $(this).attr('lu');
+		// 确保从 data-* 属性或正确的源获取 JSON 对象
+		var skuObj = $(this).attr('sku'); // 如果使用 HTML5 data-* 属性存储对象
+		var encodedSku = encodeURIComponent(JSON.stringify(skuObj));
+		var url = luValue +  encodedSku;  // 确保URL的构建是正确的
+		console.log(url)
+		window.location.href = url;
+	});
 })
 
 
@@ -310,4 +321,7 @@ $(function() {
 function isValidPhoneNumber(phoneNumber) {
 	const pattern = /^1[3-9]\d{9}$/;
 	return pattern.test(phoneNumber);
+}
+function encodeJson(json) {
+	return encodeURIComponent(JSON.stringify(json));
 }

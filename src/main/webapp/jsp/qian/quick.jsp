@@ -47,10 +47,10 @@
 					<div class='product_info' sku='${skulist[va.index] }'  product_id='${item.id }'>
 						<div class='prod_list_wrap'>
 							<div class='prod_pic'>
-								<a href="#"><img src='../../img/product/${item.image_url }' /></a>
+								<a  lu ='XianXiSerlvet?id=${item.id }&sku=' sku= ${skulist[va.index] }' class='tiao'><img src='../../img/product/${item.image_url }' /></a>
 							</div>
 							<div class='col goods_col'>
-								<a href="#" class='name'> <span class='w'>${item.products_name } ${item.pagTtype } ${item.color }</span>
+								<a lu ='XianXiSerlvet?id=${item.id }&sku=' sku= ${skulist[va.index] }' class='name tiao'> <span class='w'>${item.products_name } ${item.pagTtype } ${item.color }</span>
 								</a> <span class='w'>${item.color }</span>
 							</div>
 							<div class='col price_col'>￥${item.price }</div>
