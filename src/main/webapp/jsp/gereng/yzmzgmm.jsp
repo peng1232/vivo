@@ -6,14 +6,122 @@
 <meta charset="UTF-8">
 <title>密码修改</title>
 <link rel="icon name" href="../../img/favicon.ico" />
+<script src="../../js/jquery.min.js"/></script>
 <link href="../../css/grzx.css" rel="stylesheet" />
 <link href="../../css/nav.css" rel="stylesheet" />
 <link href="../../css/footer.css" rel="stylesheet" />
 <link href="../../css/zhuce.css" rel="stylesheet"/>
 <script src="../../js/zhece.js"></script>
-<script src="../../js/jquery.min.js"/></script>
 <script src="../../js/nav.js"></script>
 <script src="../../js/login.js"></script>
+
+<style>
+	#xiu{
+		background-color: #456fff;
+	    background-image: linear-gradient(90deg, #418eff, #4566ff);
+	    color: #fff;
+	    display: block;
+	    font-size: 17px;
+	    height: 48px;
+	    line-height: 48px;
+	    margin: 20px auto 0;
+	    border-radius: 5px;
+	}
+	/* 弹窗 */
+.message{
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+	z-index: 99999;
+	display: none;
+}
+.zhe{
+	width: 100%;
+	height: 100vh;
+	background-color: #000;
+	opacity: 0;
+	transition: 0.3s;
+}
+.message_box{
+	width: 492px;
+    padding: 35px 0 46px;
+	display: inline-block;
+    vertical-align: middle;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ebeef5;
+    font-size: 18px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    text-align: left;
+    overflow: hidden;
+    backface-visibility: hidden;
+	position: absolute;
+	top: 32%;
+	left: 0;
+	right: 0;
+	transform: scale(0) translateY(-100%);
+	transition: 0.3s;
+}
+.message_box_head{
+	padding: 0 ;
+    margin: 25px 0 15px;
+    text-align: center;
+    min-height: 20px;
+	position: relative;
+}
+.message_box_head span{
+	font-size: 21px;
+    color: #333;
+}
+.guan{
+	position: absolute;
+	top: -45px;
+    right: 15px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+.guan:hover>path{
+	fill: #415fff;
+}
+.message_box_center{
+	color: #606266;
+    font-size: 14px;
+	padding: 0 15px 40px;
+}
+.message_box_footer{
+	padding: 5px 15px 0;    
+	text-align: center;
+}
+.message_box_center p{
+	text-align: center;
+    color: #000;
+}
+.message_box_footer button{
+	margin-right: 0;
+	border: none;
+    color: #fff;
+    background-image: linear-gradient(270deg, #ff0c53, #e51422);
+	display: inline-block;
+    width: 154px;
+    height: 39px;
+    line-height: 39px;
+    text-align: center;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 100px;
+    user-select: none;
+    outline: none;
+    border: none;
+	cursor: pointer;
+}
+</style>
+
 </head>
 <body>
 <%@include file="../../html/nav.jsp" %>
@@ -60,7 +168,7 @@
 								<a href="xgmm.jsp">切换修改方式</a>
 							</div>
 							<!-- 修改 -->
-							<div id="yzmxiu" class="btn">确认</div>
+							<div id="xiu" class="btn">确认</div>
 						</form>
 					</div>
 				</div>		
