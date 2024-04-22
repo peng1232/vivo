@@ -15,6 +15,7 @@
 <body>
 	<div class="left">
 				<input type="hidden" class='user_id' value='${user.id }'>
+				<input type="hidden" class='phone' value='${user.phone }'>
 				<input type="hidden" class='user_password' value='${user.user_password }'>
 				<img src="../../img/${user.head_sculpture }" class="tx">
 				<ul id="user_muem_item">

@@ -169,7 +169,7 @@ a[href=""]:hover {
 .zltx {
 	font-size: 18px;/* 设置字体大小 */
 	position: relative;
-	top: 160px;/* 向下调整110像素 */
+	top: 100px;/* 向下调整110像素 */
 	left: 140px;/* 向右调整110像素 */
 }
 
@@ -177,11 +177,11 @@ a[href=""]:hover {
 	width: 200px;/* 设置图片宽度 */
 	height: auto;/* 让图片按比例缩放 */
 	position: relative;
-	top: 40px;
+
 	left: 240px;
 }
 .gender-section {
-	margin-top: 80px;
+	margin-top: 40px;
 	margin-left: 180px;
 }
 
@@ -193,12 +193,9 @@ a[href=""]:hover {
 	display: inline-block;
 	margin-left: 10px;
 }
-.birthday-section div{
-	display: inline-block;
-}
-.birthday-section {
-	margin-top: 25px;
-	margin-left: 180px;
+.xgtpmz{
+margin-top: 60px;
+
 }
 .jrgrzx{
 	font-size: 25px;
@@ -255,7 +252,7 @@ a[href=""]:hover {
 }
 
 .button{
-	margin-top: 20px;
+	margin-top: 35px;
 	margin-left: 250px;	
 	width: 160px;
 	height: 35px;

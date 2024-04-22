@@ -20,6 +20,7 @@ public class RefundServlet extends HttpServlet {
         int userId = Integer.parseInt(request.getParameter("userId"));
         String refundReason = request.getParameter("refundReason");
         int state = Integer.parseInt(request.getParameter("state"));
+        
         List<Refund> refundList = refundDAO.queryRefunds(userId, refundReason, state);
         request.setAttribute("refundList", refundList); 
         request.getRequestDispatcher("tksh.jsp").forward(request, response); 

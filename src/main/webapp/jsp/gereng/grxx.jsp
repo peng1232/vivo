@@ -28,27 +28,32 @@
             <div class="right">
                 <div class="tkgl">个人资料</div>
                 <div class="grxx_tx">
-                
-                    <div class="zltx">当前头像：</div>
-                    <!-- 添加点击头像修改图片的链接 -->
-                    <a href="javascript:void(0);" onclick="document.getElementById('photo').click();">
-                        <img src="../../img/${user.head_sculpture }" class="tx2" id="avatar" style="cursor: pointer;">
-                    </a>
-                    <!-- 上传头像的表单 -->
-					<form action="grxxtxServlet" method="post" enctype="multipart/form-data" style="display: none;">
-					    选择照片：<input type="file" name="photo" id="photo" onchange="this.form.submit();">
-					</form>
-					
+                	<div class="xgtpmz">
+	                	<div class="zltx">当前头像：</div>
+	                    <!-- 添加点击头像修改图片的链接 -->
+	                    <a href="javascript:void(0);" onclick="document.getElementById('photo').click();">
+	                        <img src="../../img/${user.head_sculpture }" class="tx2" id="avatar" style="cursor: pointer;">
+	                    </a>
+	                    <!-- 上传头像的表单 -->
+						<form action="grxxtxServlet" method="post" enctype="multipart/form-data" style="display: none;">
+						    选择照片：<input type="file" name="photo" id="photo" onchange="this.form.submit();">
+						</form>
+                	</div>
                     <!-- 显示其他个人信息 -->
                     <form action="grxxServlet" method="post">
                         <input type="hidden" value='${user.id }' name='user_id'>
+                         <div class="gender-section">
+                            <div>昵称：</div>
+                           <input type="text" value='${user.user_nickname }' name='nicenane' />
+                           
+                        </div>
                         <div class="gender-section">
                             <div>性别：</div>
                             <label><input type="radio" name='gender' value="0" ${user.sex == 0 ? 'checked' : ''}>男</label>
                             <label><input type="radio" name='gender' value="1" ${user.sex == 1 ? 'checked' : ''}>女</label>
                         </div>
 
-                        <div class="birthday-section">
+                        <div class="gender-section">
                             <div>生日：</div>
                             
                             <select name="year" id="year">

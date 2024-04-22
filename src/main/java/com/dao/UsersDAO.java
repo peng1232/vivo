@@ -134,6 +134,11 @@ public class UsersDAO extends BaseDAO {
 		String sql = "update users set user_password=? where id=?";
 		return executeUpdate(sql, password, user_id);
 	}
+	
+	public Integer doUpdatePhone(Integer user_id, String phone) {
+		String sql = "update users set phone=? where id=?";
+		return executeUpdate(sql, phone, user_id);
+	}
 
 	public List<Users> selectAlluse() {
 		// 1、查询category表的所有记录，并按照主键倒序
@@ -199,15 +204,16 @@ public class UsersDAO extends BaseDAO {
 
 	// doUpdate(实体类):int 修改
 	public Integer updateUser(Users user) throws SQLException {
-		String sql = "UPDATE users SET  birth=?, sex=? WHERE id=?";
+		String sql = "UPDATE users SET  user_nickname=?, birth=?, sex=? WHERE id=?";
 
 		try {
 			stmt = getConn().prepareStatement(sql);
 			// 设置参数的值
-			stmt.setObject(1, user.getBirth());
-			stmt.setInt(2, user.getSex());
-			stmt.setInt(3, user.getId());
-
+			stmt.setObject(1, user.getUser_nickname());
+			stmt.setObject(2, user.getBirth());
+			stmt.setInt(3, user.getSex());
+			stmt.setInt(4, user.getId());
+			System.err.println(stmt);
 			return stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
