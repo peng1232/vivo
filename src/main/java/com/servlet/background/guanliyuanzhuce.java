@@ -7,12 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.alibaba.fastjson2.JSONObject;
 import com.dao.AdministratorDAO;
 
-/**
- * Servlet implementation class guanliyuanzhuce
- */
-@WebServlet("/guanliyuanzhuce")
+
+@WebServlet("/jsp/background/guanliyuanzhuce")
 public class guanliyuanzhuce extends HttpServlet {
 	private static final long serialVersionUID = 1L;
      AdministratorDAO admin= new AdministratorDAO();  
@@ -22,11 +21,14 @@ public class guanliyuanzhuce extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	 String nickname =	request.getParameter("nickname");
+	 String nikename =	request.getParameter("nikename");
 	 String account =	request.getParameter("account");
 	 String password =	request.getParameter("password");
-		admin.zhuCe(nickname, account, password);
-		
+		System.out.println(admin.zhuCe(nikename, account, password));
+		JSONObject jsonObj = new JSONObject();
+		response.setContentType("AdminstratorDAO/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().println(jsonObj.toJSONString());
 	}
 
 	

@@ -46,37 +46,7 @@ $(function() {
 	}
 
 
-	//注册判断
-	$('#zhuce').click(function() {
-		var input = $('.inp');
-		if (isValidPhoneNumber(input.eq(0).val())) {
-			if (input.eq(1).val() == yzm) {
-				if (input.eq(2).val().length >= 6) {
-					if (input.eq(3).val()==input.eq(2).val()) {
-						if ($('.xuan').is(':checked')) {
-							//注册
-							var phone = input.eq(0).val();
-							var mi = input.eq(2).val();
-							console.log(phone+mi)
-							$("#sub").submit();
-						} else {
-							dong();
-						}
-					} else {
-						$('.quemi').html('两次密码不一致')
-					}
-				} else {
-					$('.mi').html('密码格式错误')
-				}
-			} else {
-				$('.yang').html('请输入正确的验证码')
-			}
-		} else {
-			$('.shou').html('请输入正确的手机号')
-		}
-
-	})
-
+	
 	function dong() {
 		$('.xieyi').css('left', '10px')
 		setTimeout(function() {
@@ -106,13 +76,6 @@ $(function() {
 	$('.inp').eq(3).focus(function() {
 		$('.quemi').html('')
 	})
-
-
-
 })
 
-//判断手机号
-function isValidPhoneNumber(phoneNumber) {
-	const pattern = /^1[3-9]\d{9}$/;
-	return pattern.test(phoneNumber);
-}
+

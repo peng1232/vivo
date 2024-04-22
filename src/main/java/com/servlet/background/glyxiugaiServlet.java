@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.alibaba.fastjson2.JSONObject;
 import com.dao.AdministratorDAO;
 
 @WebServlet("/glyxiugaiServlet")
@@ -14,8 +15,13 @@ public class glyxiugaiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     AdministratorDAO admin = new AdministratorDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getParameter("id");
-		request.getParameter("password");
+		Integer	id =Integer.valueOf(request.getParameter("id"));
+		String	password=request.getParameter("password");
+		admin.douUpdate(id, password);
+		JSONObject jsonObj = new JSONObject();
+		response.setContentType("AdminstratorDAO/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().println(jsonObj.toJSONString());
 		
 	}
 

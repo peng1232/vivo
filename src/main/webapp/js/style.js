@@ -24,3 +24,30 @@ $(".body_left_list >li >ul >li >ul >li").on({
         $(".link").hide();
     }
 });
+
+				$(function(){
+							$('.add').click(function(){
+								kai();
+								alert("88");
+								
+							})
+							//弹窗点击时间
+							$('.message_box_footer .btn1').click(function(){
+								var nikename=$('.inp').eq(0).val();
+								var account=$('inp').eq(1).val();
+								var password=$('inp').eq(2).val();
+								
+								alert(nikename);
+								alert(account);
+								alert(password);
+								$.getJSON('guanliyuanzhuce',{
+									'nikename':nikename,
+									'account':account,
+									'password':password
+								})
+									
+							})	
+							
+							
+						})
+						

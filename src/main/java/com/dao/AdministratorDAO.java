@@ -36,11 +36,14 @@ public class AdministratorDAO extends BaseDAO{
 			return a;
 		}
 	//注册
-		public Integer zhuCe(String nickname,String account,String password) {
+		public Integer zhuCe(String nikename,String account,String password) {
 			
 			String sql = "insert into administrator(admin_nickname,admin_account,admin_password)"
 					+ "	  values(?,?,?)";
-			return executeUpdate(sql,nickname,account,password);
+			System.out.println(nikename);
+			System.out.println(account);
+			System.out.println(password);
+			return executeUpdate(sql,nikename,account,password);
 		}
 	//查询所有
 		public List<Administrator> selectAll(){
@@ -99,7 +102,7 @@ public class AdministratorDAO extends BaseDAO{
 	}	
 		
 	//修改
-		public Integer douUpdate(Administrator obj) {
+		public Integer douUpdate(Integer id,String password ) {
 			String sql ="update administrator set admin_password=? where id=?";
 			try {
 				//2、获取连接对象
@@ -107,8 +110,8 @@ public class AdministratorDAO extends BaseDAO{
 				//3、预编译SQL语句
 				stmt = conn.prepareStatement(sql);
 				//4、填充参数
-				stmt.setObject(1, obj.getAdmin_password());
-				stmt.setObject(2, obj.getId());
+				stmt.setObject(1,password);
+				stmt.setObject(2,id);
 				//5、执行SQL语句
 				return stmt.executeUpdate();
 			} catch (SQLException e) {
