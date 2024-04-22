@@ -18,7 +18,7 @@
 <%@include file="../../html/nav.jsp" %>
 	<div class="container">
 		<div class="menu">
-			<a href="商城首页.html">商城首页</a>
+				<a href="../qian/shouye.jsp">商城首页</a>
 			<a href="grzx.jsp"><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">个人中心</a>
 			<a href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">修改电话号码</a>
 		</div>
