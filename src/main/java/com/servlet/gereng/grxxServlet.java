@@ -21,7 +21,8 @@ public class grxxServlet extends HttpServlet {
     UsersDAO usersDAO = new UsersDAO();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String year = request.getParameter("year");
+    	request.setCharacterEncoding("utf-8");
+    	String year = request.getParameter("year");
         String month = request.getParameter("month");
         String day = request.getParameter("day");
         int sex = Integer.parseInt(request.getParameter("gender"));
@@ -29,7 +30,11 @@ public class grxxServlet extends HttpServlet {
         String ss =(year+"-"+month+"-"+day);
         java.sql.Date birth =java.sql.Date.valueOf(ss);
         
+        String user_nickname = request.getParameter("nicenane");
+        
+        
         Users u = new Users();
+        u.setUser_nickname(user_nickname);
         u.setBirth(birth);
         u.setSex(sex);
         u.setId(user_id);
@@ -42,6 +47,7 @@ public class grxxServlet extends HttpServlet {
             Users user = (Users) session.getAttribute("user");
             user.setBirth(birth);
             user.setSex(sex);
+            user.setUser_nickname(user_nickname);
             session.setAttribute("user", user);
             
             // 重定向到 grxx.jsp

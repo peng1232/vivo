@@ -9,29 +9,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.alibaba.fastjson2.JSONObject;
 import com.dao.UsersDAO;
 import com.entity.Users;
 
-/**
- * Servlet implementation class UpdatePasswordServlet
- */
-@WebServlet("/jsp/gereng/UpdatePasswordServlet")
-public class UpdatePasswordServlet extends HttpServlet {
+@WebServlet("/jsp/gereng/phoneServlet")
+public class phoneServlet extends HttpServlet {
 	UsersDAO r = new UsersDAO();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		Integer id = Integer.valueOf(req.getParameter("user_id"));
-		String pass = req.getParameter("password");
-		Integer doUpdatePassword = r.doUpdatePassword(id, pass);
-		if(doUpdatePassword>0) {
+		String phones = req.getParameter("phones");
+		Integer doUpdatePhone = r.doUpdatePhone(id, phones);
+		if(doUpdatePhone>0) {
 			HttpSession session = req.getSession();
 			Users user = (Users) session.getAttribute("user");
-			user.setUser_password(pass);
+			user.setPhone(phones);
 			session.setAttribute("user", user);
 		}
+		JSONObject jsonObj = new JSONObject();
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
+		resp.getWriter().println(jsonObj.toJSONString());
 	}
 
 }
