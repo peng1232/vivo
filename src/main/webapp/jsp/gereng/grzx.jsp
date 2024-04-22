@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.entity.User_product_footprint" %>
 <%@ page import="java.util.List" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 
 <!DOCTYPE html>
 <html>
@@ -13,8 +13,10 @@
 <link href="../../css/grzx.css" rel="stylesheet" />
 <link href="../../css/nav.css" rel="stylesheet" />
 <link href="../../css/footer.css" rel="stylesheet" />
-<script src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
 <script src="../../js/nav.js"></script>
+<link href="../../css/grzxrmsp.css " rel="stylesheet" />
+
 <style>
 
 </style>
@@ -49,7 +51,6 @@
 </head>
 <body>
 <%@include file="../../html/nav.jsp" %>
-${user }
 	<div class="container">
 		<div class="menu">
 			<a href="商城首页.html">商城首页</a>
@@ -76,12 +77,37 @@ ${user }
 				</div>
 				<div class="zjdd">最近的订单</div> 
 				<div>
-					<div class="zjll">最近浏览</div> 
-						
+					<div class="zjll">热门商品</div> 
+						<div class='wrapper'>
+						<ul class='floor-list'>
+							<!-- 热门商品 -->
+							<li class='floor xiao'>
+								<ul class='box-list'>
+									<c:forEach items="${hits }" var="item">
+										<li class='box'>
+											<a href="../qian/XianXiSerlvet?id=${item.id }" target="_blank">
+												<img src="../../img/product/${ item.image_url}?id=${item.id }"/>
+											</a>
+											<div class='prodinfo'>
+												<p class='name'>${item.products_name }</p>
+												<p class='feature'>${item.description }</p>
+												<p class='price rmb-symbol'>￥ ${item.price }</p>
+											</div>
+										</li>
+									</c:forEach>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 <%@include file="../../html/footer.jsp" %>
+	<c:if test="${product==null }">
+		<script>
+			location.href="remenServlet";
+		</script>
+	</c:if>
 </body>
 </html>
