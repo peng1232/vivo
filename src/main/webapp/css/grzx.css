@@ -138,14 +138,15 @@ ul li.s:hover {
 	line-height: 42px;
 }
 
-.co12 {
-	width: 160px;
-	float: left;
-	text-align: center;
-	font-size: 14px;
-	color: #666;
-	line-height: 42px;
+.col2 {
+    width: 160px;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    line-height: 42px;
 }
+
 
 .col3 {
 	width: 160px;

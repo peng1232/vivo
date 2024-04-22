@@ -21,23 +21,32 @@
 			<a href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">退款/售后</a>
 		</div>
 		<div class="under">
-			<%@include file="zxzuo.jsp" %>
-			<div class="right">
-				<div class="tkgl">退款/售后查询</div>
-				<div class="list-caption">
-					<div class="col0">商品名称</div>
-					<div class="col1">退款原因</div>
-					<div class="co12">状态</div>
-					<div class="col3">操作</div>
-				</div>	
-		       <c:forEach items="${refunds}" var="refund">
-				    <div class="col0">${refund.user_id}</div>
-				    <div class="col1">${refund.refund_reason}</div>
-				    <div class="col2">${refund.state}</div>
-				    <div class="col3"><a href="refund?action=delete&refundId=${refund.user_id}">删除</a></div>
-				</c:forEach>
-
-			</div>
+		    <%@include file="zxzuo.jsp" %>
+		    <div class="right">
+		        <div class="tkgl">退款/售后查询</div>
+		        <table>
+		        	<div style="margin-top: 35px;">
+			            <thead>
+			                <tr class="list-caption">
+			                    <th class="col0">商品名称</th>
+			                    <th class="col1">退款原因</th>
+			                    <th class="col2">状态</th>
+			                    <th class="col3">操作</th>
+			                </tr>
+			            </thead>
+		            </div>	
+		            <tbody>
+		                <c:forEach items="${refundList}" var="refund">
+		                    <tr>
+		                        <td class="col0">${refund.user_id}</td>
+		                        <td class="col1">${refund.refund_reason}</td>
+		                        <td class="col2">${refund.state}</td>
+		                        <td class="col3"><a href="refund?action=delete&refundId=${refund.user_id}">删除</a></td>
+		                    </tr>
+		                </c:forEach>
+		            </tbody>
+		        </table>
+		    </div>
 		</div>
 	</div>
 <%@include file="../../html/footer.jsp" %>
