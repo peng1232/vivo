@@ -110,8 +110,8 @@ public class AdministratorDAO extends BaseDAO{
 				//3、预编译SQL语句
 				stmt = conn.prepareStatement(sql);
 				//4、填充参数
-				stmt.setObject(1,password);
-				stmt.setObject(2,id);
+				stmt.setObject(1,id);
+				stmt.setObject(2,password);
 				//5、执行SQL语句
 				return stmt.executeUpdate();
 			} catch (SQLException e) {

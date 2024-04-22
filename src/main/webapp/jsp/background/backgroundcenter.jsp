@@ -313,43 +313,37 @@
 					</div>
 					
 					
-					<div class="message">
-						<div class="zhe"></div>
-						<div class="message_box">
-							<div class="message_box_head">
-								<span>新建管理员</span>
-								<svg class="guan" t="1710744510048" class="icon" viewBox="0 0 1024 1024" version="1.1"
+					<div class="message1">
+						<div class="zhe1"></div>
+						<div class="message_box1">
+							<div class="message_box_head1">
+								<span>修改管理员密码</span>
+								<svg class="guan1" t="1710744510048" class="icon" viewBox="0 0 1024 1024" version="1.1"
 									xmlns="http://www.w3.org/2000/svg" p-id="7727" width="16" height="16">
 									<path
 										d="M590.7456 508.416 1016.832 934.5024 938.0864 1009.664 512 583.5776 78.7456 1024 0 941.6704l433.2544-440.4224L7.168 75.1616 85.9136 0 512 426.0864 938.0864 0 1016.832 82.3296 590.7456 508.416z"
 										p-id="7728" fill="#242933"></path>
 								</svg>
 							</div>
-							<div class="item">
-								<span class="das">昵称:</span>
-								<input type="text" class="enter" id="ip0"/>
+							<div class="item1">
+								<span class="das">id:</span>
+								<input type="text" class="enter" id="inp1"/>
 								<span class="error-tip"></span>
 							</div>
 							
-							<div class="item">
-								<span class="das">账号:</span>
-								<input type="text" class="enter" id="ip1"/>
+							<div class="item1">
+								<span class="das">新密码:</span>
+								<input type="text" class="enter" id="inp2"/>
 								<span class="error-tip"></span>
-							</div>
-							<div class="item">
-								<span class="das">密码:</span>
-								<input type="text" class="enter" id="ip2"/>
-								<span class="error-tip"></span>
-							</div>							
-							<div class="message_box_footer">
-								<button class="btn1">确认</button>
-								<button class="btn2">取消</button>
+							</div>					
+							<div class="message_box_footer1">
+								<button class="btn3">确认</button>
+								<button class="btn4">取消</button>
 							</div>
 						</div>
 					</div>
 	<script src="../../js/jquery.min.js"></script>
 	<script src="../../js/style.js"></script>
-	<script src="../../js/houtaijb.js/"></script>
 	<c:if test="${list==null }">
 		<script>
 			location.href = "AdministratorServlet";
