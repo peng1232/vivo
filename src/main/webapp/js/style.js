@@ -33,9 +33,9 @@ $(".body_left_list >li >ul >li >ul >li").on({
 							})
 							//弹窗点击时间
 							$('.message_box_footer .btn1').click(function(){
-								var nikename=$('.inp').eq(0).val();
-								var account=$('inp').eq(1).val();
-								var password=$('inp').eq(2).val();
+								var nikename=$('#ip0').val();
+								var account=$('#ip1').val();
+								var password=$('#ip2').val();
 								
 								alert(nikename);
 								alert(account);
@@ -44,10 +44,39 @@ $(".body_left_list >li >ul >li >ul >li").on({
 									'nikename':nikename,
 									'account':account,
 									'password':password
+								},function(){
+									guanbi();
 								})
 									
-							})	
-							
-							
-						})
+							})
+					$('.zhe').click(function(){
+						guanbi();
+					})
+					$('.guan').click(function(){
+						guanbi();
+					})
+							//开启弹窗
+					function kai(){
+						$('body').css('overflow-x',"hidden").css("overflow-y",'hidden')
+						$('.message').css('display','block');
+						$(".zhe").animate({
+							opacity: 0.6
+						},100)
+						$('.message_box').css('transform','scale(1) translateY(0%)');
+					}
+					
+					//关闭弹窗
+					function guanbi(){
+						$('body').css('overflow-x',"auto").css("overflow-y",'auto')
+						$(".zhe").animate({
+							opacity: 0
+						},100)
+						$('.message_box').css('transform','scale(0) translateY(-100%)');
+						setTimeout(function(){
+							$('.message').css('display','none');
+						},300)
+						
+					}	
+			})
+						
 						
