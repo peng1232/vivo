@@ -101,7 +101,7 @@ public class AdministratorDAO extends BaseDAO{
 		
 	}	
 		
-	//修改
+	//修改密码
 		public Integer douUpdate(Integer id,String password ) {
 			String sql ="update administrator set admin_password=? where id=?";
 			try {
@@ -110,8 +110,8 @@ public class AdministratorDAO extends BaseDAO{
 				//3、预编译SQL语句
 				stmt = conn.prepareStatement(sql);
 				//4、填充参数
-				stmt.setObject(1,id);
-				stmt.setObject(2,password);
+				stmt.setObject(1,password);
+				stmt.setObject(2,id);
 				//5、执行SQL语句
 				return stmt.executeUpdate();
 			} catch (SQLException e) {
@@ -141,6 +141,10 @@ public class AdministratorDAO extends BaseDAO{
 			}
 			return -1;//最后返回-1，表示代码运行到治理，新增失败
 		}
+		
+		
+		
+		
 	public static void main(String[] args) {
 		new AdministratorDAO().zhuCe("黄同学", "18890212428", "123456");
 		System.out.println(new AdministratorDAO().dengLu("18890212428","123456" ));

@@ -69,6 +69,7 @@ $(function(){
 									'password':password
 								},function(){
 									guanbi();
+									location.href = "backgroundcenter.jsp";
 								})
 									
 							})
@@ -106,7 +107,7 @@ $(function(){
 			})
 						
 				$(function(){
-							$('#editBtn').click(function(){
+							$('.chonzhi').click(function(){
 								kai1();
 								alert("88");
 								

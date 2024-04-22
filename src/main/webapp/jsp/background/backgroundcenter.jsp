@@ -240,8 +240,6 @@
 				<div class="table_user">
 					<div class="table_user_zsg_button">
 						<button class="add" id="addBtn">新增</button>
-						<button id="editBtn">修改</button>
-						<button id="deleteBtn">删除</button>
 					</div>
 					<div class="table_user_from">
 						<table>
@@ -264,8 +262,9 @@
 										<td>${item.admin_nickname }</td>
 										<td>${item.admin_account }</td>
 										<td>
-											<button>重置密码</button>
-											<button>编辑状态</button>
+											<button class="chonzhi">重置密码</button>
+											<button class="zhuantai" admin='${item.id }'>编辑状态</button>
+											<button class="shujuxiugai">修改数据</button>
 										</td>
 									</tr>
 								</c:forEach>
