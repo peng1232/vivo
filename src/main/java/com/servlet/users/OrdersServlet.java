@@ -1,6 +1,7 @@
 package com.servlet.users;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -23,9 +24,11 @@ public class OrdersServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Orders> ordersList =orders.queryUserOrders(1);
-		
-		
-		
+		List<Product> productsList = new ArrayList<Product>();
+		ordersList.forEach(e->{
+			//e.getOrder_number()
+		});
+		 
 		
 		System.out.println(ordersList);
 		

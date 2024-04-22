@@ -74,7 +74,35 @@
 					</div>
 			</div>
 		</div>
+				
+				<script type="text/javascript">
+    		// JavaScript 代码
+  		 // 获取所有删除按钮
+		var deleteButtons = document.querySelectorAll('.a1');
 
+			// 遍历每个删除按钮，添加点击事件监听器
+		deleteButtons.forEach(function(button) {
+   		 button.addEventListener('click', function(event) {
+        // 阻止默认行为，即点击链接时不跳转
+        event.preventDefault();
+
+        // 弹出确认提示框，询问用户是否要删除
+        var confirmDelete = confirm("确定要删除吗？");
+
+        // 如果用户确认删除，则执行删除操作
+        if (confirmDelete) {
+            // 获取当前要删除的行（父节点是<tr>）
+            var row = button.closest('tr');
+            
+            // 执行删除操作，可以发送Ajax请求到服务器，或者直接在前端删除该行
+            row.remove();
+        }
+    });
+});
+</script>
+				
+				
+				
 		<c:if test="${empty collection }">
 			<script type="text/javascript">
 				location.href= 'CollectionInitServlet?user_id=2';
