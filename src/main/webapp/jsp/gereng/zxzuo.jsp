@@ -10,7 +10,6 @@
 <link href="../../css/nav.css" rel="stylesheet" />
 <link href="../../css/footer.css" rel="stylesheet" />
 <script src="../../js/jquery.min.js"></script>
-<script src="../../js/nav.js"></script>
 </head>
 <body>
 	<div class="left">
