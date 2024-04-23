@@ -126,6 +126,7 @@ textarea {
     font-size: 8px;
     color: #fff;
 	text-align: center;
+	float: left;
 }
 .body_right{
     width: 85%;
@@ -354,6 +355,8 @@ textarea {
 .body_top_left{
 	height: 40px;	
 	float: left;
+	transition: 0.3s;
+    cursor: pointer;
 }
 svg{
 	height: 15px;

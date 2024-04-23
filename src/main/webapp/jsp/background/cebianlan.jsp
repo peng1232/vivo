@@ -47,10 +47,10 @@
 						</label>
 						<ul>
 							<li><label> <span>商品分类管理</span> <i class="iconfont iconyoujiantou"></i> <a
-										href="3"></a>
+										href="../hou/categoryguanli.jsp"></a>
 								</label></li>
 							<li><label> <span>商品管理</span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
+										href="../hou/productguanli.jsp"></a>
 								</label></li>
 							<li><label> <span>商品规格管理</span> <i class="iconfont iconyoujiantou"></i> <a
 										href="javascript:;"></a>

@@ -34,7 +34,32 @@ public class CategoryDAO extends BaseDAO{
 		});
 	}
 	
+	public List<Category> selectAll(Integer state,Integer curpage, Integer pagesize){
+		List<Category> list = new ArrayList<Category>();
+		String sql = "select * from category where 1=1";
+		if(state!=null) {
+			sql+=" and state = ? ";
+		}
+		sql += " ORDER BY id DESC limit " + ((curpage - 1) * pagesize) + ", " + (pagesize) + " ";
+		try {
+			stmt = getConn().prepareStatement(sql);
+			if(state!=null) {
+				stmt.setObject(1, state);
+			}
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				list.add(new Category(rs.getInt("id"), rs.getString("category_type"), rs.getInt("state")));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return list;
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(new CategoryDAO().selectAll());
+		System.out.println(new CategoryDAO().selectAll(null,1,2));
 	}
 }
