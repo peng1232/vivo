@@ -70,33 +70,39 @@ public class AdministratorDAO extends BaseDAO{
 
 		}
 	//根据昵称来搜索
-	public List<Administrator> selectpart(String nikename) {
-		String sql="select * from administrator where nikename=? order by id desc";
-		try {
-			stmt=getConn().prepareStatement(sql);
-			rs = stmt.executeQuery();
-			List<Administrator> list=null;
-			if (rs!=null) {
-				list =new ArrayList<>();
-				while(rs.next()) {
-					Administrator p= new Administrator(
-					rs.getInt("id"),rs.getString("admin_nickname"),
-					rs.getString("admin_account"),rs.getString("admin_password"),
-					rs.getInt("state"));
-					System.out.println(rs.getInt("id")+"\t"+rs.getString("admin_nickname")+"\t \t"
-							+rs.getString("admin_account")+"\t \t"+rs.getInt("admin_password")+"\t \t"+
-							rs.getString("state"));
-				}
-			}
-			return list;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			super.closeAll();
+		public List<Administrator> selectpart(String nickname , String state) {
+		    String sql = "select * from administrator where admin_nickname=? and state=?";
+		    try {
+		        stmt = getConn().prepareStatement(sql);
+		        stmt.setObject(1, nickname);
+		        stmt.setObject(2, state);
+		        
+		        System.out.println(nickname);
+		        System.out.println(state);
+		        
+		        rs = stmt.executeQuery();
+		        List<Administrator> list = null;
+		        if (rs != null) {
+		            list = new ArrayList<>();
+		            while (rs.next()) {
+		                Administrator p = new Administrator(
+		                    rs.getInt("id"), rs.getString("admin_nickname"),
+		                    rs.getString("admin_account"), rs.getString("admin_password"),
+		                    rs.getInt("state"));
+		                System.out.println(rs.getInt("id") + "\t" + rs.getString("admin_nickname") + "\t \t"
+		                    + rs.getString("admin_account") + "\t \t" + rs.getString("admin_password") + "\t \t"
+		                    + rs.getString("state"));
+		                list.add(p);
+		            }
+		        }
+		        return list;
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    } finally {
+		        super.closeAll();
+		    }
+		    return null;
 		}
-		return null;
-		
-	}	
 		
 	//修改密码
 		public Integer douUpdate(Integer id,String password ) {
