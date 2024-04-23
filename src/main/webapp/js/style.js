@@ -51,7 +51,7 @@ $(function(){
 				$(function(){
 							$('.add').click(function(){
 								kai();
-								alert("88");
+								
 								
 							})
 							//弹窗点击时间
@@ -60,9 +60,7 @@ $(function(){
 								var account=$('#ip1').val();
 								var password=$('#ip2').val();
 								
-								alert(nikename);
-								alert(account);
-								alert(password);
+								
 								$.getJSON('guanliyuanzhuce',{
 									'nikename':nikename,
 									'account':account,
@@ -109,7 +107,7 @@ $(function(){
 				$(function(){
 							$('.chonzhi').click(function(){
 								kai1();
-								alert("88");
+								
 								
 							})
 							//弹窗点击时间
@@ -119,13 +117,13 @@ $(function(){
 								
 								
 								
-								alert(id);
-								alert(password);
+								
 								$.getJSON('glyxiugaiServlet',{
 									'id':id,
 									'password':password
 								},function(){
 									guanbi1();
+									location.href = "backgroundcenter.jsp";
 								})
 									
 							})
@@ -161,4 +159,113 @@ $(function(){
 						
 					}	
 			})
+			
+			$(function(){
+							var aid;
+							$('.zhuantai').click(function(){
+								kai2();
+								aid= $(this).attr('admin');
+							})
+							//弹窗点击时间
+							$('.message_box_footer2 .btn5').click(function(){
+								var nikename=$('#inp3').val();
+								var account=$('#inp4').val();
+								
+								
+								
+								
+								$.getJSON('glyUpdateAll',{
+									'id':aid,
+									'nikename':nikename,
+									'account':account
+								},function(){
+									guanbi2();
+									location.href = "backgroundcenter.jsp";
+								})
+									
+							})
+					$('.zhe2').click(function(){
+						guanbi2();
+					})
+					$('.guan2').click(function(){
+						guanbi2();
+					})
+					$('.btn6').click(function(){
+						guanbi2();
+					})
+							//开启弹窗
+					function kai2(){
+						$('body').css('overflow-x',"hidden").css("overflow-y",'hidden')
+						$('.message2').css('display','block');
+						$(".zhe2").animate({
+							opacity: 0.6
+						},100)
+						$('.message_box2').css('transform','scale(1) translateY(0%)');
+					}
+					
+					//关闭弹窗
+					function guanbi2(){
+						$('body').css('overflow-x',"auto").css("overflow-y",'auto')
+						$(".zhe2").animate({
+							opacity: 0
+						},100)
+						$('.message_box2').css('transform','scale(0) translateY(-100%)');
+						setTimeout(function(){
+							$('.message2').css('display','none');
+						},300)
 						
+					}
+					$(function(){
+						var id;
+							$('.shujuxiugai').click(function(){
+								kai3();
+								id= $(this).attr('admin');
+								
+							})
+							//弹窗点击时间
+							$('.message_box_footer3 .btn7').click(function(){
+								var state=$('.inp6').val();
+								alert(state);
+								$.getJSON('glyDeleteServlet',{
+									'id':id,
+									'state':state
+								},function(){
+									guanbi3();
+									location.href = "backgroundcenter.jsp";
+								})
+									
+							})
+					$('.zhe3').click(function(){
+						guanbi3();
+					})
+					$('.guan3').click(function(){
+						guanbi3();
+					})
+					$('.btn8').click(function(){
+						guanbi3();
+					})
+							//开启弹窗
+					function kai3(){
+						$('body').css('overflow-x',"hidden").css("overflow-y",'hidden')
+						$('.message3').css('display','block');
+						$(".zhe3").animate({
+							opacity: 0.6
+						},100)
+						$('.message_box3').css('transform','scale(1) translateY(0%)');
+					}
+					
+					//关闭弹窗
+					function guanbi3(){
+						$('body').css('overflow-x',"auto").css("overflow-y",'auto')
+						$(".zhe3").animate({
+							opacity: 0
+						},100)
+						$('.message_box3').css('transform','scale(0) translateY(-100%)');
+						setTimeout(function(){
+							$('.message3').css('display','none');
+						},300)
+						
+					}	
+			})
+			
+})						

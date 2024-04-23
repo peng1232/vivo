@@ -122,7 +122,7 @@ public class AdministratorDAO extends BaseDAO{
 			return -1;//最后返回-1，表示代码运行到治理，新增失败
 		}
 		//删除（更具id调为不可以）
-		public Integer doDelet(Administrator obj) {
+		public Integer doDelet(Integer id, String state) {
 			String sql ="update administrator set state=? where id=?";
 			try {
 				//2、获取连接对象
@@ -130,8 +130,8 @@ public class AdministratorDAO extends BaseDAO{
 				//3、预编译SQL语句
 				stmt = conn.prepareStatement(sql);
 				//4、填充参数
-				stmt.setObject(1, obj.getState());
-				stmt.setObject(2, obj.getId());
+				stmt.setObject(1,state);
+				stmt.setObject(2, id);
 				//5、执行SQL语句
 				return stmt.executeUpdate();
 			} catch (SQLException e) {
@@ -141,7 +141,27 @@ public class AdministratorDAO extends BaseDAO{
 			}
 			return -1;//最后返回-1，表示代码运行到治理，新增失败
 		}
-		
+		public Integer douUpdateAll(Integer id,String nickname ,String account ) {
+			String sql ="update administrator set admin_nickname=? , admin_account=? where id=?";
+			try {
+				//2、获取连接对象
+				conn = super.getConn();
+				//3、预编译SQL语句
+				stmt = conn.prepareStatement(sql);
+				//4、填充参数
+				stmt.setObject(1,nickname);
+				stmt.setObject(2,account);
+				stmt.setObject(3,id);
+				
+				//5、执行SQL语句
+				return stmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				super.closeAll();
+			}
+			return -1;//最后返回-1，表示代码运行到治理，新增失败
+		}
 		
 		
 		
