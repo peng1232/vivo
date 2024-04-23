@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
+</head> -->
 <script src="../../js/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css"
+<!-- <link rel="stylesheet" type="text/css"
 	href="https://at.alicdn.com/t/font_1632750_204xwxiwzht.css?1583918713" />
-	<link rel="stylesheet" href="../../css/cebianlan.css"> 
+	<link rel="stylesheet" href="../../css/cebianlan.css">  -->
 <body>
 	<div class="body_con">
 		<div class="body_left">
