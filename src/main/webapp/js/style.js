@@ -266,6 +266,22 @@ $(function(){
 						},300)
 						
 					}	
+					$(function(){
+						
+							$('.shujuxiugai').click(function(){
+								var nikename=$('.form-input').val();
+								var state=$('."form-select"').val();
+								alert(nikename);
+								alert(state);
+								$.getJSON('glyDeleteServlet',{
+									'nikename':nikename,
+									'state':state
+								},function(){
+									location.href = "backgroundcenter.jsp";
+								})
+							})
+							
 			})
 			
-})						
+	})						
+})
