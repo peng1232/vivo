@@ -1,6 +1,9 @@
 package com.servlet.hou;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +30,49 @@ public class ProductSelectAllServlet extends HttpServlet {
 		String curpageStr = request.getParameter("curpage");
 		String pagesizeStr = request.getParameter("pagesize");
 		String flag = request.getParameter("flag");
+
+		String type = request.getParameter("type");
+		String productname = request.getParameter("product");
+		String start = request.getParameter("start");
+		String end = request.getParameter("end");
+		Integer state;
+		String zt = request.getParameter("state");
+		if(zt ==null|| zt.equals("quan")||zt.equals("null") ) {
+			state = null;
+		}else {
+			state = Integer.valueOf(zt);
+		}
+
+		if (type == null||type.length()==0) {
+			type = "";
+	    }
+		if (productname == null||productname.length()==0) {
+			productname = "";
+	    }
+		if (start == null||start.length()==0) {
+			start = "";
+	    }
+		if (end == null||end.length()==0) {
+			end = "";
+	    }
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+
+		// 将时间字符串解析为LocalDateTime对象
+		Timestamp starttime = null;
+		Timestamp endtime = null;
+
+		if (!start.isEmpty() && !end.isEmpty()) {
+		    LocalDateTime startTime = LocalDateTime.parse(start, formatter);
+		    LocalDateTime endTime = LocalDateTime.parse(end, formatter);
+
+		    // 将LocalDateTime对象转换为Timestamp对象
+		    starttime = Timestamp.valueOf(startTime);
+		    endtime = Timestamp.valueOf(endTime);
+		}
+		
+		
+		
+		
 		int curpage;
 		int pagesize;
 		if ((curpageStr == null||curpageStr.equals(" ")) &&( pagesizeStr == null||pagesizeStr.equals(" "))) {
@@ -39,20 +85,24 @@ public class ProductSelectAllServlet extends HttpServlet {
 		if(flag!=null) {
 			curpage=1;
 		}
-		Integer state;
-		String zt = request.getParameter("state");
-		if(zt ==null|| zt.equals("quan")||zt.equals("null") ) {
-			state = null;
-		}else {
-			state = Integer.valueOf(zt);
-		}
 		
-		String sql = "can=%s&jin=%s&lai=%s&state=%s&start=%s&end=%s";
-		//sql= String.format(sql,state);
+		
+		String sql = "state=%s&end=%s&start=%s&productname=%s&type=%s";
+		sql= String.format(sql,state,end,start,productname,type);
 
 		//List<Category> selectAll = pdao.productSelectAll(state,curpage,pagesize);
-		List<Product> selectAll = pdao.productSelectAll();
+		Product p = new Product();
+		if (type != null&&type.length()!=0) {
+			p.setCategory_id(Integer.valueOf(type));
+	    }else {
+	    	p.setCategory_id(null);
+	    }
+		p.setState(state);
+		p.setProducts_name(productname);
+		List<Product> selectAll =  pdao.productSelectAll(p,starttime,endtime,curpage,pagesize);
+	
 		List<Category> category = new ArrayList<Category>();
+		List<Category> categorys = cdao.selectAll();
 		selectAll.forEach(e->{
 			category.add(cdao.queryCategory(e.getCategory_id()));
 		});
@@ -61,7 +111,12 @@ public class ProductSelectAllServlet extends HttpServlet {
 
 		request.setAttribute("product", selectAll);
 		request.setAttribute("category", category);
+		request.setAttribute("categorys", categorys);
 		request.setAttribute("sql", sql);
+		request.setAttribute("starttime", starttime);
+		request.setAttribute("endtime", endtime);
+		request.setAttribute("productname", productname);
+		request.setAttribute("type", type);
 		request.setAttribute("state", state);
 		request.setAttribute("total", total);
 		request.setAttribute("curpage", curpage);

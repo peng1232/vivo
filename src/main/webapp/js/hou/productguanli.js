@@ -1,5 +1,5 @@
 $(function() {
-	$('.body_top').find('span').text('商品分类管理')
+	$('.body_top').find('span').text('商品管理')
 
 	//全选按钮
 	$('.quanxuan').click(function() {
@@ -16,8 +16,9 @@ $(function() {
 		var dom = $('.xin').prop('outerHTML');
 
 		var mModal1 = new mModal({
-			top: "25vh",
-			title: "新增类别",
+			top: "15vh",
+			width:"30%",
+			title: "新增商品",
 			showConfirmButton: false,
 			showCancelButton: false,
 			content: "<div class='clearfix'>" + dom + "</div>",
@@ -37,8 +38,9 @@ $(function() {
 	$('.shen').click(function() {
 		var dom = $('.update').prop('outerHTML');
 		var mModal1 = new mModal({
-			top: "25vh",
-			title: "修改类别",
+			top: "15vh",
+			width:"30%",
+			title: "修改商品",
 			showConfirmButton: false,
 			showCancelButton: false,
 			content: "<div class='clearfix'>" + dom + "</div>",
@@ -53,8 +55,10 @@ $(function() {
 		
 		mModal1.renderDom();
 		var that =$(this).parent().parent()
-		$('.id').val(that.find('.ntd').eq(1).text())
+		$('.name').val(that.find('.ntd').eq(3).text())
 		$('.cate').val(that.find('.ntd').eq(2).text())
+		$('.miao').val(that.find('.ntd').eq(4).text())
+		$('.limit').val(that.find('.ntd').eq(5).text())
 		if(that.find('.ntd').eq(3).attr('val')==1){
 			$('.statevalue').val('1')
 		}else{
