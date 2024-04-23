@@ -367,8 +367,62 @@ public class ProductDAO extends BaseDAO{
 		return uniqueList;
 	}
 	
+	//查出所有商品
+	public List<Product> productSelectAll(){
+		String sql = "select * from product";
+		List<Product> list = new ArrayList<Product>();
+		try {
+			stmt = getConn().prepareStatement(sql);
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				list.add(new Product(rs.getInt("id"),
+						rs.getString("products_name"),
+						rs.getInt("category_id"),
+						rs.getString("description"),
+						rs.getLong("hits"),
+						rs.getInt("purchase_limit"),
+						rs.getTimestamp("listing_time"),
+						rs.getInt("state")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return list;
+	}
+	
+//	public List<Product> productSelectAll(Product p,Integer curpage, Integer pagesize){
+//		String sql = "";
+//		StringBuffer sb = new StringBuffer("select * from product where 1=1 ");
+//		if (p.get() != null && v.getCompany_name() != "") {
+//			sb.append("and company_name = ? ");
+//			l.add(v.getCompany_name());
+//		}
+//		List<Product> list = new ArrayList<Product>();
+//		try {
+//			stmt = getConn().prepareStatement(sql);
+//			rs = stmt.executeQuery();
+//			while(rs.next()) {
+//				list.add(new Product(rs.getInt("id"),
+//						rs.getString("products_name"),
+//						rs.getInt("category_id"),
+//						rs.getString("description"),
+//						rs.getLong("hits"),
+//						rs.getInt("purchase_limit"),
+//						rs.getTimestamp("listing_time"),
+//						rs.getInt("state")));
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			closeAll();
+//		}
+//		return list;
+//	}
+	
 	public static void main(String[] args) {
-		System.out.println(new ProductDAO().querySearch("16").size());
+		System.out.println(new ProductDAO().productSelectAll());
 //		List<Product> list = new ArrayList<>();
 //		Product a = new Product();
 //		Product b = new Product();

@@ -54,7 +54,7 @@
 }
 
 #sub {
-	float: right;
+	/* float: right; */
 	padding-right: 3vh;
 	margin-top: 2vh;
 }
@@ -124,7 +124,7 @@
 
 .data {
 	padding: 0 2vh;
-	margin-top: 5vh;
+	margin-top: 2vh;
 }
 
 .table {
@@ -323,7 +323,7 @@
 }
 
 #fe {
-	min-height: 75vh;
+	min-height: 63vh;
 	position: relative;
 	color: #646568;
 	font-size: 2vh;
@@ -356,7 +356,19 @@
 table tr>td:first-child {
 	width: 10vh;
 }
+table tr>td:nth-child(2),table tr>td:nth-child(5){
+	width: 12vh;
+}
+.table tr>td:nth-child(3),table tr>td:nth-child(7){
+	width: 16vh;
+}
+.table tr>td:nth-child(6){
+	width: 16vh;
+}
 
+.table tr>td:last-child{
+	width: 18vh;
+}
 table tr>td {
 	text-align: center;
 }
@@ -388,4 +400,9 @@ table tr>td {
 .wz {
 	display: inline-block;
 	width: 70px;
+}
+.sl{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

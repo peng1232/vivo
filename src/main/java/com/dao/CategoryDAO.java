@@ -40,7 +40,9 @@ public class CategoryDAO extends BaseDAO{
 		if(state!=null) {
 			sql+=" and state = ? ";
 		}
-		sql += " ORDER BY id DESC limit " + ((curpage - 1) * pagesize) + ", " + (pagesize) + " ";
+		if(curpage!=null||pagesize!=null) {
+			sql += " ORDER BY id DESC limit " + ((curpage - 1) * pagesize) + ", " + (pagesize) + " ";
+		}
 		try {
 			stmt = getConn().prepareStatement(sql);
 			if(state!=null) {
@@ -59,7 +61,39 @@ public class CategoryDAO extends BaseDAO{
 		return list;
 	}
 	
+	//新增类别
+	public Integer insertCategory(String category) {
+		String sql = "INSERT INTO category (category_type) VALUES (?)";
+		return executeUpdate(sql, category);
+	}
+	
+	//修改类别
+	public Integer UpdateCategory(Category c) {
+		String sql = "update category set category_type=?,state=? where id = ?";
+		return executeUpdate(sql, c.getCategory_type(),c.getState(),c.getId());
+	}
+	
+	//根据类别id值
+	public Category queryCategory(Integer cate_id){
+		String sql = "select * from category where state = 1 and id = ?";
+		Category c = null;
+		try {
+			stmt = getConn().prepareStatement(sql);
+			stmt.setObject(1, cate_id);
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				c = new Category(rs.getInt("id"), rs.getString("category_type"), rs.getInt("state"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return c;
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(new CategoryDAO().selectAll(null,1,2));
+		System.out.println(new CategoryDAO().queryCategory(2));
 	}
 }

@@ -1,6 +1,7 @@
 package com.servlet.hou;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,14 +11,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dao.CategoryDAO;
+import com.dao.ProductDAO;
 import com.entity.Category;
+import com.entity.Product;
 
 /**
  * Servlet implementation class CategorySelectAllServlet
  */
-@WebServlet("/jsp/hou/CategorySelectAllServlet")
-public class CategorySelectAllServlet extends HttpServlet {
+@WebServlet("/jsp/hou/ProductSelectAllServlet")
+public class ProductSelectAllServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	ProductDAO pdao = new ProductDAO();
 	CategoryDAO cdao = new CategoryDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String curpageStr = request.getParameter("curpage");
@@ -43,20 +47,26 @@ public class CategorySelectAllServlet extends HttpServlet {
 			state = Integer.valueOf(zt);
 		}
 		
-		String sql = "state=%s";
-		sql= String.format(sql,state);
+		String sql = "can=%s&jin=%s&lai=%s&state=%s&start=%s&end=%s";
+		//sql= String.format(sql,state);
+
+		//List<Category> selectAll = pdao.productSelectAll(state,curpage,pagesize);
+		List<Product> selectAll = pdao.productSelectAll();
+		List<Category> category = new ArrayList<Category>();
+		selectAll.forEach(e->{
+			category.add(cdao.queryCategory(e.getCategory_id()));
+		});
 		
-		List<Category> selectAll = cdao.selectAll(state,curpage,pagesize);
-		
-		int total =  cdao.selectAll(state, null, null).size(); // 总记录数
-		
-		request.setAttribute("category", selectAll);
+		int total =  pdao.productSelectAll().size(); // 总记录数
+
+		request.setAttribute("product", selectAll);
+		request.setAttribute("category", category);
 		request.setAttribute("sql", sql);
 		request.setAttribute("state", state);
 		request.setAttribute("total", total);
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("count", (total - 1) / pagesize + 1);
-		request.getRequestDispatcher("categoryguanli.jsp").forward(request, response);
+		request.getRequestDispatcher("productguanli.jsp").forward(request, response);
 	}
 
 
