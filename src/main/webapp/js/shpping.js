@@ -209,6 +209,11 @@ $(function() {
 		var proid =[];
 		var userid = $(".check_item").attr('user_id');
 		var sku = [];
+		if($(".check_item:checked").length<=0){
+			$('.setting').text("请选中商品之后，再去结算吧~！")
+			kai();
+			return;
+		}
 		$(".check_item:checked").each(function() {
 			var skuval = $(this).attr('sku');
 			 skuval=skuval.replace(/\\/g, '')
