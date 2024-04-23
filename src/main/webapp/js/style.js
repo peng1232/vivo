@@ -268,12 +268,10 @@ $(function(){
 					}	
 					$(function(){
 						
-							$('.shujuxiugai').click(function(){
+							$('.form-button').click(function(){
 								var nikename=$('.form-input').val();
-								var state=$('."form-select"').val();
-								alert(nikename);
-								alert(state);
-								$.getJSON('glyDeleteServlet',{
+								var state=$('.form-select').val();
+								$.getJSON('selectByname',{
 									'nikename':nikename,
 									'state':state
 								},function(){
