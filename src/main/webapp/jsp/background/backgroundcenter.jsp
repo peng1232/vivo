@@ -220,15 +220,16 @@
 				<div class="select">
 					<form class="select_fm">
 						<div class="form-group">
-							<label for="login-name" class="form-label">登录名称:</label> <input
+							<label for="login-name" class="form-label">登录名称:</label>
+							 <input
 								type="text" id="login-name" class="form-input" required>
 						</div>
 						<div class="form-group">
 							<label for="user-status" class="form-label">用户状态:</label>
 								<select id="user-status" class="form-select">
 								<option value="all" selected>所有</option>
-								<option value="available">可用</option>
-								<option value="unavailable">不可用</option>
+								<option value="1">可用</option>
+								<option value="0">不可用</option>
 							</select>
 						</div>
 						<div class="form-group">
