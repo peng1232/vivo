@@ -134,7 +134,7 @@ public class UsersDAO extends BaseDAO {
 		String sql = "update users set user_password=? where id=?";
 		return executeUpdate(sql, password, user_id);
 	}
-	
+	//修改电话
 	public Integer doUpdatePhone(Integer user_id, String phone) {
 		String sql = "update users set phone=? where id=?";
 		return executeUpdate(sql, phone, user_id);

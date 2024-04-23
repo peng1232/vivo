@@ -212,8 +212,8 @@
 		})
 		
 		
+		
 	    $('#xiu').click(function(){
-	    	var phone = $('.inp').eq(0).val();
 	        var user_id = $('.user_id').val();
 	        var userjiu = $('.user_password').val();
 	        var rujiu = $('.jiuma').val();
@@ -238,7 +238,7 @@
 	    $('.guan').click(function(){
 	        guanbi();
 	    });
-		
+	
 	    function kai(){
 	        $('body').css('overflow', 'hidden');
 	        $('.message').fadeIn();
