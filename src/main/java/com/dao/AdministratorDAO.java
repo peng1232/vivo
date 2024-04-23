@@ -36,11 +36,11 @@ public class AdministratorDAO extends BaseDAO{
 			return a;
 		}
 	//注册
-		public Integer zhuCe(String nickname,String account,String password) {
+		public Integer zhuCe(String nikename,String account,String password) {
 			
 			String sql = "insert into administrator(admin_nickname,admin_account,admin_password)"
 					+ "	  values(?,?,?)";
-			return executeUpdate(sql,nickname,account,password);
+			return executeUpdate(sql,nikename,account,password);
 		}
 	//查询所有
 		public List<Administrator> selectAll(){
@@ -98,8 +98,8 @@ public class AdministratorDAO extends BaseDAO{
 		
 	}	
 		
-	//修改
-		public Integer douUpdate(Administrator obj) {
+	//修改密码
+		public Integer douUpdate(Integer id,String password ) {
 			String sql ="update administrator set admin_password=? where id=?";
 			try {
 				//2、获取连接对象
@@ -107,8 +107,8 @@ public class AdministratorDAO extends BaseDAO{
 				//3、预编译SQL语句
 				stmt = conn.prepareStatement(sql);
 				//4、填充参数
-				stmt.setObject(1, obj.getAdmin_password());
-				stmt.setObject(2, obj.getId());
+				stmt.setObject(1,password);
+				stmt.setObject(2,id);
 				//5、执行SQL语句
 				return stmt.executeUpdate();
 			} catch (SQLException e) {
@@ -119,7 +119,7 @@ public class AdministratorDAO extends BaseDAO{
 			return -1;//最后返回-1，表示代码运行到治理，新增失败
 		}
 		//删除（更具id调为不可以）
-		public Integer doDelet(Administrator obj) {
+		public Integer doDelet(Integer id, String state) {
 			String sql ="update administrator set state=? where id=?";
 			try {
 				//2、获取连接对象
@@ -127,8 +127,8 @@ public class AdministratorDAO extends BaseDAO{
 				//3、预编译SQL语句
 				stmt = conn.prepareStatement(sql);
 				//4、填充参数
-				stmt.setObject(1, obj.getState());
-				stmt.setObject(2, obj.getId());
+				stmt.setObject(1,state);
+				stmt.setObject(2, id);
 				//5、执行SQL语句
 				return stmt.executeUpdate();
 			} catch (SQLException e) {
@@ -138,6 +138,30 @@ public class AdministratorDAO extends BaseDAO{
 			}
 			return -1;//最后返回-1，表示代码运行到治理，新增失败
 		}
+		public Integer douUpdateAll(Integer id,String nickname ,String account ) {
+			String sql ="update administrator set admin_nickname=? , admin_account=? where id=?";
+			try {
+				//2、获取连接对象
+				conn = super.getConn();
+				//3、预编译SQL语句
+				stmt = conn.prepareStatement(sql);
+				//4、填充参数
+				stmt.setObject(1,nickname);
+				stmt.setObject(2,account);
+				stmt.setObject(3,id);
+				
+				//5、执行SQL语句
+				return stmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				super.closeAll();
+			}
+			return -1;//最后返回-1，表示代码运行到治理，新增失败
+		}
+		
+		
+		
 	public static void main(String[] args) {
 		new AdministratorDAO().zhuCe("黄同学", "18890212428", "123456");
 		System.out.println(new AdministratorDAO().dengLu("18890212428","123456" ));
