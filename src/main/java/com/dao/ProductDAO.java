@@ -2,6 +2,7 @@ package com.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -367,8 +368,95 @@ public class ProductDAO extends BaseDAO{
 		return uniqueList;
 	}
 	
+	//查出所有商品
+	public List<Product> productSelectAll(){
+		String sql = "select * from product ORDER BY id DESC";
+		List<Product> list = new ArrayList<Product>();
+		try {
+			stmt = getConn().prepareStatement(sql);
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				list.add(new Product(rs.getInt("id"),
+						rs.getString("products_name"),
+						rs.getInt("category_id"),
+						rs.getString("description"),
+						rs.getLong("hits"),
+						rs.getInt("purchase_limit"),
+						rs.getTimestamp("listing_time"),
+						rs.getInt("state")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return list;
+	}
+	
+	public List<Product> productSelectAll(Product p,Timestamp starttime,Timestamp endtime,Integer curpage, Integer pagesize){
+		StringBuffer sb = new StringBuffer("select * from product where 1=1 ");
+		List<String> l = new ArrayList<String>();
+		if (p.getCategory_id() != null ) {
+			sb.append(" and category_id = ? ");
+			l.add(p.getCategory_id()+"");
+		}
+		if (p.getProducts_name() != null &&p.getProducts_name().length()>0) {
+			sb.append(" and products_name like ? ");
+			l.add("%"+p.getProducts_name()+"%");
+		}
+		if (starttime != null && endtime != null) {
+			sb.append("and listing_time >= ? and listing_time <= ? ");
+			l.add(starttime + "");
+			l.add(endtime + "");
+		}
+		if (p.getState() != null ) {
+			sb.append(" and state = ? ");
+			l.add(p.getState()+"");
+		}
+		if(curpage!=null||pagesize!=null) {
+			sb.append("ORDER BY id DESC limit " + ((curpage - 1) * pagesize) + ", " + (pagesize) + " ");
+		}
+		
+		List<Product> list = new ArrayList<Product>();
+		try {
+			stmt = getConn().prepareStatement(sb.toString());
+			for(int i=0;i<l.size();i++) {
+				stmt.setObject(i+1, l.get(i));
+			}
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				list.add(new Product(rs.getInt("id"),
+						rs.getString("products_name"),
+						rs.getInt("category_id"),
+						rs.getString("description"),
+						rs.getLong("hits"),
+						rs.getInt("purchase_limit"),
+						rs.getTimestamp("listing_time"),
+						rs.getInt("state")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return list;
+	}
+	
+	//新增商品
+	public Integer insertProduct(Product p) {
+		String sql = "INSERT INTO product (products_name, category_id,purchase_limit, description,listing_time) VALUES(?,?,?,?,?)";
+		return executeUpdate(sql, p.getProducts_name(),p.getCategory_id(),p.getPurchase_limit(),p.getDescription(),p.getListing_time());
+	}
+	
+	//修改商品
+	public Integer updateProduct(Product p) {
+		String sql = "update product set products_name=?,category_id=?,description=?,purchase_limit=?,state=? where id = ?";
+		return executeUpdate(sql, p.getProducts_name(),p.getCategory_id(),p.getDescription(),p.getPurchase_limit(),p.getState(),p.getId());
+	}
+	
+	
 	public static void main(String[] args) {
-		System.out.println(new ProductDAO().querySearch("16").size());
+		System.out.println(new ProductDAO().productSelectAll(new Product(),null,null,1,1));
 //		List<Product> list = new ArrayList<>();
 //		Product a = new Product();
 //		Product b = new Product();

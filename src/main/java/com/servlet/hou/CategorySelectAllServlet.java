@@ -48,7 +48,7 @@ public class CategorySelectAllServlet extends HttpServlet {
 		
 		List<Category> selectAll = cdao.selectAll(state,curpage,pagesize);
 		
-		int total =  selectAll.size(); // 总记录数
+		int total =  cdao.selectAll(state, null, null).size(); // 总记录数
 		
 		request.setAttribute("category", selectAll);
 		request.setAttribute("sql", sql);
