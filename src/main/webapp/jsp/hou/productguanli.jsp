@@ -129,7 +129,7 @@
 		</div>
 		<div class='update'>
 			<form action="ProductUpdateServlet" method="post" id="s">
-			<p><span class='wz'>类别 id：</span><input class='type id' readonly name='id' /></p>
+			<p><span class='wz'>商品 id：</span><input class='type id' readonly name='id' /></p>
 				<p>商品名称：<input class='type name' name='name'/></p>
 				<p>商品类别：
 					<select name='type' class='type cate'>
