@@ -31,7 +31,7 @@
 			<c:if test="${fn:length(querySearch)>0}" var="flag">
 				<div class='search_result_content_title clearfix'>
 					<span>商品</span>
-					<p>搜到${fn:length(querySearch)}条结果</p>
+					<p>搜到${tatol}条结果</p>
 				</div>
 				<div class='page_search_result_content clearfix'>
 					<c:forEach items="${querySearch }" var="item" varStatus="va">
@@ -48,6 +48,15 @@
 							<a href='XianXiSerlvet?id=${item.id }'></a>
 						</div>
 					</c:forEach>
+				</div>
+				<div class='dibu'>
+					<c:if test="${ fn:length(querySearch)>=8}" var="f">
+						<span id = 'jiazai'>加载更多</span>
+					</c:if>
+					<c:if test="${!f }">
+						<p >没有更多了！</p>
+					</c:if>
+					<p id='meile'>没有更多了！</p>
 				</div>
 			</c:if>
 			<c:if test="${!flag }">

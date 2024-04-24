@@ -328,13 +328,13 @@ public class ProductDAO extends BaseDAO{
 		String sql1 = "SELECT DISTINCT p.id, p.products_name, p.description, cp.id\r\n"
 				+ "FROM product p\r\n"
 				+ "JOIN commodity_price cp ON p.id = cp.product_id\r\n"
-				+ "WHERE p.products_name LIKE ?";
+				+ "WHERE p.products_name LIKE ? and p.state=1";
 		String sql2 = "SELECT DISTINCT p.id, p.products_name, p.description, cp.id\r\n"
 				+ "FROM product p\r\n"
 				+ "JOIN product_specifications ps ON p.id = ps.product_id\r\n"
 				+ "JOIN specification_value sv ON ps.id = sv.specifications_id\r\n"
 				+ "JOIN commodity_price cp ON p.id = cp.product_id\r\n"
-				+ "WHERE sv.value LIKE ?";
+				+ "WHERE sv.value LIKE ? and p.state=1";
 		List<Product> list = new ArrayList<Product>();
 		try {
 			stmt = getConn().prepareStatement(sql1);

@@ -20,8 +20,8 @@ import com.entity.Specification_value;
 /**
  * Servlet implementation class SearchSetlvet
  */
-@WebServlet("/jsp/qian/SearchSetlvet")
-public class SearchSetlvet extends HttpServlet {
+@WebServlet("/jsp/qian/SearchSetlvet2")
+public class SearchSetlvet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ProductDAO pdao = new ProductDAO();
 	Specification_valueDAO sdao = new Specification_valueDAO();
@@ -54,13 +54,12 @@ public class SearchSetlvet extends HttpServlet {
 			e.setPrice(cdao.queryPrice(Integer.valueOf(e.getPrice()+"")));
 			e.setImage_url(pdao.queryImage_Url(queryValue.get(0).getId(), queryValue.get(1).getId()));
 		});
-		System.err.println(querySearch.size());
-		request.setAttribute("querySearch", querySearch);
-		request.setAttribute("tatol", pdao.querySearch(search).size());
-		request.setAttribute("pricelist", pricelist);
-		request.setAttribute("search", search);
-		request.getRequestDispatcher("search.jsp").forward(request, response);
-	
+
+		JSONObject jsonObj = new JSONObject();
+		jsonObj.put("querySearch", querySearch);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().println(jsonObj.toJSONString());
 	}
 
 	
