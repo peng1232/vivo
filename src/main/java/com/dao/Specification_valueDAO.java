@@ -21,7 +21,6 @@ public class Specification_valueDAO extends BaseDAO{
 			stmt = getConn().prepareStatement(sql);
 			stmt.setObject(1, product_id);
 			stmt.setObject(2, price_id);
-			System.out.println(stmt);
 			rs = stmt.executeQuery();
 			while(rs.next()) {
 				list.add( new Specification_value(rs.getInt("value_id"), null, rs.getString("VALUE")));

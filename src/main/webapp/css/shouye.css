@@ -127,9 +127,13 @@ body {
 	line-height: 1;
 	text-align: center;
 }
+.da .box-list {
+	 display: flex; 
+	
+}
 
 .box-list {
-	display: flex;
+	/* display: flex; */
 	width: 100%;
 	line-height: 0;
 	justify-content: space-between;
@@ -210,10 +214,20 @@ body {
 .xiao .box {
 	height: 380px;
 	width: 293px;
+	float: left;
+	margin-right: 9px;
+}
+#wu{
+	margin-right: 0px;
 }
 
 .xiao .box>a>img{
 	margin: 43px auto 0;
 	width: 172px;
 	height: 172px;
+}
+.clearfix::after {
+	content: "";
+	display: table;
+	clear: both;
 }
