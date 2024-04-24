@@ -30,7 +30,7 @@
 	<div class='wrapper'>
 		<ul class='floor-list'>
 			<!-- 推荐商品 -->
-			<li class='floor da'>
+			<li class='floor da clearfix'>
 				<div class='info'>
 					<p class='subject'>推荐商品</p>
 				</div>
@@ -52,13 +52,13 @@
 				</ul>
 			</li>
 			<!-- 热门商品 -->
-			<li class='floor xiao'>
+			<li class='floor xiao clearfix'>
 				<div class='info'>
 					<p class='subject'>热门手机</p>
 				</div>
 				<ul class='box-list'>
-					<c:forEach items="${hits }" var="item">
-						<li class='box'>
+					<c:forEach items="${hits }" var="item" varStatus="va">
+						<li class='box ' id='${va.index%4==3?"wu":" " }'>
 						<a href="XianXiSerlvet?id=${item.id }" target="_blank">
 							<img src="../../img/product/${ item.image_url}?id=${item.id }"/>
 						</a>
