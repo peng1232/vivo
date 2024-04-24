@@ -1,11 +1,13 @@
 package com.dao;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.entity.Specification_value;
 import com.util.BaseDAO;
+import com.util.Mapper;
 
 public class Specification_valueDAO extends BaseDAO{
 	//根据商品id，价格id，查询对应的规格和规格id
@@ -35,7 +37,30 @@ public class Specification_valueDAO extends BaseDAO{
 		}
 		return list;
 	}
+	
+	//根据规格id查对应的规格值
+	public List<Specification_value> selectValue(Integer specifications_id) {
+		String sql = "SELECT * FROM specification_value WHERE specifications_id = ? order by id desc";
+		return executeQuery(sql, new Mapper<Specification_value>() {
+
+			@Override
+			public List<Specification_value> map(ResultSet rs) throws SQLException {
+				 List<Specification_value> list = new ArrayList<Specification_value>();
+				 while(rs.next()) {
+					 list.add(new Specification_value(rs.getInt("id"), rs.getInt("specifications_id"), rs.getString("value")));
+				 }
+				 return list;
+			}
+		}, specifications_id);
+	}
+	
+	//修改规格值
+	public Integer updateValue(Specification_value s) {
+		String sql = "update specification_value set `value`=? where id =?";
+		return executeUpdate(sql, s.getValue(),s.getId());
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(new Specification_valueDAO().queryValue(1, 2));
+		System.out.println(new Specification_valueDAO().selectValue( 2));
 	}
 }

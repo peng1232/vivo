@@ -43,11 +43,11 @@
 }
 
 .m-modal__container {
+  border-radius: 1vh;
   width: 25%;
   position: relative;
   margin: 0 auto 50px;
   background: #fff;
-  border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
   box-sizing: border-box;
   margin-top: 15vh;

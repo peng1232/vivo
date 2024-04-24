@@ -54,7 +54,7 @@
 						<table class="table" border="1" cellspacing='0'>
 							<tr>
 								<td><input type="checkbox" class='check quanxuan'></td>
-								<td><b>商品规格id</b></td>
+								<td><b>规格id</b></td>
 								<td><b>商品名称</b></td>
 								<td><b>商品规格名称</b></td>
 								<td><b>操作</b></td>
@@ -73,6 +73,7 @@
 									</td>
 									<td class="ntd sl">${item.specifications_name }</td>
 									<td class="ntd">
+										<button value='${item.id}' class='an cha'>查看</button>
 										<button value='${item.id}' class='an shen'>修改</button>
 									</td>
 								</tr>
@@ -125,6 +126,32 @@
 				
 				<p><input class=' btn tij' type="submit" value='修改'/></p>
 			</form>
+		</div>
+		
+		<div class='chile'>
+			
+			<div  class='clearfix'>
+				<p class='leftfu'><span class='wz'>商品名称：</span><span class='pname'>2</span></p>
+				<p class='leftfu'>规格名称：<span class='pvalue'></span></p>
+			</div>
+			<div class='xinzen'>
+				<p >规格值名称：<input class='type name' name='name'/><button class='btnew btn tij' id='sdfas' style='margin-left:4vh'>新增</button></p>
+			</div>	
+			<div class='info'>
+				<table class="table tavalue" border="1" cellspacing='0'>
+					<tr>
+						<td><b>规格值id</b></td>
+						<td><b>商品规格值名称</b></td>
+						<td style='width:8vh;'><b>操作</b></td>
+					</tr>
+					
+					<c:if test="${fn:length(selectAll)==0 }">
+						<tr>
+							<td colspan="11" style="text-align: center">暂无数据</td>
+						</tr>
+					</c:if>
+				</table>
+			</div>	
 		</div>
 	</div>
 	<c:if test="${selectAll==null}">
