@@ -209,6 +209,7 @@ $(function() {
 		var proid =[];
 		var userid = $(".check_item").attr('user_id');
 		var sku = [];
+		var shopping_id = [];
 		if($(".check_item:checked").length<=0){
 			$('.setting').text("请选中商品之后，再去结算吧~！")
 			kai();
@@ -225,11 +226,18 @@ $(function() {
 			proid.push({
 				'product_id':a
 			})
+			
+			var shid = $(this).attr('shopping_id');
+			shid=shid.replace(/\\/g, '')
+			shopping_id.push({
+				'shopping':shid
+			})
 		});
 		var jsonData = JSON.stringify(sku);
 		var product_id = JSON.stringify(proid);
+		var shopping_idd = JSON.stringify(shopping_id);
 		console.log(proid)
-		var url = 'SelectSKUProductServlet?user_id=' + userid + '&product_id=' + encodeURIComponent(product_id) + '&sku=' + encodeURIComponent(jsonData);
+		var url = 'SelectSKUProductServlet?user_id=' + userid + '&product_id=' + encodeURIComponent(product_id) + '&sku=' + encodeURIComponent(jsonData) + '&shopping_id=' + encodeURIComponent(shopping_idd);
 		location.href = url;
 	})
 

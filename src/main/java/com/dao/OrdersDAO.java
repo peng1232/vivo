@@ -54,6 +54,7 @@ public class OrdersDAO extends BaseDAO {
 		return null;
 	}
 
+
 	public List<Orders> queryUserOrders(Integer id) {
 		String sql = "SELECT * FROM orders where user_id = ? ORDER BY id DESC";
 		return this.executeQuery(sql, new Mapper<Orders>() {
@@ -71,6 +72,12 @@ public class OrdersDAO extends BaseDAO {
 			}
 
 		}, id);
+	}
+	
+	
+	public static void main(String[] args) {
+		System.out.println(new OrdersDAO().orderNumber());
+
 	}
 
 	// 查询商品表
