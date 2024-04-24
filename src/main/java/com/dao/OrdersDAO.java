@@ -46,6 +46,10 @@ public class OrdersDAO extends BaseDAO{
 		}
 		return null;
 	}
+	
+	//删除购物车
+	
+	
 	public static void main(String[] args) {
 		System.out.println(new OrdersDAO().orderNumber());
 	}

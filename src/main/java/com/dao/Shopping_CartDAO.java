@@ -165,8 +165,20 @@ public class Shopping_CartDAO extends BaseDAO {
 		}
 		return null;
 	}
+	
+	//删除购物车
+	public Integer deleteShopping(List<Integer> shopping_id) {
+		StringBuffer sql =new StringBuffer("update shopping_cart set state=1 where id in (");
+		shopping_id.forEach(e->{
+			sql.append(e+",");
+		});
+		sql.delete(sql.length()-1, sql.length());
+		sql.append(")");
+		return executeUpdate(sql.toString());
+		
+	}
 
 	public static void main(String[] args) {
-		System.out.println(new Shopping_CartDAO().updateShoppingState(3,Arrays.asList(19),2));
+		System.out.println(new Shopping_CartDAO().deleteShopping(Arrays.asList(19,12,1)));
 	}
 }

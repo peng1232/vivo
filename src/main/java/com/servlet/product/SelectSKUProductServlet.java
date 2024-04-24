@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONArray;
@@ -31,15 +32,26 @@ public class SelectSKUProductServlet extends HttpServlet {
 		String userId = request.getParameter("user_id");
 		String productId = request.getParameter("product_id");
 		String jsonStr = request.getParameter("sku");
+		String shopping_id = request.getParameter("shopping_id");
 		JSONArray jsonArray = JSONArray.parseArray(jsonStr);
 		JSONArray jsonArray2 = JSONArray.parseArray(productId);
+		JSONArray jsonArray3 =null;
+		if(shopping_id!=null&&shopping_id.length()>0) {
+			jsonArray3 = JSONArray.parseArray(shopping_id);
+		}
 		List<Product> list = new ArrayList<Product>();
 		List<Integer> num = new ArrayList<Integer>();
 		List<String> skulist = new ArrayList<String>();
+		List<Integer> shoppinglist = new ArrayList<Integer>();
 		// 遍历JSONArray对象并打印每个元素
 		for (int i = 0; i < jsonArray.size(); i++) {
 			JSONObject jsonObj = JSON.parseObject(jsonArray.getString(i));
 			JSONObject jsonObj2 = JSON.parseObject(jsonArray2.getString(i));
+			if(jsonArray3!=null) {
+				JSONObject jsonObj3 = JSON.parseObject(jsonArray3.getString(i));
+				shoppinglist.add(jsonObj3.getIntValue("shopping"));
+			}
+			
 			skulist.add(jsonArray.getString(i));
 			int skuPrice = jsonObj.getIntValue("sku_price");
 			int pageType = jsonObj.getIntValue("pageType");
@@ -48,7 +60,6 @@ public class SelectSKUProductServlet extends HttpServlet {
 			// 查询出对应的商品
 			Product product = pdao.queryProduct(Integer.valueOf(jsonObj2.getIntValue("product_id")));
 			num.add(number);
-
 			// 颜色
 			product.setPagTtype(cdao.specification_Value(pageType).getValue());
 			product.setColor(cdao.specification_Value(color).getValue());
@@ -57,6 +68,8 @@ public class SelectSKUProductServlet extends HttpServlet {
 
 			list.add(product);
 		}
+		HttpSession session = request.getSession();
+		session.setAttribute("shoppinglist", shoppinglist);
 		request.setAttribute("product", list);
 		request.setAttribute("number", num);
 		request.setAttribute("skulist", skulist);
