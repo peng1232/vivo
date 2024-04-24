@@ -413,14 +413,16 @@ public class ProductDAO extends BaseDAO{
 			sb.append(" and state = ? ");
 			l.add(p.getState()+"");
 		}
-		sb.append("ORDER BY id DESC limit " + ((curpage - 1) * pagesize) + ", " + (pagesize) + " ");
+		if(curpage!=null||pagesize!=null) {
+			sb.append("ORDER BY id DESC limit " + ((curpage - 1) * pagesize) + ", " + (pagesize) + " ");
+		}
+		
 		List<Product> list = new ArrayList<Product>();
 		try {
 			stmt = getConn().prepareStatement(sb.toString());
 			for(int i=0;i<l.size();i++) {
 				stmt.setObject(i+1, l.get(i));
 			}
-			System.out.println(stmt);
 			rs = stmt.executeQuery();
 			while(rs.next()) {
 				list.add(new Product(rs.getInt("id"),
@@ -445,6 +447,13 @@ public class ProductDAO extends BaseDAO{
 		String sql = "INSERT INTO product (products_name, category_id,purchase_limit, description,listing_time) VALUES(?,?,?,?,?)";
 		return executeUpdate(sql, p.getProducts_name(),p.getCategory_id(),p.getPurchase_limit(),p.getDescription(),p.getListing_time());
 	}
+	
+	//修改商品
+	public Integer updateProduct(Product p) {
+		String sql = "update product set products_name=?,category_id=?,description=?,purchase_limit=?,state=? where id = ?";
+		return executeUpdate(sql, p.getProducts_name(),p.getCategory_id(),p.getDescription(),p.getPurchase_limit(),p.getState(),p.getId());
+	}
+	
 	
 	public static void main(String[] args) {
 		System.out.println(new ProductDAO().productSelectAll(new Product(),null,null,1,1));

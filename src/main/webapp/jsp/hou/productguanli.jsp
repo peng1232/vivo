@@ -39,7 +39,7 @@
 						<input name='product' value='${productname }'/>
 					</div>
 					<div class="item">
-						<label>预约时间:</label>
+						<label>上架时间:</label>
 						<input name="end" type="datetime-local" id='end'/>
 						<span class="zi">至</span>
 						<input name="start" type="datetime-local" id='start'/>
@@ -128,7 +128,8 @@
 			</form>
 		</div>
 		<div class='update'>
-			<form action="ProductSelectAllServlet" method="post" id="s">
+			<form action="ProductUpdateServlet" method="post" id="s">
+			<p><span class='wz'>类别 id：</span><input class='type id' readonly name='id' /></p>
 				<p>商品名称：<input class='type name' name='name'/></p>
 				<p>商品类别：
 					<select name='type' class='type cate'>

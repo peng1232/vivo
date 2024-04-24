@@ -107,7 +107,7 @@ public class ProductSelectAllServlet extends HttpServlet {
 			category.add(cdao.queryCategory(e.getCategory_id()));
 		});
 		
-		int total =  pdao.productSelectAll().size(); // 总记录数
+		int total =  pdao.productSelectAll(p,starttime,endtime,null,null).size(); // 总记录数
 
 		request.setAttribute("product", selectAll);
 		request.setAttribute("category", category);
