@@ -122,7 +122,7 @@ public class ProductDAO extends BaseDAO{
 				+ "     WHERE ps.product_id = p.id \r\n"
 				+ "     LIMIT 1) AS image_url\r\n"
 				+ "FROM \r\n"
-				+ "    product p\r\n"
+				+ "    product p where state =1\r\n"
 				+ "ORDER BY p.hits DESC LIMIT 8;\r\n"
 				+ "";
 		return executeQuery(sql, new Mapper<Product>() {
