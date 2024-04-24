@@ -262,24 +262,17 @@ $(function(){
 						},100)
 						$('.message_box3').css('transform','scale(0) translateY(-100%)');
 						setTimeout(function(){
-							$('.message3').css('display','none');
+							$('.message3').css('display','none'); //33333
 						},300)
 						
 					}	
-					$(function(){
-						
-							$('.form-button').click(function(){
-								var nikename=$('.form-input').val();
-								var state=$('.form-select').val();
-								$.getJSON('selectByname',{
-									'nikename':nikename,
-									'state':state
-								},function(){
-									location.href = "backgroundcenter.jsp";
-								})
+							$('.btn7').click(function(){
+								var state=$(".inp6").val();
+								if(state=="All"){
+									location.href = "AdministratorServlet";
+								}
+								
 							})
-							
-			})
 			
 	})						
 })
