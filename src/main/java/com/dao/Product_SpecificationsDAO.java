@@ -65,6 +65,26 @@ public class Product_SpecificationsDAO extends BaseDAO{
 		return executeUpdate(sql, p.getProduct_id(),p.getSpecifications_name(),p.getId());
 	}
 	
+	//根据规格id查规格
+	public Product_specifications selectProduct_specifications_id(Integer specifications_id) {
+		Product_specifications s = null;
+		String sql = "SELECT * FROM product_specifications where id =?";
+		try {
+			stmt = getConn().prepareStatement(sql);
+			stmt.setObject(1, specifications_id);
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				s = new Product_specifications(rs.getInt("id"), rs.getInt("product_id"), rs.getString("specifications_name"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return s;
+	}
+	
 	public static void main(String[] args) {
 		System.out.println(new Product_SpecificationsDAO().specificationsSelectAll(new Product_specifications(1, null, "版"), 1, 1));
 	}
