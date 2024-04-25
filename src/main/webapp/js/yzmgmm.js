@@ -54,7 +54,7 @@ $(function() {
 			var user_id = $('.user_id').val();
 
 			
-			if (input.eq(1).val() == 'yzm') {
+			if (input.eq(1).val() == yzm) {
 					
 				var pho = input.eq(2).val();
 						
