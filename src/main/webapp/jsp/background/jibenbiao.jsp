@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,27 +31,6 @@
 		
 		
 		<div class="admin">
-			<!--<div class="am-g">-->
-		<!-- ========== Left Sidebar Start ========== -->
-		<!--<div class="left side-menu am-hide-sm-only am-u-md-1 am-padding-0">
-			<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 548px;">
-				<div class="sidebar-inner slimscrollleft" style="overflow: hidden; width: auto; height: 548px;">-->
-                  <!-- sidebar start -->
-				 
-	            
-						
-				  <!-- sidebar end -->
-    
-				<!--</div>
-			</div>
-		</div>-->
-		<!-- ========== Left Sidebar end ========== -->
-		
-		
-		
-	<!--	<div class="am-g">-->
-		<!-- ============================================================== -->
-		<!-- Start right Content here -->
 		<div class="content-page">
 			<!-- Start content -->
 			<div class="content">
@@ -62,37 +42,25 @@
 								<table class="am-table">
 								    <thead>
 								        <tr>
-								            <th>网站名称</th>
-								            <th>网址</th>
-								            <th>创建时间</th>
+								            <th>序号</th>
+								            <th>用户名称</th>
+								            <th>我的评论</th>
+								            <th>商品</th>
+								            <th>状态</th>
+								            <th>评论等级</th>
 								        </tr>
 								    </thead>
 								    <tbody>
+								   <c:forEach items="${list }" var="item"> 
 								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
+								            <td></td>
+								            <td></td>
+								            <td></td>
+								            <td></td>
+								            <td></td>
+								            <td></td>
 								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
+								       </c:forEach> 
 								    </tbody>
 								</table>
 								<!-- col end -->
@@ -105,37 +73,19 @@
 									<table class="am-table  am-table-hover">
 								    <thead>
 								        <tr>
-								            <th>网站名称</th>
-								            <th>网址</th>
-								            <th>创建时间</th>
+								            <th>商品名称</th>
+								            <th>收藏时间</th>
+								            <th>商品状态</th>
 								        </tr>
 								    </thead>
 								    <tbody>
+								       <c:forEach items="${list }" var="item">
 								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
+								            <td></td>
+								            <td></td>
+								            <td></td>
 								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
+								        </c:forEach> 
 								    </tbody>
 								</table>
 								<!-- col end -->
@@ -152,37 +102,19 @@
 							<table class="am-table am-table-bordered">
 								    <thead>
 								        <tr>
-								            <th>网站名称</th>
-								            <th>网址</th>
-								            <th>创建时间</th>
+								            <th>商品</th>
+								            <th>数量</th>
+								            <th>价格</th>
 								        </tr>
 								    </thead>
 								    <tbody>
+								       <c:forEach items="${list }" var="item">
 								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
+								            <td></td>
+								            <td></td>
+								            <td></td>
 								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
+								        </c:forEach>								       
 								    </tbody>
 								</table>
 						</div>
@@ -195,62 +127,44 @@
 							<table class="am-table  am-table-striped">
 								    <thead>
 								        <tr>
-								            <th>网站名称</th>
-								            <th>网址</th>
-								            <th>创建时间</th>
-								        </tr>
+								            <th>id</th>
+								            <th>广告图片地址</th>
+								            <th>商品id</th>								     								        </tr>
 								    </thead>
 								    <tbody>
+								        <c:forEach items="${list }" var="item"> 
 								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
-								        <tr>
-								            <td>Amaze UI</td>
-								            <td>http://amazeui.org</td>
-								            <td>2012-10-01</td>
-								        </tr>
+								            <td></td>
+								            <td></td>
+								            <td></td>					        </tr>
+								       </c:forEach> 
+								        
 								    </tbody>
 								</table>
 						</div>
 					</div>
 					<!-- col end -->
 				</div>
-				<!-- row end -->
 
 				
 			</div>
 		</div>
-		<!-- end right Content here -->
-		<!--</div>-->
 		</div>
-		</div>
+		
 		
 		<!-- navbar -->
 		<a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"><!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
-		
+	</body>
 		<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 		<script type="text/javascript" src="../../js/amazeui.min.js"></script>
 		<script type="text/javascript" src="../../js/app.js" ></script>
 		<script type="text/javascript" src="../../js/blockUI.js" ></script>
-
-
-
-	</body>
+		 <c:if test="${empty list }">
+			<script>
+				location.href = "CommentsServlet";
+				location.href = "CollectionInitServlet";
+				location.href = "OrdersServlet";
+			</script>
+		</c:if>
+	
 </html>

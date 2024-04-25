@@ -41,10 +41,10 @@ public class selectByname extends HttpServlet {
     	List<Administrator> list=admin.selectpart(nikename, state);
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("backgroundcenter.jsp").forward(request, response);
-		JSONObject jsonObj = new JSONObject();
-		response.setContentType("AdminstratorDAO/json");
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().println(jsonObj.toJSONString());
+//		JSONObject jsonObj = new JSONObject();
+//		response.setContentType("AdminstratorDAO/json");
+//		response.setCharacterEncoding("UTF-8");
+//		response.getWriter().println(jsonObj.toJSONString());
 		
 	}
 

@@ -218,23 +218,23 @@
 			</div>
 			<div class="body_right_down">
 				<div class="select">
-					<form class="select_fm">
+					<form class="select_fm" action="selectByname" method="get">
 						<div class="form-group">
 							<label for="login-name" class="form-label">登录名称:</label>
 							 <input
-								type="text" id="login-name" class="form-input" required>
+								type="text"  name="nikename" class="form-input" >
 						</div>
 						<div class="form-group">
 							<label for="user-status" class="form-label">用户状态:</label>
-								<select id="user-status" class="form-select">
+								<select id="user-status" name="state" class="form-select">
 								<option value="all" selected>所有</option>
 								<option value="1">可用</option>
 								<option value="0">不可用</option>
 							</select>
 						</div>
 						<div class="form-group">
-							<input type="submit" value="搜索" class="form-button"> <input
-								type="reset" value="重置" class="form-button">
+							<input type="submit" value="搜索" class="form-button"> 
+							<input type="reset" value="重置" class="form-button">
 						</div>
 					</form>
 				</div>
@@ -403,7 +403,7 @@
 					</div>
 	<script src="../../js/jquery.min.js"></script>
 	<script src="../../js/style.js"></script>
-	<c:if test="${list==null }">
+	<c:if test="${empty list }">
 		<script>
 			location.href = "AdministratorServlet";
 		</script>
