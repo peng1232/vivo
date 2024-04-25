@@ -24,26 +24,7 @@
             <a href="grzx.html"><img class="arrow" src="img/../../向右箭头.png" alt="../../右箭头">个人中心</a>
         </div>
 		<div class="under">
-			<div class="left">
-				<img src="../../img/头像.jpg" class="tx">
-				<ul>
-					<li class="z">vivo34177786273</li>
-					
-					<li class="z">交易管理</li>
-					<li class="s"><a href="">我的订单</a></li>
-					<li class="s"><a href="tksh.html">退款/售后</a></li>
-
-					<li class="z">评价管理</li>
-					<li class="s"><a href="">评价晒单</a></li>
-					
-					<li class="z">我的账户</li>
-					<li class="s"><a href="">修改密码</a></li>
-					<li class="s"><a href="">修改电话号码</a></li>
-					<li class="s"><a href="">个人资料</a></li>
-					<li class="s"><a href="">收货地址</a></li>
-					<li class="s"><a href="">我的收藏</a></li>
-				</ul>
-			</div>
+			<%@include file="../../jsp/gereng/zxzuo.jsp" %>
 			<div class="right">
 				<div class="title">
 					<span class="num">收货地址</span>

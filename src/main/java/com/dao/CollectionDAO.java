@@ -154,6 +154,6 @@ public class CollectionDAO extends BaseDAO{
 	
 
 	public static void main(String[] args) {
-		System.out.println(new CollectionDAO().queryUser_Product(2));
+//		System.out.println(new CollectionDAO().queryUser_Product(2));
 	}
 }

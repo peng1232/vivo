@@ -16,6 +16,7 @@
 <script type="text/javascript" src="../../js/jquery.min.js"></script>
 <script src="../../js/nav.js"></script>
 <link href="../../css/grzxrmsp.css " rel="stylesheet" />
+<link href="../../css/dindan.css" rel="stylesheet" />
 
 <style>
 
@@ -75,29 +76,64 @@
 						<li class="item eee ">评论和回复<a>0</a></li>
 					</ul>
 				</div>
-				<div class="zjdd">最近的订单</div> 
+				<div class="zjdd">最近的订单</div>
+				 
 				<div>
-					<div class="zjll">热门商品</div> 
-						<div class='wrapper'>
-						<ul class='floor-list'>
-							<!-- 热门商品 -->
-							<li class='floor xiao'>
-								<ul class='box-list'>
-									<c:forEach items="${hits }" var="item">
-										<li class='box'>
-											<a href="../qian/XianXiSerlvet?id=${item.id }" target="_blank">
-												<img src="../../img/product/${ item.image_url}?id=${item.id }"/>
-											</a>
-											<div class='prodinfo'>
-												<p class='name'>${item.products_name }</p>
-												<p class='feature'>${item.description }</p>
-												<p class='price rmb-symbol'>￥ ${item.price }</p>
+				
+										<div class="da">
+						<div class="div1">
+							<div class="col col1">商品</div>
+							<div class="clo col2">数量</div>
+							<div class="clo col3">价格</div>
+							<div class="col col4">商品操作</div>
+							<div class="col col5">状态</div>
+							<div class="col col6">操作</div>
+						</div>
+						<c:forEach items="${ordersList}" var="orders" varStatus="va">
+
+							<div class="div2">
+								<div class="head">
+									<div class="leftt">
+										订单号: <a class="link">${orders.order_number}</a>
+									</div>
+									<div class="middle">成交时间: ${orders.order_time}</div>
+									<div class="rightt">删除订单</div>
+								</div>
+									<div class="mian">
+									<div class="left_1">
+										<c:forEach items="${product[va.index]}" var="items">
+											<div class="order-item">
+												<div class="order-wrap">
+													<div class="order-item-left">
+														<a><img src="../../img/${items.image_url }" class="tp"></a>
+													</div>
+													<div class="order-item-right">
+														<div class="top">
+															<div class="name">
+																<a>vivo ${items.products_name } ${items.pagTtype }  ${items.color }</a>
+															</div>
+															<div class="num">${items.hits }</div>
+															<div class="price">${items.price }</div>
+														</div>
+													</div>
+													<div class="sole-action"></div>
+												</div>
 											</div>
-										</li>
-									</c:forEach>
-								</ul>
-							</li>
-						</ul>
+										</c:forEach>
+									</div>
+									<div class="middlee">已取消</div>
+									<div class="right_11">查看订单</div>
+								</div>
+							</div>
+
+						</c:forEach>
+						<div class="footers clearfix">
+							<div class="container_1">
+								<div class="wei">
+									应付金额: <span class="span_1">499999</span>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

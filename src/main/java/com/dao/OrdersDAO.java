@@ -54,6 +54,7 @@ public class OrdersDAO extends BaseDAO {
 		return null;
 	}
 
+
 	public List<Orders> queryUserOrders(Integer id) {
 		String sql = "SELECT * FROM orders where user_id = ? ORDER BY id DESC";
 		return this.executeQuery(sql, new Mapper<Orders>() {
@@ -71,6 +72,12 @@ public class OrdersDAO extends BaseDAO {
 			}
 
 		}, id);
+	}
+	
+	
+	public static void main(String[] args) {
+		System.out.println(new OrdersDAO().queryUser_order_details("202404000000042"));
+
 	}
 
 	// 查询商品表
@@ -95,4 +102,32 @@ public class OrdersDAO extends BaseDAO {
 		return proudc;
 	}
 
+	public List<Order_details> queryUser_order_details(String number) {
+	    String sql = "select * from order_details where order_number=? ";
+	    List<Order_details> orderDetailsList = new ArrayList<>();
+	    try {
+	        stmt = getConn().prepareStatement(sql);
+	        stmt.setObject(1, number);
+	        rs = stmt.executeQuery();
+	        while (rs.next()) {
+	            Order_details orderDetails = new Order_details(
+	                    rs.getInt("id"),
+	                    rs.getString("order_number"),
+	                    rs.getInt("product_id"),
+	                    rs.getInt("product_quantity"),
+	                   
+	                   
+	                    rs.getBigDecimal("product_total"),
+	                    rs.getString("sku")
+	            );
+	            orderDetailsList.add(orderDetails);
+	        }
+	    } catch (Exception e) {
+	        // TODO: handle exception
+	        e.printStackTrace(); // 添加异常处理
+	    } finally {
+	        closeAll();
+	    }
+	    return orderDetailsList; // 返回正确的类型
+	}
 }
