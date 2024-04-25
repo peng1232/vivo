@@ -21,8 +21,9 @@ public class yzmxgmmServlet extends HttpServlet {
 		
 		Integer id = Integer.valueOf(req.getParameter("user_id"));
 		String pass = req.getParameter("password");
-		String phones = req.getParameter("phones");
+		
 		Integer doUpdatePassword = r.doUpdatePassword(id, pass);
+		
 		if(doUpdatePassword>0) {
 			HttpSession session = req.getSession();
 			Users user = (Users) session.getAttribute("user");
@@ -32,5 +33,4 @@ public class yzmxgmmServlet extends HttpServlet {
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
 	}
-
 }

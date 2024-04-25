@@ -12,6 +12,7 @@
 <link href="../../css/footer.css" rel="stylesheet" />
 <link href="../../css/zhuce.css" rel="stylesheet"/>
 <script src="../../js/nav.js"></script>
+<script src="../../js/yzmgmm.js"></script>
 
 <style>
 	#xiu{
@@ -212,7 +213,7 @@
 		})
 		
 		
-		
+		/* 
 	    $('#xiu').click(function(){
 	        var user_id = $('.user_id').val();
 	        var userjiu = $('.user_password').val();
@@ -227,7 +228,7 @@
 	            $('.setting').text('用户名或密码错误');
 	            kai();
 	        }
-	    });
+	    }); */
 	    
 	    $('.message_box_footer button').click(function(){
 	        guanbi();
