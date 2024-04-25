@@ -48,7 +48,6 @@
 								            <th>商品</th>
 								            <th>状态</th>
 								            <th>评论等级</th>
-								            <th>操作</th>
 								        </tr>
 								    </thead>
 								    <tbody>
@@ -60,14 +59,8 @@
 								            <td></td>
 								            <td></td>
 								            <td></td>
-								            <td>
-								            	<button class="chonzhi">添加数据</button>
-												<button class="chonzhi">重置密码</button>
-												<button class="zhuantai" admin='${item.id }'>修改数据</button>
-												<button class="shujuxiugai" admin='${item.id }'>数据状态</button>
-											</td>
 								        </tr>
-								       <!-- </c:forEach> -->
+								       </c:forEach> 
 								    </tbody>
 								</table>
 								<!-- col end -->
@@ -83,7 +76,6 @@
 								            <th>商品名称</th>
 								            <th>收藏时间</th>
 								            <th>商品状态</th>
-								            <th>操作</th>
 								        </tr>
 								    </thead>
 								    <tbody>
@@ -92,12 +84,6 @@
 								            <td></td>
 								            <td></td>
 								            <td></td>
-								            <td>
-								            	<button class="chonzhi">添加数据</button>
-												<button class="chonzhi">重置密码</button>
-												<button class="zhuantai" admin='${item.id }'>修改数据</button>
-												<button class="shujuxiugai" admin='${item.id }'>数据状态</button>
-											</td>
 								        </tr>
 								        </c:forEach> 
 								    </tbody>
@@ -119,7 +105,6 @@
 								            <th>商品</th>
 								            <th>数量</th>
 								            <th>价格</th>
-								            <th>操作</th>
 								        </tr>
 								    </thead>
 								    <tbody>
@@ -128,12 +113,6 @@
 								            <td></td>
 								            <td></td>
 								            <td></td>
-								            <td>
-								            	<button class="chonzhi">添加数据</button>
-												<button class="chonzhi">重置密码</button>
-												<button class="zhuantai" admin='${item.id }'>修改数据</button>
-												<button class="shujuxiugai" admin='${item.id }'>数据状态</button>
-											</td>
 								        </tr>
 								        </c:forEach>								       
 								    </tbody>
@@ -150,23 +129,14 @@
 								        <tr>
 								            <th>id</th>
 								            <th>广告图片地址</th>
-								            <th>商品id</th>								     
-								            <th>操作</th>
-								        </tr>
+								            <th>商品id</th>								     								        </tr>
 								    </thead>
 								    <tbody>
 								        <c:forEach items="${list }" var="item"> 
 								        <tr>
 								            <td></td>
 								            <td></td>
-								            <td></td>
-								            <td>
-								            	<button class="chonzhi">添加数据</button>
-												<button class="chonzhi">重置密码</button>
-												<button class="zhuantai" admin='${item.id }'>修改数据</button>
-												<button class="shujuxiugai" admin='${item.id }'>数据状态</button>
-											</td>
-								        </tr>
+								            <td></td>					        </tr>
 								       </c:forEach> 
 								        
 								    </tbody>
@@ -189,12 +159,12 @@
 		<script type="text/javascript" src="../../js/amazeui.min.js"></script>
 		<script type="text/javascript" src="../../js/app.js" ></script>
 		<script type="text/javascript" src="../../js/blockUI.js" ></script>
-		<%-- <c:if test="${empty list }">
+		 <c:if test="${empty list }">
 			<script>
-				location.href = "";
+				location.href = "CommentsServlet";
+				location.href = "CollectionInitServlet";
+				location.href = "OrdersServlet";
 			</script>
 		</c:if>
- --%>
-
 	
 </html>
