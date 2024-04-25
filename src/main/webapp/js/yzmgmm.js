@@ -47,32 +47,25 @@ $(function() {
 
 
 	//注册判断
-	$('#zhuce').click(function() {
+	$('#xiu').click(function() {
 		var input = $('.inp');
 		if (isValidPhoneNumber(input.eq(0).val())) {
 			var phone = $('.inp').eq(0).val();
 			var user_id = $('.user_id').val();
-			var phones = $('.phone').val();
-			if (phone == phones) {
-				if (input.eq(1).val() == yzm) {
-					if (isValidPhoneNumber(input.eq(2).val())) {
-						var pho = input.eq(2).val();
-						
-						$.getJSON('phoneServlet',{'user_id':user_id,'phones':pho},function(){
-					 		kai();
-					 		$('.setting').text('修改成功')
-					 	})
-				 		
-					} else {
-						$('.mi').html('请输入正确的手机号')
-					}
-				} else {
-					$('.yang').html('请输入正确的验证码')
-				}
-			} else {
-				$('.shou').html('手机号不一致')
-			}
 
+			
+			if (input.eq(1).val() == yzm) {
+					
+				var pho = input.eq(2).val();
+						
+				$.getJSON('yzmxgmmServlet',{'user_id':user_id,'password':pho},function(){
+					 
+					 $('.setting').text('修改成功')
+				})
+				 		
+			} else {
+				$('.yang').html('请输入正确的验证码')
+			}
 		} else {
 			$('.shou').html('请输入正确的手机号')
 		}

@@ -77,28 +77,7 @@
 				</div>
 				<div class="zjdd">最近的订单</div> 
 				<div>
-					<div class="zjll">热门商品</div> 
-						<div class='wrapper'>
-						<ul class='floor-list'>
-							<!-- 热门商品 -->
-							<li class='floor xiao'>
-								<ul class='box-list'>
-									<c:forEach items="${hits }" var="item">
-										<li class='box'>
-											<a href="../qian/XianXiSerlvet?id=${item.id }" target="_blank">
-												<img src="../../img/product/${ item.image_url}?id=${item.id }"/>
-											</a>
-											<div class='prodinfo'>
-												<p class='name'>${item.products_name }</p>
-												<p class='feature'>${item.description }</p>
-												<p class='price rmb-symbol'>￥ ${item.price }</p>
-											</div>
-										</li>
-									</c:forEach>
-								</ul>
-							</li>
-						</ul>
-					</div>
+					
 				</div>
 			</div>
 		</div>
