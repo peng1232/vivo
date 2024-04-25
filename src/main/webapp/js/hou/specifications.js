@@ -131,7 +131,20 @@ $(function() {
 			alert("类别名称不能为空");
 		}
 	});
-
+	
+	//添加规格值
+	$(document).on('click', '.btnew', function() {
+		var id = $(this).attr('specifications_id');
+		var ta =$(this).parent().find('.type')
+    	var value = $(this).parent().find('.type').val().trim();
+    	if(value.length>0){
+			$.getJSON('ValueInsertServlet',{"id":id,"value":value},function(){
+				generateTableRows();
+				ta.val("")
+			})
+		}
+    	
+	});
 
 
 })

@@ -60,6 +60,12 @@ public class Specification_valueDAO extends BaseDAO{
 		return executeUpdate(sql, s.getValue(),s.getId());
 	}
 	
+	//添加规格值
+	public Integer insertValue(Specification_value s) {
+		String sql = "insert into specification_value value(null,?,?)";
+		return executeUpdate(sql, s.getSpecifications_id(),s.getValue());
+	}
+	
 	public static void main(String[] args) {
 		System.out.println(new Specification_valueDAO().selectValue( 2));
 	}
