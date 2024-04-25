@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import com.dao.CollectionDAO;
+import com.dao.ProductDAO;
 import com.entity.Collection;
 import com.entity.Commodity_price;
 import com.entity.Product;
@@ -26,6 +27,7 @@ import com.entity.Specification_value;
 public class CollectionInitServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     CollectionDAO cdao = new CollectionDAO();
+	ProductDAO pdao = new ProductDAO();
     
     /**
      * 处理HTTP GET请求。
@@ -36,7 +38,10 @@ public class CollectionInitServlet extends HttpServlet {
      * @throws IOException      处理请求时发生输入或输出错误
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 从请求参数中获取用户ID
+        
+    	
+    	
+    	// 从请求参数中获取用户ID
         Integer user_id = Integer.valueOf(request.getParameter("user_id"));
         
         // 查询用户的收藏记录
@@ -66,6 +71,7 @@ public class CollectionInitServlet extends HttpServlet {
             queryUser_Product.setPagTtype(pageType_specifications.getValue());
             queryUser_Product.setColor(color_specifications2.getValue());
             queryUser_Product.setPrice(commodity_price.getPrice());
+            queryUser_Product.setImage_url(pdao.queryImage_Url(pageType_specifications.getId(), color_specifications2.getId()));
             list.add(queryUser_Product);
         });
 

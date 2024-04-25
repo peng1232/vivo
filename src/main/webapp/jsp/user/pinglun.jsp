@@ -18,60 +18,67 @@
 		 <div class="container">
         <div class="menu">
             <a href="商城首页.html">商城首页</a>
-            <a href="grzx.html"><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">个人中心</a>
+            <a href="../../jsp/gereng/grzx.jsp"><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">个人中心</a>
+			<a href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">我的评论</a>
         </div>
 		<div class="under">
-			<div class="left">
-				<img src="../../img/头像.jpg" class="tx">
-				<ul>
-					<li class="z">vivo34177786273</li>
-					
-					<li class="z">交易管理</li>
-					<li class="s"><a href="">我的订单</a></li>
-					<li class="s"><a href="tksh.html">退款/售后</a></li>
-
-					<li class="z">评价管理</li>
-					<li class="s"><a href="">评价晒单</a></li>
-					
-					<li class="z">我的账户</li>
-					<li class="s"><a href="">修改密码</a></li>
-					<li class="s"><a href="">修改电话号码</a></li>
-					<li class="s"><a href="">个人资料</a></li>
-					<li class="s"><a href="">收货地址</a></li>
-					<li class="s"><a href="">我的收藏</a></li>
-				</ul>
-			</div>
+			<%@include file="../../jsp/gereng/zxzuo.jsp" %>
 			<div class="right">
-				<div class="div1">我的评论</div>
-				
+					<div class="div1">我的评论</div>
+
+
+
 					<div class="div2">
+						
+
+						
+						<div class="search-box">
+							<input type="text" placeholder="请输入搜索内容">
+							<div class="search-icon">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor" width="24" height="24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M21 21l-4.35-4.35M15 11a4 4 0 11-8 0 4 4 0 018 0z" />
+								</svg>
+							</div>
+						</div>
+
+
+
+
 						<table>
-						<thead class="thead1">
-							
-							<th class="xuhao">序号</th>
-							<th class="yonghumingcheng">用户名称</th>
-							<th class="wodepinglun">我的评论</th>
-							<th class="mingzi">商品</th>
-							<th class="spzhuangtai">状态</th>
-							<th class="caozuo">评论等级</th>
-						</thead>
-						
-						<tbody class="tbody">
-							<c:forEach items="${commentsList}" var="comment">
-						            <tr>
-						                <td><a class="a1">${comment.id}</a></td>
-						                <td><a class="a1">${comment.user_id}</a></td>
-						                <td><a class="a1">${comment.user_com}</a></td>
-						                <td><a class="a1">${comment.product_id}</a></td>
-						                <td><a class="a1">${comment.state}</a></td>
-						                <td><a class="a1">${comment.com_grade}</a></td>
-						            </tr>
-					      	  </c:forEach>
-						</tbody>
+							<thead class="thead1">
+								<th class="xuhao">序号</th>
+								<th class="yonghumingcheng">用户名称</th>
+								<th class="wodepinglun">我的评论</th>
+								<th class="mingzi">商品</th>
+								<th class="spzhuangtai">状态</th>
+								<th class="caozuo">评论等级</th>
+								<th class="caozuo">操作</th> 
+							</thead>
+
+							<tbody class="tbody">
+								<c:forEach items="${commentsList}" var="comment">
+									<tr>
+										<td><a class="a1">${comment.id}</a></td>
+										<td><a class="a1">${comment.user_id}</a></td>
+										<td><a class="a1">${comment.user_com}</a></td>
+										<td><a class="a1">${comment.product_id}</a></td>
+										<td><a class="a1">${comment.state}</a></td>
+										<td><a class="a1">${comment.com_grade}</a></td>
+										<td>
+											<button class="delete" onclick="deleteComment()">删除</button>
+											<button class="edit" onclick="editComment()">修改</button>
+										</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+
+
+
+
+
 						</table>
-						
-					</div>
-					
 					</div>
 			</div>
 		</div>

@@ -16,30 +16,12 @@
 <%@include file="../../html/nav.jsp" %>
 	  <div class="container">
         <div class="menu">
-            <a href="商城首页.html">商城首页</a>
-            <a href="grzx.html"><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">个人中心</a>
+            <a href="../qian/shouye.jsp">商城首页</a>
+           <a href="../../jsp/gereng/grzx.jsp"><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">个人中心</a>
+			<a href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">我的收藏</a>
         </div>
 		<div class="under">
-			<div class="left">
-				<img src="../../img/头像.jpg" class="tx">
-				<ul>
-					<li class="z">vivo34177786273</li>
-					
-					<li class="z">交易管理</li>
-					<li class="s"><a href="">我的订单</a></li>
-					<li class="s"><a href="tksh.html">退款/售后</a></li>
-
-					<li class="z">评价管理</li>
-					<li class="s"><a href="">评价晒单</a></li>
-					
-					<li class="z9">我的账户</li>
-					<li class="s"><a href="">修改密码</a></li>
-					<li class="s"><a href="">修改电话号码</a></li>
-					<li class="s"><a href="">个人资料</a></li>
-					<li class="s"><a href="">收货地址</a></li>
-					<li class="s"><a href="">我的收藏</a></li>
-				</ul>
-			</div>
+			<%@include file="../../jsp/gereng/zxzuo.jsp" %>
 			<div class="right">
 				<div class="div1">我的收藏</div>
 					<div class="div2">
@@ -58,7 +40,7 @@
 						<c:forEach items="${collection}" var="va" varStatus="x">
 							
 								<tr class="tr2">
-									<td><img src="../../img/vivo x100.webp" class="tp"></td>
+									<td><img src="../../img/${ product[x.index].image_url}" class="tp"></td>
 									<td><a>${ product[x.index].products_name} ${ product[x.index].pagTtype} <br /> ${ product[x.index].color}</a></td>
 									<td><a class="a1"> ${ product[x.index].price}</a></td>
 									<td><a class="a1">${ product[x.index].listing_time}</a></td>
@@ -98,16 +80,23 @@
             row.remove();
         }
     });
-});
+})
 </script>
 				
-				
-				
-		<c:if test="${empty collection }">
+		<input type="hidden" class='user' value='${user.id }'>	
+		<c:if test="${ collection==null }">
 			<script type="text/javascript">
-				location.href= 'CollectionInitServlet?user_id=2';
+				$(function(){
+					var user_id = $('.user').val();
+					location.href= 'CollectionInitServlet?user_id='+user_id;
+				})
+			</script>
+		</c:if>
+		<c:if test="${empty user }">
+			<script type="text/javascript">
+				location.href= '../login/login.jsp';
 			</script>
 		</c:if>
 <%@include file="../../html/footer.jsp" %>
-
+	
 </html>

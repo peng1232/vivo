@@ -169,7 +169,7 @@
     margin-top: 30px;
 }
 .div2{
-	width: 925px;
+	/* width: 925px; */
 	padding: 30px;
 }
 table{
@@ -187,36 +187,27 @@ table{
 		    line-height: 46px;
 		
 		border-right: 1px solid #e0e0e0;
-		padding: 10px;
+		
 		border-bottom: 1px solid #e0e0e0;
+	}
+	tr{
+		width: 100%;
 	}
 	.img{
 		width: 105px;
 		border-right: 0 solid #e0e0e0;
 	}
-	.mingzi{
-	width: 250px;
-}
-	.yonghumingcheng{
-		width: 100px;
-	}
-	.wodepinglun{
-		width: 250px;
-	}
-	.xuhao{
-		width: 100px;
-	}
-	.caozuo{
-		width: 100px;
-	}
-	.spzhuangtai{
-		width: 100px	;
-	}
+	
+	
 	.tp{
 		width: 105px;
 		    height: 105px;
 		    margin-left: 30px;
 		    vertical-align: unset !important;
+	}
+	.anniu{
+		width: 100px;
+		
 	}
 	a{
 		margin-left: 10px;
@@ -233,9 +224,138 @@ table{
 	}
 	td{
 		border-right: 1px solid #e0e0e0;
+		border-bottom:1px solid #e0e0e0 ;
 		height: 63px;
 		
 	}
 	table{
 		float: left;
+		width: 900px;
 	}
+	
+	/* 样式化下拉框外部容器 */
+	.xlk {
+	  position: relative;
+	  display: inline-block;
+	  margin-right: 30px;
+	}
+	
+	/* 隐藏默认的下拉箭头 */
+	.xlk select {
+		width: 100px;
+	  appearance: none;
+	  -webkit-appearance: none;
+	  -moz-appearance: none;
+	
+	  background-repeat: no-repeat;
+	  background-position: right center;
+	  padding-right: 1.5rem; /* 留出空间给箭头 */
+	  border: 1px solid #ccc;
+	  border-radius: 5px;
+	  font-size: 16px;
+	  padding: 8px 12px;
+	}
+	
+	/* 鼠标悬停时样式 */
+	.xlk select:hover {
+	  border-color: #aaa;
+	}
+	
+	/* 聚焦时样式 */
+	.xlk select:focus {
+	  outline: none;
+	  border-color: #007bff;
+	}
+	
+	/* 下拉框内部项样式 */
+	.xlk .item {
+	  position: relative;
+	}
+	
+	/* 为了正确显示在下拉框上方 */
+	.xlk .item:before {
+	  content: '';
+	  position: absolute;
+	  top: 50%;
+	  right: 10px;
+	  transform: translateY(-50%);
+	  pointer-events: none;
+	  width: 0;
+	  height: 0;
+	  border-left: 5px solid transparent;
+	  border-right: 5px solid transparent;
+	  border-top: 5px solid #666;
+	}
+	
+	/* 可选项样式 */
+	.xlk select option {
+	  background-color: #fff;
+	  color: #333;
+	}
+	
+	/* 可选项悬停时样式 */
+	.xlk select option:hover {
+	  background-color: #f0f0f0;
+	}
+
+/* 样式化搜索框外部容器 */
+.search-box {
+  position: relative;
+  display: inline-block;
+}
+
+/* 隐藏默认的下拉箭头 */
+.search-box input[type="text"] {
+  width: 200px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  padding-right: 30px; 
+  
+}
+
+/* 鼠标悬停时样式 */
+.search-box input[type="text"]:hover {
+  border-color: #aaa;
+}
+
+/* 聚焦时样式 */
+.search-box input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* 搜索图标样式 */
+.search-box .search-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+button {
+ 
+   border-radius: 20px;
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d32f2f; /* 深红色 */
+}
+
+button.edit {
+ 
+}
+
+button.edit:hover {
+  background-color: #388e3c; /* 深绿色 */
+}
