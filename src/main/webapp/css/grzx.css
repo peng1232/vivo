@@ -130,7 +130,7 @@ ul li.s:hover {
 	line-height: 42px;
 }
 
-.col1 {
+/* .col1 {
 	width: 160px;
 	float: left;
 	text-align: center;
@@ -156,7 +156,7 @@ ul li.s:hover {
 	font-size: 14px;
 	color: #666;
 	line-height: 42px;
-}
+} */
 
 a[href=""] {
 	color: #999;
