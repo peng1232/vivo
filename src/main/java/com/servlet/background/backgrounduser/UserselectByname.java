@@ -1,4 +1,4 @@
-package com.servlet.background;
+package com.servlet.background.backgrounduser;
 
 import java.io.IOException;
 import java.util.Date;
@@ -12,19 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson2.JSONObject;
 import com.dao.AdministratorDAO;
+import com.dao.userDAO;
 import com.entity.Administrator;
+import com.entity.Users;
 
 /**
  * Servlet implementation class selectByname
  */
-@WebServlet("/jsp/background/selectByname")
-public class selectByname extends HttpServlet {
+@WebServlet("/jsp/background/backgrounduser/UserselectByname")
+public class UserselectByname extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-     AdministratorDAO admin=new AdministratorDAO();
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public selectByname() {
+     userDAO admin=new userDAO();
+    
+    public UserselectByname() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,22 +34,19 @@ public class selectByname extends HttpServlet {
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String	nikename=request.getParameter("nikename");
-    	String	state=request.getParameter("state");
+    	Integer	state=Integer.valueOf(request.getParameter("state"));
     	
     	System.out.println(nikename);
     	System.out.println(state);
-    	List<Administrator> list=admin.selectpart(nikename, state);
+    	List<Users> list=admin.selectByname(nikename, state);
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("backgroundcenter.jsp").forward(request, response);
+		request.getRequestDispatcher("users.jsp").forward(request, response);
 //		JSONObject jsonObj = new JSONObject();
 //		response.setContentType("AdminstratorDAO/json");
 //		response.setCharacterEncoding("UTF-8");
 //		response.getWriter().println(jsonObj.toJSONString());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
