@@ -94,8 +94,8 @@ textarea {
 
 .inline {
     display: inline-block;
-    *display: inline;
-    *zoom: 1;
+    display: inline;
+    zoom: 1;
 }
 .body_con{
     width: 100%;

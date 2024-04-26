@@ -80,7 +80,7 @@
 							</c:forEach>
 							<c:if test="${fn:length(selectAll)==0 }">
 								<tr>
-									<td colspan="11" style="text-align: center">暂无数据</td>
+									<td colspan="5" style="text-align: center">暂无数据</td>
 								</tr>
 							</c:if>
 						</table>
@@ -140,20 +140,58 @@
 			<div class='info'>
 				<table class="table tavalue" border="1" cellspacing='0'>
 					<tr>
-						<td><b>规格值id</b></td>
-						<td><b>商品规格值名称</b></td>
-						<td style='width:8vh;'><b>操作</b></td>
+						<td ><b>规格值id</b></td>
+						<td style='width:12vh;'><b>商品规格值名称</b></td>
+						<td style='width:8vh;'><b>规格值图片数量</b></td>
+						<td style='width:14vh;'><b>操作</b></td>
 					</tr>
 					
 					<c:if test="${fn:length(selectAll)==0 }">
 						<tr>
-							<td colspan="11" style="text-align: center">暂无数据</td>
+							<td colspan="4" style="text-align: center">暂无数据</td>
 						</tr>
 					</c:if>
 				</table>
 			</div>	
 		</div>
 	</div>
+	
+	<!-- 弹窗？ -->
+	<div class='tan'>
+		<div class='container'>
+			<div class='header_title'>
+				<span class='modal_titel'>查看商品规格图片</span>
+				<button class='modal__headerbtn'></button>
+			</div>
+			<div class='modal_body clearfix'>
+				<div class='yulan'>
+					<img alt="图片预览" src="" class='yul'  title='图片预览'>
+					<p class='y'>预览图</p>
+				</div>
+				<div  class='clearfix'>
+					<p class='leftfu'><span class='wz'>商品名称：</span><span class='pname'>2</span></p>
+					<p class='leftfu'>规格值名称：<span class='pvalue_name'></span></p>
+				</div>
+				<div class='clearfix'><input class='btn addUrl' type="submit" value='添加规格图片'/></div>
+				<div style="display: none;">
+					<!-- <form action="" method="post" enctype="multipart/form-data" > -->
+						 选择照片：<input type="file" name="photo" id="photo">
+						 选择照片：<input type="file" name="photo2" id="photo2">
+				<!-- 	</form> -->
+				</div>
+				<div class='info'>
+					<table class="table taimage" border="1" cellspacing='0'>
+						<tr>
+							<td ><b>商品图片id</b></td>
+							<td style='max-width:30vh;width: 30vh;'><b>商品图片</b></td>
+							<td ><b>操作</b></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<c:if test="${selectAll==null}">
 		<script type="text/javascript">
 			location.href = "SpecificationsSelectAllServlet"
