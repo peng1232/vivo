@@ -98,6 +98,25 @@ public class XianXiSerlvet extends HttpServlet {
 		        request.setAttribute("flag", false);
 		    }
 		}
+		String sssku = request.getParameter("ssku");
+		if (sssku != null && sssku.trim().length() > 0) {
+			
+		    try {
+		        JSONObject jsonObj = JSON.parseObject(sssku);
+		        int skuPrice = jsonObj.getIntValue("sku_price");
+		        int pageType = jsonObj.getIntValue("pageType");
+		        int color = jsonObj.getIntValue("color");
+		        int number = jsonObj.getIntValue("number");
+		        request.setAttribute("skuPrice", skuPrice);
+		        request.setAttribute("pageType", pageType);
+		        request.setAttribute("color", color);
+		        request.setAttribute("number", number);
+		        request.setAttribute("flag", true);
+		    } catch (JSONException e) {
+		        e.printStackTrace();  // 打印完整的异常信息以便进一步分析
+		        request.setAttribute("flag", false);
+		    }
+		}
 		
 		
 		request.setAttribute("product", product);
