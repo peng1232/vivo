@@ -101,7 +101,7 @@ $(function() {
 			$(".tavalue tr:not(:first-child)").remove();
 			if (request.selectAll.length <= 0) {
 				var row = $('<tr>');
-				row.append($('<td colspan="11" style="text-align: center">暂无数据</td>'));
+				row.append($('<td colspan="4" style="text-align: center">暂无数据</td>'));
 				tbody.append(row);
 			}
 			$.each(request.selectAll, function(index, item) {

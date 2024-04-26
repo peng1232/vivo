@@ -87,7 +87,7 @@
 							</c:forEach>
 							<c:if test="${fn:length(selectAll)==0 }">
 								<tr>
-									<td colspan="11" style="text-align: center">暂无数据</td>
+									<td colspan="6" style="text-align: center">暂无数据</td>
 								</tr>
 							</c:if>
 						</table>
