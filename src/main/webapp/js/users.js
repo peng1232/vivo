@@ -58,16 +58,14 @@ $(function(){
 							$('.message_box_footer .btn1').click(function(){
 								var nikename=$('#ip0').val();
 								var account=$('#ip1').val();
-								var password=$('#ip2').val();
 								
 								
-								$.getJSON('guanliyuanzhuce',{
-									'nikename':nikename,
-									'account':account,
+								$.getJSON('Userzhuce',{
+									'phone':phne,
 									'password':password
 								},function(){
 									guanbi();
-									location.href = "backgroundcenter.jsp";
+									location.href = "users.jsp";
 								})
 									
 							})
@@ -118,12 +116,12 @@ $(function(){
 								
 								
 								
-								$.getJSON('glyxiugaiServlet',{
+								$.getJSON('xiugaiServlet',{
 									'id':id,
 									'password':password
 								},function(){
 									guanbi1();
-									location.href = "backgroundcenter.jsp";
+									location.href = "users.jsp";
 								})
 									
 							})
@@ -174,13 +172,13 @@ $(function(){
 								
 								
 								
-								$.getJSON('glyUpdateAll',{
+								$.getJSON('UserUpdateAll',{
 									'id':aid,
 									'nikename':nikename,
 									'account':account
 								},function(){
 									guanbi2();
-									location.href = "backgroundcenter.jsp";
+									location.href = "users.jsp";
 								})
 									
 							})
@@ -226,12 +224,12 @@ $(function(){
 							$('.message_box_footer3 .btn7').click(function(){
 								var state=$('.inp6').val();
 								alert(state);
-								$.getJSON('glyDeleteServlet',{
+								$.getJSON('UserDeleteServlet',{
 									'id':id,
 									'state':state
 								},function(){
 									guanbi3();
-									location.href = "backgroundcenter.jsp";
+									location.href = "users.jsp";
 								})
 									
 							})
