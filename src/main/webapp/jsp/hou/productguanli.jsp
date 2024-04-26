@@ -95,7 +95,7 @@
 							</c:forEach>
 							<c:if test="${fn:length(product)==0 }">
 								<tr>
-									<td colspan="11" style="text-align: center">暂无数据</td>
+									<td colspan="9" style="text-align: center">暂无数据</td>
 								</tr>
 							</c:if>
 						</table>
