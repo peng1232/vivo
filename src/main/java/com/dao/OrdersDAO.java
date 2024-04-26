@@ -38,7 +38,7 @@ public class OrdersDAO extends BaseDAO {
 
 	// 订单号自增
 	public String orderNumber() {
-		String sql = "select count(*) as shu from orders";
+		String sql = "select id as shu from orders order by id desc";
 		try {
 			stmt = getConn().prepareStatement(sql);
 			rs = stmt.executeQuery();
@@ -76,7 +76,7 @@ public class OrdersDAO extends BaseDAO {
 	
 	
 	public static void main(String[] args) {
-		System.out.println(new OrdersDAO().queryUser_order_details("202404000000042"));
+		System.out.println(new OrdersDAO().orderNumber());
 
 	}
 
@@ -129,5 +129,16 @@ public class OrdersDAO extends BaseDAO {
 	        closeAll();
 	    }
 	    return orderDetailsList; // 返回正确的类型
+	}
+
+	//删除订单
+	public Integer delectOrder(String number) {
+		String sql = "delete from orders where order_number = ?";
+		return executeUpdate(sql, number);
+	}
+	//删除订单详情
+	public Integer delectOrder_Details(String number) {
+		String sql = "delete from order_details where order_number = ?";
+		return executeUpdate(sql, number);
 	}
 }

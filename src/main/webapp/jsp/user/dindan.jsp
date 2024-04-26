@@ -1,110 +1,125 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript" src="../../js/jquery.min.js"></script>
-<link href="../../css/nav.css" rel="stylesheet" />
-<script src="../../js/nav.js"></script>
-<link href="../../css/footer.css" rel="stylesheet" />
-<link href="../../css/dindan.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <link href="../../css/nav.css" rel="stylesheet" />
+    <script src="../../js/nav.js"></script>
+    <link href="../../css/footer.css" rel="stylesheet" />
+    <link href="../../css/dindan.css" rel="stylesheet" />
 </head>
 <body>
-	<%@include file="../../html/nav.jsp"%>
-	<div class="container">
-		<div class="menu">
-			<a href="../qian/shouye.jsp">商城首页</a> <a href="grzx.html">
-			<a href="../../jsp/gereng/grzx.jsp"><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">个人中心</a>
-			<a href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">我的订单</a>
-		</div>
-		<div class="under">
-			<%@include file="../../jsp/gereng/zxzuo.jsp" %>
-			<div class="right">
-				<input type="hidden" class='user_id' value='${user.id }'>
-				<dl data-a-1 class="order-list">
-					<dt data-a-1 class="module-title">我的订单</dt>
-					<ul class="ul1 clearfix">
-						<li id="qbdd" class="li1">全部订单</li>
-						<li id="pendingPaymentTab" class="li1">未付款</li>
-						<li id="dsh" class="li1">待收货</li>
-						<li id="ycw" class="li1">已完成</li>
-						<li id="ygb" class="li1">已关闭</li>
-					</ul>
-					<div class="da">
-						<div class="div1">
-							<div class="col col1">商品</div>
-							<div class="clo col2">数量</div>
-							<div class="clo col3">价格</div>
-							<div class="col col4">商品操作</div>
-							<div class="col col5">状态</div>
-							<div class="col col6">操作</div>
-						</div>
-						<c:forEach items="${ordersList}" var="orders" varStatus="va">
-
-							<div class="div2">
-								<div class="head">
-									<div class="leftt">
-										订单号: <a class="link">${orders.order_number}</a>
-									</div>
-									<div class="middle">成交时间: ${orders.order_time}</div>
-									<div class="rightt">删除订单</div>
-								</div>
-									<div class="mian">
-									<div class="left_1">
-										<c:forEach items="${product[va.index]}" var="items">
-											<div class="order-item">
-												<div class="order-wrap">
-													<div class="order-item-left">
-														<a><img src="../../img/${items.image_url }" class="tp"></a>
-													</div>
-													<div class="order-item-right">
-														<div class="top">
-															<div class="name">
-																<a>vivo ${items.products_name } ${items.pagTtype }  ${items.color }</a>
-															</div>
-															<div class="num">${items.hits }</div>
-															<div class="price">${items.price }</div>
-														</div>
-													</div>
-													<div class="sole-action"></div>
-												</div>
-											</div>
-										</c:forEach>
-									</div>
-									<c:choose>
-										<c:when test="${orders.state == 2}">
-											<div class="middlee">未付款</div>
-				
-										</c:when>
-										<c:when test="${orders.state == 3}">
-											<div class="middlee">已关闭</div>
-										</c:when>
-										<c:when test="${orders.state == 7}">
-											<div class="middlee">已完成</div>
-										</c:when>
-										<c:otherwise>
-											<div class="middlee">其他状态</div>
-										</c:otherwise>
-									</c:choose>
-									<div class="right_11">查看订单</div>
-								</div>
-							</div>
-
-						</c:forEach>
-						<!-- <div class="footers clearfix">
-							<div class="container_1">
-								<div class="wei">
-									应付金额: <span class="span_1">499999</span>
-								</div>
-							</div>
-						</div> -->
-					</div>
-				</dl>
-			</div>
-		</div>
-	</div>
+    <%@include file="../../html/nav.jsp"%>
+    <div class="container">
+        <div class="menu">
+            <a href="../qian/shouye.jsp">商城首页</a> 
+            <a href="../../jsp/gereng/grzx.jsp"><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">个人中心</a>
+            <a href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">我的订单</a>
+        </div>
+        <div class="under">
+            <%@include file="../../jsp/gereng/zxzuo.jsp" %>
+            <div class="right">
+                <input type="hidden" class='user_id' value='${user.id }'>
+                <dl data-a-1 class="order-list">
+                    <dt data-a-1 class="module-title">我的订单</dt>
+                    <ul class="ul1 clearfix">
+                        <li id="qbdd" class="li1">全部订单</li>
+                        <li id="pendingPaymentTab" class="li1">未付款</li>
+                        <li id="dsh" class="li1">待收货</li>
+                        <li id="ycw" class="li1">已完成</li>
+                        <li id="ygb" class="li1">已关闭</li>
+                    </ul>
+                    <div class="da">
+                        <div class="div1">
+                            <div class="col col1">商品</div>
+                            <div class="clo col2">数量</div>
+                            <div class="clo col3">价格</div>
+                            <div class="col col4">商品操作</div>
+                            <div class="col col5">状态</div>
+                            <div class="col col6">操作</div>
+                        </div>
+                        <c:forEach items="${ordersList}" var="orders" varStatus="va">
+                            <div class="div2">
+                                <div class="head">
+                                    <div class="leftt">
+                                        订单号: <a class="link">${orders.order_number}</a>
+                                    </div>
+                                    <div class="middle">成交时间: ${orders.order_time}</div>
+                                    <div class="rightt del" order=${orders.order_number }>删除订单</div>
+                                </div>
+                                <div class="mian">
+                                    <div class="left_1">
+                                        <c:forEach items="${product[va.index]}" var="items">
+                                            <div class="order-item">
+                                                <div class="order-wrap">
+                                                    <div class="order-item-left">
+                                                        <a><img src="../../img/${items.image_url }" class="tp"></a>
+                                                    </div>
+                                                    <div class="order-item-right">
+                                                        <div class="top">
+                                                            <div class="name">
+                                                                <a>vivo ${items.products_name } ${items.pagTtype }  ${items.color }</a>
+                                                            </div>
+                                                            <div class="num">${items.hits }</div>
+                                                            <div class="price">${items.price }</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sole-action"></div>
+                                                </div>
+                                            </div>
+                                        </c:forEach>
+                                    </div>
+							           <c:choose>
+							    <c:when test="${orders.state == 2}">
+							        <div class="middlee">未付款</div>
+							        <!-- Payment button -->
+							        
+							        <div class="right_11">
+							        	<span>查看订单</span>
+							        	<span num='${orders.order_number}'>付款</span>
+							        </div>
+							    </c:when>
+							    <c:when test="${orders.state == 3}">
+							        <div class="middlee">已关闭</div>
+							        <div class="right_11">查看订单</div>
+							    </c:when>
+							    <c:when test="${orders.state == 7}">
+							        <div class="middlee">已完成</div>
+							         <div class="right_11">
+							        	<span>查看订单</span>
+							        	<span>去评论</span>
+							        </div>
+							    </c:when>
+							    <c:otherwise>
+							        <div class="middlee">其他状态</div>
+							        <div class="right_11">查看订单</div>
+							    </c:otherwise>
+							</c:choose>
+							
+							
+                                    <!-- <div class="right_11">查看订单</div> -->
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+    	$(function(){
+    		$('.del').click(function(){
+    			var num = $(this).attr('order');
+    			$.getJSON('OrederDeleteServlet',{'number':num},function(){
+    				location.reload();
+    			})
+    		})
+    	})
+    </script>
 
 	<script type="text/javascript">
     // 获取标签元素
@@ -176,7 +191,9 @@
             }
         });
     }
+   
 </script>
+	
 	
 
 
