@@ -55,8 +55,8 @@
 							<li><label> <span>商品规格管理</span> <i class="iconfont iconyoujiantou"></i> <a
 										href="../hou/specifications.jsp"></a>
 								</label></li>
-							<li><label> <span>商品上，下架管理</span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
+							<li><label> <span>商品价格管理</span> <i class="iconfont iconyoujiantou"></i> <a
+										href="../hou/priceguanli.jsp"></a>
 								</label></li>
 						</ul>
 					</li>
