@@ -45,7 +45,7 @@
 							<p class='result_price'>
 								<span class='result_price_new'> ￥${item.price } </span>
 							</p>
-							<a href='XianXiSerlvet?id=${item.id }'></a>
+							<a href='XianXiSerlvet?id=${item.id }&ssku=${sku[va.index]}'></a>
 						</div>
 					</c:forEach>
 				</div>
