@@ -168,7 +168,7 @@
 			</div>	
 		</div>
 	</div>
-<!-- 弹窗 
+<!-- 弹窗 -->
 	<div class="message">
 		<div class="zhe"></div>
 		<div class="message_box">
@@ -188,7 +188,7 @@
 				<button>确定</button>
 			</div>
 		</div>
-	</div>	-->
+	</div>	
 <%@include file="../../html/footer.jsp" %>
 <script type="text/javascript">
 	$(function(){
