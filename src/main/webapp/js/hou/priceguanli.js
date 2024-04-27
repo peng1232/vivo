@@ -115,6 +115,9 @@ $(function() {
 					//发送修改请求
 					$.getJSON('CombinationUpdateServlet',{"id":id},function(){
 						generateTableRows()
+						 var div1 = document.createElement("div");
+      				      div1.innerText = "删除成功！";
+           				 cocoMessage.success(div1);
 					})
 				})
 	
@@ -151,6 +154,9 @@ $(function() {
 		$.getJSON('CombinationInsertServlet',{"price_id":price_id,"value_id":value_id},function(){
 			
 			generateTableRows();
+			 var div1 = document.createElement("div");
+      		div1.innerText = "添加成功！";
+           	cocoMessage.success(div1);
 		})
 		
     	

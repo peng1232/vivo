@@ -1,6 +1,10 @@
 $(function() {
 	$('.body_top').find('span').text('商品规格管理')
 
+	cocoMessage.config({
+        duration: 3000,
+     });
+	
 	//全选按钮
 	$('.quanxuan').click(function() {
 		var that = $(this);
@@ -113,6 +117,9 @@ $(function() {
 					//发送修改请求
 					$.getJSON('ValueUpdateServlet', { "specifications_id": id, "value": zhi }, function() {
 						generateTableRows()
+						 var div1 = document.createElement("div");
+      				      div1.innerText = "修改成功！";
+           				 cocoMessage.success(div1);
 					})
 				})
 				var image_url = $('<button>').addClass('an shen image_url').attr('value', item.id).text('查看图片');
@@ -158,6 +165,9 @@ $(function() {
 					$.getJSON('ImageDelectServlet', { 'image_id': image_id, 'image_url': image_url }, function() {
 						generateTableRows();
 						generateImageTableRows();
+						 var div1 = document.createElement("div");
+      				      div1.innerText = "删除成功！";
+           				 cocoMessage.success(div1);
 					})
 				})
 				row.append($('<td>').append(editButton).append(image_url));
@@ -186,7 +196,12 @@ $(function() {
 			$.getJSON('ValueInsertServlet', { "id": id, "value": value }, function() {
 				generateTableRows();
 				ta.val("")
+				 var div1 = document.createElement("div");
+      			div1.innerText = "添加成功！";
+           		cocoMessage.success(div1);
 			})
+		}else{
+			 cocoMessage.error("添加失败！", 3000);
 		}
 
 	});
@@ -215,6 +230,9 @@ $(function() {
 				generateImageTableRows();
 				$('.y').css('display', 'block')
 				$('.yul').css('display', 'none')
+				 var div1 = document.createElement("div");
+      			div1.innerText = "上传成功！";
+           		cocoMessage.success(div1);
 			},
 			error: function(xhr, status, error) {
 				// 请求失败的处理逻辑
@@ -259,6 +277,9 @@ $(function() {
 				generateImageTableRows();
 				$('.y').css('display', 'block')
 				$('.yul').css('display', 'none')
+				 var div1 = document.createElement("div");
+      			div1.innerText = "修改成功！";
+           		 cocoMessage.success(div1);
 			},
 			error: function(xhr, status, error) {
 				// 请求失败的处理逻辑

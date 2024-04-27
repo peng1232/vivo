@@ -17,6 +17,7 @@
 <script type="text/javascript" src="../../js/hou/priceguanli.js"></script>
 <script src="../../js/hou/modal.js"></script>
 <link rel="stylesheet" href="../../css/hou/modal.css">
+<script src="../../js/hou/coco-message.js"></script>
 </head>
 <body>
 	<%@include file="../background/cebianlan.jsp"%>
