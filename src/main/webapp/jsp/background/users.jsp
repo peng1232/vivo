@@ -314,7 +314,7 @@
 						<div class="zhe3"></div>
 						<div class="message_box3">
 							<div class="message_box_head3">
-								<span>修改管理员状态</span>
+								<span>修改用户状态</span>
 								<svg class="guan3" t="1710744510048" class="icon" viewBox="0 0 1024 1024" version="1.1"
 									xmlns="http://www.w3.org/2000/svg" p-id="7727" width="16" height="16">
 									<path
