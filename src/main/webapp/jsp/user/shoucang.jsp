@@ -5,13 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
-<body>
-	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script src="../../js/hou/modal.js"></script>
 <link href="../../css/nav.css" rel="stylesheet"/>
+<link href="../../css/hou/modal.css" rel="stylesheet"/>
 <script src="../../js/nav.js"></script>
 <link href="../../css/footer.css" rel="stylesheet" />
 <link href="../../css/shoucang.css" rel="stylesheet" />
+</head>
+<body>
 </body>
 <%@include file="../../html/nav.jsp" %>
 	  <div class="container">
@@ -45,8 +48,9 @@
 									<td><a class="a1"> ${ product[x.index].price}</a></td>
 									<td><a class="a1">${ product[x.index].listing_time}</a></td>
 									<td><a class="a1">有货</a></td>
-									<td><a class="a2">购买</a>
-										<a class="a1">删除</a>
+									<td>
+										<div><a class="a2">购买</a></div>
+										<div><a class="a2 del" shou=${va.id }>删除收藏</a></div>
 									</td>
 								</tr>	
 						</c:forEach>
@@ -57,44 +61,39 @@
 			</div>
 		</div>
 				
-				<script type="text/javascript">
-    		// JavaScript 代码
-  		 // 获取所有删除按钮
-		var deleteButtons = document.querySelectorAll('.a1');
-
-			// 遍历每个删除按钮，添加点击事件监听器
-		deleteButtons.forEach(function(button) {
-   		 button.addEventListener('click', function(event) {
-        // 阻止默认行为，即点击链接时不跳转
-        event.preventDefault();
-
-        // 弹出确认提示框，询问用户是否要删除
-        var confirmDelete = confirm("确定要删除吗？");
-
-        // 如果用户确认删除，则执行删除操作
-        if (confirmDelete) {
-            // 获取当前要删除的行（父节点是<tr>）
-            var row = button.closest('tr');
-            
-            // 执行删除操作，可以发送Ajax请求到服务器，或者直接在前端删除该行
-            row.remove();
-        }
-    });
-})
-</script>
+		<script type="text/javascript">
+    	$(function(){
+    		$('.del').click(function(){
+    			var num = $(this).attr('shou');
+    			var mModal1 = new mModal({
+    				top: "30vh",
+    				width: "30%",
+    				title: "新增商品价格",
+    				content: "<p>确认要删除此收藏吗</p>",
+    				confirm: function() {
+    					$.getJSON('CollectionDeleteServlet',{'number':num},function(){
+    	    				location.reload();
+    	    			})
+    					mModal1.close();
+    				},
+    			});
+    			mModal1.renderDom();
+    		})
+    	})
+    </script>
 				
 		<input type="hidden" class='user' value='${user.id }'>	
+		<c:if test="${empty user }">
+			<script type="text/javascript">
+				location.href= '../login/login.jsp';
+			</script>
+		</c:if>
 		<c:if test="${ collection==null }">
 			<script type="text/javascript">
 				$(function(){
 					var user_id = $('.user').val();
 					location.href= 'CollectionInitServlet?user_id='+user_id;
 				})
-			</script>
-		</c:if>
-		<c:if test="${empty user }">
-			<script type="text/javascript">
-				location.href= '../login/login.jsp';
 			</script>
 		</c:if>
 <%@include file="../../html/footer.jsp" %>

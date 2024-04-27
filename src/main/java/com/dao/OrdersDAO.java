@@ -138,4 +138,10 @@ public class OrdersDAO extends BaseDAO {
 		String sql = "delete from order_details where order_number = ?";
 		return executeUpdate(sql, number);
 	}
+	
+	//修改订单状态
+	public Integer updateOrder(String number,Integer state) {
+		String sql = "update orders set state =? where order_number = ?";
+		return executeUpdate(sql, state,number);
+	}
 }
