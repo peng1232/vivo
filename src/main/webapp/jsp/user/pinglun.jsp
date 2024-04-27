@@ -29,7 +29,7 @@
 		<div class="under">
 			<%@include file="../../html/zxzuo.jsp" %>
 			<input type="hidden" class='user_id' value='${user.id }'>
-			<div class="right">
+			<div class="right" style='    padding-bottom: 40px;'>
 					<div class="div1">我的评论</div>
 					<div class="div2">
 						<table>
@@ -73,6 +73,8 @@
 						</table>
 					</div>
 			</div>
+		</div>
+		</div>
 		</div>
 		
 		<script type="text/javascript">
