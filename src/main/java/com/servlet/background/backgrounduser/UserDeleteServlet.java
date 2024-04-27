@@ -14,7 +14,7 @@ import com.dao.userDAO;
 /**
  * Servlet implementation class glyDeleteServlet
  */
-@WebServlet("/jsp/background/backgrounduser/UserDeleteServlet")
+@WebServlet("/jsp/background/UserDeleteServlet")
 public class UserDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	 userDAO admin = new userDAO();

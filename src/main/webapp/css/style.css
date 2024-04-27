@@ -108,6 +108,7 @@ textarea {
     width: 100%;
     height: 40px;
     background: #232323;
+    color: black;
     font-size: 14px;
     line-height: 40px;
     text-align: center;
@@ -810,11 +811,13 @@ input[type="checkbox"]{
     color: #333;
 }
 .guan2{
+	color:black ;
 	position: absolute;
 	top: -45px;
     right: 15px;
 	cursor: pointer;
 	transition: 0.3s;
+	
 }
 .guan:hover>path{
 	fill: #415fff;

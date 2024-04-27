@@ -53,7 +53,7 @@ public class userDAO extends BaseDAO{
 
 	public List<Users> selectByname(String name, Integer state) {
 		// 1、查询category表的所有记录，并按照主键倒序
-		String sql = "select * from users where user_nickname=?, state=? ";
+		String sql = "select * from users where user_nickname=? and state=? ";
 		try {
 			 stmt = getConn().prepareStatement(sql);
 			// 4、填充参数
@@ -144,17 +144,15 @@ public class userDAO extends BaseDAO{
 	}
 
 	// doUpdate(实体类):int 修改
-	public Integer douUpdate(Users sex) {
-		String sql = "UPDATE users SET  user_nickname=?,phone=?,user_password=?, birth=?, sex=? where id=?";
+	public Integer douUpdate(Users sex, Integer id) {
+		String sql = "UPDATE users SET  user_nickname=?,phone=?,user_password=? where id=?";
 		try {
 			stmt = getConn().prepareStatement(sql);
 			// 设置参数的值
 			stmt.setObject(1,sex.getUser_nickname() );
 			stmt.setObject(2,sex.getPhone() );
 			stmt.setObject(3,sex.getUser_password() );
-			stmt.setObject(4,sex.getBirth() );
-			stmt.setObject(5,sex.getSex() );
-			stmt.setObject(6,sex.getId() );
+			stmt.setObject(4,id);
 			System.err.println(stmt);
 			return stmt.executeUpdate();
 		} catch (SQLException e) {
