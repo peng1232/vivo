@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="icon name" href="../../img/favicon.ico" />
+<title>收货地址</title>
 </head>
 
 <body>
@@ -24,7 +25,7 @@
             <a href="grzx.html"><img class="arrow" src="img/../../向右箭头.png" alt="../../右箭头">个人中心</a>
         </div>
 		<div class="under">
-			<%@include file="../../jsp/gereng/zxzuo.jsp" %>
+			<%@include file="../../html/zxzuo.jsp" %>
 			<div class="right">
 				<div class="title">
 					<span class="num">收货地址</span>

@@ -5,16 +5,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<title>我的评论</title>
+<link rel="icon name" href="../../img/favicon.ico" />
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
 <script src="../../js/hou/modal.js"></script>
 <link href="../../css/nav.css" rel="stylesheet"/>
 <link href="../../css/hou/modal.css" rel="stylesheet"/>
 <script src="../../js/nav.js"></script>
-<link href="../../css/footer.css" rel="stylesheet" />
 <link href="../../css/pinglun.css" rel="stylesheet" />
+<link href="../../css/footer.css" rel="stylesheet" />
+</head>
+<body>
+	
 	
 </body>
 	<%@include file="../../html/nav.jsp" %>
@@ -25,7 +27,7 @@
 			<a href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">我的评论</a>
         </div>
 		<div class="under">
-			<%@include file="../../jsp/gereng/zxzuo.jsp" %>
+			<%@include file="../../html/zxzuo.jsp" %>
 			<input type="hidden" class='user_id' value='${user.id }'>
 			<div class="right">
 					<div class="div1">我的评论</div>
@@ -43,7 +45,7 @@
 								<c:forEach items="${commentsList}" var="comment" varStatus="va">
 									<tr>
 										<td><a class="a1">${comment.id}</a></td>
-										<td><a class="a1">${comment.user_com}</a></td>
+										<td><a class="a1 s1">${comment.user_com}</a></td>
 										<td><a class="a1">${plist[va.index].products_name}</a></td>
 										<td>
 								            <c:choose>

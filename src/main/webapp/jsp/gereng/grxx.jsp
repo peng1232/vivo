@@ -24,7 +24,7 @@
                 href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">个人资料</a>
         </div>
         <div class="under">
-            <%@include file="zxzuo.jsp" %>
+            <%@include file="../../html/zxzuo.jsp" %>
             <div class="right">
                 <div class="tkgl">个人资料</div>
                 <div class="grxx_tx">

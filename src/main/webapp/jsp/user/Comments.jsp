@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>我的评论</title>
+<link rel="icon name" href="../../img/favicon.ico" />
 </head>
 <body>
     <h1>评论列表</h1>

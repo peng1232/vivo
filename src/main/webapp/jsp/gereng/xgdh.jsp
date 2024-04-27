@@ -23,7 +23,7 @@
 			<a href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">修改电话号码</a>
 		</div>
 		<div class="under">
-			<%@include file="zxzuo.jsp" %>
+			<%@include file="../../html/zxzuo.jsp" %>
 			<div class="right">
 				<div class="content">
 					<div class="logo">

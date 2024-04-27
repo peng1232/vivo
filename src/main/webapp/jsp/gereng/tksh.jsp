@@ -21,7 +21,7 @@
 			<a href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">退款/售后</a>
 		</div>
 		<div class="under">
-		    <%@include file="zxzuo.jsp" %>
+		    <%@include file="../../html/zxzuo.jsp" %>
 		    <div class="right">
 		        <div class="tkgl">退款/售后查询</div>
 		        <table>

@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-
+<title>我的收藏</title>
+<link rel="icon name" href="../../img/favicon.ico" />
 <script type="text/javascript" src="../../js/jquery.min.js"></script>
 <script src="../../js/hou/modal.js"></script>
 <link href="../../css/nav.css" rel="stylesheet"/>
@@ -24,7 +24,7 @@
 			<a href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">我的收藏</a>
         </div>
 		<div class="under">
-			<%@include file="../../jsp/gereng/zxzuo.jsp" %>
+			<%@include file="../../html/zxzuo.jsp" %>
 			<div class="right">
 				<div class="div1">我的收藏</div>
 					<div class="div2">
@@ -43,7 +43,7 @@
 						<c:forEach items="${collection}" var="va" varStatus="x">
 							
 								<tr class="tr2">
-									<td><img src="../../img/${ product[x.index].image_url}" class="tp"></td>
+									<td><img src="../../img/product/${ product[x.index].image_url}" class="tp"></td>
 									<td><a>${ product[x.index].products_name} ${ product[x.index].pagTtype} <br /> ${ product[x.index].color}</a></td>
 									<td><a class="a1"> ${ product[x.index].price}</a></td>
 									<td><a class="a1">${ product[x.index].listing_time}</a></td>

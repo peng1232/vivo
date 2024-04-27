@@ -47,7 +47,7 @@
 			<a href="grzx.jsp"><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">个人中心</a>
 		</div>
 		<div class="under">
-			<%@include file="zxzuo.jsp" %>
+			<%@include file="../../html/zxzuo.jsp" %>
 			<div class="right">
 				<div>
 					<div class="jrgrzx">您好，${user.user_nickname }，欢迎进入个人中心！</div>

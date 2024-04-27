@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>我的订单</title>
+<link rel="icon name" href="../../img/favicon.ico" />
 <script type="text/javascript" src="../../js/jquery.min.js"></script>
 <link href="../../css/nav.css" rel="stylesheet" />
 <script src="../../js/nav.js"></script>
@@ -23,7 +24,7 @@
 				class="arrow" src="../../img/向右箭头.png" alt="右箭头">我的订单</a>
 		</div>
 		<div class="under">
-			<%@include file="../../jsp/gereng/zxzuo.jsp"%>
+			<%@include file="../../html/zxzuo.jsp"%>
 			<div class="right">
 				<input type="hidden" class='user_id' value='${user.id }'>
 				<dl data-a-1 class="order-list">
@@ -59,7 +60,7 @@
 											<div class="order-item" product_id='${items.id}'>
 												<div class="order-wrap">
 													<div class="order-item-left">
-														<a><img src="../../img/${items.image_url }" class="tp"></a>
+														<a><img src="../../img/product/${items.image_url }" class="tp"></a>
 													</div>
 													<div class="order-item-right">
 														<div class="top">
