@@ -52,7 +52,7 @@
 									</a>
 								</div>
 								<div class="menu_item">
-									<a href="#"> <span class="svg"> <svg
+									<a href="../user/dindan.jsp"> <span class="svg"> <svg
 												t="1710473283052" class="icon" viewBox="0 0 1024 1024"
 												version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5465"
 												width="16" height="16">
@@ -69,14 +69,14 @@
 									</a>
 								</div>
 								<div class="menu_item">
-									<a href="#"> <span class="svg"> <svg
+									<a href="../login/login.jsp"> <span class="svg"> <svg
 												t="1710473512978" class="icon" viewBox="0 0 1024 1024"
 												version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6781"
 												width="16" height="16">
 												<path
 													d="M640 542.72c76.8-44.8 128-128 128-217.6 0-140.8-115.2-256-256-256s-256 108.8-256 249.6c0 96 51.2 172.8 128 217.6-166.4 51.2-281.6 204.8-288 384 0 25.6 12.8 38.4 32 38.4s32-12.8 32-32c6.4-192 160-345.6 352-345.6s345.6 153.6 352 345.6c0 19.2 12.8 32 32 32s32-12.8 32-32c-6.4-179.2-121.6-332.8-288-384z m-320-224c0-108.8 83.2-192 192-192s192 83.2 192 192-83.2 192-192 192-192-83.2-192-192z"
 													fill="#242933" p-id="6782"></path></svg>
-									</span> <span>账号中心</span>
+									</span> <span>退出登录</span>
 									</a>
 								</div>
 								</c:if>
