@@ -148,8 +148,11 @@ public class CollectionDAO extends BaseDAO{
 		return commodity_price;
 	}
 	
-	
-	
+	//删除订单收藏
+	public Integer deleteCollection(Integer id) {
+		String sql = "update collection set state = 0 where id = ? ";
+		return executeUpdate(sql, id);
+	}
 	
 	
 

@@ -12,7 +12,7 @@ import com.util.Mapper;
 public class CommentsDAO extends BaseDAO {
     
     public List<Comments> queryUser_Comments(Integer user_id) {
-        String sql = "SELECT * FROM comments where id=?";
+        String sql = "SELECT * FROM comments where user_id=? and state in(0,1)";
         return this.executeQuery(sql, new Mapper<Comments>() {
             @Override
             public List<Comments> map(ResultSet rs) throws SQLException {
@@ -69,13 +69,24 @@ public class CommentsDAO extends BaseDAO {
 					list.add(c);
 				}
 				return list;
-			}
+			}	
 		}, product_id,start,end);
     }
     
+    //添加评论
+    public Integer insertComments(Comments c) {
+    	String sql = "insert into comments values(null,?,?,?,?,?)";
+    	return executeUpdate(sql, c.getUser_id(),c.getUser_com(),c.getProduct_id(),c.getState(),c.getCom_grade());
+    }
+    //删除评论
+    public Integer delectComments(Integer id) {
+		String sql = "update comments set state=3 where id = ?";
+		return executeUpdate(sql, id);
+	}
+    
     public static void main(String[] args) {
 
-		System.out.println(new CommentsDAO().queryUser_Comments(1));
+		System.out.println(new CommentsDAO().queryProductComments(2,0,10));
 
 	}
 }
