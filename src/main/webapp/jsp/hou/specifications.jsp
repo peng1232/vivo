@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="../../css/hou/specifications.css">
 <script type="text/javascript" src="../../js/hou/specifications.js"></script>
 <script src="../../js/hou/modal.js"></script>
+<script src="../../js/hou/coco-message.js"></script>
 <link rel="stylesheet" href="../../css/hou/modal.css">
 </head>
 <body>
