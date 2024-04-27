@@ -6,16 +6,15 @@
 <meta charset="UTF-8">
 <link rel="icon name" href="../../img/favicon.ico" />
 <title>收货地址</title>
-</head>
-
-<body>
 <script type="text/javascript" src="../../js/jquery.min.js"></script>
 <link href="../../css/nav.css" rel="stylesheet"/>
 <script src="../../js/nav.js"></script>
 <link href="../../css/footer.css" rel="stylesheet" />
 <link href="../../css/shouhuodizhi.css" rel="stylesheet" />
+</head>
 
-</body>
+
+
 
 <%@include file="../../html/nav.jsp" %>
 
