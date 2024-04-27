@@ -14,7 +14,7 @@ import com.entity.Users;
 /**
  * Servlet implementation class AdministratorServlet
  */
-@WebServlet("/jsp/background/backgrounduser/userselectAllServlet")
+@WebServlet("/jsp/background/userselectAllServlet")
 public class UserselectAllServlet extends HttpServlet {
 	private  static final long serialVersionUID = 1L;
 	userDAO admin =new userDAO();

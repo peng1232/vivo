@@ -11,31 +11,28 @@ $(function() {
 			$(this).find("svg").eq(1).css('display', 'none');
 		}
 	})
-	
-	
 
-$(function(){
-							$('.btn').click(function(){
-								var nikename=$('.inp').eq(0).val();
-								var account=$('.inp').eq(1).val();
-								var password=$('.inp').eq(2).val();
-								
-								alert(nikename);
-								alert(account);
-								alert(password);
-								$.getJSON('guanliyuanzhuce',{
-									'nikename':nikename,
-									'account':account,
-									'password':password
-								})
-									
-							})	
-							
-						
-						})
-	
 
-	
+
+	$(function() {
+		$('.btn').click(function() {
+			var nikename = $('.inp').eq(0).val();
+			var account = $('.inp').eq(1).val();
+			var password = $('.inp').eq(2).val();
+
+			$.getJSON('guanliyuanzhuce', {
+				'nikename': nikename,
+				'account': account,
+				'password': password
+			})
+
+		})
+
+
+	})
+
+
+
 
 
 

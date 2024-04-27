@@ -13,16 +13,16 @@ import com.alibaba.fastjson2.JSONObject;
 import com.dao.AdministratorDAO;
 import com.dao.userDAO;
 
-@WebServlet("/jsp/background/backgrounduser/Userzhuce")
+@WebServlet("/jsp/background/Userzhuce")
 public class Userzhuce extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     userDAO admin = new userDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String phone=request.getParameter("phone");
-		String password=request.getParameter("password");
+		String user_password=request.getParameter("user_password");
 		System.out.println(phone);
-		System.out.println(password);
-		admin.zhuCe(phone, password);
+		System.out.println(user_password);
+		admin.zhuCe(phone, user_password);
 		JSONObject jsonObj = new JSONObject();
 		response.setContentType("userDAO/json");
 		response.setCharacterEncoding("UTF-8");

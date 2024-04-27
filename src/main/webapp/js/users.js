@@ -50,132 +50,19 @@ $(function(){
 
 				$(function(){
 							$('#addBtn').click(function(){
-								kai();
-								
-								
-							})
-							//弹窗点击时间
-							$('.message_box_footer .btn1').click(function(){
-								var nikename=$('#ip0').val();
-								var account=$('#ip1').val();
-								
-								
-								$.getJSON('Userzhuce',{
-									'phone':phne,
-									'password':password
-								},function(){
-									guanbi();
-									location.href = "users.jsp";
-								})
-									
-							})
-					$('.zhe').click(function(){
-						guanbi();
-					})
-					$('.guan').click(function(){
-						guanbi();
-					})
-					$('.btn2').click(function(){
-						guanbi();
-					})
-							//开启弹窗
-					function kai(){
-						$('body').css('overflow-x',"hidden").css("overflow-y",'hidden')
-						$('.message').css('display','block');
-						$(".zhe").animate({
-							opacity: 0.6
-						},100)
-						$('.message_box').css('transform','scale(1) translateY(0%)');
-					}
-					
-					//关闭弹窗
-					function guanbi(){
-						$('body').css('overflow-x',"auto").css("overflow-y",'auto')
-						$(".zhe").animate({
-							opacity: 0
-						},100)
-						$('.message_box').css('transform','scale(0) translateY(-100%)');
-						setTimeout(function(){
-							$('.message').css('display','none');
-						},300)
-						
-					}	
-			})
-						
-				$(function(){
-							$('.chonzhi').click(function(){
-								kai1();
-								
-								
-							})
-							//弹窗点击时间
-							$('.message_box_footer1 .btn3').click(function(){
-								var id=$('#inp1').val();
-								var password=$('#inp2').val();
-								
-								
-								
-								
-								$.getJSON('xiugaiServlet',{
-									'id':id,
-									'password':password
-								},function(){
-									guanbi1();
-									location.href = "users.jsp";
-								})
-									
-							})
-					$('.zhe1').click(function(){
-						guanbi1();
-					})
-					$('.guan1').click(function(){
-						guanbi1();
-					})
-					$('.btn4').click(function(){
-						guanbi1();
-					})
-							//开启弹窗
-					function kai1(){
-						$('body').css('overflow-x',"hidden").css("overflow-y",'hidden')
-						$('.message1').css('display','block');
-						$(".zhe1").animate({
-							opacity: 0.6
-						},100)
-						$('.message_box1').css('transform','scale(1) translateY(0%)');
-					}
-					
-					//关闭弹窗
-					function guanbi1(){
-						$('body').css('overflow-x',"auto").css("overflow-y",'auto')
-						$(".zhe1").animate({
-							opacity: 0
-						},100)
-						$('.message_box1').css('transform','scale(0) translateY(-100%)');
-						setTimeout(function(){
-							$('.message1').css('display','none');
-						},300)
-						
-					}	
-			})
-			
-			$(function(){
-							var aid;
-							$('.zhuantai').click(function(){
 								kai2();
-								aid= $(this).attr('admin');
+								
+								
 							})
 							//弹窗点击时间
 							$('.message_box_footer2 .btn5').click(function(){
-								var nikename=$('#inp3').val();
-								var account=$('#inp4').val();
+								var phone=$('#inp3').val();
+								var user_password=$('#inp4').val();
 								
 								
-								
-								
-								$.getJSON('UserUpdateAll',{
-									'id':aid,
-									'nikename':nikename,
-									'account':account
+								$.getJSON('Userzhuce',{
+									'phone':phone,
+									'user_password':user_password
 								},function(){
 									guanbi2();
 									location.href = "users.jsp";
@@ -212,7 +99,69 @@ $(function(){
 							$('.message2').css('display','none');
 						},300)
 						
+					}	
+			})
+						
+				
+			$(function(){
+							var id;
+							$('.zhuantai').click(function(){
+								kai();
+								id= $(this).attr('admin');
+							})
+							//弹窗点击时间
+							$('.message_box_footer .btn1').click(function(){
+								var user_nickname=$('#inp1').val();
+								var phone=$('#inp2').val();
+								var user_password=$('#inpt0').val();
+		
+								
+								
+								
+								$.getJSON('Userxiugai',{
+									'id':id,
+									'user_nickname':user_nickname,
+									'phone':phone,
+									'user_password':user_password,
+								},function(){
+									guanbi();
+									location.href = "users.jsp";
+								})
+									
+							})
+					$('.zhe').click(function(){
+						guanbi();
+					})
+					$('.guan').click(function(){
+						guanbi();
+					})
+					$('.btn2').click(function(){
+						guanbi();
+					})
+							//开启弹窗
+					function kai(){
+						$('body').css('overflow-x',"hidden").css("overflow-y",'hidden')
+						$('.message').css('display','block');
+						$(".zhe").animate({
+							opacity: 0.6
+						},100)
+						$('.message_box').css('transform','scale(1) translateY(0%)');
 					}
+					
+					//关闭弹窗
+					function guanbi(){
+						$('body').css('overflow-x',"auto").css("overflow-y",'auto')
+						$(".zhe").animate({
+							opacity: 0
+						},100)
+						$('.message_box').css('transform','scale(0) translateY(-100%)');
+						setTimeout(function(){
+							$('.message').css('display','none');
+						},300)
+						
+					}
+					
+					
 					$(function(){
 						var id;
 							$('.shujuxiugai').click(function(){
@@ -223,7 +172,6 @@ $(function(){
 							//弹窗点击时间
 							$('.message_box_footer3 .btn7').click(function(){
 								var state=$('.inp6').val();
-								alert(state);
 								$.getJSON('UserDeleteServlet',{
 									'id':id,
 									'state':state
@@ -267,10 +215,32 @@ $(function(){
 							$('.btn7').click(function(){
 								var state=$(".inp6").val();
 								if(state=="All"){
-									location.href = "AdministratorServlet";
+									location.href = "UserServlet";
 								}
 								
 							})
 			
-	})						
+			})		
+			// 获取所有class为zhuantai的按钮
+const buttons = document.querySelectorAll('.zhuantai');
+
+// 绑定点击事件
+buttons.forEach(button => {
+  button.addEventListener('click', function() {
+    // 获取按钮所在行的表格
+    const row = this.closest('tr');
+    
+    // 获取该行表格的五个参数
+    
+    const param2 = row.cells[1].innerText;
+    const param3 = row.cells[2].innerText;
+    const param4 = row.cells[3].innerText;
+    
+    // 显示在相应的输入框内
+    
+    document.getElementById('inp1').value = param2;
+    document.getElementById('inp2').value = param3;
+    document.getElementById('inpt0').value = param4;
+  });
+});				
 })

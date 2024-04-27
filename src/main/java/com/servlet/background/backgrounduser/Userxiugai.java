@@ -12,21 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 import com.alibaba.fastjson2.JSONObject;
 import com.dao.AdministratorDAO;
 import com.dao.userDAO;
+import com.entity.Users;
 
-@WebServlet("/jsp/background/backgrounduser/Userxiugai")
+@WebServlet("/jsp/background/Userxiugai")
 public class Userxiugai extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     userDAO admin = new userDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer	id =Integer.valueOf(request.getParameter("id"));
-		String	nikename=request.getParameter("nikename");
+		String	user_nickname=request.getParameter("user_nickname");
 		String	phone=request.getParameter("phone");
 		String	user_password=request.getParameter("user_password");
-		Date	birth=java.sql.Date.valueOf(request.getParameter("brith"));
-		Integer  sex=Integer.valueOf(request.getParameter("sex"));
-		
-		
-//		admin.douUpdate(id, nikename, phone, user_password, birth, sex);
+		Users users=new Users(id, user_nickname, user_password, phone, null, null, null, null, null);
+		admin.douUpdate(users,id);
 		JSONObject jsonObj = new JSONObject();
 		response.setContentType("userDAO/json");
 		response.setCharacterEncoding("UTF-8");
