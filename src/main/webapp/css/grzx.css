@@ -122,7 +122,7 @@ ul li.s:hover {
 }
 
 .col0 {
-	width: 370px;
+	width: 280px;
 	float: left;
 	text-align: center;
 	font-size: 14px;
@@ -130,7 +130,7 @@ ul li.s:hover {
 	line-height: 42px;
 }
 
-/* .col1 {
+.col1 {
 	width: 160px;
 	float: left;
 	text-align: center;
@@ -140,7 +140,7 @@ ul li.s:hover {
 }
 
 .col2 {
-    width: 160px;
+    width: 300px;
     float: left;
     text-align: center;
     font-size: 14px;
@@ -156,7 +156,7 @@ ul li.s:hover {
 	font-size: 14px;
 	color: #666;
 	line-height: 42px;
-} */
+}
 
 a[href=""] {
 	color: #999;

@@ -21,8 +21,9 @@
 					<li class="z">${user.user_nickname }</li>
 						
 					<li class="z">交易管理</li>
-					<li class="s"><a href="../../jsp/user/dindan.jsp">我的订单</a></li>
-					<li class="s"><a href="tksh.jsp">退款/售后</a></li>
+
+					<li class="s"><a href="#">我的订单</a></li>
+					<!-- <li class="s"><a href="tksh.jsp">退款/售后</a></li> -->
 
 					<li class="z">评价管理</li>
 					<li class="s"><a href="../../jsp/user/pinglun.jsp">评价晒单</a></li>

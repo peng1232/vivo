@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -97,6 +98,28 @@ public class OrdersDAO extends BaseDAO {
 			closeAll();
 		}
 		return proudc;
+	}
+	
+	
+	
+	//查询总金额
+	public BigDecimal queryPrice(String number) {
+		String sql = "SELECT SUM(product_total) as price FROM order_details WHERE order_number=?";
+		BigDecimal b = null;
+		try {
+			stmt = getConn().prepareStatement(sql);
+			stmt.setObject(1, number);
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				b = rs.getBigDecimal("price");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return b;
 	}
 
 	public List<Order_details> queryUser_order_details(String number) {
