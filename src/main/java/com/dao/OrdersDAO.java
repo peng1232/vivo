@@ -8,11 +8,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.http.impl.NoConnectionReuseStrategy;
-import org.bouncycastle.jcajce.provider.asymmetric.RSA;
-import org.dom4j.io.DOMReader;
-
-import com.entity.Comments;
 import com.entity.Order_details;
 import com.entity.Orders;
 import com.entity.Product;
@@ -43,10 +38,13 @@ public class OrdersDAO extends BaseDAO {
 		try {
 			stmt = getConn().prepareStatement(sql);
 			rs = stmt.executeQuery();
-			rs.next();
 			String year = new Date().getYear() + 1900 + "";
 			String month = new Date().getMonth() + 1 + "";
-			Integer bian = rs.getInt("shu");
+			Integer bian = 1;
+			if (rs.next()) {
+				bian = rs.getInt("shu");
+			}
+
 			return year + String.format("%02d", Integer.valueOf(month)) + String.format("%09d", ++bian);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -54,7 +52,6 @@ public class OrdersDAO extends BaseDAO {
 		}
 		return null;
 	}
-
 
 	public List<Orders> queryUserOrders(Integer id) {
 		String sql = "SELECT * FROM orders where user_id = ? ORDER BY id DESC";
@@ -74,9 +71,6 @@ public class OrdersDAO extends BaseDAO {
 
 		}, id);
 	}
-	
-	
-
 
 	// 查询商品表
 	public Product queryUser_Product(Integer id) {
@@ -99,10 +93,8 @@ public class OrdersDAO extends BaseDAO {
 		}
 		return proudc;
 	}
-	
-	
-	
-	//查询总金额
+
+	// 查询总金额
 	public BigDecimal queryPrice(String number) {
 		String sql = "SELECT SUM(product_total) as price FROM order_details WHERE order_number=?";
 		BigDecimal b = null;
@@ -110,61 +102,56 @@ public class OrdersDAO extends BaseDAO {
 			stmt = getConn().prepareStatement(sql);
 			stmt.setObject(1, number);
 			rs = stmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				b = rs.getBigDecimal("price");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
+		} finally {
 			closeAll();
 		}
 		return b;
 	}
 
 	public List<Order_details> queryUser_order_details(String number) {
-	    String sql = "select * from order_details where order_number=? ";
-	    List<Order_details> orderDetailsList = new ArrayList<>();
-	    try {
-	        stmt = getConn().prepareStatement(sql);
-	        stmt.setObject(1, number);
-	        rs = stmt.executeQuery();
-	        while (rs.next()) {
-	            Order_details orderDetails = new Order_details(
-	                    rs.getInt("id"),
-	                    rs.getString("order_number"),
-	                    rs.getInt("product_id"),
-	                    rs.getInt("product_quantity"),
-	                   
-	                   
-	                    rs.getBigDecimal("product_total"),
-	                    rs.getString("sku")
-	            );
-	            orderDetailsList.add(orderDetails);
-	        }
-	    } catch (Exception e) {
-	        // TODO: handle exception
-	        e.printStackTrace(); // 添加异常处理
-	    } finally {
-	        closeAll();
-	    }
-	    return orderDetailsList; // 返回正确的类型
+		String sql = "select * from order_details where order_number=? ";
+		List<Order_details> orderDetailsList = new ArrayList<>();
+		try {
+			stmt = getConn().prepareStatement(sql);
+			stmt.setObject(1, number);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				Order_details orderDetails = new Order_details(rs.getInt("id"), rs.getString("order_number"),
+						rs.getInt("product_id"), rs.getInt("product_quantity"),
+
+						rs.getBigDecimal("product_total"), rs.getString("sku"));
+				orderDetailsList.add(orderDetails);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace(); // 添加异常处理
+		} finally {
+			closeAll();
+		}
+		return orderDetailsList; // 返回正确的类型
 	}
 
-	//删除订单
+	// 删除订单
 	public Integer delectOrder(String number) {
 		String sql = "delete from orders where order_number = ?";
 		return executeUpdate(sql, number);
 	}
-	//删除订单详情
+
+	// 删除订单详情
 	public Integer delectOrder_Details(String number) {
 		String sql = "delete from order_details where order_number = ?";
 		return executeUpdate(sql, number);
 	}
-	
-	//修改订单状态
-	public Integer updateOrder(String number,Integer state) {
+
+	// 修改订单状态
+	public Integer updateOrder(String number, Integer state) {
 		String sql = "update orders set state =? where order_number = ?";
-		return executeUpdate(sql, state,number);
+		return executeUpdate(sql, state, number);
 	}
 }
