@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head> -->
 <script src="../../js/jquery.min.js"></script>
-<!-- <link rel="stylesheet" type="text/css"
+ <!-- <link rel="stylesheet" type="text/css"
 	href="https://at.alicdn.com/t/font_1632750_204xwxiwzht.css?1583918713" />
-	<link rel="stylesheet" href="../../css/cebianlan.css">  -->
+	<link rel="stylesheet" href="../../css/cebianlan.css"> -->
 <body>
 	<div class="body_con">
 		<div class="body_left">
@@ -58,105 +58,11 @@
 							<li><label> <span>商品价格管理</span> <i class="iconfont iconyoujiantou"></i> <a
 										href="../hou/priceguanli.jsp"></a>
 								</label></li>
-						</ul>
-					</li>
-					<li><label> <i class="iconfont iconYYGK"></i> <span>商品价格管理</span>
-							<i class="iconfont iconyoujiantou"></i> <a href="javascript:;"></a>
-						</label>
-						<ul>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
+							<li><label> <span>商品广告管理</span> <i class="iconfont iconyoujiantou"></i> <a
+										href="../hou/guangaouanli.jsp"></a>
 								</label></li>
 						</ul>
-					</li>
-					<li><label> <i class="iconfont iconYYGK"></i> <span>商品评论管理</span>
-							<i class="iconfont iconyoujiantou"></i> <a href="javascript:;"></a>
-						</label>
-						<ul>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-			<li><label> <span>审核管理</span> <i class="iconfont iconxiajiantou"></i> <a href="javascript:;"></a>
-				</label>
-				<ul>
-					<li><label> <i class="iconfont iconYYGK"></i> <span>商品审核管理</span>
-							<i class="iconfont iconyoujiantou"></i> <a href="javascript:;"></a>
-						</label>
-						<ul>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-						</ul>
-					</li>
-					<li><label> <i class="iconfont iconYYGK"></i> <span>评论审核管理</span>
-							<i class="iconfont iconyoujiantou"></i> <a href="javascript:;"></a>
-						</label>
-						<ul>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-						</ul>
-					</li>
-					<li><label> <i class="iconfont iconYYGK"></i> <span>货架审核管理</span>
-							<i class="iconfont iconyoujiantou"></i> <a href="javascript:;"></a>
-						</label>
-						<ul>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-						</ul>
-					</li>
-					<li><label> <i class="iconfont iconYYGK"></i> <span>合作商管理</span>
-							<i class="iconfont iconyoujiantou"></i> <a href="javascript:;"></a>
-						</label>
-						<ul>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-						</ul>
-					</li>
-				</ul>
-			</li>
+					</li>	
 			</ul>
 		</div>
 
