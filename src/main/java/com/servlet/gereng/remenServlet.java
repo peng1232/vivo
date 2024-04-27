@@ -60,7 +60,9 @@ public class remenServlet extends HttpServlet {
         OrdersDAO ordersDAO = new OrdersDAO();
         
         List<Orders> Orders = ordersDAO.queryUserOrders(u.getId());
-        Orders = Orders.subList(0, 5);
+        if(Orders.size()>=5) {
+        	 Orders = Orders.subList(0, 5);
+        }
         Orders.forEach(e->{
         	price.add(ordersDAO.queryPrice(e.getOrder_number()));
         });

@@ -108,6 +108,9 @@
 										    <c:when test="${item.state == 3}">
 										        <td class="col3">已收货</td>
 										    </c:when>
+										    <c:when test="${item.state == 7}">
+										        <td class="col3">已完成</td>
+										    </c:when>
 										</c:choose>
 					                </tr>
 					            </c:forEach>
