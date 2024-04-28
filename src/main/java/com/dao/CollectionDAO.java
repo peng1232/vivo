@@ -54,7 +54,7 @@ public class CollectionDAO extends BaseDAO{
 	
 	//查询该用户的所有收藏
 	public List<Collection> queryUser_Collections(Integer user_id) {
-        String sql = "SELECT * FROM collection WHERE user_id = ? AND state=1";
+        String sql = "SELECT * FROM collection WHERE user_id = ? AND state=1 order by id desc";
         return this.executeQuery(sql, new Mapper<Collection>() {
             @Override
             public List<Collection> map(ResultSet rs) throws SQLException {

@@ -305,7 +305,7 @@ function shua() {
 
 
 			//存储对应的sku
-			var sku = '{"sku_price":' + response.price.id + ',"pageType":' + $('.sku_checked').eq(0).attr('productid') + ',"color":' + $('.sku_checked').eq(1).attr('productid')/*+',"number":'+$('.number').text()*/ + '}'
+			var sku = '{"sku_price":' + response.price.id + ',"pageType":' + $('.sku_checked').eq(0).attr('productid') + ',"color":' + $('.sku_checked').eq(1).attr('productid')+',"number":'+$('.number').text() + '}'
 			$('.shousku').attr('sku', sku)
 			$('.addS').attr('sku', '{"sku_price":'+response.price.id+',"pageType":'+$('.sku_checked').eq(0).attr('productid')+',"color":'+$('.sku_checked').eq(1).attr('productid')+',"number":'+$('.number').text() + '}')
 			jiageid = response.price.id

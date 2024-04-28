@@ -1,6 +1,7 @@
 package com.servlet.users;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +47,7 @@ public class CollectionInitServlet extends HttpServlet {
         
         // 查询用户的收藏记录
         List<Collection> queryUser_Collections = cdao.queryUser_Collections(user_id);
+       
         
         // 创建一个用于存储产品信息的列表
         List<Product> list = new ArrayList<Product>();
@@ -73,6 +75,9 @@ public class CollectionInitServlet extends HttpServlet {
             queryUser_Product.setPrice(commodity_price.getPrice());
             queryUser_Product.setImage_url(pdao.queryImage_Url(pageType_specifications.getId(), color_specifications2.getId()));
             list.add(queryUser_Product);
+        });
+        queryUser_Collections.forEach(e->{
+        	e.setSku(URLEncoder.encode(e.getSku()));
         });
 
         // 将用户的收藏记录和产品信息设置为请求属性，并转发到'shoucang.jsp'页面

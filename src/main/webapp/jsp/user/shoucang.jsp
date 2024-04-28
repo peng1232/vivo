@@ -41,10 +41,9 @@
 						
 						<tbody class="tbody">
 						<c:forEach items="${collection}" var="va" varStatus="x">
-							
 								<tr class="tr2">
-									<td><img src="../../img/product/${ product[x.index].image_url}" class="tp"></td>
-									<td><a>${ product[x.index].products_name} ${ product[x.index].pagTtype} <br /> ${ product[x.index].color}</a></td>
+									<td><a href='../qian/XianXiSerlvet?id=${product[x.index].id }&ssku=${va.sku}'><img src="../../img/product/${ product[x.index].image_url}" class="tp"></a></td>
+									<td><a href='../qian/XianXiSerlvet?id=${product[x.index].id }&ssku=${va.sku}'>${ product[x.index].products_name} ${ product[x.index].pagTtype} <br /> ${ product[x.index].color}</a></td>
 									<td><a class="a1"> ${ product[x.index].price}</a></td>
 									<td><a class="a1">${ product[x.index].listing_time}</a></td>
 									<td><a class="a1">有货</a></td>
