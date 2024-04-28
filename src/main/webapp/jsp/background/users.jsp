@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="x" uri="http://www.trkj.com/tags"%>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
@@ -86,18 +87,22 @@
 				</div>
 				<div class="body_right_down">
 					<div class="select">
-					<form class="select_fm" action="UserselectByname" method="get">
+					<form class="select_fm" action="userselectAllServlet" method="get">
+							<input name="flag" value='yes' type="hidden"> <input
+						name="pagesize" value='8' type="hidden"> <input
+						name="curpage" value="${param.curpage==null?1:param.curpage}"
+						type="hidden">
 						<div class="form-group">
 							<label for="login-name" class="form-label">登录名称:</label>
 							 <input
-								type="text"  name="user_nickname" class="form-input"  >
+								type="text"  name="user_nickname" value='${user_nickname }' class="form-input"  >
 						</div>
 						<div class="form-group">
 							<label for="user-status" class="form-label">用户状态:</label>
 							<select id="user-status" name="state" class="form-select">
-								<option value="all" selected>所有</option>
-								<option value="1">可用</option>
-								<option value="0">不可用</option>
+								<option value="quan">所有</option>
+								<option value="1" ${state==1?'selected':'' }>可用</option>
+								<option value="0" ${state==0?'selected':'' }>不可用</option>
 							</select>
 						</div>
 						<div class="form-group">
@@ -149,7 +154,9 @@
 						</table>
 					</div>
 				</div>
-
+			
+<x:page controller='userselectAllServlet' pagesize="8"
+							total="${total}" curpage="${curpage}" where="${sql }" />
 			</div>
 		</div>
 	</div>
@@ -252,9 +259,9 @@
 	</body>
 	<script src="../../js/jquery.min.js"></script>
 	<script src="../../js/users.js"></script>
-	<c:if test="${empty list }">
+	<c:if test="${list ==null}">
 		<script>
-			location.href = "UserServlet";
+			location.href = "userselectAllServlet";
 		</script>
 	</c:if>
 	<script type="text/javascript">

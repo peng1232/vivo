@@ -4,6 +4,9 @@ html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input,
     margin: 0;
     padding: 0;
 }
+body{
+	overflow-y:hidden;
+}
 
 * {
     box-sizing: border-box;
@@ -15,7 +18,6 @@ html, body {
 
 body {
     font-family: "Microsoft YaHei";
-    font-size: 0.3rem;
     color: #333;
 }
 
@@ -1075,4 +1077,41 @@ input[type="checkbox"]{
 }
 .enter:focus{
 	border-color: #000;
+}
+
+.fen {
+	position: absolute;
+	right: 3vh;
+	bottom: 2vh;
+}
+
+#fe {
+	min-height: 75vh;
+	position: relative;
+	color: #646568;
+	font-size: 2vh;
+	border-radius: 1vh;
+	overflow: hidden;
+}
+
+#select {
+	font-size: 2vh;
+	padding: 0 1vh;
+	margin: 0 2vh;
+	cursor: pointer;
+}
+
+#select:focus {
+	border-color: orange;
+}
+
+.tiao {
+	padding: 0.5vh 1vh;
+	text-decoration: none;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.tiao:hover {
+	color: orange;
 }

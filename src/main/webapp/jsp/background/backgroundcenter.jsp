@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="x" uri="http://www.trkj.com/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,18 +86,22 @@
 				</div>
 				<div class="body_right_down">
 				<div class="select">
-					<form class="select_fm" action="selectByname" method="get">
+					<form class="select_fm" action="AdministratorServlet" method="get">
+					<input name="flag" value='yes' type="hidden"> <input
+						name="pagesize" value='8' type="hidden"> <input
+						name="curpage" value="${param.curpage==null?1:param.curpage}"
+						type="hidden">
 						<div class="form-group">
 							<label for="login-name" class="form-label">登录名称:</label>
 							 <input
-								type="text"  name="nikename" class="form-input" >
+								type="text" value='${user_nickname }'  name="nikename" class="form-input" >
 						</div>
 						<div class="form-group">
 							<label for="user-status" class="form-label">用户状态:</label>
 							<select id="user-status" name="state" class="form-select">
-								<option value="all" selected>所有</option>
-								<option value="1">可用</option>
-								<option value="0">不可用</option>
+								<option value="quan" selected>所有</option>
+								<option value="1" ${state==1?'selected':'' }>可用</option>
+								<option value="0" ${state==0?'selected':'' }>不可用</option>
 							</select>
 						</div>
 						<div class="form-group">
@@ -268,7 +273,10 @@
 							</div>
 						</div>
 					</div>
+					
 			</div>
+<x:page controller='AdministratorServlet' pagesize="8"
+							total="${total}" curpage="${curpage}" where="${sql }" />
 		</div>
 			
 	<script src="../../js/jquery.min.js"></script>

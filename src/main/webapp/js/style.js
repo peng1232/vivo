@@ -266,13 +266,7 @@ $(function(){
 						},300)
 						
 					}	
-							$('.btn7').click(function(){
-								var state=$(".inp6").val();
-								if(state=="All"){
-									location.href = "AdministratorServlet";
-								}
-								
-							})
+						
 			
 	})						
 })
