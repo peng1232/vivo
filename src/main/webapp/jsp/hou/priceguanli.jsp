@@ -20,7 +20,7 @@
 <script src="../../js/hou/coco-message.js"></script>
 </head>
 <body>
-	<%@include file="../background/cebianlan.jsp"%>
+	<%@include file="../../html/cebianlan.jsp"%>
 	<div class='content'>
 		<div class='neirong'>
 			<div class="biao clearfix">
