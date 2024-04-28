@@ -10,6 +10,19 @@ $(function() {
 		$('.bukuai_phone').stop().animate({ top: '-488px' }, 100);
 	});
 
+	//置顶
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > 300) {
+			$('#scroll-to-top').fadeIn();
+		} else {
+			$('#scroll-to-top').fadeOut();
+		}
+	});
+	$('#scroll-to-top').click(function(event) {
+		event.preventDefault();
+		$('html, body').animate({ scrollTop: 0 }, 400);
+	});
+
 
 	//搜索按钮
 	$('#search').click(function() {
