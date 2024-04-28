@@ -67,7 +67,7 @@
 							</c:forEach>
 							<c:if test="${fn:length(category)==0 }">
 								<tr>
-									<td colspan="11" style="text-align: center">暂无数据</td>
+									<td colspan="5" style="text-align: center">暂无数据</td>
 								</tr>
 							</c:if>
 						</table>

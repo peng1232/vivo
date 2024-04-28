@@ -59,7 +59,7 @@
 										href="../hou/priceguanli.jsp"></a>
 								</label></li>
 							<li><label> <span>商品广告管理</span> <i class="iconfont iconyoujiantou"></i> <a
-										href="../hou/guangaouanli.jsp"></a>
+										href="../hou/guangaoguanli.jsp"></a>
 								</label></li>
 						</ul>
 					</li>	
