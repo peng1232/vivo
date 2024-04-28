@@ -142,10 +142,10 @@
 
 								<ul class="rating">
 								    <li class='active'>★</li>
-								    <li>★</li>
-								    <li>★</li>
-								    <li>★</li>
-								    <li>★</li>
+								    <li class='active'>★</li>
+								    <li class='active'>★</li>
+								    <li class='active'>★</li>
+								    <li class='active'>★</li>
 								</ul>
 							</div>
 							<div class="message_box_footer">

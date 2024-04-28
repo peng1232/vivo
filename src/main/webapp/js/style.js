@@ -225,7 +225,7 @@ $(function(){
 							//弹窗点击时间
 							$('.message_box_footer3 .btn7').click(function(){
 								var state=$('.inp6').val();
-								alert(state);
+								
 								$.getJSON('glyDeleteServlet',{
 									'id':id,
 									'state':state

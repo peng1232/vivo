@@ -46,14 +46,14 @@ public class remenServlet extends HttpServlet {
         // 创建 OrdersDAO 实例
         wfkOrdersDAO wfkordersDAO = new wfkOrdersDAO();
         // 获取未付款订单数量
-        int unpaidOrdersCount = wfkordersDAO.getUnpaidOrdersCount();
+        int unpaidOrdersCount = wfkordersDAO.getUnpaidOrdersCount(u.getId());
         // 将未付款订单数量存入 request 属性中
         request.setAttribute("unpaidOrdersCount", unpaidOrdersCount);
         
      // 创建 OrdersDAO 实例
         plcommentsDAO plcommentsDAO = new plcommentsDAO();
         // 获取未付款订单数量
-        long unpaidcommentsCount = plcommentsDAO.getCommentsAndRepliesCount();
+        long unpaidcommentsCount = plcommentsDAO.getCommentsAndRepliesCount(u.getId());
         // 将未付款订单数量存入 request 属性中
         request.setAttribute("unpaidcommentsCount", unpaidcommentsCount);
         
