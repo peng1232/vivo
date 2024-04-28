@@ -41,7 +41,6 @@
 							<div class="col col1">商品</div>
 							<div class="clo col2">数量</div>
 							<div class="clo col3">价格</div>
-							<div class="col col4">商品操作</div>
 							<div class="col col5">状态</div>
 							<div class="col col6">操作</div>
 						</div>
