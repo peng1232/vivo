@@ -14,12 +14,11 @@ public class AdministratorDAO extends BaseDAO {
 		String sql = "select * from administrator where admin_account =? and admin_password = ? and state=1";
 		Administrator a = null;
 		try {
-			System.out.println(account);
-			System.out.println(password);
 			stmt = getConn().prepareStatement(sql);
 			stmt.setObject(1, account);
 			stmt.setObject(2, password);
 			rs = stmt.executeQuery();
+			System.out.println(stmt);
 			if (rs.next()) {
 				a = new Administrator(rs.getInt("id"), rs.getString("admin_nickname"), rs.getString("admin_account"),
 						rs.getString("admin_password"), rs.getInt("state"));

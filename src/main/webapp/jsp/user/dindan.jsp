@@ -68,7 +68,7 @@
 																	${items.color }</a>
 															</div>
 															<div class="num">${items.hits }</div>
-															<div class="price">${items.price }</div>
+															<div class="price">${items.price*items.hits }</div>
 														</div>
 													</div>
 													<div class="sole-action"></div>

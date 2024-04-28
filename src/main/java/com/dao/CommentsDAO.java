@@ -12,7 +12,7 @@ import com.util.Mapper;
 public class CommentsDAO extends BaseDAO {
     
     public List<Comments> queryUser_Comments(Integer user_id) {
-        String sql = "SELECT * FROM comments where user_id=? and state in(0,1)";
+        String sql = "SELECT * FROM comments where user_id=? and state in(0,1) order by id desc";
         return this.executeQuery(sql, new Mapper<Comments>() {
             @Override
             public List<Comments> map(ResultSet rs) throws SQLException {

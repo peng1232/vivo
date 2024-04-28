@@ -22,7 +22,7 @@
 	<%@include file="../../html/nav.jsp" %>
 		 <div class="container">
         <div class="menu">
-            <a href="商城首页.html">商城首页</a>
+            <a href="../qian/shouye.jsp">商城首页</a>
             <a href="../../jsp/gereng/grzx.jsp"><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">个人中心</a>
 			<a href=""><img class="arrow" src="../../img/向右箭头.png" alt="右箭头">我的评论</a>
         </div>
@@ -46,7 +46,7 @@
 									<tr>
 										<td><a class="a1">${comment.id}</a></td>
 										<td><a class="a1 s1">${comment.user_com}</a></td>
-										<td><a class="a1">${plist[va.index].products_name}</a></td>
+										<td><a class="a1"  href='../qian/XianXiSerlvet?id=${comment.product_id }'>${plist[va.index].products_name}</a></td>
 										<td>
 								            <c:choose>
 								                <c:when test="${comment.state == 0}">待审核</c:when>

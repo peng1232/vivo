@@ -24,7 +24,6 @@ public class AdministratorServlet extends HttpServlet {
 
 	        AdministratorDAO administratorDAO = new AdministratorDAO();
 	        Administrator administrator = administratorDAO.dengLu(account, password);
-	        System.out.println(administrator);
 	        if (administrator != null) {
 	            HttpSession session = request.getSession();
 	            session.setAttribute("administrator", administrator);
