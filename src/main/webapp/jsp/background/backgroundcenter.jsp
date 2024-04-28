@@ -24,7 +24,7 @@
 							</label>
 							<ul>
 								<li><label> <span>用户管理</span> <i class="iconfont iconyoujiantou"></i> <a
-											href="javascript:;"></a>
+											href="../background/users.jsp"></a>
 									</label></li>
 							</ul>
 						</li>
@@ -33,7 +33,7 @@
 							</label>
 							<ul>
 								<li><label> <span>管理员管理</span> <i class="iconfont iconyoujiantou"></i> <a
-											href="javascript:;"></a>
+											href="../background/backgroundcenter.jsp"></a>
 									</label></li>
 							</ul>
 						</li>
@@ -57,108 +57,14 @@
 							<li><label> <span>商品规格管理</span> <i class="iconfont iconyoujiantou"></i> <a
 										href="../hou/specifications.jsp"></a>
 								</label></li>
-							<li><label> <span>商品上，下架管理</span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
+							<li><label> <span>商品价格管理</span> <i class="iconfont iconyoujiantou"></i> <a
+										href="../hou/priceguanli.jsp"></a>
+								</label></li>
+							<li><label> <span>商品广告管理</span> <i class="iconfont iconyoujiantou"></i> <a
+										href="../hou/guangaoguanli.jsp"></a>
 								</label></li>
 						</ul>
-					</li>
-					<li><label> <i class="iconfont iconYYGK"></i> <span>商品价格管理</span>
-							<i class="iconfont iconyoujiantou"></i> <a href="javascript:;"></a>
-						</label>
-						<ul>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-						</ul>
-					</li>
-					<li><label> <i class="iconfont iconYYGK"></i> <span>商品评论管理</span>
-							<i class="iconfont iconyoujiantou"></i> <a href="javascript:;"></a>
-						</label>
-						<ul>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-			<li><label> <span>审核管理</span> <i class="iconfont iconxiajiantou"></i> <a href="javascript:;"></a>
-				</label>
-				<ul>
-					<li><label> <i class="iconfont iconYYGK"></i> <span>商品审核管理</span>
-							<i class="iconfont iconyoujiantou"></i> <a href="javascript:;"></a>
-						</label>
-						<ul>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-						</ul>
-					</li>
-					<li><label> <i class="iconfont iconYYGK"></i> <span>评论审核管理</span>
-							<i class="iconfont iconyoujiantou"></i> <a href="javascript:;"></a>
-						</label>
-						<ul>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-						</ul>
-					</li>
-					<li><label> <i class="iconfont iconYYGK"></i> <span>货架审核管理</span>
-							<i class="iconfont iconyoujiantou"></i> <a href="javascript:;"></a>
-						</label>
-						<ul>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-						</ul>
-					</li>
-					<li><label> <i class="iconfont iconYYGK"></i> <span>合作商管理</span>
-							<i class="iconfont iconyoujiantou"></i> <a href="javascript:;"></a>
-						</label>
-						<ul>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-							<li><label> <span></span> <i class="iconfont iconyoujiantou"></i> <a
-										href="javascript:;"></a>
-								</label></li>
-						</ul>
-					</li>
-				</ul>
-			</li>
+					</li>	
 			</ul>
 		</div>
 
@@ -367,7 +273,7 @@
 			
 	<script src="../../js/jquery.min.js"></script>
 	<script src="../../js/style.js"></script>
-	<c:if test="${empty list }">
+	<c:if test="${list==null }">
 		<script>
 			location.href = "AdministratorServlet";
 		</script>
