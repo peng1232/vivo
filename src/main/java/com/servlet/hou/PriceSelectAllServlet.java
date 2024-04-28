@@ -31,7 +31,7 @@ public class PriceSelectAllServlet extends HttpServlet {
 		int pagesize;
 		if ((curpageStr == null||curpageStr.equals(" ")) &&( pagesizeStr == null||pagesizeStr.equals(" "))) {
 			curpage = 1;
-			pagesize = 5;
+			pagesize = 8;
 		} else {
 			curpage = Integer.parseInt(curpageStr);
 			pagesize = Integer.parseInt(pagesizeStr);

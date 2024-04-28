@@ -56,7 +56,7 @@
 					<input type="submit" class="btn" value="搜素" id="ti" />
 					<!-- 隐藏yu -->
 					<input name="flag" value='yes' type="hidden"> <input
-						name="pagesize" value='5' type="hidden"> <input
+						name="pagesize" value='8' type="hidden"> <input
 						name="curpage" value="${param.curpage==null?1:param.curpage}"
 						type="hidden">
 				</form>
@@ -99,7 +99,7 @@
 								</tr>
 							</c:if>
 						</table>
-						<x:page controller='ProductSelectAllServlet' pagesize="5"
+						<x:page controller='ProductSelectAllServlet' pagesize="8"
 							total="${total}" curpage="${curpage}" where="${sql }" />
 					</div>
 
