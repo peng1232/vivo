@@ -61,6 +61,7 @@ $(function() {
 				$.getJSON('yzmxgmmServlet',{'user_id':user_id,'password':pho},function(){
 					 
 					 $('.setting').text('修改成功')
+					location.href = "../login/login.jsp";
 				})
 				 		
 			} else {

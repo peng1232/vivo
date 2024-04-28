@@ -216,7 +216,7 @@
 	        if(userjiu == rujiu){
 	        	$.getJSON('UpdatePasswordServlet',{'user_id':user_id,'password':password},function(){
 					$('.setting').text('密码修改成功');	
-				 	kai();
+					location.href = "../login/login.jsp";
 				});
 	        } else {  
 	            $('.setting').text('用户名或密码错误');
