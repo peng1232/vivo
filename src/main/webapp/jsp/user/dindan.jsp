@@ -55,16 +55,16 @@
 								</div>
 								<div class="mian">
 									<div class="left_1">
-										<c:forEach items="${product[va.index]}" var="items">
+										<c:forEach items="${product[va.index]}" var="items" varStatus="e">
 											<div class="order-item" product_id='${items.id}'>
 												<div class="order-wrap">
 													<div class="order-item-left">
-														<a><img src="../../img/product/${items.image_url }" class="tp"></a>
+														<a   href='../qian/XianXiSerlvet?id=${items.id }'><img src="../../img/product/${items.image_url }" class="tp"></a>
 													</div>
 													<div class="order-item-right">
 														<div class="top">
 															<div class="name">
-																<a>vivo ${items.products_name } ${items.pagTtype }
+																<a  href='../qian/XianXiSerlvet?id=${items.id }'>vivo ${items.products_name } ${items.pagTtype }
 																	${items.color }</a>
 															</div>
 															<div class="num">${items.hits }</div>

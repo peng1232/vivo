@@ -48,7 +48,7 @@
 									<td><a class="a1">${ product[x.index].listing_time}</a></td>
 									<td><a class="a1">有货</a></td>
 									<td>
-										<div><a class="a2">购买</a></div>
+										<div><a class="a2" href='../qian/XianXiSerlvet?id=${product[x.index].id }&ssku=${va.sku}'>去购买</a></div>
 										<div><a class="a2 del" shou=${va.id }>删除收藏</a></div>
 									</td>
 								</tr>	

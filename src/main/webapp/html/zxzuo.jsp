@@ -32,7 +32,7 @@
 					<li class="s"><a href="../../jsp/gereng/xgmm.jsp">修改密码</a></li>
 					<li class="s"><a href="../../jsp/gereng/xgdh.jsp">修改电话号码</a></li>
 					<li class="s"><a href="../../jsp/gereng/grxx.jsp">个人资料</a></li>
-					<li class="s"><a href="../../jsp/user/shouhuodizhi.jsp">收货地址</a></li>
+					<!-- <li class="s"><a href="../../jsp/user/shouhuodizhi.jsp">收货地址</a></li> -->
 					<li class="s"><a href="../../jsp/user/shoucang.jsp">我的收藏</a></li>
 				</ul>
 			</div>

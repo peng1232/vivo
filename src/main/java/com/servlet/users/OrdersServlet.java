@@ -1,6 +1,7 @@
 package com.servlet.users;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +35,7 @@ public class OrdersServlet extends HttpServlet {
 		List<Orders> ordersList =orders.queryUserOrders(user_id);
 		List<List<Order_details>> details = new ArrayList<List<Order_details>>();
 		List<List<Product> > product = new ArrayList<List<Product>>();
+		List<String> sku = new ArrayList<String>();
 		ordersList.forEach(e->{
 			details.add(orders.queryUser_order_details(e.getOrder_number()));
 			
@@ -54,13 +56,14 @@ public class OrdersServlet extends HttpServlet {
 				p.setPrice(cdao.commodity_price(skuPrice).getPrice());
 				p.setHits(Long.valueOf(q.getProduct_quantity()));
 				Product.add(p);
-				
+				sku.add(URLEncoder.encode(q.getSku()));
 			});
 			product.add(Product);
 		});
 		request.setAttribute("ordersList", ordersList);
 		request.setAttribute("details", details);
 		request.setAttribute("product", product);
+		request.setAttribute("sku", sku);
 		request.getRequestDispatcher("dindan.jsp").forward(request, response);
 	}
 
